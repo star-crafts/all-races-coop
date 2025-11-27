@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CEffectDamage id="CrashMediumDamage">
+        <EditorCategories value="Race:Protoss"/>
+        <Amount value="50"/>
+    </CEffectDamage>
+    <CEffectEnumArea id="CrashMediumDamageSearch">
+        <EditorCategories value="Race:Protoss"/>
+        <SearchFilters value="-;Player,Ally,Air,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <AreaArray Radius="2" Effect="CrashMediumDamage"/>
+    </CEffectEnumArea>
+    <CEffectSet id="CrashLargeDamageSet">
+        <EditorCategories value="Race:Protoss"/>
+        <EffectArray value="Suicide"/>
+        <EffectArray value="CrashLargeDamageSearch"/>
+    </CEffectSet>
+    <CEffectDamage id="CrashLargeDamage">
+        <EditorCategories value="Race:Protoss"/>
+        <Amount value="200"/>
+    </CEffectDamage>
+    <CEffectEnumArea id="CrashLargeDamageSearch">
+        <EditorCategories value="Race:Protoss"/>
+        <SearchFilters value="-;Player,Ally,Air,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <AreaArray Radius="2" Effect="CrashLargeDamage"/>
+    </CEffectEnumArea>
+    <CEffectSet id="CrashMediumDamageSet">
+        <EditorCategories value="Race:Protoss"/>
+        <EffectArray value="Suicide"/>
+        <EffectArray value="CrashMediumDamageSearch"/>
+    </CEffectSet>
+    <CEffectApplyBehavior id="ProtossCrashLargeABLv1">
+        <EditorCategories value="Race:Protoss"/>
+        <WhichUnit Value="Caster"/>
+        <Behavior value="CrashLargeLv1"/>
+    </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="ProtossCrashMediumABLv1">
+        <EditorCategories value="Race:Protoss"/>
+        <WhichUnit Value="Caster"/>
+        <Behavior value="CrashMediumLv1"/>
+    </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="ProtossCrashLargeABLv2">
+        <EditorCategories value="Race:Protoss"/>
+        <WhichUnit Value="Caster"/>
+        <Behavior value="CrashLargeLv2"/>
+    </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="ProtossCrashMediumABLv2">
+        <EditorCategories value="Race:Protoss"/>
+        <WhichUnit Value="Caster"/>
+        <Behavior value="CrashMediumLv22"/>
+    </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="ProtossCrashLargeABLv3">
+        <EditorCategories value="Race:Protoss"/>
+        <WhichUnit Value="Caster"/>
+        <Behavior value="CrashLargeLv3"/>
+    </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="ProtossCrashMediumABLv3">
+        <EditorCategories value="Race:Protoss"/>
+        <WhichUnit Value="Caster"/>
+        <Behavior value="CrashMediumLv3"/>
+    </CEffectApplyBehavior>
+    <CEffectSet id="ProtossCrashLargeBHVSetLv1">
+        <EditorCategories value="Race:Protoss"/>
+        <EffectArray value="ProtossCrashLargeABLv1"/>
+        <EffectArray value="ProtossCrashLargeHeightLv1"/>
+    </CEffectSet>
+    <CEffectSet id="ProtossCrashMediumBHVSetLv1">
+        <EditorCategories value="Race:Protoss"/>
+        <EffectArray value="ProtossCrashMediumABLv1"/>
+        <EffectArray value="ProtossCrashMediumHeightLv1"/>
+    </CEffectSet>
+    <CEffectSet id="ProtossCrashLargeBHVSetLv2">
+        <EditorCategories value="Race:Protoss"/>
+        <EffectArray value="ProtossCrashLargeABLv2"/>
+        <EffectArray value="ProtossCrashLargeHeightLv2"/>
+    </CEffectSet>
+    <CEffectSet id="ProtossCrashMediumBHVSetLv2">
+        <EditorCategories value="Race:Protoss"/>
+        <EffectArray value="ProtossCrashMediumABLv2"/>
+        <EffectArray value="ProtossCrashMediumHeightLv2"/>
+    </CEffectSet>
+    <CEffectSet id="ProtossCrashLargeBHVSetLv3">
+        <EditorCategories value="Race:Protoss"/>
+        <EffectArray value="ProtossCrashLargeABLv3"/>
+        <EffectArray value="ProtossCrashLargeHeightLv3"/>
+    </CEffectSet>
+    <CEffectDamage id="CrashSmallDamage">
+        <EditorCategories value="Race:Protoss"/>
+        <Amount value="20"/>
+    </CEffectDamage>
+    <CEffectEnumArea id="CrashSmallDamageSearch">
+        <EditorCategories value="Race:Protoss"/>
+        <SearchFilters value="-;Player,Ally,Air,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <AreaArray Radius="1" Effect="CrashSmallDamage"/>
+    </CEffectEnumArea>
+    <CEffectSet id="ProtossCrashMediumBHVSetLv3">
+        <EditorCategories value="Race:Protoss"/>
+        <EffectArray value="ProtossCrashMediumABLv3"/>
+        <EffectArray value="ProtossCrashMediumHeightLv3"/>
+    </CEffectSet>
+    <CEffectModifyUnit id="ProtossCrashMediumHeightLv1">
+        <EditorCategories value="Race:Protoss"/>
+        <ImpactUnit Value="Caster"/>
+        <Height value="-1"/>
+        <HeightTime value="1.5"/>
+    </CEffectModifyUnit>
+    <CEffectModifyUnit id="ProtossCrashMediumHeightLv2">
+        <EditorCategories value="Race:Protoss"/>
+        <ImpactUnit Value="Caster"/>
+        <Height value="-1.25"/>
+        <HeightTime value="1.5"/>
+    </CEffectModifyUnit>
+    <CEffectModifyUnit id="ProtossCrashMediumHeightLv3">
+        <EditorCategories value="Race:Protoss"/>
+        <ImpactUnit Value="Caster"/>
+        <Height value="-1.5"/>
+        <HeightTime value="1.5"/>
+    </CEffectModifyUnit>
+    <CEffectApplyBehavior id="ProtossCrashSmallABLv1">
+        <EditorCategories value="Race:Protoss"/>
+        <WhichUnit Value="Caster"/>
+        <Behavior value="CrashSmallLv1"/>
+    </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="ProtossCrashSmallABLv2">
+        <EditorCategories value="Race:Protoss"/>
+        <WhichUnit Value="Caster"/>
+        <Behavior value="CrashSmallLv2"/>
+    </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="ProtossCrashSmallABLv3">
+        <EditorCategories value="Race:Protoss"/>
+        <WhichUnit Value="Caster"/>
+        <Behavior value="CrashSmallLv3"/>
+    </CEffectApplyBehavior>
+    <CEffectSet id="ProtossCrashSmallBHVSetLv1">
+        <EditorCategories value="Race:Protoss"/>
+        <EffectArray value="ProtossCrashSmallABLv1"/>
+        <EffectArray value="ProtossCrashSmallHeightLv1"/>
+    </CEffectSet>
+    <CEffectSet id="ProtossCrashSmallBHVSetLv2">
+        <EditorCategories value="Race:Protoss"/>
+        <EffectArray value="ProtossCrashSmallABLv2"/>
+        <EffectArray value="ProtossCrashSmallHeightLv2"/>
+    </CEffectSet>
+    <CEffectSet id="ProtossCrashSmallBHVSetLv3">
+        <EditorCategories value="Race:Protoss"/>
+        <EffectArray value="ProtossCrashSmallABLv3"/>
+        <EffectArray value="ProtossCrashSmallHeightLv3"/>
+    </CEffectSet>
+    <CEffectSet id="CrashSmallDamageSet">
+        <EditorCategories value="Race:Protoss"/>
+        <EffectArray value="Suicide"/>
+        <EffectArray value="CrashSmallDamageSearch"/>
+    </CEffectSet>
+    <CEffectModifyUnit id="ProtossCrashSmallHeightLv1">
+        <EditorCategories value="Race:Protoss"/>
+        <ImpactUnit Value="Caster"/>
+        <Height value="-1"/>
+        <HeightTime value="1"/>
+    </CEffectModifyUnit>
+    <CEffectModifyUnit id="ProtossCrashLargeHeightLv1">
+        <EditorCategories value="Race:Protoss"/>
+        <ImpactUnit Value="Caster"/>
+        <Height value="-1"/>
+        <HeightTime value="1.5"/>
+    </CEffectModifyUnit>
+    <CEffectModifyUnit id="ProtossCrashSmallHeightLv2">
+        <EditorCategories value="Race:Protoss"/>
+        <ImpactUnit Value="Caster"/>
+        <Height value="-1.25"/>
+        <HeightTime value="1"/>
+    </CEffectModifyUnit>
+    <CEffectModifyUnit id="ProtossCrashLargeHeightLv2">
+        <EditorCategories value="Race:Protoss"/>
+        <ImpactUnit Value="Caster"/>
+        <Height value="-1.25"/>
+        <HeightTime value="1.5"/>
+    </CEffectModifyUnit>
+    <CEffectModifyUnit id="ProtossCrashSmallHeightLv3">
+        <EditorCategories value="Race:Protoss"/>
+        <ImpactUnit Value="Caster"/>
+        <Height value="-1.5"/>
+        <HeightTime value="1"/>
+    </CEffectModifyUnit>
+    <CEffectModifyUnit id="ProtossCrashLargeHeightLv3">
+        <EditorCategories value="Race:Protoss"/>
+        <ImpactUnit Value="Caster"/>
+        <Height value="-1.5"/>
+        <HeightTime value="1.5"/>
+    </CEffectModifyUnit>
+</Catalog>

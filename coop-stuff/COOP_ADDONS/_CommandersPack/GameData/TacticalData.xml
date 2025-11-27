@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Catalog>
+<CTacticalOrder id="BattlecruiserDefensiveMatrix">
+  <Abil value="DefensiveMatrix"/>
+  <Validator value="TacticalDefensiveMatrix"/>
+</CTacticalOrder>
+<CTacticalOrder id="BattlecruiserHurricane">
+  <Abil value="MissilePods"/>
+  <TargetFind value="MissilePods"/>
+</CTacticalOrder>
+<CTacticalOrder id="Loki">
+  <Abil value="LokiMissilePods"/>
+  <TargetFind value="LokiMissilePods"/>
+</CTacticalOrder>
+<CTacticalOrder id="DominionKillTeam">
+  <Abil value="Stimpack"/>
+  <Validator value="DomTacticalStimpack"/>
+</CTacticalOrder>
+<CTacticalOrder id="DefilerMPBurrowed">
+  <Abil value="DefilerMPUnburrow"/>
+  <Validator value="TacticalBurrowDefilerMPUp"/>
+</CTacticalOrder>
+<CTacticalSet id="DustWingBanshee">
+  <Array value="BansheeCloaked"/>
+  <Array value="BansheeDeCloaked"/>
+</CTacticalSet>
+<CTacticalOrder id="Impaler">
+  <Abil value="BurrowImpaler"/>
+  <Validator value="TacticalBurrowImpalerDown"/>
+</CTacticalOrder>
+<CTacticalOrder id="ImpalerBurrowed">
+  <Abil value="UnburrowImpaler"/>
+  <Validator value="TacticalBurrowImpalerUp"/>
+</CTacticalOrder>
+<CTacticalOrder id="PrimalTownHall">
+  <Abil value="PrimalTownHallUproot"/>
+  <Validator value="TacticalBurrowPrimalTownHallUprootedUp"/>
+</CTacticalOrder>
+<CTacticalOrder id="PrimalTownHallUprooted">
+  <Abil value="PrimalTownHallRoot"/>
+  <Validator value="TacticalBurrowPrimalTownHallUprootedDown"/>
+</CTacticalOrder>
+<CTacticalOrder id="PrimalProductionA">
+  <Abil value="PrimalProductionAUproot"/>
+  <Validator value="TacticalBurrowPrimalProductionAUprootedUp"/>
+</CTacticalOrder>
+<CTacticalOrder id="PrimalProductionAUprooted">
+  <Abil value="PrimalProductionARoot"/>
+  <Validator value="TacticalBurrowPrimalProductionAUprootedDown"/>
+</CTacticalOrder>
+<CTacticalOrder id="PrimalProductionB">
+  <Abil value="PrimalProductionBUproot"/>
+  <Validator value="TacticalBurrowPrimalProductionBUprootedUp"/>
+</CTacticalOrder>
+<CTacticalOrder id="PrimalProductionBUprooted">
+  <Abil value="PrimalProductionBRoot"/>
+  <Validator value="TacticalBurrowPrimalProductionBUprootedDown"/>
+</CTacticalOrder>
+<CTacticalOrder id="PrimalProductionC">
+  <Abil value="PrimalProductionCUproot"/>
+  <Validator value="TacticalBurrowPrimalProductionCUprootedUp"/>
+</CTacticalOrder>
+<CTacticalOrder id="PrimalProductionCUprooted">
+  <Abil value="PrimalProductionCRoot"/>
+  <Validator value="TacticalBurrowPrimalProductionCUprootedDown"/>
+</CTacticalOrder>
+<CTacticalOrder id="PrimalBaseDefense">
+  <Abil value="PrimalBaseDefenseUproot"/>
+  <Validator value="TacticalBurrowPrimalBaseDefenseUprootedUp"/>
+</CTacticalOrder>
+<CTacticalOrder id="PrimalBaseDefenseUprooted">
+  <Abil value="PrimalBaseDefenseRoot"/>
+  <Validator value="TacticalBurrowPrimalBaseDefenseUprootedDown"/>
+</CTacticalOrder>
+<CTacticalOrder id="InfestedTerranCampaign">
+  <Abil value="BurrowInfestedTerranCampaignDown"/>
+  <Validator value="TacticalBurrowInfestedTerranCampaignDown"/>
+</CTacticalOrder>
+<CTacticalOrder id="InfestedTerranCampaignBurrowed">
+  <Abil value="BurrowInfestedTerranCampaignUp"/>
+  <Validator value="TacticalBurrowInfestedTerranCampaignUp"/>
+</CTacticalOrder>
+<CTacticalOrder id="InfestedCivilian">
+  <Abil value="BurrowInfestedCivilianDown"/>
+  <Validator value="TacticalBurrowInfestedCivilianDown"/>
+</CTacticalOrder>
+<CTacticalOrder id="InfestedCivilianBurrowed">
+  <Abil value="BurrowInfestedCivilianUp"/>
+  <Validator value="TacticalBurrowInfestedCivilianUp"/>
+</CTacticalOrder>
+<CTacticalOrder id="InfestedAbominationBurrowed">
+  <Abil value="BurrowInfestedAbominationUp"/>
+  <Validator value="TacticalBurrowInfestedAbominationUp"/>
+</CTacticalOrder>
+<CTacticalOrder id="HybridC">
+  <Abil value="HybridBlink"/>
+  <TargetFind value="HybridBlink"/>
+</CTacticalOrder>
+
+</Catalog>

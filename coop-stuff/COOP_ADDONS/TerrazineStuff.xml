@@ -1,0 +1,1557 @@
+<Catalog>
+
+
+
+
+
+
+    <CValidatorUnitCompareResourceContents id="NoTerrazine"/>
+
+
+    <CModel id="StetmannCommanderPortrait" parent="FXAPortrait" Race="Terran">
+        <Model value="Assets\COOP\Stetmann\Portraits\Commander_Stetmann_COOP_Portrait\Commander_Stetmann_COOP_Portrait.m3"/>
+        <RequiredAnims value="Assets\Portraits\Terran\StetmannMist_PortraitAnims\StetmannMist_PortraitAnims.m3a"/>
+        <RequiredAnims value="Assets\StoryModeCharacters\Terran\SM_LabTech01_FacialAnims\SM_LabTech01_FacialAnims.m3a"/>
+        <FacialController value="LocalizedData\Facial\StetmannPortrait.fxa"/>
+        <Flags index="Download" value="1"/>
+        <Flags index="VariationFallback" value="0"/>
+        <Image value="Assets\Textures\Commander_Stetmann_COOP_Portrait_Static.dds"/>
+        <Lighting value="CommanderStetmann"/>
+    </CModel>
+
+    <CActorPortrait id="StetmannCommanderPortrait" parent="CompositePortrait"/>
+    <CActorModel id="StetmannCommanderPortraitAddition" parent="CompositePortraitAddition"/>
+    <CCharacter id="StetmannCommander">
+        <Variations Name="Character/Name/BelshirScientist/Var1" Model="StetmannCommanderPortrait" Actor="StetmannCommanderPortrait">
+            <DefaultCategories value="Default"/>
+            <DefaultCategories value="ConversationType:Mission"/>
+            <DefaultCategories value="ConversationType:Briefing"/>
+        </Variations>
+    </CCharacter>
+
+
+
+    <CSound id="Doodad_TerrazineExtractorTerranBirth" parent="Ambience_Object">
+        <AssetArray File="Assets\Sounds\Uni\Doodads\Doodad_TerrazineExtractorTerranBirth0.wav"/>
+        <AssetArray File="Assets\Sounds\Uni\Doodads\Doodad_TerrazineExtractorTerranBirth1.wav"/>
+        <AssetArray File="Assets\Sounds\Uni\Doodads\Doodad_TerrazineExtractorTerranBirth2.wav"/>
+        <Volume value="-3.000000,-3.000000"/>
+    </CSound>
+    <CSound id="Doodad_TerrazineExtractorTerranStandWorkEnd" parent="Ambience_Object">
+        <AssetArray File="Assets\Sounds\Uni\Doodads\Doodad_TerrazineExtractorTerranStandWorkEnd0.wav"/>
+        <Volume value="-3.000000,-3.000000"/>
+    </CSound>
+    <CSound id="Doodad_TerrazineProtectorProtossBirth" parent="Ambience_Object">
+        <AssetArray File="Assets\Sounds\Uni\Doodads\Doodad_TerrazineProtectorProtoss_Birth0.wav"/>
+        <Volume value="-6.000000,-6.000000"/>
+    </CSound>
+    <CSound id="Doodad_TerrazineProtectorProtossDeath" parent="Ambience_Object">
+        <AssetArray File="Assets\Sounds\Uni\Doodads\Doodad_TerrazineProtectorProtoss_Death0.wav"/>
+        <Volume value="-6.000000,-6.000000"/>
+    </CSound>
+    <CSound id="Doodad_TerrazineProtectorProtossStandWork" parent="Ambience_Object">
+        <AssetArray File="Assets\Sounds\Uni\Doodads\Doodad_TerrazineProtectorProtoss_StandWork0.wav"/>
+        <LoopCount value="-1"/>
+        <VolumeRolloffPoints Distance="5"/>
+        <VolumeRolloffPoints Distance="25" Volume="-96"/>
+    </CSound>
+    <CSound id="Doodad_TerrazineProtectorProtossCapped" parent="Ambience_Object">
+        <AssetArray File="Assets\Sounds\Uni\Doodads\Doodad_TerrazineProtectorProtoss_StandWork0.wav"/>
+        <LoopCount value="-1"/>
+        <VolumeRolloffPoints Distance="5"/>
+        <VolumeRolloffPoints Distance="25" Volume="-96"/>
+    </CSound>
+
+    <CActorSound id="TerrazineProtectorLoopSound" parent="SoundContinuous">
+        <Sound value="Doodad_TerrazineProtectorProtossStandWork"/>
+    </CActorSound>
+    <CActorSound id="TerrazineProtectorCappedLoopSound">
+        <Supporter Subject="::Creator"/>
+        <Sound value="Doodad_TerrazineProtectorProtossStandWork"/>
+    </CActorSound>
+    <CActorSound id="TerrazineProtectorStartSound" parent="SoundOneShot">
+        <Sound value="Doodad_TerrazineProtectorProtossBirth"/>
+    </CActorSound>
+    <CActorSound id="TerrazineProtectorDeathSound" parent="SoundOneShot">
+        <Sound value="Doodad_TerrazineProtectorProtossDeath"/>
+    </CActorSound>
+    <CActorModel id="TerrazineExtractor">
+        <On Terms="ActorCreation" Send="$Birth"/>
+        <On Terms="AnimDone; AnimName Birth" Send="AnimPlay StandWork Stand,Work 0 -1.000000 -1.000000 57.000000 AsDuration"/>
+        <On Terms="AnimDone; AnimName StandWork" Send="AnimPlay StandWorkEnd Stand,Work,End"/>
+        <On Terms="AnimDone; AnimName StandWorkEnd" Target="::Creator" Send="Signal TerranDone"/>
+        <On Terms="AnimDone; AnimName StandWorkEnd" Send="AnimPlay StandCover Stand,Cover PlayForever"/>
+    </CActorModel>
+    <CActorModel id="TerrazineExtractorDeath">
+        <On Terms="ActorCreation" Send="$Death"/>
+        <On Terms="AnimDone; AnimName Death" Send="Destroy"/>
+    </CActorModel>
+    <CActorModel id="TerrazineProtector">
+        <On Terms="ActorCreation" Send="AnimPlay Build Build 0 -1.000000 -1.000000 60.000000 AsDuration"/>
+        <On Terms="AnimDone; AnimName Build" Target="::Creator" Send="Signal ProtossDone"/>
+        <On Terms="AnimDone; AnimName Build" Send="Destroy"/>
+        <On Terms="ActorDestruction" Send="Create TerrazineProtectorDeathSound"/>
+    </CActorModel>
+    <CActorModel id="TerrazineProtectorDeath">
+        <Model value="TerrazineProtector"/>
+        <On Terms="ActorCreation" Send="$Death"/>
+        <On Terms="AnimDone; AnimName Death" Send="Destroy"/>
+    </CActorModel>
+    <CActorDoodad id="TerrazineProtectorCapped">
+        <Model value="TerrazineProtector"/>
+        <Flags index="SuppressSaveLoad" value="0"/>
+        <On Terms="ActorCreation" Send="AnimPlay StandWork Stand,Work PlayForever"/>
+    </CActorDoodad>
+    <CActorModel id="TerrazineProtectorCappedModel" parent="ModelAddition">
+        <Model value="TerrazineProtector"/>
+        <On Terms="ActorCreation" Send="AnimPlay StandWork Stand,Work PlayForever"/>
+    </CActorModel>
+    <CActorUnit id="TerrazineCanister" parent="GenericUnitStandardNoAutoSoundLinks" unitName="TerrazineCanister">
+        <On Terms="ActorCreation" Send="AnimGroupApply Work"/>
+        <On Terms="Abil.ProbeHarvest.Start" Send="Create TerrazineCanisterWarpOut"/>
+        <On Terms="Abil.ProbeHarvest.Stop" Target="TerrazineCanisterWarpOut" Send="Signal Interrupt"/>
+        <StatusBarFlags index="Shields" value="0"/>
+        <StatusBarFlags index="Life" value="0"/>
+        <StatusBarFlags index="Energy" value="0"/>
+        <StatusBarFlags index="Cargo" value="0"/>
+        <BarWidth value="120"/>
+        <LifeArmorIcon value="Assets\Textures\btn-armor-terran-none.dds"/>
+        <MinimapIcon value="Assets\Textures\ui_minimap_icon_terrazine.dds"/>
+        <UnitIcon value="Assets\Textures\Wireframe-general-terrazinecanister.dds"/>
+        <GroupIcon>
+            <Image value="Assets\Textures\Wireframe-general-terrazinecanister.dds"/>
+        </GroupIcon>
+        <Wireframe>
+            <Image value="Assets\Textures\Wireframe-general-terrazinecanister.dds"/>
+        </Wireframe>
+        <DeathArray index="Normal" SoundLink=""/>
+    </CActorUnit>
+    <CActorModel id="TerrazineCanisterWarpOut">
+        <Model value="ProtossBuildingBirth"/>
+        <On Terms="ActorCreation" Send="SetScale 0.800000"/>
+        <On Terms="ActorCreation" Send="AnimPlay Start Stand,Build,Start 0 -1.000000 -1.000000 3.000000 AsDuration"/>
+        <On Terms="AnimDone; AnimName Start" Send="$Stand,Build NonLooping"/>
+        <On Terms="AnimDone; AnimName Stand" Send="AnimPlay End Stand,Build,End 0 -1.000000 -1.000000 3.000000 AsDuration"/>
+        <On Terms="Signal.*.Interrupt" Send="AnimPlay End Stand,Build,End 0 -1.000000 -1.000000 1.500000 AsDuration"/>
+        <On Terms="AnimDone; AnimName End" Send="Destroy"/>
+    </CActorModel>
+    <CActorUnit id="TerrazineWarehouse" parent="GenericUnitStandardNoAutoSoundLinks" unitName="TerrazineWarehouse">
+        <DeathArray index="Normal" ModelLink="TerranBuildingDeath" SoundLink=""/>
+        <Macros value="QueueAnim"/>
+    </CActorUnit>
+    <CActorUnit id="TerrazineDeliveryTruck" parent="GenericUnitStandardNoAutoSoundLinks" unitName="TerrazineDeliveryTruck">
+        <DeathArray index="Normal" ModelLink="TerranLargeUnitDeath" SoundLink=""/>
+        <StandAnimTurnTime value="3.33"/>
+        <WalkAnimMoveSpeed value="1"/>
+    </CActorUnit>
+    <CActorAction id="TerrazineDeliveryTruckAttack" parent="GenericAttack" effectAttack="TerrazineDeliveryTruck">
+        <LaunchAttachQuery Methods="AMPatternRollingStripe"/>
+    </CActorAction>
+    <CActorUnit id="TerrazineGasBarrel" parent="GenericUnitStandardNoAutoSoundLinks" unitName="TerrazineGasBarrel">
+        <DeathArray index="Normal" ModelLink="TerranBuildingDeath" SoundLink=""/>
+    </CActorUnit>
+
+    <CActorSound id="Ambience_Terrazine_Fog_Loop" parent="SoundContinuous">
+        <EditorCategories value=""/>
+        <Sound value="Ambience_Terrazine01_Fog"/>
+        <Layers Sound="Ambient_Thunder_OneShots_Loop">
+            <Chance value="100"/>
+            <Pitch value="0.000000,0.000000"/>
+            <PlayDelay value="0,0"/>
+            <Volume value="0.000000,0.000000"/>
+        </Layers>
+    </CActorSound>
+    <CActorModel id="TerrazineRageModel" parent="ModelAnimationStyleContinuous">
+        <Model value="WildMutationBuff"/>
+        <AutoScaleFactor value="1"/>
+        <On Terms="Behavior.TerrazineRage.On" Send="Create"/>
+        <On Terms="Behavior.TerrazineRage.Off" Send="AnimBracketStop BSD"/>
+        <HostSiteOps Ops="SOpAttachCenter"/>
+        <Host Subject="_Unit"/>
+    </CActorModel>
+    <CActorSimple id="TerrazineRageTinter">
+        <On Terms="Behavior.TerrazineRage.On" Send="Create"/>
+        <On Terms="ActorCreation" Target="_Unit" Send="SetTintColor 255,128,128 0.000000 OneShot RAGE"/>
+        <On Terms="Behavior.TerrazineRage.Off" Target="_Unit" Send="ClearTintColor 0.100000 RAGE"/>
+        <On Terms="Behavior.TerrazineRage.Off" Send="Destroy"/>
+    </CActorSimple>
+    <CActorSimple id="TerrazineShadowTinter">
+        <Aliases value="_HallucinationTinter"/>
+    </CActorSimple>
+
+    <CActorUnit id="TerrazineGeyser" parent="GenericUnitStandardNoAutoSoundLinks" unitName="TerrazineGeyser">
+        <Model value="VespeneGeyser"/>
+        <On Terms="ActorCreation; Option Shader Ultra" Send="ModelSwap VespeneGeyserHigh"/>
+        <On Terms="ActorCreation; Option Shader Extreme" Send="ModelSwap VespeneGeyserHigh"/>
+        <On Terms="ActorCreation" Send="SetTintColor 255,0,255"/>
+        <On Terms="Behavior.RawTerrazineGeyserGas.HostStart" Send="SetMinimapVisibility"/>
+        <On Terms="Behavior.RawTerrazineGeyserGas.HostClear" Send="SetMinimapVisibility 1"/>
+        <On Terms="Behavior.RawTerrazineGeyserGas.HostStart" Send="AnimPlay CoverStart Cover,Start 0 0.000000 0.300000 30.200001 AsDuration"/>
+        <On Terms="Behavior.RawTerrazineGeyserGas.HostFinish" Send="TimerSet 0.130000 GeyserHostFinish"/>
+        <On Terms="TimerExpired; TimerName GeyserHostFinish" Send="AnimClear CoverStart"/>
+        <On Terms="TimerExpired; TimerName GeyserHostFinish" Send="AnimPlay Cover Cover PlayForever 0.000000 0.300000"/>
+        <On Terms="Behavior.RawTerrazineGeyserGas.HostClear" Send="TimerKill GeyserHostFinish"/>
+        <On Terms="Behavior.RawTerrazineGeyserGas.HostClear" Send="AnimClear CoverStart"/>
+        <On Terms="Behavior.RawTerrazineGeyserGas.HostClear" Send="AnimClear Cover"/>
+        <On Terms="Behavior.RawTerrazineGeyserGas.Deplete" Send="AnimGroupRemove B"/>
+        <On Terms="Behavior.RawTerrazineGeyserGas.Deplete" Send="AnimGroupApply D"/>
+        <On Terms="Behavior.RawTerrazineGeyserGas.Restore" Send="AnimGroupRemove D"/>
+        <On Terms="Behavior.RawTerrazineGeyserGas.Restore" Send="AnimGroupApply B"/>
+        <UnitFlags index="ShowBlobShadow" value="0"/>
+        <StatusBarFlags index="Shields" value="0"/>
+        <StatusBarFlags index="Life" value="0"/>
+        <StatusBarFlags index="Energy" value="0"/>
+        <StatusBarFlags index="Cargo" value="0"/>
+        <StatusBarFlags index="Progress" value="0"/>
+        <UnitIcon value="Assets\Textures\Wireframe-General-VespeneGeyser.dds"/>
+        <HeroIcon value="Assets\Textures\Wireframe-General-VespeneGeyser.dds"/>
+        <GroupIcon>
+            <Image value="Assets\Textures\Wireframe-General-VespeneGeyser.dds"/>
+        </GroupIcon>
+        <Wireframe>
+            <Image value="Assets\Textures\Wireframe-General-VespeneGeyser.dds"/>
+        </Wireframe>
+        <Aliases value="_TerrazineGeyser"/>
+        <MinimapRenderPriority value="Resource"/>
+        <DeathArray index="Normal" SoundLink=""/>
+    </CActorUnit>
+
+
+    <CBehaviorBuff id="TerrazineCountdownDummyBar">
+        <InfoFlags index="Hidden" value="1"/>
+        <DisplayDuration index="Self" value="1"/>
+        <DisplayDuration index="Ally" value="1"/>
+        <DisplayDuration index="Neutral" value="1"/>
+        <DisplayDuration index="Enemy" value="1"/>
+        <Duration value="60.25"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="TerrazineCountdownDummyBarFaster">
+        <InfoFlags index="Hidden" value="1"/>
+        <DisplayDuration index="Self" value="1"/>
+        <DisplayDuration index="Ally" value="1"/>
+        <DisplayDuration index="Neutral" value="1"/>
+        <DisplayDuration index="Enemy" value="1"/>
+        <Duration value="10"/>
+    </CBehaviorBuff>
+
+
+    <CModel id="TerrazineCanister" parent="PersistentSpellFX">
+        <Model value="Assets\Buildings\Resources\TerrazineCanister\TerrazineCanister.m3"/>
+        <EditorCategories value="Race:Terran"/>
+        <Flags index="AutoUnload" value="1"/>
+    </CModel>
+    <CModel id="TerrazineExtractor" parent="PersistentSpellFX">
+        <Model value="Assets\Buildings\Terran\TerrazineExtractorTerran\TerrazineExtractorTerran.m3"/>
+        <EditorCategories value="Race:Terran"/>
+        <Events>
+            <Anim value="Birth,00"/>
+            <Name value="TerrazineExtractorStandWorkStart"/>
+            <Type value="Sound"/>
+            <Payload value="Doodad_TerrazineExtractorTerranBirth"/>
+        </Events>
+        <Events>
+            <Anim value="Stand,Work,End"/>
+            <Name value="TerrazineExtractorStandWork"/>
+            <Type value="Sound"/>
+            <Payload value="Doodad_TerrazineExtractorTerranStandWorkEnd"/>
+        </Events>
+    </CModel>
+    <CModel id="TerrazineExtractorDeath" parent="OneShotSpellFX">
+        <Model value="Assets\Buildings\Terran\TerrazineExtractorTerranDeath\TerrazineExtractorTerranDeath.m3"/>
+        <EditorCategories value="Race:Terran"/>
+    </CModel>
+    <CModel id="TerrazineProtector" parent="PersistentSpellFX">
+        <Model value="Assets\Buildings\Protoss\TerrazineProtectorProtoss\TerrazineProtectorProtoss.m3"/>
+        <EditorCategories value="Race:Protoss"/>
+    </CModel>
+    <CModel id="TerrazineWarehouse" parent="Building">
+        <Model value="Assets\Buildings\Terran\Factory\Factory.m3"/>
+        <ScaleMax value="0.850000,0.850000,0.850000"/>
+        <ScaleMin value="0.850000,0.850000,0.850000"/>
+        <SelectionLayer value="2"/>
+        <SelectionRadius value="1.882000"/>
+        <Radius value="1.600000"/>
+        <EditorCategories value="Race:Terran"/>
+        <ShadowRadius value="1.882000"/>
+    </CModel>
+    <CSound id="TerrazineDeliveryTruckAttackImpact" parent="Combat">
+        <DupeDestroyCount value="8"/>
+        <Pitch value="-6.180000,-1.820000"/>
+        <Volume value="-2.520000,-1.460000"/>
+        <AssetArray File="Assets\Sounds\Terran\SiegeTank\SiegeTank_SiegeAttackImpact0.wav"/>
+    </CSound>
+    <CSound id="Doodad_TerrazineExtractorTerranBirth" parent="Ambience_Object">
+        <AssetArray File="Assets\Sounds\Uni\Doodads\Doodad_TerrazineExtractorTerranBirth0.wav"/>
+        <AssetArray File="Assets\Sounds\Uni\Doodads\Doodad_TerrazineExtractorTerranBirth1.wav"/>
+        <AssetArray File="Assets\Sounds\Uni\Doodads\Doodad_TerrazineExtractorTerranBirth2.wav"/>
+        <Volume value="-3.000000,-3.000000"/>
+    </CSound>
+    <CSound id="Doodad_TerrazineExtractorTerranStandWorkEnd" parent="Ambience_Object">
+        <AssetArray File="Assets\Sounds\Uni\Doodads\Doodad_TerrazineExtractorTerranStandWorkEnd0.wav"/>
+        <Volume value="-3.000000,-3.000000"/>
+    </CSound>
+    <CSound id="Doodad_TerrazineProtectorProtossBirth" parent="Ambience_Object">
+        <AssetArray File="Assets\Sounds\Uni\Doodads\Doodad_TerrazineProtectorProtoss_Birth0.wav"/>
+        <Volume value="-6.000000,-6.000000"/>
+    </CSound>
+    <CSound id="Doodad_TerrazineProtectorProtossDeath" parent="Ambience_Object">
+        <AssetArray File="Assets\Sounds\Uni\Doodads\Doodad_TerrazineProtectorProtoss_Death0.wav"/>
+        <Volume value="-6.000000,-6.000000"/>
+    </CSound>
+    <CSound id="Doodad_TerrazineProtectorProtossStandWork" parent="Ambience_Object">
+        <AssetArray File="Assets\Sounds\Uni\Doodads\Doodad_TerrazineProtectorProtoss_StandWork0.wav"/>
+        <LoopCount value="-1"/>
+        <VolumeRolloffPoints Distance="5.000000"/>
+        <VolumeRolloffPoints Distance="25.000000" Volume="-96.000000"/>
+    </CSound>
+    <CSound id="Doodad_TerrazineProtectorProtossCapped" parent="Ambience_Object">
+        <AssetArray File="Assets\Sounds\Uni\Doodads\Doodad_TerrazineProtectorProtoss_StandWork0.wav"/>
+        <LoopCount value="-1"/>
+        <VolumeRolloffPoints Distance="5.000000"/>
+        <VolumeRolloffPoints Distance="25.000000" Volume="-96.000000"/>
+    </CSound>
+    <CUnit id="TerrazineCanister">
+        <DeathRevealRadius value="3"/>
+        <Mob value="Campaign"/>
+        <FlagArray index="CreateVisible" value="1"/>
+        <FlagArray index="Uncommandable" value="1"/>
+        <FlagArray index="UseLineOfSight" value="1"/>
+        <FlagArray index="TownAlert" value="1"/>
+        <FlagArray index="Invulnerable" value="1"/>
+        <FlagArray index="NoPortraitTalk" value="1"/>
+        <FlagArray index="ShowResources" value="0"/>
+        <FlagArray index="ArmorDisabledWhileConstructing" value="1"/>
+        <ResourceState value="Harvestable"/>
+        <ResourceType value="Terrazine"/>
+        <FogVisibility value="Snapshot"/>
+        <EditorFlags index="NeutralDefault" value="1"/>
+        <PlaneArray index="Ground" value="1"/>
+        <Collide index="Burrow" value="1"/>
+        <Collide index="Ground" value="1"/>
+        <Collide index="Structure" value="1"/>
+        <Collide index="Small" value="1"/>
+        <Attributes index="Structure" value="1"/>
+        <LifeStart value="10000"/>
+        <LifeMax value="10000"/>
+        <LifeArmor value="10"/>
+        <Sight value="6"/>
+        <BehaviorArray Link="TerrazineNodeHarvestB"/>
+        <Radius value="0.75"/>
+        <SeparationRadius value="0.75"/>
+        <Footprint value="FootprintDoodad1x1"/>
+        <SubgroupPriority value="1"/>
+        <MinimapRadius value="0.75"/>
+        <Fidget DelayMax="0"/>
+    </CUnit>
+
+
+
+
+    <CUnit id="TerrazineTempleNESW">
+        <DeathTime value="-1"/>
+        <DeathRevealRadius value="3"/>
+        <Facing value="45"/>
+        <Race value="Prot"/>
+        <FlagArray index="Turnable" value="0"/>
+        <FlagArray index="PreventReveal" value="1"/>
+        <FlagArray index="PreventDefeat" value="1"/>
+        <FlagArray index="PreventDestroy" value="1"/>
+        <FlagArray index="UseLineOfSight" value="1"/>
+        <FlagArray index="TownAlert" value="1"/>
+        <FlagArray index="NoPortraitTalk" value="1"/>
+        <FlagArray index="TownCamera" value="1"/>
+        <FlagArray index="ArmorDisabledWhileConstructing" value="1"/>
+        <FogVisibility value="Snapshot"/>
+        <PlaneArray index="Ground" value="1"/>
+        <Collide index="Burrow" value="1"/>
+        <Collide index="Ground" value="1"/>
+        <Collide index="Structure" value="1"/>
+        <Collide index="RoachBurrow" value="1"/>
+        <Collide index="ForceField" value="1"/>
+        <Collide index="Small" value="1"/>
+        <Attributes index="Armored" value="1"/>
+        <Attributes index="Structure" value="1"/>
+        <LifeStart value="1500"/>
+        <LifeMax value="1500"/>
+        <LifeArmor value="1"/>
+        <LifeArmorName value="Unit/LifeArmorName/ProtossBuildingPlating"/>
+        <Sight value="11"/>
+        <AttackTargetPriority value="11"/>
+        <Radius value="2"/>
+        <SeparationRadius value="2"/>
+        <Footprint value="TerrazineTempleNESW"/>
+        <DeadFootprint value="TerrazineTempleNESW"/>
+        <PlacementFootprint value="TerrazineTempleNESW"/>
+        <ScoreMake value="400"/>
+        <ScoreKill value="400"/>
+        <ScoreResult value="BuildOrder"/>
+        <SubgroupPriority value="2"/>
+        <MinimapRadius value="2.5"/>
+        <EditorCategories value="ObjectType:Destructible,ObjectFamily:Campaign"/>
+    </CUnit>
+    <CUnit id="TerrazineTempleNWSE">
+        <DeathTime value="-1"/>
+        <DeathRevealRadius value="3"/>
+        <Facing value="315"/>
+        <Race value="Prot"/>
+        <FlagArray index="Turnable" value="0"/>
+        <FlagArray index="PreventReveal" value="1"/>
+        <FlagArray index="PreventDefeat" value="1"/>
+        <FlagArray index="PreventDestroy" value="1"/>
+        <FlagArray index="UseLineOfSight" value="1"/>
+        <FlagArray index="TownAlert" value="1"/>
+        <FlagArray index="NoPortraitTalk" value="1"/>
+        <FlagArray index="TownCamera" value="1"/>
+        <FlagArray index="ArmorDisabledWhileConstructing" value="1"/>
+        <FogVisibility value="Snapshot"/>
+        <PlaneArray index="Ground" value="1"/>
+        <Collide index="Burrow" value="1"/>
+        <Collide index="Ground" value="1"/>
+        <Collide index="Structure" value="1"/>
+        <Collide index="RoachBurrow" value="1"/>
+        <Collide index="ForceField" value="1"/>
+        <Collide index="Small" value="1"/>
+        <Attributes index="Armored" value="1"/>
+        <Attributes index="Structure" value="1"/>
+        <LifeStart value="1500"/>
+        <LifeMax value="1500"/>
+        <LifeArmor value="1"/>
+        <LifeArmorName value="Unit/LifeArmorName/ProtossBuildingPlating"/>
+        <Sight value="11"/>
+        <AttackTargetPriority value="11"/>
+        <Radius value="2"/>
+        <SeparationRadius value="2"/>
+        <Footprint value="TerrazineTempleNWSE"/>
+        <DeadFootprint value="TerrazineTempleNWSE"/>
+        <PlacementFootprint value="TerrazineTempleNWSE"/>
+        <ScoreMake value="400"/>
+        <ScoreKill value="400"/>
+        <ScoreResult value="BuildOrder"/>
+        <SubgroupPriority value="2"/>
+        <MinimapRadius value="2.5"/>
+        <EditorCategories value="ObjectType:Destructible,ObjectFamily:Campaign"/>
+    </CUnit>
+    <CUnit id="NovaTerrazineCanister">
+        <DeathRevealRadius value="3"/>
+        <Mob value="Campaign"/>
+        <FlagArray index="CreateVisible" value="1"/>
+        <FlagArray index="Uncommandable" value="1"/>
+        <FlagArray index="UseLineOfSight" value="1"/>
+        <FlagArray index="TownAlert" value="1"/>
+        <FlagArray index="Invulnerable" value="1"/>
+        <FlagArray index="NoPortraitTalk" value="1"/>
+        <FlagArray index="ShowResources" value="0"/>
+        <FlagArray index="ArmorDisabledWhileConstructing" value="1"/>
+        <ResourceState value="Harvestable"/>
+        <ResourceType value="Terrazine"/>
+        <FogVisibility value="Snapshot"/>
+        <EditorFlags index="NeutralDefault" value="1"/>
+        <PlaneArray index="Ground" value="1"/>
+        <Collide index="Burrow" value="1"/>
+        <Collide index="Ground" value="1"/>
+        <Collide index="Structure" value="1"/>
+        <Collide index="Small" value="1"/>
+        <Attributes index="Structure" value="1"/>
+        <LifeStart value="10000"/>
+        <LifeMax value="10000"/>
+        <LifeArmor value="10"/>
+        <Sight value="6"/>
+        <Radius value="0.75"/>
+        <SeparationRadius value="0.75"/>
+        <Footprint value="FootprintDoodad1x1"/>
+        <SubgroupPriority value="1"/>
+        <MinimapRadius value="0.75"/>
+        <EditorCategories value="ObjectType:Other,ObjectFamily:Campaign"/>
+        <Fidget DelayMax="0"/>
+    </CUnit>
+
+
+
+
+    <CActorDoodad id="Slayn_TerrazineGeyser">
+        <On Terms="Signal.*.WorkStart" Send="Create Terrazine_Eruption_Blast"/>
+    </CActorDoodad>
+
+
+
+
+    <CActorSound id="DoodadSlaynTerrazineGeyserStandWork">
+        <Layers Sound="Slayn_Taldarim_Volcanic_Swells">
+            <Chance value="100"/>
+            <Pitch value="0.000000,0.000000"/>
+            <PlayDelay value="0,0"/>
+            <Volume value="-2.000000,-2.000000"/>
+        </Layers>
+    </CActorSound>
+    <CActorUnit id="TerrazineDeliveryTruck" parent="GenericUnitStandardNoAutoSoundLinks" unitName="TerrazineDeliveryTruck">
+        <DeathArray index="Normal" ModelLink="TerranLargeUnitDeath"/>
+        <StandAnimTurnTime value="3.33"/>
+        <WalkAnimMoveSpeed value="1"/>
+    </CActorUnit>
+    <CActorAction id="TerrazineDeliveryTruckAttack" parent="GenericAttack" effectAttack="TerrazineDeliveryTruck">
+        <LaunchAttachQuery Methods="AMPatternRollingStripe"/>
+    </CActorAction>
+    <CActorUnit id="TerrazineGasBarrel" parent="GenericUnitStandardNoAutoSoundLinks" unitName="TerrazineGasBarrel">
+        <DeathArray index="Normal" ModelLink="TerranBuildingDeath"/>
+    </CActorUnit>
+
+    <CActorSound id="TerrazineProtectorLoopSound" parent="SoundContinuous">
+        <Sound value="Doodad_TerrazineProtectorProtossStandWork"/>
+    </CActorSound>
+    <CActorSound id="TerrazineProtectorCappedLoopSound">
+        <Supporter Subject="::Creator"/>
+        <Sound value="Doodad_TerrazineProtectorProtossStandWork"/>
+    </CActorSound>
+    <CActorSound id="TerrazineProtectorStartSound" parent="SoundOneShot">
+        <Sound value="Doodad_TerrazineProtectorProtossBirth"/>
+    </CActorSound>
+    <CActorSound id="TerrazineProtectorDeathSound" parent="SoundOneShot">
+        <Sound value="Doodad_TerrazineProtectorProtossDeath"/>
+    </CActorSound>
+    <CActorModel id="TerrazineExtractor">
+        <On Terms="ActorCreation" Send="$Birth"/>
+        <On Terms="AnimDone; AnimName Birth" Send="AnimPlay StandWork Stand,Work 0 -1.000000 -1.000000 57.000000 AsDuration"/>
+        <On Terms="AnimDone; AnimName StandWork" Send="AnimPlay StandWorkEnd Stand,Work,End"/>
+        <On Terms="AnimDone; AnimName StandWorkEnd" Target="::Creator" Send="Signal TerranDone"/>
+        <On Terms="AnimDone; AnimName StandWorkEnd" Send="AnimPlay StandCover Stand,Cover PlayForever"/>
+    </CActorModel>
+    <CActorModel id="TerrazineExtractorDeath">
+        <On Terms="ActorCreation" Send="$Death"/>
+        <On Terms="AnimDone; AnimName Death" Send="Destroy"/>
+    </CActorModel>
+    <CActorModel id="TerrazineProtector">
+        <On Terms="ActorCreation" Send="AnimPlay Build Build 0 -1.000000 -1.000000 60.000000 AsDuration"/>
+        <On Terms="AnimDone; AnimName Build" Target="::Creator" Send="Signal ProtossDone"/>
+        <On Terms="AnimDone; AnimName Build" Send="Destroy"/>
+        <On Terms="ActorDestruction" Send="Create TerrazineProtectorDeathSound"/>
+    </CActorModel>
+    <CActorModel id="TerrazineProtectorDeath">
+        <Model value="TerrazineProtector"/>
+        <On Terms="ActorCreation" Send="$Death"/>
+        <On Terms="AnimDone; AnimName Death" Send="Destroy"/>
+    </CActorModel>
+    <CActorDoodad id="TerrazineProtectorCapped">
+        <Model value="TerrazineProtector"/>
+        <Flags index="SuppressSaveLoad" value="0"/>
+        <On Terms="ActorCreation" Send="AnimPlay StandWork Stand,Work PlayForever"/>
+    </CActorDoodad>
+    <CActorModel id="TerrazineProtectorCappedModel" parent="ModelAddition">
+        <Model value="TerrazineProtector"/>
+        <On Terms="ActorCreation" Send="AnimPlay StandWork Stand,Work PlayForever"/>
+    </CActorModel>
+    <CActorUnit id="TerrazineCanister" parent="GenericUnitStandardNoAutoSoundLinks" unitName="TerrazineCanister">
+        <On Terms="ActorCreation" Send="AnimGroupApply Work"/>
+        <On Terms="Abil.ProbeHarvest.Start" Send="Create TerrazineCanisterWarpOut"/>
+        <On Terms="Abil.ProbeHarvest.Stop" Target="TerrazineCanisterWarpOut" Send="Signal Interrupt"/>
+        <StatusBarFlags index="Shields" value="0"/>
+        <StatusBarFlags index="Life" value="0"/>
+        <StatusBarFlags index="Energy" value="0"/>
+        <StatusBarFlags index="Cargo" value="0"/>
+        <BarWidth value="120"/>
+        <LifeArmorIcon value="Assets\Textures\btn-armor-terran-none.dds"/>
+        <MinimapIcon value="Assets\Textures\ui_minimap_icon_terrazine.dds"/>
+        <UnitIcon value="Assets\Textures\Wireframe-general-terrazinecanister.dds"/>
+        <GroupIcon>
+            <Image value="Assets\Textures\Wireframe-general-terrazinecanister.dds"/>
+        </GroupIcon>
+        <Wireframe>
+            <Image value="Assets\Textures\Wireframe-general-terrazinecanister.dds"/>
+        </Wireframe>
+    </CActorUnit>
+    <CActorModel id="TerrazineCanisterWarpOut">
+        <Model value="ProtossBuildingBirth"/>
+        <On Terms="ActorCreation" Send="SetScale 0.800000"/>
+        <On Terms="ActorCreation" Send="AnimPlay Start Stand,Build,Start 0 -1.000000 -1.000000 3.000000 AsDuration"/>
+        <On Terms="AnimDone; AnimName Start" Send="$Stand,Build NonLooping"/>
+        <On Terms="AnimDone; AnimName Stand" Send="AnimPlay End Stand,Build,End 0 -1.000000 -1.000000 3.000000 AsDuration"/>
+        <On Terms="Signal.*.Interrupt" Send="AnimPlay End Stand,Build,End 0 -1.000000 -1.000000 1.500000 AsDuration"/>
+        <On Terms="AnimDone; AnimName End" Send="Destroy"/>
+    </CActorModel>
+
+    <CActorUnit id="TerrazineWarehouse" parent="GenericUnitStandardNoAutoSoundLinks" unitName="TerrazineWarehouse">
+        <DeathArray index="Normal" ModelLink="TerranBuildingDeath"/>
+        <Macros value="QueueAnim"/>
+    </CActorUnit>
+    <CActorUnit id="SMTerrazineVentingScreen" parent="GenericUnitSM" unitName="SMTerrazineVentingScreen"/>
+    <CActorSound id="Ambience_Terrazine_Fog_Loop" parent="SoundContinuous">
+        <EditorCategories value=""/>
+        <Sound value="Ambience_Terrazine01_Fog"/>
+        <Layers Sound="Ambient_Thunder_OneShots_Loop">
+            <Chance value="100"/>
+            <Pitch value="0.000000,0.000000"/>
+            <PlayDelay value="0,0"/>
+            <Volume value="0.000000,0.000000"/>
+        </Layers>
+    </CActorSound>
+
+    <CActorSound id="Terrazine_Temple_Death_ActorSound" parent="SoundOneShot">
+        <EditorCategories value="DoodadType:Structures"/>
+        <Sound value="TerrazineTemple_Death"/>
+        <Layers Sound="Doodad_Protoss_Turret_Med_Launch">
+            <Chance value="100"/>
+            <Pitch value="0.000000,0.000000"/>
+            <PlayDelay value="0,0"/>
+            <Volume value="0.000000,0.000000"/>
+        </Layers>
+    </CActorSound>
+    <CActorSound id="Terrazine_Eruption_Blast" parent="SoundOneShot">
+        <EditorCategories value=""/>
+        <Sound value="Slayn_Terrazine_Geyser_Eruption_Blast"/>
+    </CActorSound>
+    <CActorModel id="TerrazineRageModel" parent="ModelAnimationStyleContinuous">
+        <Model value="WildMutationBuff"/>
+        <AutoScaleFactor value="1"/>
+        <On Terms="Behavior.TerrazineRage.On" Send="Create"/>
+        <On Terms="Behavior.TerrazineRage.Off" Send="AnimBracketStop BSD"/>
+        <HostSiteOps Ops="SOpAttachCenter"/>
+        <Host Subject="_Unit"/>
+    </CActorModel>
+    <CActorSimple id="TerrazineRageTinter">
+        <On Terms="Behavior.TerrazineRage.On" Send="Create"/>
+        <On Terms="ActorCreation" Target="_Unit" Send="SetTintColor 255,128,128 0.000000 OneShot RAGE"/>
+        <On Terms="Behavior.TerrazineRage.Off" Target="_Unit" Send="ClearTintColor 0.100000 RAGE"/>
+        <On Terms="Behavior.TerrazineRage.Off" Send="Destroy"/>
+    </CActorSimple>
+    <CActorSimple id="TerrazineShadowTinter">
+        <Aliases value="_HallucinationTinter"/>
+    </CActorSimple>
+    <CBehaviorBuff id="TerrazineCountdownDummyBar">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <DisplayDuration index="Self" value="1"/>
+        <DisplayDuration index="Ally" value="1"/>
+        <DisplayDuration index="Neutral" value="1"/>
+        <DisplayDuration index="Enemy" value="1"/>
+        <Duration value="60.25"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="TerrazineCountdownDummyBarFaster">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <DisplayDuration index="Self" value="1"/>
+        <DisplayDuration index="Ally" value="1"/>
+        <DisplayDuration index="Neutral" value="1"/>
+        <DisplayDuration index="Enemy" value="1"/>
+        <Duration value="10"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="BloodRingTerrazineBuff">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Duration value="5"/>
+        <Modification UnifiedMoveSpeedFactor="0.25"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="TerrazineRage">
+        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
+        <Alignment value="Negative"/>
+        <Modification>
+            <DamageDealtFraction index="Spell" value="-0.5"/>
+            <DamageDealtFraction index="Melee" value="-0.5"/>
+            <DamageDealtFraction index="Ranged" value="-0.5"/>
+            <DamageDealtFraction index="Splash" value="-0.5"/>
+        </Modification>
+        <DamageResponse Chance="1" ModifyFraction="3"/>
+        <InfoIcon value="Assets\Textures\btn-ability-protoss-amoncloud.dds"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="TerrazineShadow">
+        <BehaviorFlags index="Permanent" value="1"/>
+        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
+        <Modification>
+            <StateFlags index="Hallucination" value="1"/>
+            <DamageDealtFraction index="Spell" value="-0.35"/>
+            <DamageDealtFraction index="Melee" value="-0.35"/>
+            <DamageDealtFraction index="Ranged" value="-0.35"/>
+            <DamageDealtFraction index="Splash" value="-0.35"/>
+        </Modification>
+        <DamageResponse Chance="1" ModifyFraction="3"/>
+        <InfoIcon value="Assets\Textures\btn-ability-protoss-amoncloud.dds"/>
+        <Alignment value="Negative"/>
+    </CBehaviorBuff>
+    <CButton id="TerrazineCloudEnhance">
+        <Icon value="Assets\Textures\btn-missing-kaeo.dds"/>
+    </CButton>
+    <CEffectSet id="BroodlingEscortLaunchB">
+        <EffectArray value="BroodlingEscortLaunchBTransferTerrazineShadow"/>
+        <EffectArray value="BroodlingEscortLaunchBTransferVoidShade"/>
+    </CEffectSet>
+    <CEffectSet id="BroodlingEscortImpactB">
+        <EffectArray value="BroodLordSymbioteLaunchTerrazineShadowAB"/>
+        <EffectArray value="BroodLordSymbioteLaunchVoidShadeAB"/>
+    </CEffectSet>
+    <CEffectCreateUnit id="BroodlingEscortCU">
+        <ValidatorArray index="0" value="NotNonTerrazineHallucination"/>
+    </CEffectCreateUnit>
+    <CEffectSet id="BroodlingEscortImpact">
+        <EffectArray value="KeneticMitosisSplitBehavior"/>
+        <EffectArray value="BroodLordSymbioteLaunchVoidShadeAB"/>
+        <EffectArray value="BroodLordSymbioteLaunchTerrazineShadowAB"/>
+    </CEffectSet>
+
+    <CFootprint id="TerrazineTempleNESW">
+        <Layers index="Check" Area="-5,-5,5,5">
+            <Rows value=".........."/>
+            <Rows value=".........."/>
+            <Rows value=".........."/>
+            <Rows value=".........."/>
+            <Rows value=".........."/>
+            <Rows value=".........."/>
+            <Rows value=".........."/>
+            <Rows value=".........."/>
+            <Rows value=".........."/>
+            <Rows value=".........."/>
+        </Layers>
+        <Layers index="Place" Area="-5,-5,5,5">
+            <Rows value="....xxxx.."/>
+            <Rows value="....xxxxx."/>
+            <Rows value="...xxxxxxx"/>
+            <Rows value="..xxxxxxxx"/>
+            <Rows value="xxxxxxxxxx"/>
+            <Rows value="xxxxxxxxxx"/>
+            <Rows value="xxxxxxxx.."/>
+            <Rows value="xxxxxxx..."/>
+            <Rows value=".xxxxx...."/>
+            <Rows value="..xxxx...."/>
+        </Layers>
+        <Shape Radius="5.3852" Offsets="-2,-5;0,-5;3,-0.5;4.5,-0.5;-4,0.5;-3,0.5;0.5,5;2,5;-5,-2;-5,-0.5;-0.5,3;-0.5,4;0.5,-4.5;0.5,-3;5,0;5,2" Borders="0,8,2;1,0,2;2,13,2;3,2,2;4,5,2;5,10,2;6,7,2;7,15,2;8,9,2;9,4,2;10,11,2;11,6,2;12,1,2;13,12,2;14,3,2;15,14,2"/>
+    </CFootprint>
+    <CFootprint id="TerrazineTempleNWSE">
+        <Layers index="Check" Area="-5,-5,5,5">
+            <Rows value=".........."/>
+            <Rows value=".........."/>
+            <Rows value=".........."/>
+            <Rows value=".........."/>
+            <Rows value=".........."/>
+            <Rows value=".........."/>
+            <Rows value=".........."/>
+            <Rows value=".........."/>
+            <Rows value=".........."/>
+            <Rows value=".........."/>
+        </Layers>
+        <Layers index="Place" Area="-5,-5,5,5">
+            <Rows value="..xxxx...."/>
+            <Rows value=".xxxxx...."/>
+            <Rows value="xxxxxxx..."/>
+            <Rows value="xxxxxxxx.."/>
+            <Rows value="xxxxxxxxxx"/>
+            <Rows value="xxxxxxxxxx"/>
+            <Rows value="..xxxxxxxx"/>
+            <Rows value="...xxxxxxx"/>
+            <Rows value="....xxxxx."/>
+            <Rows value="....xxxx.."/>
+        </Layers>
+        <Shape Radius="5.3852" Offsets="0,-5;2,-5;-4.5,-0.5;-3,-0.5;3,0.5;4.5,0.5;-2,5;0,5;-5,0;-5,2;-0.5,-4.5;-0.5,-3;0.5,3;0.5,4.5;5,-2;5,0" Borders="0,10,2;1,0,2;2,8,2;3,2,2;4,5,2;5,15,2;6,7,2;7,13,2;8,9,2;9,6,2;10,11,2;11,3,2;12,4,2;13,12,2;14,1,2;15,14,2"/>
+    </CFootprint>
+    <CModel id="TerrazineCanister" parent="PersistentSpellFX">
+        <Model value="Assets\Buildings\Resources\TerrazineCanister\TerrazineCanister.m3"/>
+        <EditorCategories value="Race:Terran"/>
+        <Flags index="AutoUnload" value="1"/>
+    </CModel>
+    <CModel id="TerrazineExtractor" parent="PersistentSpellFX">
+        <Model value="Assets\Buildings\Terran\TerrazineExtractorTerran\TerrazineExtractorTerran.m3"/>
+        <EditorCategories value="Race:Terran"/>
+        <Events Anim="Birth,00" Name="TerrazineExtractorStandWorkStart" Type="Sound" Payload="Doodad_TerrazineExtractorTerranBirth"/>
+        <Events Anim="Stand,Work,End" Name="TerrazineExtractorStandWork" Type="Sound" Payload="Doodad_TerrazineExtractorTerranStandWorkEnd"/>
+    </CModel>
+    <CModel id="TerrazineExtractorDeath" parent="OneShotSpellFX">
+        <Model value="Assets\Buildings\Terran\TerrazineExtractorTerranDeath\TerrazineExtractorTerranDeath.m3"/>
+        <EditorCategories value="Race:Terran"/>
+    </CModel>
+    <CModel id="TerrazineProtector" parent="PersistentSpellFX">
+        <Model value="Assets\Buildings\Protoss\TerrazineProtectorProtoss\TerrazineProtectorProtoss.m3"/>
+        <EditorCategories value="Race:Protoss"/>
+    </CModel>
+    <CModel id="SMTerrazineVentingScreen" parent="SMSET">
+        <Model value="Assets\Portraits\Terran\TerranPortraitTransition\TerranPortraitTransition.m3"/>
+    </CModel>
+
+    <CModel id="TerrazineWarehouse" parent="Building">
+        <Model value="Assets\Buildings\Terran\Factory\Factory.m3"/>
+        <ScaleMax value="0.850000,0.850000,0.850000"/>
+        <ScaleMin value="0.850000,0.850000,0.850000"/>
+        <SelectionLayer value="2"/>
+        <SelectionRadius value="1.882"/>
+        <Radius value="1.6"/>
+        <EditorCategories value="Race:Terran"/>
+        <ShadowRadius value="1.882"/>
+    </CModel>
+    <CModel id="TerrazineDeliveryTruckAttackLaunch" parent="LaunchFX">
+        <Model value="Assets\Effects\Terran\TankWeaponLaunch\TankWeaponLaunch.m3"/>
+        <EditorCategories value="Race:Terran"/>
+    </CModel>
+    <CModel id="TerrazineDeliveryTruckAttackImpact" parent="ImpactFX">
+        <Model value="Assets\Effects\Terran\TankWeaponImpact\TankWeaponImpact.m3"/>
+        <EditorCategories value="Race:Terran"/>
+    </CModel>
+    <CModel id="TerrazineGasBarrel">
+        <Model value="Assets\Doodads\Barrels\Barrels_00.m3"/>
+        <EditorCategories value="Race:Neutral"/>
+    </CModel>
+
+    <CModel id="BloodRingTerrazineBuffImpact">
+        <Model value="Assets\Effects\Zerg\BanelingEggNestBuffEnergy\BanelingEggNestBuffEnergy.m3"/>
+    </CModel>
+    <CModel id="TerrazineTemple" parent="Building" Race="Protoss">
+        <Model value="Assets\Buildings\Protoss\Slayn_Terrazine_Psionics_Temple\Slayn_Terrazine_Psionics_Temple.m3"/>
+        <Flags index="TeenSafe" value="1"/>
+        <Radius value="5"/>
+        <SelectionLayer value="2"/>
+        <SelectionRadius value="5"/>
+        <ShadowRadius value="5"/>
+        <SquibTypeDefault value="Metal"/>
+        <Events Anim="Death,00" Name="Temple_RockExplosion_Large" Type="Sound" Time="0.55" Payload="Temple_RockExplosion_Large"/>
+        <Events Anim="Death,00" Name="TempleDestroyed_Rock_Explosion" Type="Sound" Time="0.462" Payload="TempleDestroyed_Rock_Explosion"/>
+        <Events Anim="Death,00" Name="Temple_RockExplosion_Medium" Type="Sound" Time="1.421" Payload="Temple_RockExplosion_Medium"/>
+        <Events Anim="Death,00" Name="Temple_RockExplosion_Large" Type="Sound" Time="0.01" Payload="Temple_RockExplosion_Large"/>
+        <Events Anim="Death,00" Name="Temple_RockExplosion_Small" Type="Sound" Time="1.421" Payload="Temple_RockExplosion_Small"/>
+        <Events Anim="Death,00" Name="Temple_RockExplosion_Large" Type="Sound" Time="1.296" Payload="Temple_RockExplosion_Large"/>
+        <Events Anim="Death,00" Name="Taldarim_TempleDeath_Implode_St" Type="Sound" Time="2.76" Payload="Taldarim_TempleDeath_Implode_St"/>
+        <Events Anim="Death,00" Name="Mission_End_2D_Nuke_Explosion" Type="Sound" Time="2.7" Payload="Mission_End_2D_Nuke_Explosion"/>
+        <Events Anim="Death,00" Name="Temple_RockExplosion_Medium" Type="Sound" Time="4.387" Payload="Temple_RockExplosion_Medium"/>
+        <Events Anim="Death,00" Name="Terrazine_StoneTemple_Death" Type="Sound" Time="1.099" Payload="Terrazine_StoneTemple_Death"/>
+        <Events Anim="Death,00" Name="Generic_ProtossFire_Large_Long" Type="Sound" Time="0.549" Payload="Generic_ProtossFire_Large_Long"/>
+        <Events Anim="Death,00" Name="Temple_RockExplosion_Medium" Type="Sound" Time="2.077" Payload="Temple_RockExplosion_Medium"/>
+        <Events Anim="Death,00" Name="Temple_RockExplosion_Small" Type="Sound" Time="4.368" Payload="Temple_RockExplosion_Small"/>
+        <Events Anim="Death,00" Name="Doodad_CollapsibleRockTower_Start" Type="Sound" Time="2.62" Payload="Doodad_CollapsibleRockTower_Start"/>
+    </CModel>
+    <CModel id="TerrazineTempleDeath" parent="UnitDeath" Race="Protoss">
+        <Model value="Assets\Buildings\Protoss\Slayn_Terrazine_Psionics_Temple\Slayn_Terrazine_Psionics_Temple.m3"/>
+        <Events Anim="Death,00" Name="Temple_RockExplosion_Large" Type="Sound" Time="0.55" Payload="Temple_RockExplosion_Large"/>
+        <Events Anim="Death,00" Name="Temple_RockExplosion_Medium" Type="Sound" Time="1.421" Payload="Temple_RockExplosion_Medium"/>
+        <Events Anim="Death,00" Name="Temple_RockExplosion_Large" Type="Sound" Payload="Temple_RockExplosion_Large"/>
+        <Events Anim="Death,00" Name="Temple_RockExplosion_Small" Type="Sound" Time="1.421" Payload="Temple_RockExplosion_Small"/>
+        <Events Anim="Death,00" Name="Temple_RockExplosion_Large" Type="Sound" Time="1.296" Payload="Temple_RockExplosion_Large"/>
+        <Events Anim="Death,00" Name="Taldarim_TempleDeath_Implode_St" Type="Sound" Time="2.78" Payload="Taldarim_TempleDeath_Implode_St"/>
+        <Events Anim="Death,00" Name="TerrazineTemple_Death_Center" Type="Sound" Time="2.8" Payload="TerrazineTemple_Death_Center"/>
+        <Events Anim="Death,00" Name="Temple_RockExplosion_Medium" Type="Sound" Time="4.387" Payload="Temple_RockExplosion_Medium"/>
+        <Events Anim="Death,00" Name="Terrazine_StoneTemple_Death" Type="Sound" Time="1.099" Payload="Terrazine_StoneTemple_Death"/>
+        <Events Anim="Death,00" Name="Generic_ProtossFire_Large_Long" Type="Sound" Time="0.549" Payload="Generic_ProtossFire_Large_Long"/>
+        <Events Anim="Death,00" Name="Temple_RockExplosion_Medium" Type="Sound" Time="2.077" Payload="Temple_RockExplosion_Medium"/>
+        <Events Anim="Death,00" Name="Temple_RockExplosion_Small" Type="Sound" Time="4.368" Payload="Temple_RockExplosion_Small"/>
+        <Events Anim="Death,00" Name="Doodad_CollapsibleRockTower_Start" Type="Sound" Time="2.62" Payload="Doodad_CollapsibleRockTower_Start"/>
+    </CModel>
+    <CModel id="TerrazineFlashbackBorder">
+        <Model value="Assets\UI\TerrazineFlashbackBorder\TerrazineFlashbackBorder.m3"/>
+    </CModel>
+
+
+
+    <CModel id="Kasai_Harness_Death_C" parent="UnitDeath">
+
+        <Events>
+            <Anim value="Death,00"/>
+            <Name value="Harness_AC_Kasai_Death_C_Base"/>
+            <Type value="Sound"/>
+            <Time value="0.013000"/>
+            <Payload value="Harness_AC_Kasai_Death_C_Base"/>
+        </Events>
+        <Events>
+            <Anim value="Death,00"/>
+            <Name value="Harness_AC_Kasai_Death_C_Blast"/>
+            <Type value="Sound"/>
+            <Time value="4.230000"/>
+            <Payload value="Harness_AC_Kasai_Death_C_Blast"/>
+        </Events>
+        <Events>
+            <Anim value="Death,00"/>
+            <Name value="Harness_Thrash_Rattle"/>
+            <Type value="Sound"/>
+            <Payload value="Harness_Thrash_Rattle"/>
+        </Events>
+        <Events>
+            <Anim value="Death,00"/>
+            <Name value="Harness_Impact_Rattle"/>
+            <Type value="Sound"/>
+            <Time value="4.584000"/>
+            <Payload value="Harness_Impact_Rattle"/>
+        </Events>
+        <Events>
+            <Anim value="Death,00"/>
+            <Name value="Harness_Defib"/>
+            <Type value="Sound"/>
+            <Time value="0.140000"/>
+            <Payload value="Harness_Defib"/>
+        </Events>
+        <Events>
+            <Anim value="Death,00"/>
+            <Name value="Harness_Bolt_Explosion"/>
+            <Type value="Sound"/>
+            <Time value="4.310000"/>
+            <Payload value="Harness_Bolt_Explosion"/>
+        </Events>
+        <Events>
+            <Anim value="Death,00"/>
+            <Name value="Harness_Release_Steam"/>
+            <Type value="Sound"/>
+            <Time value="4.584000"/>
+            <Payload value="Harness_Release_Steam"/>
+        </Events>
+        <Events>
+            <Anim value="Death,00"/>
+            <Name value="TerrazineNode_StandAngry_Electric"/>
+            <Type value="Sound"/>
+            <Time value="1.015000"/>
+            <Payload value="TerrazineNode_StandAngry_Electric"/>
+        </Events>
+        <Events>
+            <Anim value="Death,00"/>
+            <Name value="Harness_Dead_Steam_Loops"/>
+            <Type value="Sound"/>
+            <Time value="5.180000"/>
+            <Payload value="Harness_Dead_Steam_Loops"/>
+        </Events>
+    </CModel>
+    <CModel id="Kasai_Harness_Death_D" parent="UnitDeath">
+
+        <Events>
+            <Anim value="Death,00"/>
+            <Name value="Harness_AC_Kasai_Death_C_Base"/>
+            <Type value="Sound"/>
+            <Time value="0.013000"/>
+            <Payload value="Harness_AC_Kasai_Death_C_Base"/>
+        </Events>
+        <Events>
+            <Anim value="Death,00"/>
+            <Name value="Harness_AC_Kasai_Death_C_Blast"/>
+            <Type value="Sound"/>
+            <Time value="4.230000"/>
+            <Payload value="Harness_AC_Kasai_Death_C_Blast"/>
+        </Events>
+        <Events>
+            <Anim value="Death,00"/>
+            <Name value="Harness_Thrash_Rattle"/>
+            <Type value="Sound"/>
+            <Payload value="Harness_Thrash_Rattle"/>
+        </Events>
+        <Events>
+            <Anim value="Death,00"/>
+            <Name value="Harness_Impact_Rattle"/>
+            <Type value="Sound"/>
+            <Time value="4.584000"/>
+            <Payload value="Harness_Impact_Rattle"/>
+        </Events>
+        <Events>
+            <Anim value="Death,00"/>
+            <Name value="Harness_Defib"/>
+            <Type value="Sound"/>
+            <Time value="0.140000"/>
+            <Payload value="Harness_Defib"/>
+        </Events>
+        <Events>
+            <Anim value="Death,00"/>
+            <Name value="Harness_Bolt_Explosion"/>
+            <Type value="Sound"/>
+            <Time value="4.310000"/>
+            <Payload value="Harness_Bolt_Explosion"/>
+        </Events>
+        <Events>
+            <Anim value="Death,00"/>
+            <Name value="Harness_Release_Steam"/>
+            <Type value="Sound"/>
+            <Time value="4.584000"/>
+            <Payload value="Harness_Release_Steam"/>
+        </Events>
+        <Events>
+            <Anim value="Death,00"/>
+            <Name value="TerrazineNode_StandAngry_Electric"/>
+            <Type value="Sound"/>
+            <Time value="1.015000"/>
+            <Payload value="TerrazineNode_StandAngry_Electric"/>
+        </Events>
+        <Events>
+            <Anim value="Death,00"/>
+            <Name value="Harness_Dead_Steam_Loops"/>
+            <Type value="Sound"/>
+            <Time value="5.180000"/>
+            <Payload value="Harness_Dead_Steam_Loops"/>
+        </Events>
+    </CModel>
+    <CModel id="KasaiHarness_Portrait" parent="Portrait">
+        <Image value="Assets\Textures\KasaiWhaleHarnessPortrait_Static.dds"/>
+        <Lighting value="KasaiHarnessPortrait"/>
+    </CModel>
+    <CModel id="Kasai_Harness" parent="Unit">
+        <Flags index="AutoUnload" value="1"/>
+        <Radius value="2.75"/>
+        <SelectionLayer value="2"/>
+        <SelectionRadius value="2.75"/>
+        <ShadowRadius value="2.75"/>
+        <Events Anim="Stand,00" Name="Harness_Rolling_Rattle" Type="Sound" Time="2.667" Payload="Harness_Rolling_Rattle"/>
+        <Events Anim="Stand,00" Name="Whale_VxFx_Distress" Type="Sound" Time="2.558" Payload="Whale_VxFx_Distress"/>
+        <Events Anim="Stand,01" Name="Harness_Thrash_Rattle" Type="Sound" Time="0.041" Payload="Harness_Thrash_Rattle"/>
+        <Events Anim="Stand,01" Name="Harness_Impact_Rattle" Type="Sound" Time="0.671" Payload="Harness_Impact_Rattle"/>
+        <Events Anim="Stand,01" Name="Whale_VxFx_Distress" Type="Sound" Time="0.843" Payload="Whale_VxFx_Distress"/>
+        <Events Anim="Stand,01" Name="Whale_VxFx_Exert" Type="Sound" Time="0.025" Payload="Whale_VxFx_Exert"/>
+        <Events Anim="Stand,Work,Start,00" Name="Harness_Impact_Rattle" Type="Sound" Time="0.034" Payload="Harness_Impact_Rattle"/>
+        <Events Anim="Stand,Work,Start,00" Name="Harness_Thrash_Rattle" Type="Sound" Time="0.467" Payload="Harness_Thrash_Rattle"/>
+        <Events Anim="Stand,Work,Start,00" Name="Harness_Release_Steam" Type="Sound" Time="0.074" Payload="Harness_Release_Steam"/>
+        <Events Anim="Stand,Work,Start,00" Name="Harness_Rolling_Rattle" Type="Sound" Time="1.058" Payload="Harness_Rolling_Rattle"/>
+        <Events Anim="Stand,Work,Start,00" Name="Whale_Transfusion_Mech_Start" Type="Sound" Time="0.012" Payload="Whale_Transfusion_Mech_Start"/>
+        <Events Anim="Stand,Work,Start,00" Name="Whale_Transfusion_Transfusion_Start" Type="Sound" Time="0.627" Payload="Whale_Transfusion_Transfusion_Start"/>
+        <Events Anim="Stand,Work,Start,00" Name="Whale_VxFx_Exert" Type="Sound" Time="0.046" Payload="Whale_VxFx_Exert"/>
+        <Events Anim="Stand,Work,Start,00" Name="Whale_VxFx_Drugged" Type="Sound" Time="1.413" Payload="Whale_VxFx_Drugged"/>
+        <Events Anim="Stand,Work,00" Name="Whale_VxFx_Drugged_SW" Type="Sound" Time="0.052" Payload="Whale_VxFx_Drugged_SW"/>
+        <Events Anim="Stand,Work,End,00" Name="Harness_Impact_Rattle" Type="Sound" Time="0.019" Payload="Harness_Impact_Rattle"/>
+        <Events Anim="Stand,Work,End,00" Name="Harness_UnLeash" Type="Sound" Time="0.521" Payload="Harness_UnLeash"/>
+        <Events Anim="Stand,Work,End,00" Name="Harness_Release_Steam" Type="Sound" Time="0.053" Payload="Harness_Release_Steam"/>
+        <Events Anim="Stand,Work,End,00" Name="Harness_Release_Mech" Type="Sound" Time="2.81" Payload="Harness_Release_Mech"/>
+        <Events Anim="Stand,Work,End,00" Name="Harness_Release_Mech" Type="Sound" Time="3.246" Payload="Harness_Release_Mech"/>
+        <Events Anim="Stand,Work,End,00" Name="Harness_Release_Steam" Type="Sound" Time="3.246" Payload="Harness_Release_Steam"/>
+        <Events Anim="Stand,Work,End,00" Name="Harness_Defib" Type="Sound" Time="3.748" Payload="Harness_Defib"/>
+        <Events Anim="Stand,Work,End,00" Name="Harness_Release_Steam" Type="Sound" Time="2.807" Payload="Harness_Release_Steam"/>
+        <Events Anim="Stand,Work,End,00" Name="Harness_Rolling_Rattle" Type="Sound" Time="4.028" Payload="Harness_Rolling_Rattle"/>
+        <Events Anim="Stand,Work,End,00" Name="Harness_Release_Mech" Type="Sound" Time="8.013" Payload="Harness_Release_Mech"/>
+        <Events Anim="Stand,Work,End,00" Name="Harness_Release_Steam" Type="Sound" Time="8.013" Payload="Harness_Release_Steam"/>
+        <Events Anim="Stand,Work,End,00" Name="Whale_VxFx_Exert_Free" Type="Sound" Time="0.89" Payload="Whale_VxFx_Exert_Free"/>
+        <Events Anim="Stand,Work,End,00" Name="Whale_VxFx_Exert" Type="Sound" Time="2.387" Payload="Whale_VxFx_Exert"/>
+        <Events Anim="Stand,Work,End,00" Name="Whale_VxFx_Exert" Type="Sound" Time="3.554" Payload="Whale_VxFx_Exert"/>
+        <Events Anim="Stand,Work,End,00" Name="Whale_VxFx_Exert" Type="Sound" Time="4.941" Payload="Whale_VxFx_Exert"/>
+        <Events Anim="Stand,Work,End,00" Name="Whale_VxFx_Exert_Free" Type="Sound" Time="5.954" Payload="Whale_VxFx_Exert_Free"/>
+        <Events Anim="Stand,Work,End,00" Name="Whale_VxFx_Exert_Free" Type="Sound" Time="8.008" Payload="Whale_VxFx_Exert_Free"/>
+        <Events Anim="Stand,Work,End,00" Name="Whale_VxFx_Exert" Type="Sound" Time="6.808" Payload="Whale_VxFx_Exert"/>
+        <Events Anim="Stand,Work,End,00" Name="Whale_VxFx_Freed" Type="Sound" Time="8.533" Payload="Whale_VxFx_Freed"/>
+        <Events Anim="Stand,Work,A,00" Name="Harness_Transfusion_Steam" Type="Sound" Time="0.025" Payload="Harness_Transfusion_Steam"/>
+        <Events Anim="Stand,Work,A,00" Name="Harness_ServoMechShort_01" Type="Sound" Time="0.069" Payload="Harness_ServoMechShort_01"/>
+        <Events Anim="Stand,Work,A,00" Name="Harness_Metal_Mech_Bang" Type="Sound" Time="0.604" Payload="Harness_Metal_Mech_Bang"/>
+        <Events Anim="Stand,Work,A,00" Name="Harness_ServoMechShort_02" Type="Sound" Time="1.227" Payload="Harness_ServoMechShort_02"/>
+        <Events Anim="Stand,Work,A,00" Name="Harness_Metal_Mech_Bang" Type="Sound" Time="1.781" Payload="Harness_Metal_Mech_Bang"/>
+        <Events Anim="Stand,Work,A,00" Name="Harness_Impact_Rattle" Type="Sound" Time="1.978" Payload="Harness_Impact_Rattle"/>
+        <Events Anim="Stand,Work,A,00" Name="Harness_Dead_Steam_Loops" Type="Sound" Time="0.032" Payload="Harness_Dead_Steam_Loops"/>
+    </CModel>
+
+    <CModel id="NovaTerrazineCanister" parent="PersistentSpellFX">
+        <Model value="Assets\Doodads\Pickup_Terrazine_Gas_Tank\Pickup_Terrazine_Gas_Tank.m3"/>
+        <EditorCategories value="Race:Terran"/>
+        <Flags index="AutoUnload" value="1"/>
+        <Events Anim="Birth,00" Name="NovaTerrazineCanister_Birth" Type="Sound" Time="0.01" Payload="NovaTerrazineCanister_Birth"/>
+        <Events Anim="Birth,00" Name="NovaTerrazineCanister_Engaged" Type="Sound" Time="0.027" Payload="NovaTerrazineCanister_Engaged"/>
+        <Events Anim="Birth,00" Name="NovaTerrazineCanister_Magic" Type="Sound" Time="0.887" Payload="NovaTerrazineCanister_Magic"/>
+        <Events Anim="Death,00" Name="NovaTerrazineCanister_Death_Flare" Type="Sound" Time="0.008" Payload="NovaTerrazineCanister_Death_Flare"/>
+        <Events Anim="Death,00" Name="NovaTerrazineCanister_Magic_Death" Type="Sound" Time="0.008" Payload="NovaTerrazineCanister_Magic_Death"/>
+        <Events Anim="Death,00" Name="NovaTerrazineCanister_Blast" Type="Sound" Time="0.02" Payload="NovaTerrazineCanister_Blast"/>
+    </CModel>
+
+
+    <CSound id="Doodad_Slayn_TerrazineGeyserStand">
+        <AssetArray File="Assets\Sounds\Taldarim_TerrazineGeyser_Loop_01.wav" LoopCount="-1" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Taldarim_TerrazineGeyser_Loop_02.wav" LoopCount="-1" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Taldarim_TerrazineGeyser_Loop_03.wav" LoopCount="-1" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Taldarim_TerrazineGeyser_Loop_04.wav" LoopCount="-1" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Taldarim_TerrazineGeyser_Loop_05.wav" LoopCount="-1" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Taldarim_TerrazineGeyser_Loop_06.wav" LoopCount="-1" FacialGroup=""/>
+        <Pitch value="-2.000000,0.000000"/>
+        <Volume value="-12.000000,-10.000000"/>
+        <VolumeRolloffPoints/>
+        <VolumeRolloffPoints Distance="4.955752" Volume="-0.31"/>
+        <VolumeRolloffPoints Distance="15.221239" Volume="-26.25"/>
+        <VolumeRolloffPoints Distance="22" Volume="-96"/>
+        <DupeDestroyCount value="14"/>
+        <DupeMuteCount value="12"/>
+        <FogFadeOut/>
+        <FogFadeOut Time="1000" Volume="-96"/>
+        <LoopCount value="0"/>
+    </CSound>
+    <CSound id="Doodad_Slayn_TerrazineGeyser_StandWork">
+        <Pitch value="-2.000000,0.000000"/>
+        <Volume value="-3.000000,-3.000000"/>
+        <FogFadeOut/>
+        <FogFadeOut Time="1000" Volume="-96"/>
+    </CSound>
+
+    <CSound id="Doodad_TerrazineExtractorTerranBirth" parent="Ambience_Object">
+        <EditorCategories value="Race:Terran"/>
+        <AssetArray File="Assets\Sounds\Uni\Doodads\Doodad_TerrazineExtractorTerranBirth0.wav"/>
+        <AssetArray File="Assets\Sounds\Uni\Doodads\Doodad_TerrazineExtractorTerranBirth1.wav"/>
+        <AssetArray File="Assets\Sounds\Uni\Doodads\Doodad_TerrazineExtractorTerranBirth2.wav"/>
+        <Volume value="-3.000000,-3.000000"/>
+    </CSound>
+    <CSound id="Doodad_TerrazineExtractorTerranStandWorkEnd" parent="Ambience_Object">
+        <EditorCategories value="Race:Terran"/>
+        <AssetArray File="Assets\Sounds\Uni\Doodads\Doodad_TerrazineExtractorTerranStandWorkEnd0.wav"/>
+        <Volume value="-3.000000,-3.000000"/>
+    </CSound>
+    <CSound id="Doodad_TerrazineProtectorProtossBirth" parent="Ambience_Object">
+        <EditorCategories value="Race:Protoss"/>
+        <AssetArray File="Assets\Sounds\Uni\Doodads\Doodad_TerrazineProtectorProtoss_Birth0.wav"/>
+        <Volume value="-6.000000,-6.000000"/>
+    </CSound>
+    <CSound id="Doodad_TerrazineProtectorProtossDeath" parent="Ambience_Object">
+        <EditorCategories value="Race:Protoss"/>
+        <AssetArray File="Assets\Sounds\Uni\Doodads\Doodad_TerrazineProtectorProtoss_Death0.wav"/>
+        <Volume value="-6.000000,-6.000000"/>
+    </CSound>
+    <CSound id="Doodad_TerrazineProtectorProtossStandWork" parent="Ambience_Object">
+        <EditorCategories value="Race:Protoss"/>
+        <AssetArray File="Assets\Sounds\Uni\Doodads\Doodad_TerrazineProtectorProtoss_StandWork0.wav"/>
+        <LoopCount value="-1"/>
+        <VolumeRolloffPoints Distance="5"/>
+        <VolumeRolloffPoints Distance="25" Volume="-96"/>
+    </CSound>
+    <CSound id="Doodad_TerrazineProtectorProtossCapped" parent="Ambience_Object">
+        <EditorCategories value="Race:Protoss"/>
+        <AssetArray File="Assets\Sounds\Uni\Doodads\Doodad_TerrazineProtectorProtoss_StandWork0.wav"/>
+        <LoopCount value="-1"/>
+        <VolumeRolloffPoints Distance="5"/>
+        <VolumeRolloffPoints Distance="25" Volume="-96"/>
+    </CSound>
+    <CSound id="TerrazineDeliveryTruckAttackImpact" parent="Combat">
+        <DupeDestroyCount value="8"/>
+        <Pitch value="-6.180000,-1.820000"/>
+        <Volume value="-2.520000,-1.460000"/>
+        <AssetArray File="Assets\Sounds\Terran\SiegeTank\SiegeTank_SiegeAttackImpact0.wav"/>
+    </CSound>
+    <CSound id="Slayn_Terrazine_Geyser_Eruption_Blast" parent="Ambience_Object">
+        <EditorCategories value="Race:Neutral"/>
+        <AssetArray File="Assets\Sounds\Taldarim01_TerrazineFog_Erupt_01.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Taldarim01_TerrazineFog_Erupt_01a.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Taldarim01_TerrazineFog_Erupt_02.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Taldarim01_TerrazineFog_Erupt_03.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Taldarim01_TerrazineFog_Erupt_04.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Taldarim01_TerrazineFog_Erupt_05.wav" FacialGroup=""/>
+        <DupeDestroyCount value="48"/>
+        <DupeMuteCount value="4"/>
+        <Pitch value="-3.000000,1.000000"/>
+        <ResourcePriority value="15"/>
+        <Volume value="-3.000000,-2.000000"/>
+        <VolumeRolloffPoints Distance="5"/>
+        <VolumeRolloffPoints Distance="30" Volume="-96"/>
+    </CSound>
+    <CSound id="TerrazineTemple_Death" parent="Death">
+        <EditorCategories value="Race:Neutral"/>
+        <AssetArray File="Assets\Sounds\Taldarim01_Geyser_Erupt_04.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Taldarim01_Geyser_Erupt_05.wav" FacialGroup=""/>
+        <Flags index="Download" value="0"/>
+        <Flags index="Ignorable" value="0"/>
+        <Mode value="2D"/>
+        <Pitch value="-2.000000,0.000000"/>
+        <Volume value="-4.000000,-2.000000"/>
+        <SpeakerMix index="FrontLeft" value="0.8"/>
+        <SpeakerMix index="FrontRight" value="0.8"/>
+        <SpeakerMix index="BackLeft" value="0.7"/>
+        <SpeakerMix index="BackRight" value="0.7"/>
+        <SpeakerMix index="SideLeft" value="0"/>
+        <SpeakerMix index="SideRight" value="0"/>
+        <SustainFade index="1" Time="1000"/>
+    </CSound>
+    <CSound id="TerrazineTemple_Death_Center" parent="Ambience_Object">
+        <AssetArray File="Assets\Sounds\Taldarim01_Mn_TempleDeath_CenterFlare_Alt.wav" FacialGroup=""/>
+        <Pitch value="-4.000000,-4.000000"/>
+        <SpeakerMix index="BackLeft" value="0.5"/>
+        <SpeakerMix index="BackRight" value="0.5"/>
+        <SpeakerMix index="SideLeft" value="0"/>
+        <SpeakerMix index="SideRight" value="0"/>
+        <Volume value="3.000000,3.000000"/>
+    </CSound>
+    <CSound id="Terrazine_StoneTemple_Death" parent="Death">
+        <EditorCategories value="Race:Neutral"/>
+        <AssetArray File="Assets\Sounds\Tempest_AirAttackImpact_08.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Tempest_AirAttackImpact_09.wav" FacialGroup=""/>
+        <Pitch value="-3.000000,-1.000000"/>
+        <Volume value="1.000000,3.000000"/>
+    </CSound>
+
+    <CSound id="e_cmdNotEnoughTerrazine" parent="Alert">
+        <EditorCategories value="Race:Terran"/>
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignVO\LabFidgetsCowinStetmann00003.ogg" FacialGroup=""/>
+    </CSound>
+
+
+
+
+
+    <CSound id="Doodad_Kasai_SpaceWhale_Loop">
+        <Chance value="0"/>
+        <Pitch value="-4.000000,0.000000"/>
+        <Volume value="-12.000000,-10.000000"/>
+    </CSound>
+    <CSound id="Kasai_SpaceWhale_Loop">
+        <Volume value="-24.000000,-18.000000"/>
+    </CSound>
+    <CSound id="Kasai_SpaceWhale_Stand01">
+        <Chance value="10"/>
+        <Volume value="-16.000000,-10.000000"/>
+    </CSound>
+    <CSound id="Kasai_SpaceWhale_Stand01a">
+        <Chance value="10"/>
+        <Volume value="-16.000000,-10.000000"/>
+    </CSound>
+    <CSound id="Harness_AC_Kasai_Death_C_Base" parent="Death">
+        <AssetArray File="Assets\Sounds\AC_Kasai_HarnessDeath_C_Base_01.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\AC_Kasai_HarnessDeath_C_Base_02.wav" FacialGroup=""/>
+        <Pitch value="-1.000000,0.000000"/>
+        <Spread value="20.000000"/>
+        <DupeMuteCount value="2"/>
+        <Volume value="-3.000000,-2.000000"/>
+    </CSound>
+    <CSound id="Harness_AC_Kasai_Death_C_Blast" parent="Death">
+        <AssetArray File="Assets\Sounds\AC_Kasai_HarnessDeath_C_Blast_01.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\AC_Kasai_HarnessDeath_C_Blast_02.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\AC_Kasai_HarnessDeath_C_Blast_03.wav" FacialGroup=""/>
+        <Pitch value="-2.000000,0.000000"/>
+        <Spread value="20.000000"/>
+        <DupeMuteCount value="2"/>
+        <Volume value="-2.000000,-1.000000"/>
+    </CSound>
+    <CSound id="Harness_AC_Kasai_Death_C_01" parent="Death">
+        <AssetArray File="Assets\Sounds\AC_Kasai_HarnessDeath_C_01.wav" FacialGroup=""/>
+        <Pitch value="-1.000000,0.000000"/>
+        <Spread value="20.000000"/>
+        <DupeMuteCount value="2"/>
+        <Volume value="-3.000000,-2.000000"/>
+    </CSound>
+
+
+
+    <CUnit id="KasaiSpaceWhale">
+        <DeathRevealRadius value="3"/>
+        <FlagArray index="UseLineOfSight" value="1"/>
+        <PlaneArray index="Air" value="1"/>
+        <Collide index="Flying" value="1"/>
+        <Attributes index="Biological" value="1"/>
+        <Attributes index="Massive" value="1"/>
+        <LifeStart value="1000"/>
+        <LifeMax value="1000"/>
+        <LifeArmor value="1"/>
+        <Mover value="Fly"/>
+        <Speed value="2.5"/>
+        <Acceleration value="1000"/>
+        <LateralAcceleration value="46.0625"/>
+        <Sight value="11"/>
+        <Height value="4"/>
+        <AttackTargetPriority value="20"/>
+        <DamageDealtXP value="1"/>
+        <DamageTakenXP value="1"/>
+        <KillXP value="30"/>
+        <AbilArray Link="stop"/>
+        <AbilArray Link="attack"/>
+        <AbilArray Link="move"/>
+        <CardLayouts>
+            <LayoutButtons Face="Move" Type="AbilCmd" AbilCmd="move,Move" Row="0" Column="0"/>
+            <LayoutButtons Face="Stop" Type="AbilCmd" AbilCmd="stop,Stop" Row="0" Column="1"/>
+            <LayoutButtons Face="MoveHoldPosition" Type="AbilCmd" AbilCmd="move,HoldPos" Row="0" Column="2"/>
+            <LayoutButtons Face="MovePatrol" Type="AbilCmd" AbilCmd="move,Patrol" Row="0" Column="3"/>
+            <LayoutButtons Face="Attack" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="4"/>
+        </CardLayouts>
+        <Radius value="2"/>
+        <SeparationRadius value="2"/>
+        <InnerRadius value="2"/>
+        <MinimapRadius value="2"/>
+        <EditorCategories value="ObjectType:Unit,ObjectFamily:Campaign"/>
+    </CUnit>
+    <CSound id="Doodad_Kasai_SpaceWhale_Loop">
+        <Chance value="0"/>
+        <Pitch value="-4.000000,0.000000"/>
+        <Volume value="-12.000000,-10.000000"/>
+    </CSound>
+    <CSound id="Harness_AC_Kasai_Death_C_Base" parent="Death">
+        <AssetArray File="Assets\Sounds\AC_Kasai_HarnessDeath_C_Base_01.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\AC_Kasai_HarnessDeath_C_Base_02.wav" FacialGroup=""/>
+        <Pitch value="-1.000000,0.000000"/>
+        <Spread value="20"/>
+        <DupeMuteCount value="2"/>
+        <Volume value="-3.000000,-2.000000"/>
+    </CSound>
+    <CSound id="Harness_AC_Kasai_Death_C_Blast" parent="Death">
+        <AssetArray File="Assets\Sounds\AC_Kasai_HarnessDeath_C_Blast_01.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\AC_Kasai_HarnessDeath_C_Blast_02.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\AC_Kasai_HarnessDeath_C_Blast_03.wav" FacialGroup=""/>
+        <Pitch value="-2.000000,0.000000"/>
+        <Spread value="20"/>
+        <DupeMuteCount value="2"/>
+        <Volume value="-2.000000,-1.000000"/>
+    </CSound>
+    <CSound id="Harness_AC_Kasai_Death_C_01" parent="Death">
+        <AssetArray File="Assets\Sounds\AC_Kasai_HarnessDeath_C_01.wav" FacialGroup=""/>
+        <Pitch value="-1.000000,0.000000"/>
+        <Spread value="20"/>
+        <DupeMuteCount value="2"/>
+        <Volume value="-3.000000,-2.000000"/>
+    </CSound>
+
+    <CSound id="Kasai_SpaceWhale_Stand01a">
+        <Chance value="10"/>
+        <Volume value="-16.000000,-10.000000"/>
+    </CSound>
+    <CSound id="Kasai_SpaceWhale_Loop">
+        <Volume value="-24.000000,-18.000000"/>
+    </CSound>
+    <CSound id="Kasai_SpaceWhale_Stand01">
+        <Chance value="10"/>
+        <Volume value="-16.000000,-10.000000"/>
+    </CSound>
+    <CModel id="Kasai_Harness_Death_A" parent="UnitDeath">
+        <Events Anim="Death,00" Name="Harness_Death_Explosion_Prime" Type="Sound" Time="0.715" Payload="Harness_Death_Explosion_Prime"/>
+        <Events Anim="Death,00" Name="Harness_Death_Explosion_Prime" Type="Sound" Time="1.262" Payload="Harness_Death_Explosion_Prime"/>
+        <Events Anim="Death,00" Name="Harness_Death_Collapse" Type="Sound" Time="1.595" Payload="Harness_Death_Collapse"/>
+        <Events Anim="Death,00" Name="Harness_Death_Collapse" Type="Sound" Time="2.549" Payload="Harness_Death_Collapse"/>
+        <Events Anim="Death,00" Name="Harness_Thrash_Rattle" Type="Sound" Time="3.19" Payload="Harness_Thrash_Rattle"/>
+        <Events Anim="Death,00" Name="Harness_Bolt_Explosion" Type="Sound" Time="3.716" Payload="Harness_Bolt_Explosion"/>
+        <Events Anim="Death,00" Name="Harness_Death_Collapse" Type="Sound" Time="3.832" Payload="Harness_Death_Collapse"/>
+        <Events Anim="Death,00" Name="Harness_Death_Metal_Debris" Type="Sound" Time="4.401" Payload="Harness_Death_Metal_Debris"/>
+        <Events Anim="Death,00" Name="Harness_Bolt_Explosion" Type="Sound" Time="4.547" Payload="Harness_Bolt_Explosion"/>
+        <Events Anim="Death,00" Name="Harness_Death_Metal_Debris" Type="Sound" Time="4.786" Payload="Harness_Death_Metal_Debris"/>
+        <Events Anim="Death,00" Name="Harness_Bolt_Explosion" Type="Sound" Time="0.727" Payload="Harness_Bolt_Explosion"/>
+        <Events Anim="Death,00" Name="Harness_Bolt_Explosion" Type="Sound" Time="1.344" Payload="Harness_Bolt_Explosion"/>
+        <Events Anim="Death,00" Name="Harness_Release_Steam" Type="Sound" Time="1.338" Payload="Harness_Release_Steam"/>
+        <Events Anim="Death,00" Name="Harness_Release_Steam" Type="Sound" Time="3.215" Payload="Harness_Release_Steam"/>
+        <Events Anim="Death,00" Name="Harness_Rolling_Rattle" Type="Sound" Payload="Harness_Rolling_Rattle"/>
+        <Events Anim="Death,00" Name="Harness_Release_Mech" Type="Sound" Time="3.209" Payload="Harness_Release_Mech"/>
+        <Events Anim="Death,00" Name="Harness_Dead_Steam_Loops" Type="Sound" Time="4.547" Payload="Harness_Dead_Steam_Loops"/>
+        <Events Anim="Death,00" Name="Harness_Death_Collapse_Final" Type="Sound" Time="3.688" Payload="Harness_Death_Collapse_Final"/>
+        <Events Anim="Death,00" Name="Harness_Death_Explosion_Prime" Type="Sound" Time="2.575" Payload="Harness_Death_Explosion_Prime"/>
+        <Events Anim="Death,00" Name="Whale_VxFx_Death" Type="Sound" Time="0.063" Payload="Whale_VxFx_Death"/>
+        <Events Anim="Death,00" Name="Whale_VxFx_Death" Type="Sound" Time="1.004" Payload="Whale_VxFx_Death"/>
+        <Events Anim="Death,00" Name="Whale_VxFx_Death" Type="Sound" Time="4.583" Payload="Whale_VxFx_Death"/>
+        <Events Anim="Death,00" Name="Whale_VxFx_Distress" Type="Sound" Time="1.636" Payload="Whale_VxFx_Distress"/>
+    </CModel>
+    <CModel id="Kasai_Harness_Death_B" parent="UnitDeath">
+        <Events Anim="Death,00" Name="Harness_Death_Explosion_Prime" Type="Sound" Time="0.715" Payload="Harness_Death_Explosion_Prime"/>
+        <Events Anim="Death,00" Name="Harness_Death_Explosion_Prime" Type="Sound" Time="1.262" Payload="Harness_Death_Explosion_Prime"/>
+        <Events Anim="Death,00" Name="Harness_Death_Collapse" Type="Sound" Time="1.595" Payload="Harness_Death_Collapse"/>
+        <Events Anim="Death,00" Name="Harness_Death_Collapse" Type="Sound" Time="2.549" Payload="Harness_Death_Collapse"/>
+        <Events Anim="Death,00" Name="Harness_Thrash_Rattle" Type="Sound" Time="3.19" Payload="Harness_Thrash_Rattle"/>
+        <Events Anim="Death,00" Name="Harness_Bolt_Explosion" Type="Sound" Time="3.716" Payload="Harness_Bolt_Explosion"/>
+        <Events Anim="Death,00" Name="Harness_Death_Collapse" Type="Sound" Time="3.832" Payload="Harness_Death_Collapse"/>
+        <Events Anim="Death,00" Name="Harness_Death_Metal_Debris" Type="Sound" Time="4.401" Payload="Harness_Death_Metal_Debris"/>
+        <Events Anim="Death,00" Name="Harness_Bolt_Explosion" Type="Sound" Time="4.547" Payload="Harness_Bolt_Explosion"/>
+        <Events Anim="Death,00" Name="Harness_Death_Metal_Debris" Type="Sound" Time="4.786" Payload="Harness_Death_Metal_Debris"/>
+        <Events Anim="Death,00" Name="Harness_Bolt_Explosion" Type="Sound" Time="0.727" Payload="Harness_Bolt_Explosion"/>
+        <Events Anim="Death,00" Name="Harness_Bolt_Explosion" Type="Sound" Time="1.344" Payload="Harness_Bolt_Explosion"/>
+        <Events Anim="Death,00" Name="Harness_Release_Steam" Type="Sound" Time="1.338" Payload="Harness_Release_Steam"/>
+        <Events Anim="Death,00" Name="Harness_Release_Steam" Type="Sound" Time="3.215" Payload="Harness_Release_Steam"/>
+        <Events Anim="Death,00" Name="Harness_Release_Mech" Type="Sound" Time="3.209" Payload="Harness_Release_Mech"/>
+        <Events Anim="Death,00" Name="Harness_Dead_Steam_Loops" Type="Sound" Time="4.547" Payload="Harness_Dead_Steam_Loops"/>
+        <Events Anim="Death,00" Name="Harness_Death_Collapse_Final" Type="Sound" Time="3.688" Payload="Harness_Death_Collapse_Final"/>
+        <Events Anim="Death,00" Name="Harness_Death_Explosion_Prime" Type="Sound" Time="2.575" Payload="Harness_Death_Explosion_Prime"/>
+        <Events Anim="Death,00" Name="Harness_Death_Collapse" Type="Sound" Time="4.51" Payload="Harness_Death_Collapse"/>
+        <Events Anim="Death,00" Name="Harness_Bolt_Explosion" Type="Sound" Time="4.51" Payload="Harness_Bolt_Explosion"/>
+        <Events Anim="Death,00" Name="Harness_UnLeash" Type="Sound" Time="4.51" Payload="Harness_UnLeash"/>
+        <Events Anim="Death,00" Name="Whale_VxFx_Death" Type="Sound" Time="4.552" Payload="Whale_VxFx_Death"/>
+        <Events Anim="Death,00" Name="Whale_VxFx_Distress" Type="Sound" Time="1.096" Payload="Whale_VxFx_Distress"/>
+        <Events Anim="Death,00" Name="Whale_VxFx_Drugged" Type="Sound" Time="0.022" Payload="Whale_VxFx_Drugged"/>
+    </CModel>
+
+
+
+
+    <CActorUnit id="SCV">
+        <Macros value="CarryTerrazineNodeAnim"/>
+    </CActorUnit>
+    <CActorUnit id="Probe">
+    <Macros value="CarryTerrazineNodeAnim"/>
+    </CActorUnit>
+    <CActorUnit id="Drone">
+    <Macros value="CarryTerrazineNodeAnim"/>
+    </CActorUnit>
+    <CActorUnit id="TerrazineDeliveryTruck" parent="GenericUnitStandardNoAutoSoundLinks" unitName="TerrazineDeliveryTruck">
+        <DeathArray index="Normal" ModelLink="TerranLargeUnitDeath" SoundLink=""/>
+        <StandAnimTurnTime value="3.33"/>
+        <WalkAnimMoveSpeed value="1"/>
+    </CActorUnit>
+    <CActorAction id="TerrazineDeliveryTruckAttack" parent="GenericAttack" effectAttack="TerrazineDeliveryTruck">
+        <LaunchAttachQuery Methods="AMPatternRollingStripe"/>
+    </CActorAction>
+    <CActorUnit id="TerrazineGasBarrel" parent="GenericUnitStandardNoAutoSoundLinks" unitName="TerrazineGasBarrel">
+        <DeathArray index="Normal" ModelLink="TerranBuildingDeath" SoundLink=""/>
+    </CActorUnit>
+    <CActorSound id="TerrazineProtectorLoopSound" parent="SoundContinuous">
+        <Sound value="Doodad_TerrazineProtectorProtossStandWork"/>
+    </CActorSound>
+    <CActorSound id="TerrazineProtectorCappedLoopSound">
+        <Supporter Subject="::Creator"/>
+        <Sound value="Doodad_TerrazineProtectorProtossStandWork"/>
+    </CActorSound>
+    <CActorSound id="TerrazineProtectorStartSound" parent="SoundOneShot">
+        <Sound value="Doodad_TerrazineProtectorProtossBirth"/>
+    </CActorSound>
+    <CActorSound id="TerrazineProtectorDeathSound" parent="SoundOneShot">
+        <Sound value="Doodad_TerrazineProtectorProtossDeath"/>
+    </CActorSound>
+    <CActorModel id="TerrazineExtractor">
+        <On Terms="ActorCreation" Send="$Birth"/>
+        <On Terms="AnimDone; AnimName Birth" Send="AnimPlay StandWork Stand,Work 0 -1.000000 -1.000000 57.000000 AsDuration"/>
+        <On Terms="AnimDone; AnimName StandWork" Send="AnimPlay StandWorkEnd Stand,Work,End"/>
+        <On Terms="AnimDone; AnimName StandWorkEnd" Target="::Creator" Send="Signal TerranDone"/>
+        <On Terms="AnimDone; AnimName StandWorkEnd" Send="AnimPlay StandCover Stand,Cover PlayForever"/>
+        <On Terms="ActorCreation" Send="$Birth"/>
+        <On Terms="AnimDone; AnimName Birth" Send="AnimPlay StandWork Stand,Work 0 -1.000000 -1.000000 57.000000 AsDuration"/>
+        <On Terms="AnimDone; AnimName StandWork" Send="AnimPlay StandWorkEnd Stand,Work,End"/>
+        <On Terms="AnimDone; AnimName StandWorkEnd" Target="::Creator" Send="Signal TerranDone"/>
+        <On Terms="AnimDone; AnimName StandWorkEnd" Send="AnimPlay StandCover Stand,Cover PlayForever"/>
+    </CActorModel>
+    <CActorModel id="TerrazineExtractorDeath">
+        <On Terms="ActorCreation" Send="$Death"/>
+        <On Terms="AnimDone; AnimName Death" Send="Destroy"/>
+        <On Terms="ActorCreation" Send="$Death"/>
+        <On Terms="AnimDone; AnimName Death" Send="Destroy"/>
+    </CActorModel>
+    <CActorModel id="TerrazineProtector">
+        <On Terms="ActorCreation" Send="AnimPlay Build Build 0 -1.000000 -1.000000 60.000000 AsDuration"/>
+        <On Terms="AnimDone; AnimName Build" Target="::Creator" Send="Signal ProtossDone"/>
+        <On Terms="AnimDone; AnimName Build" Send="Destroy"/>
+        <On Terms="ActorDestruction" Send="Create TerrazineProtectorDeathSound"/>
+        <On Terms="ActorCreation" Send="AnimPlay Build Build 0 -1.000000 -1.000000 60.000000 AsDuration"/>
+        <On Terms="AnimDone; AnimName Build" Target="::Creator" Send="Signal ProtossDone"/>
+        <On Terms="AnimDone; AnimName Build" Send="Destroy"/>
+        <On Terms="ActorDestruction" Send="Create TerrazineProtectorDeathSound"/>
+    </CActorModel>
+    <CActorModel id="TerrazineProtectorDeath">
+        <Model value="TerrazineProtector"/>
+        <On Terms="ActorCreation" Send="$Death"/>
+        <On Terms="AnimDone; AnimName Death" Send="Destroy"/>
+        <On Terms="ActorCreation" Send="$Death"/>
+        <On Terms="AnimDone; AnimName Death" Send="Destroy"/>
+    </CActorModel>
+    <CActorDoodad id="TerrazineProtectorCapped">
+        <Model value="TerrazineProtector"/>
+        <Flags index="SuppressSaveLoad" value="0"/>
+        <On Terms="ActorCreation" Send="AnimPlay StandWork Stand,Work PlayForever"/>
+        <On Terms="ActorCreation" Send="AnimPlay StandWork Stand,Work PlayForever"/>
+    </CActorDoodad>
+    <CActorModel id="TerrazineProtectorCappedModel" parent="ModelAddition">
+        <Model value="TerrazineProtector"/>
+        <On Terms="ActorCreation" Send="AnimPlay StandWork Stand,Work PlayForever"/>
+    </CActorModel>
+    <CActorUnit id="TerrazineCanister" parent="GenericUnitStandardNoAutoSoundLinks" unitName="TerrazineCanister">
+        <On Terms="ActorCreation" Send="AnimGroupApply Work"/>
+        <On Terms="Abil.ProbeHarvest.Start" Send="Create TerrazineCanisterWarpOut"/>
+        <On Terms="Abil.ProbeHarvest.Stop" Target="TerrazineCanisterWarpOut" Send="Signal Interrupt"/>
+        <StatusBarFlags index="Shields" value="0"/>
+        <StatusBarFlags index="Life" value="0"/>
+        <StatusBarFlags index="Energy" value="0"/>
+        <StatusBarFlags index="Cargo" value="0"/>
+        <BarWidth value="120"/>
+        <LifeArmorIcon value="Assets\Textures\btn-armor-terran-none.dds"/>
+        <MinimapIcon value="Assets\Textures\ui_minimap_icon_terrazine.dds"/>
+        <UnitIcon value="Assets\Textures\Wireframe-general-terrazinecanister.dds"/>
+        <GroupIcon>
+            <Image value="Assets\Textures\Wireframe-general-terrazinecanister.dds"/>
+        </GroupIcon>
+        <Wireframe>
+            <Image value="Assets\Textures\Wireframe-general-terrazinecanister.dds"/>
+        </Wireframe>
+        <DeathArray index="Normal" SoundLink=""/>
+    </CActorUnit>
+    <CActorModel id="TerrazineCanisterWarpOut">
+        <Model value="ProtossBuildingBirth"/>
+        <On Terms="ActorCreation" Send="SetScale 0.800000"/>
+        <On Terms="ActorCreation" Send="AnimPlay Start Stand,Build,Start 0 -1.000000 -1.000000 3.000000 AsDuration"/>
+        <On Terms="AnimDone; AnimName Start" Send="$Stand,Build NonLooping"/>
+        <On Terms="AnimDone; AnimName Stand" Send="AnimPlay End Stand,Build,End 0 -1.000000 -1.000000 3.000000 AsDuration"/>
+        <On Terms="Signal.*.Interrupt" Send="AnimPlay End Stand,Build,End 0 -1.000000 -1.000000 1.500000 AsDuration"/>
+        <On Terms="AnimDone; AnimName End" Send="Destroy"/>
+        <On Terms="ActorCreation" Send="SetScale 0.800000"/>
+        <On Terms="ActorCreation" Send="AnimPlay Start Stand,Build,Start 0 -1.000000 -1.000000 3.000000 AsDuration"/>
+        <On Terms="AnimDone; AnimName Start" Send="$Stand,Build NonLooping"/>
+        <On Terms="AnimDone; AnimName Stand" Send="AnimPlay End Stand,Build,End 0 -1.000000 -1.000000 3.000000 AsDuration"/>
+        <On Terms="Signal.*.Interrupt" Send="AnimPlay End Stand,Build,End 0 -1.000000 -1.000000 1.500000 AsDuration"/>
+        <On Terms="AnimDone; AnimName End" Send="Destroy"/>
+    </CActorModel>
+    <CActorUnit id="TerrazineWarehouse" parent="GenericUnitStandardNoAutoSoundLinks" unitName="TerrazineWarehouse">
+        <DeathArray index="Normal" ModelLink="TerranBuildingDeath" SoundLink=""/>
+        <Macros value="QueueAnim"/>
+    </CActorUnit>
+    <CUnit id="TerrazineCanister">
+        <BehaviorArray Link="TerrazineNodeHarvestB"/>
+    </CUnit>
+    <CActorUnit id="TerrazineGeyser" parent="GenericUnitStandardNoAutoSoundLinks" unitName="TerrazineGeyser">
+        <Model value="VespeneGeyser"/>
+        <On Terms="ActorCreation; Option Shader Ultra" Send="ModelSwap VespeneGeyserHigh"/>
+        <On Terms="ActorCreation; Option Shader Extreme" Send="ModelSwap VespeneGeyserHigh"/>
+        <On Terms="ActorCreation" Send="SetTintColor 255,0,255"/>
+        <On Terms="Behavior.RawTerrazineGeyserGas.HostStart" Send="SetMinimapVisibility"/>
+        <On Terms="Behavior.RawTerrazineGeyserGas.HostClear" Send="SetMinimapVisibility 1"/>
+        <On Terms="Behavior.RawTerrazineGeyserGas.HostStart" Send="AnimPlay CoverStart Cover,Start 0 0.000000 0.300000 30.200001 AsDuration"/>
+        <On Terms="Behavior.RawTerrazineGeyserGas.HostFinish" Send="TimerSet 0.130000 GeyserHostFinish"/>
+        <On Terms="TimerExpired; TimerName GeyserHostFinish" Send="AnimClear CoverStart"/>
+        <On Terms="TimerExpired; TimerName GeyserHostFinish" Send="AnimPlay Cover Cover PlayForever 0.000000 0.300000"/>
+        <On Terms="Behavior.RawTerrazineGeyserGas.HostClear" Send="TimerKill GeyserHostFinish"/>
+        <On Terms="Behavior.RawTerrazineGeyserGas.HostClear" Send="AnimClear CoverStart"/>
+        <On Terms="Behavior.RawTerrazineGeyserGas.HostClear" Send="AnimClear Cover"/>
+        <On Terms="Behavior.RawTerrazineGeyserGas.Deplete" Send="AnimGroupRemove B"/>
+        <On Terms="Behavior.RawTerrazineGeyserGas.Deplete" Send="AnimGroupApply D"/>
+        <On Terms="Behavior.RawTerrazineGeyserGas.Restore" Send="AnimGroupRemove D"/>
+        <On Terms="Behavior.RawTerrazineGeyserGas.Restore" Send="AnimGroupApply B"/>
+        <UnitFlags index="ShowBlobShadow" value="0"/>
+        <StatusBarFlags index="Shields" value="0"/>
+        <StatusBarFlags index="Life" value="0"/>
+        <StatusBarFlags index="Energy" value="0"/>
+        <StatusBarFlags index="Cargo" value="0"/>
+        <StatusBarFlags index="Progress" value="0"/>
+        <UnitIcon value="Assets\Textures\Wireframe-General-VespeneGeyser.dds"/>
+        <HeroIcon value="Assets\Textures\Wireframe-General-VespeneGeyser.dds"/>
+        <GroupIcon>
+            <Image value="Assets\Textures\Wireframe-General-VespeneGeyser.dds"/>
+        </GroupIcon>
+        <Wireframe>
+            <Image value="Assets\Textures\Wireframe-General-VespeneGeyser.dds"/>
+        </Wireframe>
+        <Aliases value="_TerrazineGeyser"/>
+        <MinimapRenderPriority value="Resource"/>
+        <DeathArray index="Normal" SoundLink=""/>
+    </CActorUnit>
+    <CActorUnit id="TerrazineDeliveryTruck" parent="GenericUnitStandardNoAutoSoundLinks" unitName="TerrazineDeliveryTruck">
+        <DeathArray index="Normal" ModelLink="TerranLargeUnitDeath" SoundLink=""/>
+        <StandAnimTurnTime value="3.33"/>
+        <WalkAnimMoveSpeed value="1"/>
+    </CActorUnit>
+    <CActorAction id="TerrazineDeliveryTruckAttack" parent="GenericAttack" effectAttack="TerrazineDeliveryTruck">
+        <LaunchAttachQuery Methods="AMPatternRollingStripe"/>
+    </CActorAction>
+    <CActorUnit id="TerrazineGasBarrel" parent="GenericUnitStandardNoAutoSoundLinks" unitName="TerrazineGasBarrel">
+        <DeathArray index="Normal" ModelLink="TerranBuildingDeath" SoundLink=""/>
+    </CActorUnit>
+    <CActorSound id="DoodadSlaynTerrazineGeyserStandWork">
+        <Layers Sound="Slayn_Taldarim_Volcanic_Swells">
+            <Chance value="100"/>
+            <Pitch value="0.000000,0.000000"/>
+            <PlayDelay value="0,0"/>
+            <Volume value="-2.000000,-2.000000"/>
+        </Layers>
+    </CActorSound>
+    <CActorUnit id="SMTerrazineVentingScreen" parent="GenericUnitSM" unitName="SMTerrazineVentingScreen"/>
+    <CActorSound id="Ambience_Terrazine_Fog_Loop" parent="SoundContinuous">
+        <EditorCategories value=""/>
+        <Sound value="Ambience_Terrazine01_Fog"/>
+        <Layers Sound="Ambient_Thunder_OneShots_Loop">
+            <Chance value="100"/>
+            <Pitch value="0.000000,0.000000"/>
+            <PlayDelay value="0,0"/>
+            <Volume value="0.000000,0.000000"/>
+        </Layers>
+    </CActorSound>
+    <CActorSound id="Terrazine_Temple_Death_ActorSound" parent="SoundOneShot">
+        <EditorCategories value="DoodadType:Structures"/>
+        <Sound value="TerrazineTemple_Death"/>
+        <Layers Sound="Doodad_Protoss_Turret_Med_Launch">
+            <Chance value="100"/>
+            <Pitch value="0.000000,0.000000"/>
+            <PlayDelay value="0,0"/>
+            <Volume value="0.000000,0.000000"/>
+        </Layers>
+    </CActorSound>
+    <CActorSound id="Terrazine_Eruption_Blast" parent="SoundOneShot">
+        <EditorCategories value=""/>
+        <Sound value="Slayn_Terrazine_Geyser_Eruption_Blast"/>
+    </CActorSound>
+    <CActorModel id="TerrazineRageModel" parent="ModelAnimationStyleContinuous">
+        <Model value="WildMutationBuff"/>
+        <AutoScaleFactor value="1"/>
+        <On Terms="Behavior.TerrazineRage.On" Send="Create"/>
+        <On Terms="Behavior.TerrazineRage.Off" Send="AnimBracketStop BSD"/>
+        <HostSiteOps Ops="SOpAttachCenter"/>
+        <Host Subject="_Unit"/>
+    </CActorModel>
+    <CActorSimple id="TerrazineRageTinter">
+        <On Terms="Behavior.TerrazineRage.On" Send="Create"/>
+        <On Terms="ActorCreation" Target="_Unit" Send="SetTintColor 255,128,128 0.000000 OneShot RAGE"/>
+        <On Terms="Behavior.TerrazineRage.Off" Target="_Unit" Send="ClearTintColor 0.100000 RAGE"/>
+        <On Terms="Behavior.TerrazineRage.Off" Send="Destroy"/>
+        <On Terms="Behavior.TerrazineRage.On" Send="Create"/>
+        <On Terms="ActorCreation" Target="_Unit" Send="SetTintColor 255,128,128 0.000000 OneShot RAGE"/>
+        <On Terms="Behavior.TerrazineRage.Off" Target="_Unit" Send="ClearTintColor 0.100000 RAGE"/>
+        <On Terms="Behavior.TerrazineRage.Off" Send="Destroy"/>
+    </CActorSimple>
+    <CActorSimple id="TerrazineShadowTinter">
+        <Aliases value="_HallucinationTinter"/>
+        <Aliases value="_HallucinationTinter"/>
+    </CActorSimple>
+
+
+</Catalog>

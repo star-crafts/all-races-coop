@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CModel id="ProtossCrashHugeLv1" parent="PersistentSpellFX">
+        <Model value="Assets\Effects\Protoss\ProtossBuildingFireLarge\ProtossBuildingFireLarge.m3"/>
+        <EditorCategories value="Race:Protoss"/>
+        <ScaleMax value="1.400000,1.400000,1.400000"/>
+        <ScaleMin value="1.400000,1.400000,1.400000"/>
+    </CModel>
+    <CModel id="TerranCrashMediumExplodeModel2" parent="ImpactFX">
+        <Model value="Assets\Effects\Terran\TerranSmallUnitDeath\TerranSmallUnitDeath.m3"/>
+        <EditorCategories value="Race:Protoss"/>
+        <ScaleMax value="0.800000,0.800000,0.800000"/>
+        <ScaleMin value="0.700000,0.700000,0.700000"/>
+    </CModel>
+    <CModel id="TerranCrashMediumLv1" parent="PersistentSpellFX">
+        <Model value="Assets\Effects\Terran\TerranBuildingFireLarge\TerranBuildingFireLarge.m3"/>
+        <EditorCategories value="Race:Protoss"/>
+        <ScaleMax value="0.850000,0.850000,0.850000"/>
+        <ScaleMin value="0.850000,0.850000,0.850000"/>
+    </CModel>
+    <CModel id="TerranCrashMediumFinalModel" parent="ImpactFX">
+        <Model value="Assets\Effects\Terran\TerranSmallUnitDeath\TerranSmallUnitDeath.m3"/>
+        <EditorCategories value="Race:Protoss"/>
+    </CModel>
+    <CModel id="ZergCrashLargeFinalModel" parent="ImpactFX">
+        <Model value="Assets\Effects\Zerg\ZergSmallUnitDeath\ZergSmallUnitDeath_Low.m3"/>
+        <EditorCategories value="Race:Protoss"/>
+        <ScaleMax value="2.000000,2.000000,2.000000"/>
+        <ScaleMin value="2.000000,2.000000,2.000000"/>
+    </CModel>
+    <CModel id="ZergCrashLargeLv1" parent="PersistentSpellFX">
+        <Model value="Assets\Effects\Zerg\ZergBuildingBloodEx1\ZergBuildingBloodEx1.m3"/>
+        <EditorCategories value="Race:Protoss"/>
+        <ScaleMax value="1.200000,1.200000,1.200000"/>
+        <ScaleMin value="1.200000,1.200000,1.200000"/>
+    </CModel>
+    <CModel id="ZergCrashLargeExplodeModel" parent="ImpactFX">
+        <Model value="Assets\Effects\Zerg\ZergMediumUnitDeath\ZergMediumUnitDeath.m3"/>
+        <EditorCategories value="Race:Protoss"/>
+    </CModel>
+    <CModel id="ZergCrashMediumExplodeModel" parent="ImpactFX">
+        <Model value="Assets\Effects\Zerg\ZergMediumUnitDeath\ZergMediumUnitDeath.m3"/>
+        <EditorCategories value="Race:Protoss"/>
+        <ScaleMax value="0.800000,0.800000,0.800000"/>
+        <ScaleMin value="0.800000,0.800000,0.800000"/>
+    </CModel>
+    <CModel id="ZergCrashSmallFinalModel" parent="ImpactFX">
+        <Model value="Assets\Units\Zerg\ZergSmallUnitDeathEx1\ZergSmallUnitDeathEx1.m3"/>
+        <EditorCategories value="Race:Protoss"/>
+    </CModel>
+    <CModel id="ZergCrashMediumFinalModel" parent="ImpactFX">
+        <Model value="Assets\Units\Zerg\ZergSmallUnitDeathEx1\ZergSmallUnitDeathEx1.m3"/>
+        <EditorCategories value="Race:Protoss"/>
+        <ScaleMax value="1.250000,1.250000,1.250000"/>
+        <ScaleMin value="1.250000,1.250000,1.250000"/>
+    </CModel>
+    <CModel id="ZergCrashSmallLv1" parent="PersistentSpellFX">
+        <Model value="Assets\Effects\Zerg\ZergBuildingBloodEx1\ZergBuildingBloodEx1.m3"/>
+        <EditorCategories value="Race:Protoss"/>
+        <ScaleMax value="0.950000,0.950000,0.950000"/>
+        <ScaleMin value="0.950000,0.950000,0.950000"/>
+    </CModel>
+    <CModel id="ZergCrashSmallExplodeModel" parent="ImpactFX">
+        <Model value="Assets\Effects\Zerg\ZergMediumUnitDeath\ZergMediumUnitDeath.m3"/>
+        <EditorCategories value="Race:Protoss"/>
+        <ScaleMax value="0.700000,0.700000,0.700000"/>
+        <ScaleMin value="0.700000,0.700000,0.700000"/>
+    </CModel>
+    <CModel id="TerranCrashSmallFinalModel" parent="ImpactFX">
+        <Model value="Assets\Effects\Terran\TerranSmallUnitDeath\TerranSmallUnitDeath.m3"/>
+        <EditorCategories value="Race:Protoss"/>
+        <ScaleMax value="0.850000,0.850000,0.850000"/>
+        <ScaleMin value="0.850000,0.850000,0.850000"/>
+    </CModel>
+    <CModel id="TerranCrashSmallLv1" parent="PersistentSpellFX">
+        <Model value="Assets\Effects\Terran\TerranBuildingFireLarge\TerranBuildingFireLarge.m3"/>
+        <EditorCategories value="Race:Protoss"/>
+        <ScaleMax value="0.750000,0.750000,0.750000"/>
+        <ScaleMin value="0.750000,0.750000,0.750000"/>
+    </CModel>
+    <CModel id="TerranCrashSmallExplodeModel" parent="ImpactFX">
+        <Model value="Assets\Effects\Terran\TerranSmallUnitDeath\TerranSmallUnitDeath.m3"/>
+        <EditorCategories value="Race:Protoss"/>
+        <ScaleMax value="0.700000,0.700000,0.700000"/>
+        <ScaleMin value="0.700000,0.700000,0.700000"/>
+    </CModel>
+    <CModel id="TerranCrashLargeFinalModel" parent="ImpactFX">
+        <Model value="Assets\Buildings\Terran\TerranLargeBuildingDeathEx1\TerranLargeBuildingDeathEx1.m3"/>
+        <EditorCategories value="Race:Protoss"/>
+        <ScaleMax value="0.800000,0.800000,0.800000"/>
+        <ScaleMin value="0.800000,0.800000,0.800000"/>
+    </CModel>
+    <CModel id="TerranCrashLargeLv1" parent="PersistentSpellFX">
+        <Model value="Assets\Effects\Terran\TerranBuildingFireLarge\TerranBuildingFireLarge.m3"/>
+        <EditorCategories value="Race:Protoss"/>
+        <ScaleMax value="1.200000,1.200000,1.200000"/>
+        <ScaleMin value="1.200000,1.200000,1.200000"/>
+    </CModel>
+    <CModel id="TerranCrashLargeExplodeModel" parent="ImpactFX">
+        <Model value="Assets\Effects\Terran\TerranLargeUnitDeath\TerranLargeUnitDeath.m3"/>
+        <EditorCategories value="Race:Protoss"/>
+        <ScaleMax value="1.200000,1.200000,1.200000"/>
+        <ScaleMin value="1.200000,1.200000,1.200000"/>
+    </CModel>
+    <CModel id="ProtossCrashLargeFinalModel" parent="ImpactFX">
+        <Model value="Assets\Effects\Protoss\ProtossLargeUnitDeath\ProtossLargeUnitDeath.m3"/>
+        <EditorCategories value="Race:Protoss"/>
+        <ScaleMax value="1.500000,1.500000,1.500000"/>
+        <ScaleMin value="1.500000,1.500000,1.500000"/>
+    </CModel>
+    <CModel id="ProtossCrashLargeExplodeModel" parent="ImpactFX">
+        <Model value="Assets\Effects\Protoss\ProtossLargeUnitDeath\ProtossLargeUnitDeath.m3"/>
+        <EditorCategories value="Race:Protoss"/>
+        <ScaleMax value="1.100000,1.100000,1.100000"/>
+        <ScaleMin value="1.100000,1.100000,1.100000"/>
+    </CModel>
+    <CModel id="ProtossCrashMiniExplodeModel" parent="ImpactFX">
+        <Model value="Assets\Effects\Protoss\ProtossSmallUnitDeath\ProtossSmallUnitDeath.m3"/>
+        <EditorCategories value="Race:Protoss"/>
+        <ScaleMax value="0.700000,0.700000,0.700000"/>
+        <ScaleMin value="0.700000,0.700000,0.700000"/>
+    </CModel>
+    <CModel id="ProtossCrashMediumExplodeModel" parent="ImpactFX">
+        <Model value="Assets\Effects\Protoss\ProtossLargeUnitDeath\ProtossLargeUnitDeath.m3"/>
+        <EditorCategories value="Race:Protoss"/>
+        <ScaleMax value="0.850000,0.850000,0.850000"/>
+        <ScaleMin value="0.850000,0.850000,0.850000"/>
+    </CModel>
+    <CModel id="ProtossCrashMediumFinalModel" parent="ImpactFX">
+        <Model value="Assets\Effects\Protoss\ProtossLargeUnitDeath\ProtossLargeUnitDeath.m3"/>
+        <EditorCategories value="Race:Protoss"/>
+        <ScaleMax value="0.800000,0.800000,0.800000"/>
+        <ScaleMin value="0.800000,0.800000,0.800000"/>
+    </CModel>
+    <CModel id="ProtossCrashSmallLv1" parent="PersistentSpellFX">
+        <Model value="Assets\Effects\Protoss\ProtossBuildingFireLarge\ProtossBuildingFireLarge.m3"/>
+        <EditorCategories value="Race:Protoss"/>
+        <ScaleMax value="0.750000,0.750000,0.750000"/>
+        <ScaleMin value="0.750000,0.750000,0.750000"/>
+    </CModel>
+    <CModel id="ProtossCrashSmallExplodeModel" parent="ImpactFX">
+        <Model value="Assets\Effects\Protoss\ProtossLargeUnitDeath\ProtossLargeUnitDeath.m3"/>
+        <EditorCategories value="Race:Protoss"/>
+        <ScaleMax value="0.550000,0.550000,0.550000"/>
+        <ScaleMin value="0.550000,0.550000,0.550000"/>
+    </CModel>
+    <CModel id="ProtossCrashSmallFinalModel" parent="ImpactFX">
+        <Model value="Assets\Effects\Protoss\ProtossLargeUnitDeath\ProtossLargeUnitDeath.m3"/>
+        <EditorCategories value="Race:Protoss"/>
+        <ScaleMax value="0.450000,0.450000,0.450000"/>
+        <ScaleMin value="0.450000,0.450000,0.450000"/>
+    </CModel>
+    <CModel id="ProtossCrashLargeLv1" parent="PersistentSpellFX">
+        <Model value="Assets\Effects\Protoss\ProtossBuildingFireLarge\ProtossBuildingFireLarge.m3"/>
+        <EditorCategories value="Race:Protoss"/>
+        <ScaleMax value="1.100000,1.100000,1.100000"/>
+        <ScaleMin value="1.100000,1.100000,1.100000"/>
+    </CModel>
+    <CModel id="ProtossCrashMiniLv1" parent="PersistentSpellFX">
+        <Model value="Assets\Effects\Protoss\ProtossBuildingFireLarge\ProtossBuildingFireLarge.m3"/>
+        <EditorCategories value="Race:Protoss"/>
+        <ScaleMax value="0.400000,0.400000,0.400000"/>
+        <ScaleMin value="0.400000,0.400000,0.400000"/>
+    </CModel>
+    <CModel id="ProtossCrashMediumLv1" parent="PersistentSpellFX">
+        <Model value="Assets\Effects\Protoss\ProtossBuildingFireLarge\ProtossBuildingFireLarge.m3"/>
+        <EditorCategories value="Race:Protoss"/>
+        <ScaleMax value="0.900000,0.900000,0.900000"/>
+        <ScaleMin value="0.900000,0.900000,0.900000"/>
+    </CModel>
+    <CModel id="ZergCrashMediumLv1" parent="PersistentSpellFX">
+        <Model value="Assets\Effects\Zerg\ZergBuildingBloodEx1\ZergBuildingBloodEx1.m3"/>
+        <EditorCategories value="Race:Protoss"/>
+        <ScaleMax value="1.100000,1.100000,1.100000"/>
+        <ScaleMin value="1.100000,1.100000,1.100000"/>
+    </CModel>
+</Catalog>

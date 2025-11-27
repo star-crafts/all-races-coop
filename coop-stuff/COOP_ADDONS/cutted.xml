@@ -1,0 +1,17 @@
+<Catalog>
+
+    <CEffectApplyBehavior id="DefensiveMatrixNew">
+        <EditorCategories value="Race:Terran"/>
+    </CEffectApplyBehavior>
+    <CActorModel id="CreepFrenzy13CreepTumor" parent="ModelAddition">
+        <On Terms="Behavior.CreepFrenzy13CreepTumor.On" Send="Create"/>
+        <On Terms="Behavior.CreepFrenzy13CreepTumor.Off" Send="AnimBracketStop BSD"/>
+    </CActorModel>
+    <CActorModel id="SquibTransfusion2" parent="ModelAnimationStyleOneShot">
+        <On Terms="Effect.Transfusion2.Start; At Target" Send="Create"/>
+        <Host Subject="_Selectable"/>
+        <Inherits index="CloakEffect" value="1"/>
+        <Inherits index="Visibility" value="1"/>
+        <HostSiteOps Ops="SOpAttachCenter"/>
+    </CActorModel>
+</Catalog>

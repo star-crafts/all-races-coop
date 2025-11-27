@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CEffectDamage id="D8ChargeDamage">
+        <EditorCategories value="Race:Terran"/>
+        <Kind value="Ranged"/>
+        <Amount value="30"/>
+        <ResponseFlags index="Acquire" value="1"/>
+        <ResponseFlags index="Flee" value="1"/>
+        <ImpactLocation Value="TargetUnit"/>
+        <Flags index="Notification" value="1"/>
+        <ArmorReduction value="1"/>
+    </CEffectDamage>
+    <CEffectLaunchMissile id="D8ChargeLaunchMissile">
+        <EditorCategories value="Race:Terran"/>
+<!--        <ImpactEffect value="D8ChargeDamage"/>-->
+        <ImpactEffect value="D8ChargeSet"/>
+        <AmmoUnit value="D8ChargeWeapon"/>
+    </CEffectLaunchMissile>
+
+
+
+    <CEffectSet id="D8ChargeSet">
+        <EditorCategories value="Race:Terran"/>
+        <EffectArray value="D8ChargeDamage"/>
+        <EffectArray value="D8ChargeBombCD"/>
+    </CEffectSet>
+    <CEffectCreateUnit id="DowadiruAcidPuddle">
+        <EditorCategories value="Race:Zerg"/>
+        <WhichLocation Value="TargetUnitOrPoint"/>
+        <CreateFlags index="DropOff" value="0"/>
+        <CreateFlags index="ProvideFood" value="0"/>
+        <CreateFlags index="TechComplete" value="0"/>
+        <CreateFlags index="UseFood" value="0"/>
+        <SpawnUnit value="NovaAcidPuddle"/>
+        <SpawnRange value="4"/>
+    </CEffectCreateUnit>
+
+
+
+
+    <CEffectCreateUnit id="D8Charge">
+        <EditorCategories value="Race:Terran"/>
+        <SpawnEffect value="D8ChargeLaunch"/>
+        <SpawnUnit value="D8Charge"/>
+        <WhichLocation Value="TargetUnitOrPoint"/>
+        <SpawnRange value="1.5"/>
+    </CEffectCreateUnit>
+    <CEffectSet id="D8ChargeLaunch">
+        <EffectArray value="D8ChargeLM"/>
+        <EffectArray value="MakePrecursor"/>
+        <EditorCategories value="Race:Terran"/>
+    </CEffectSet>
+    <CEffectLaunchMissile id="D8ChargeLM">
+        <EditorCategories value="Race:Terran"/>
+        <FinishEffect value="RemovePrecursor"/>
+        <AmmoUnit value="D8ChargeWeapon"/>
+        <LaunchLocation Value="CasterUnit"/>
+        <Movers Link="D8ChargeWeaponCloseRange" IfRangeLTE="1"/>
+        <Movers Link="D8ChargeWeapon" IfRangeLTE="500"/>
+    </CEffectLaunchMissile>
+    <CEffectSet id="D8ChargeExplode">
+        <EditorCategories value="Race:Terran"/>
+        <EffectArray value="D8ChargeExplodeDamage"/>
+        <EffectArray value="Suicide"/>
+    </CEffectSet>
+    <CEffectDamage id="D8ChargeExplodeDamage" parent="DU_WEAP_SPLASH">
+        <ValidatorArray value="NotHallucination"/>
+        <EditorCategories value="Race:Terran"/>
+<!--        <AINotifyFlags index="HurtFriend" value="1"/>-->
+        <AINotifyFlags index="HurtEnemy" value="1"/>
+        <ImpactUnitValidator value="D8ChargeUnitLink"/>
+        <Kind value="Spell"/>
+        <Amount value="30"/>
+        <Death value="Blast"/>
+<!--        <SearchFilters value="Ground;Missile,Stasis,Dead,Hidden,Invulnerable"/>-->
+        <AreaArray Radius="1.125" Fraction="1" Validator="D8ChargeUnitLink"/>
+        <AreaArray Radius="1.666" Fraction="0.5" Validator="D8ChargeUnitLink"/>
+        <AreaArray Radius="2.5" Fraction="0.25" Validator="D8ChargeUnitLink"/>
+        <ExcludeArray Value="Outer"/>
+        <SearchFlags index="ExtendByUnitRadius" value="1"/>
+        <AttributeBonus index="Structure" value="100"/>
+        <ArmorReduction value="0"/>
+
+        <AINotifyFlags index="HurtFriend" value="0"/>
+        <SearchFilters value="Ground;Player,Ally,Neutral,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+    </CEffectDamage>
+    <CEffectDamage id="D8ClusterBombExplodeDamage" parent="DU_WEAP_SPLASH">
+        <ValidatorArray value="NotHallucination"/>
+        <EditorCategories value="Race:Terran"/>
+        <AINotifyFlags index="HurtFriend" value="1"/>
+<!--        <AINotifyFlags index="HurtEnemy" value="1"/>-->
+        <ImpactUnitValidator value="D8ChargeUnitLink"/>
+        <Kind value="Spell"/>
+        <Amount value="6"/>
+        <Death value="Blast"/>
+        <AreaArray Radius="1" Fraction="1" Validator="D8ChargeUnitLink"/>
+        <ExcludeArray Value="Outer"/>
+<!--        <SearchFilters value="Ground;Missile,Stasis,Dead,Hidden,Invulnerable"/>-->
+        <SearchFlags index="ExtendByUnitRadius" value="1"/>
+        <AINotifyFlags index="HurtFriend" value="0"/>
+        <SearchFilters value="Ground;Player,Ally,Neutral,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+    </CEffectDamage>
+    <CEffectSet id="D8ClusterBombExplode">
+        <EditorCategories value="Race:Terran"/>
+        <EffectArray value="D8ClusterBombExplodeDamage"/>
+        <EffectArray value="Suicide"/>
+    </CEffectSet>
+    <CEffectLaunchMissile id="D8ClusterBombLM">
+        <EditorCategories value="Race:Terran"/>
+        <FinishEffect value="RemovePrecursor"/>
+        <AmmoUnit value="D8ClusterBombWeapon"/>
+        <LaunchLocation Value="CasterUnit"/>
+    </CEffectLaunchMissile>
+    <CEffectSet id="D8ClusterBombLaunch">
+        <EffectArray value="D8ClusterBombLM"/>
+        <EffectArray value="MakePrecursor"/>
+    </CEffectSet>
+    <CEffectCreateUnit id="D8ClusterBombCreateUnit">
+        <EditorCategories value="Race:Terran"/>
+        <SpawnEffect value="D8ClusterBombLaunch"/>
+        <SpawnUnit value="D8ClusterBomb"/>
+        <WhichLocation Value="TargetUnitOrPoint"/>
+        <SpawnRange value="1.5"/>
+    </CEffectCreateUnit>
+    <CEffectCreatePersistent id="D8ClusterBombCreatePersistant">
+        <EditorCategories value="Race:Terran"/>
+        <WhichLocation Value="SourcePoint"/>
+        <OffsetVectorStartLocation Value="SourcePoint"/>
+        <PeriodCount value="7"/>
+        <PeriodicEffectArray value="D8ClusterBombCreateUnit"/>
+        <PeriodicEffectArray value="D8ClusterBombCreateUnit"/>
+        <PeriodicEffectArray value="D8ClusterBombCreateUnit"/>
+        <PeriodicEffectArray value="D8ClusterBombCreateUnit"/>
+        <PeriodicEffectArray value="D8ClusterBombCreateUnit"/>
+        <PeriodicEffectArray value="D8ClusterBombCreateUnit"/>
+        <PeriodicEffectArray value="D8ClusterBombCreateUnit"/>
+        <PeriodicOffsetArray value="-0.4,-0.75,0"/>
+        <PeriodicOffsetArray value="0,0.9,0"/>
+        <PeriodicOffsetArray value="0.4,-0.75,0"/>
+        <PeriodicOffsetArray value="-0.6,0.5,0"/>
+        <PeriodicOffsetArray value="0.8,-0.2,0"/>
+        <PeriodicOffsetArray value="-0.8,-0.2,0"/>
+        <PeriodicOffsetArray value="0.6,0.5,0"/>
+        <PeriodicPeriodArray value="1.125"/>
+        <PeriodicPeriodArray value="0.125"/>
+        <PeriodicPeriodArray value="0.125"/>
+        <PeriodicPeriodArray value="0.125"/>
+        <PeriodicPeriodArray value="0.125"/>
+        <PeriodicPeriodArray value="0.125"/>
+        <PeriodicPeriodArray value="0.125"/>
+    </CEffectCreatePersistent>
+
+
+    <CEffectModifyUnit id="P38ScytheGuassPistolBombCD">
+        <ValidatorArray value="HaveReaperEnlightenedDynamics"/>
+        <EditorCategories value="Race:Terran"/>
+        <ImpactUnit Value="Caster"/>
+        <Cost Abil="D8Charge,Execute" ChargeTimeUse="-1.5" CooldownOperation="Add"/>
+    </CEffectModifyUnit>
+    <CEffectModifyUnit id="D8ChargeBombCD">
+        <ValidatorArray value="HaveReaperEnlightenedDynamics"/>
+        <EditorCategories value="Race:Terran"/>
+        <ImpactUnit Value="Caster"/>
+        <Cost Abil="D8Charge,Execute" ChargeTimeUse="-3" CooldownOperation="Add"/>
+    </CEffectModifyUnit>
+    <CEffectCreatePersistent id="P38ScytheGuassPistolBurst">
+        <PeriodicEffectArray index="0" value="P38ScytheGuassPistolSet"/>
+    </CEffectCreatePersistent>
+    <CEffectSet id="P38ScytheGuassPistolSet">
+        <EditorCategories value="Race:Terran"/>
+        <EffectArray value="P38ScytheGuassPistol"/>
+        <EffectArray value="P38ScytheGuassPistolBombCD"/>
+    </CEffectSet>
+    <CValidatorPlayerRequirement id="HaveReaperEnlightenedDynamics">
+        <WhichPlayer Value="Caster"/>
+        <Find value="1"/>
+        <Value value="HaveReaperEnlightenedDynamics"/>
+    </CValidatorPlayerRequirement>
+    <CRequirement id="HaveReaperEnlightenedDynamics">
+        <EditorCategories value="Race:Terran,TechType:Upgrade"/>
+        <NodeArray index="Use" Link="CountUpgradeEnlightenedDynamicsCompleteOnly"/>
+        <NodeArray index="Show" Link="AllowUpgradeEnlightenedDynamics"/>
+    </CRequirement>
+    <CRequirement id="HaveReaperCombatAwareness">
+        <EditorCategories value="Race:Terran,TechType:Upgrade"/>
+        <NodeArray index="Show" Link="CountUpgradeCombatAwarenessCompleteOnly"/>
+    </CRequirement>
+    <CRequirementAllowUpgrade id="AllowUpgradeEnlightenedDynamics">
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Link value="EnlightenedDynamics"/>
+    </CRequirementAllowUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeEnlightenedDynamicsCompleteOnly">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Count Link="EnlightenedDynamics" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeCombatAwarenessCompleteOnly">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="CombatAwareness" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
+    <CBehaviorAttackModifier id="CombatAwareness">
+        <InfoIcon value="Assets\Textures\btn-ability-terran-battlefieldawareness.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units,Race:Terran"/>
+        <Requirements value="HaveReaperCombatAwareness"/>
+        <Chance value="1"/>
+        <TargetFilters value="-;Player,Ally,Neutral,Dead,Hidden,Invulnerable"/>
+        <ValidatorArray value="CliffLevelGreater"/>
+        <AttackModifierFlags index="OnlyApplyDamageBonusToValidTargets" value="1"/>
+        <DamageDealtFraction index="Spell" value="1"/>
+        <DamageDealtFraction index="Melee" value="1"/>
+        <DamageDealtFraction index="Ranged" value="1"/>
+        <DamageDealtFraction index="Splash" value="1"/>
+        <DamageDealtFraction index="NoProc" value="1"/>
+    </CBehaviorAttackModifier>
+    <CUpgrade id="EnlightenedDynamics">
+        <Icon value="Assets\Textures\btn-ability-hornerhan-reaper-deaththrows.dds"/>
+        <Race value="Terr"/>
+        <EffectArray Operation="Set" Reference="Abil,D8Charge,Cost[0].Charge.CountMax" Value="3"/>
+        <EffectArray Operation="Set" Reference="Abil,D8Charge,Cost[0].Charge.CountUse" Value="1"/>
+        <EffectArray Operation="Set" Reference="Abil,D8Charge,Cost[0].Charge.CountStart" Value="1"/>
+        <EffectArray Operation="Set" Reference="Abil,D8Charge,Cost[0].Charge.TimeUse" Value="30.000000"/>
+        <EffectArray Operation="Set" Reference="Abil,D8Charge,Cost[0].Cooldown.TimeUse" Value="-30.000000"/>
+        <EffectArray Operation="Set" Reference="Abil,KD8Charge,Cost[0].Charge.CountMax" Value="3"/>
+        <EffectArray Operation="Set" Reference="Abil,KD8Charge,Cost[0].Charge.CountUse" Value="1"/>
+        <EffectArray Operation="Set" Reference="Abil,KD8Charge,Cost[0].Charge.CountStart" Value="1"/>
+        <EffectArray Operation="Set" Reference="Abil,KD8Charge,Cost[0].Charge.TimeUse" Value="30.000000"/>
+        <EffectArray Operation="Set" Reference="Abil,KD8Charge,Cost[0].Cooldown.TimeUse" Value="-30.000000"/>
+        <EditorCategories value="Race:Terran,UpgradeType:Talents"/>
+        <AffectedUnitArray value="Reaper"/>
+    </CUpgrade>
+    <CUpgrade id="CombatAwareness">
+        <Icon value="Assets\Textures\btn-ability-terran-battlefieldawareness.dds"/>
+        <Race value="Terr"/>
+        <EffectArray Reference="Unit,Reaper,VisionHeight" Value="1"/>
+        <EditorCategories value="Race:Terran,UpgradeType:Talents"/>
+        <AffectedUnitArray value="Reaper"/>
+    </CUpgrade>
+</Catalog>

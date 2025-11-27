@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CActorAction id="AirCrashShieldHitter" parent="AoESplashShieldHitter" effectHit="LiberatorMissileDamage">
+        <On index="0" Terms="Effect.CrashLargeDamage.Start" Send="Create"/>
+        <On index="3" Terms="Effect.CrashLargeDamage.Stop" Send="Destroy"/>
+        <On Terms="Effect.CrashSmallDamage.Start" Send="Create"/>
+        <On Terms="Effect.CrashSmallDamage.Stop" Send="Destroy"/>
+        <On Terms="Effect.CrashMediumDamage.Start" Send="Create"/>
+        <On Terms="Effect.CrashMediumDamage.Stop" Send="Destroy"/>
+    </CActorAction>
+    <CActorModel id="ProtossCrashHugeLv1" parent="ModelAddition"/>
+    <CActorModel id="TerranCrashMediumExplodeModel" parent="ModelAnimationStyleOneShotUNIT">
+        <Model value="TerranCrashMediumExplodeModel2"/>
+    </CActorModel>
+    <CActorSound id="TerranCrashMediumExplodeSound" parent="SoundOneShot"/>
+    <CActorEventMacro id="TerranCrashMediumMacro">
+        <On Terms="Behavior.CrashMediumLv1.On" Send="HostSiteOpsSet ::Host TerranCrashMediumRotator"/>
+        <On Terms="Behavior.CrashMediumLv1.On" Send="Create TerranCrashMediumExplodeModel"/>
+        <On Terms="Behavior.CrashMediumLv1.On" Send="Create TerranCrashMediumExplodeSound"/>
+        <On Terms="Behavior.CrashMediumLv1.On" Send="Create TerranCrashMediumLv1"/>
+        <On Terms="Behavior.CrashMediumLv3.Off" Target="TerranCrashMediumLv1" Send="Destroy"/>
+        <On Terms="Behavior.CrashMediumLv3.Off" Send="Create TerranCrashMediumFinalModel"/>
+        <On Terms="Behavior.CrashMediumLv3.Off" Send="Create TerranCrashMediumFinalSound"/>
+    </CActorEventMacro>
+    <CActorModel id="TerranCrashMediumLv1" parent="ModelAddition"/>
+    <CActorSiteOpRotator id="TerranCrashMediumRotator">
+        <LocalAxis value="0.000000,0.200000,0.250000"/>
+        <Rate value="30.000000"/>
+    </CActorSiteOpRotator>
+    <CActorModel id="TerranCrashMediumFinalModel" parent="ModelAnimationStyleOneShotUNIT"/>
+    <CActorSound id="TerranCrashMediumFinalSound" parent="SoundOneShot"/>
+    <CActorSound id="ZergCrashLargeFinalSound" parent="SoundOneShot"/>
+    <CActorModel id="ZergCrashLargeFinalModel" parent="ModelAnimationStyleOneShotUNIT"/>
+    <CActorSiteOpRotator id="ZergCrashLargeRotator">
+        <LocalAxis value="0.000000,0.050000,0.050000"/>
+        <Rate value="90.000000"/>
+    </CActorSiteOpRotator>
+    <CActorModel id="ZergCrashLargeLv1" parent="ModelAddition"/>
+    <CActorEventMacro id="ZergCrashLargeMacro">
+        <On Terms="Behavior.CrashLargeLv1.On" Send="HostSiteOpsSet ::Host ZergCrashLargeRotator"/>
+        <On Terms="Behavior.CrashLargeLv3.Off" Send="Create ZergCrashLargeFinalModel"/>
+        <On Terms="Behavior.CrashLargeLv1.On" Send="Create ZergCrashLargeExplodeModel"/>
+        <On Terms="Behavior.CrashLargeLv1.On" Send="Create ZergCrashLargeExplodeSound"/>
+        <On Terms="Behavior.CrashLargeLv1.On" Send="Create ZergCrashLargeLv1"/>
+        <On Terms="Behavior.CrashLargeLv3.Off" Target="ZergCrashLargeLv1" Send="Destroy"/>
+        <On Terms="Behavior.CrashLargeLv3.Off" Send="Create ZergCrashLargeFinalSound"/>
+    </CActorEventMacro>
+    <CActorSound id="ZergCrashLargeExplodeSound" parent="SoundOneShot"/>
+    <CActorModel id="ZergCrashLargeExplodeModel" parent="ModelAnimationStyleOneShotUNIT"/>
+    <CActorModel id="ZergCrashMediumExplodeModel" parent="ModelAnimationStyleOneShotUNIT"/>
+    <CActorSound id="ZergCrashMediumExplodeSound" parent="SoundOneShot"/>
+    <CActorModel id="ZergCrashMediumFinalModel" parent="ModelAnimationStyleOneShotUNIT"/>
+    <CActorSound id="ZergCrashSmallFinalSound" parent="SoundOneShot"/>
+    <CActorModel id="ZergCrashSmallFinalModel" parent="ModelAnimationStyleOneShotUNIT"/>
+    <CActorEventMacro id="ZergCrashMediumMacro">
+        <On Terms="Behavior.CrashMediumLv1.On" Send="HostSiteOpsSet ::Host ZergCrashMediumRotator"/>
+        <On Terms="Behavior.CrashMediumLv1.On" Send="Create ZergCrashMediumExplodeModel"/>
+        <On Terms="Behavior.CrashMediumLv1.On" Send="Create ZergCrashMediumExplodeSound"/>
+        <On Terms="Behavior.CrashMediumLv1.On" Send="Create ZergCrashMediumLv12"/>
+        <On Terms="Behavior.CrashMediumLv3.Off" Target="ZergCrashMediumLv1" Send="Destroy"/>
+        <On Terms="Behavior.CrashMediumLv3.Off" Send="Create ZergCrashMediumFinalModel"/>
+        <On Terms="Behavior.CrashMediumLv3.Off" Send="Create ZergCrashMediumFinalSound"/>
+    </CActorEventMacro>
+    <CActorModel id="ZergCrashMediumLv12" parent="ModelAddition">
+        <Model value="ZergCrashMediumLv1"/>
+    </CActorModel>
+    <CActorSound id="ZergCrashMediumFinalSound" parent="SoundOneShot"/>
+    <CActorSiteOpRotator id="ZergCrashSmallRotator">
+        <LocalAxis value="0.000000,0.200000,0.250000"/>
+        <Rate value="30.000000"/>
+    </CActorSiteOpRotator>
+    <CActorModel id="ZergCrashSmallLv1" parent="ModelAddition"/>
+    <CActorEventMacro id="ZergCrashSmallMacro">
+        <On Terms="Behavior.CrashSmallLv1.On" Send="HostSiteOpsSet ::Host ZergCrashSmallRotator"/>
+        <On Terms="Behavior.CrashSmallLv1.On" Send="Create ZergCrashSmallExplodeModel"/>
+        <On Terms="Behavior.CrashSmallLv1.On" Send="Create ZergCrashSmallExplodeSound"/>
+        <On Terms="Behavior.CrashSmallLv1.On" Send="Create ZergCrashSmallLv1"/>
+        <On Terms="Behavior.CrashSmallLv3.Off" Target="ZergCrashSmallLv1" Send="Destroy"/>
+        <On Terms="Behavior.CrashSmallLv3.Off" Send="Create ZergCrashSmallFinalModel"/>
+        <On Terms="Behavior.CrashSmallLv3.Off" Send="Create ZergCrashSmallFinalSound"/>
+    </CActorEventMacro>
+    <CActorSound id="ZergCrashSmallExplodeSound" parent="SoundOneShot">
+        <Sound value="ZergCrashMediumExplodeSound"/>
+    </CActorSound>
+    <CActorModel id="ZergCrashSmallExplodeModel" parent="ModelAnimationStyleOneShotUNIT"/>
+    <CActorSound id="TerranCrashSmallFinalSound" parent="SoundOneShot"/>
+    <CActorModel id="TerranCrashSmallFinalModel" parent="ModelAnimationStyleOneShotUNIT"/>
+    <CActorSound id="TerranCrashLargeFinalSound" parent="SoundOneShot"/>
+    <CActorSiteOpRotator id="TerranCrashSmallRotator">
+        <LocalAxis value="0.000000,0.200000,0.250000"/>
+        <Rate value="30.000000"/>
+    </CActorSiteOpRotator>
+    <CActorModel id="TerranCrashSmallLv1" parent="ModelAddition"/>
+    <CActorEventMacro id="TerranCrashSmallMacro">
+        <On Terms="Behavior.CrashSmallLv1.On" Send="HostSiteOpsSet ::Host TerranCrashSmallRotator"/>
+        <On Terms="Behavior.CrashSmallLv1.On" Send="Create TerranCrashSmallExplodeModel"/>
+        <On Terms="Behavior.CrashSmallLv1.On" Send="Create TerranCrashSmallExplodeSound"/>
+        <On Terms="Behavior.CrashSmallLv1.On" Send="Create TerranCrashSmallLv1"/>
+        <On Terms="Behavior.CrashSmallLv3.Off" Target="TerranCrashSmallLv1" Send="Destroy"/>
+        <On Terms="Behavior.CrashSmallLv3.Off" Send="Create TerranCrashSmallFinalModel"/>
+        <On Terms="Behavior.CrashSmallLv3.Off" Send="Create TerranCrashSmallFinalSound"/>
+    </CActorEventMacro>
+    <CActorSound id="TerranCrashSmallExplodeSound" parent="SoundOneShot"/>
+    <CActorModel id="TerranCrashSmallExplodeModel" parent="ModelAnimationStyleOneShotUNIT"/>
+    <CActorModel id="TerranCrashLargeFinalModel" parent="ModelAnimationStyleOneShotUNIT"/>
+    <CActorSiteOpRotator id="TerranCrashLargeRotator">
+        <LocalAxis value="0.000000,0.020000,0.025000"/>
+        <Rate value="90.000000"/>
+    </CActorSiteOpRotator>
+    <CActorModel id="TerranCrashLargeLv1" parent="ModelAddition"/>
+    <CActorSound id="TerranCrashLargeExplodeSound" parent="SoundOneShot"/>
+    <CActorModel id="TerranCrashLargeExplodeModel" parent="ModelAnimationStyleOneShotUNIT"/>
+    <CActorModel id="ProtossCrashLargeFinalModel" parent="ModelAnimationStyleOneShotUNIT"/>
+    <CActorEventMacro id="ProtossCrashHugeMacro">
+        <On Terms="Behavior.CrashLargeLv1.On" Send="HostSiteOpsSet ::Host ProtossCrashHugeRotator"/>
+        <On Terms="Behavior.CrashLargeLv3.Off" Send="Create ProtossCrashLargeFinalModel"/>
+        <On Terms="Behavior.CrashLargeLv1.On" Send="Create ProtossCrashLargeExplodeModel"/>
+        <On Terms="Behavior.CrashLargeLv1.On" Send="Create ProtossCrashLargeExplodeSound"/>
+        <On Terms="Behavior.CrashLargeLv1.On" Send="Create ProtossCrashHugeLv1"/>
+        <On Terms="Behavior.CrashLargeLv3.Off" Target="ProtossCrashHugeLv1" Send="Destroy"/>
+    </CActorEventMacro>
+    <CActorSiteOpRotator id="ProtossCrashHugeRotator">
+        <LocalAxis value="0.100000,0.100000,0.100000"/>
+        <Rate value="10.000000"/>
+    </CActorSiteOpRotator>
+    <CActorModel id="ProtossCrashLargeExplodeModel" parent="ModelAnimationStyleOneShotUNIT"/>
+    <CActorSound id="ProtossCrashLargeExplodeSound" parent="SoundOneShot"/>
+    <CActorEventMacro id="TerranCrashLargeMacro">
+        <On Terms="Behavior.CrashLargeLv1.On" Send="HostSiteOpsSet ::Host TerranCrashLargeRotator"/>
+        <On Terms="Behavior.CrashLargeLv3.Off" Send="Create TerranCrashLargeFinalModel"/>
+        <On Terms="Behavior.CrashLargeLv1.On" Send="Create TerranCrashLargeExplodeModel"/>
+        <On Terms="Behavior.CrashLargeLv1.On" Send="Create TerranCrashLargeExplodeSound"/>
+        <On Terms="Behavior.CrashLargeLv1.On" Send="Create TerranCrashLargeLv1"/>
+        <On Terms="Behavior.CrashLargeLv3.Off" Target="TerranCrashLargeLv1" Send="Destroy"/>
+        <On Terms="Behavior.CrashLargeLv3.Off" Send="Create TerranCrashLargeFinalSound"/>
+    </CActorEventMacro>
+    <CActorModel id="ProtossCrashMiniExplodeModel" parent="ModelAnimationStyleOneShotUNIT"/>
+    <CActorSound id="ProtossCrashMiniExplodeSound" parent="SoundOneShot"/>
+    <CActorModel id="ProtossCrashMediumExplodeModel" parent="ModelAnimationStyleOneShotUNIT"/>
+    <CActorSound id="ProtossCrashMediumExplodeSound" parent="SoundOneShot"/>
+    <CActorModel id="ProtossCrashMediumFinalModel" parent="ModelAnimationStyleOneShotUNIT"/>
+    <CActorSound id="ProtossCrashSmallFinalSound" parent="SoundOneShot"/>
+    <CActorSound id="ProtossCrashSmallExplodeSound" parent="SoundOneShot"/>
+    <CActorModel id="ProtossCrashSmallLv1" parent="ModelAddition"/>
+    <CActorModel id="ProtossCrashSmallExplodeModel" parent="ModelAnimationStyleOneShotUNIT"/>
+    <CActorModel id="ProtossCrashSmallFinalModel" parent="ModelAnimationStyleOneShotUNIT"/>
+    <CActorModel id="ProtossCrashLargeLv1" parent="ModelAddition"/>
+    <CActorModel id="ProtossCrashMiniLv1" parent="ModelAddition"/>
+    <CActorModel id="ProtossCrashMediumLv1" parent="ModelAddition"/>
+    <CActorEventMacro id="ProtossCrashSmallMacro">
+        <On Terms="Behavior.CrashSmallLv1.On" Send="HostSiteOpsSet ::Host ProtossCrashSmallRotator"/>
+        <On Terms="Behavior.CrashSmallLv1.On" Send="Create ProtossCrashSmallExplodeModel"/>
+        <On Terms="Behavior.CrashSmallLv1.On" Send="Create ProtossCrashSmallExplodeSound"/>
+        <On Terms="Behavior.CrashSmallLv1.On" Send="Create ProtossCrashSmallLv1"/>
+        <On Terms="Behavior.CrashSmallLv3.Off" Target="ProtossCrashSmallLv1" Send="Destroy"/>
+        <On Terms="Behavior.CrashSmallLv3.Off" Send="Create ProtossCrashSmallFinalModel"/>
+    </CActorEventMacro>
+    <CActorEventMacro id="ProtossCrashLargeMacro">
+        <On Terms="Behavior.CrashLargeLv1.On" Send="HostSiteOpsSet ::Host ProtossCrashLargeRotator"/>
+        <On Terms="Behavior.CrashLargeLv3.Off" Send="Create ProtossCrashLargeFinalModel"/>
+        <On Terms="Behavior.CrashLargeLv1.On" Send="Create ProtossCrashLargeExplodeModel"/>
+        <On Terms="Behavior.CrashLargeLv1.On" Send="Create ProtossCrashLargeExplodeSound"/>
+        <On Terms="Behavior.CrashLargeLv1.On" Send="Create ProtossCrashLargeLv1"/>
+        <On Terms="Behavior.CrashLargeLv3.Off" Target="ProtossCrashLargeLv1" Send="Destroy"/>
+    </CActorEventMacro>
+    <CActorSiteOpRotator id="ProtossCrashLargeRotator">
+        <LocalAxis value="0.050000,0.050000,0.050000"/>
+        <Rate value="80.000000"/>
+    </CActorSiteOpRotator>
+    <CActorEventMacro id="ProtossCrashMiniMacro">
+        <On Terms="Behavior.CrashSmallLv1.On" Send="HostSiteOpsSet ::Host ProtossCrashMiniRotator"/>
+        <On Terms="Behavior.CrashSmallLv1.On" Send="Create ProtossCrashMiniExplodeModel"/>
+        <On Terms="Behavior.CrashSmallLv1.On" Send="Create ProtossCrashMiniExplodeSound"/>
+        <On Terms="Behavior.CrashSmallLv1.On" Send="Create ProtossCrashMiniLv1"/>
+        <On Terms="Behavior.CrashSmallLv3.Off" Target="ProtossCrashMiniLv1" Send="Destroy"/>
+    </CActorEventMacro>
+    <CActorEventMacro id="ProtossCrashMediumMacro">
+        <On Terms="Behavior.CrashMediumLv1.On" Send="HostSiteOpsSet ::Host ProtossCrashSmallRotator"/>
+        <On Terms="Behavior.CrashMediumLv1.On" Send="Create ProtossCrashMediumExplodeModel"/>
+        <On Terms="Behavior.CrashMediumLv1.On" Send="Create ProtossCrashMediumExplodeSound"/>
+        <On Terms="Behavior.CrashMediumLv1.On" Send="Create ProtossCrashMediumLv1"/>
+        <On Terms="Behavior.CrashMediumLv3.Off" Target="ProtossCrashMediumLv1" Send="Destroy"/>
+        <On Terms="Behavior.CrashMediumLv3.Off" Send="Create ProtossCrashMediumFinalModel"/>
+    </CActorEventMacro>
+    <CActorSiteOpRotator id="ProtossCrashSmallRotator">
+        <LocalAxis value="0.250000,0.200000,0.250000"/>
+        <Rate value="120.000000"/>
+    </CActorSiteOpRotator>
+    <CActorSiteOpRotator id="ProtossCrashMiniRotator">
+        <LocalAxis value="0.250000,0.200000,0.250000"/>
+        <Rate value="120.000000"/>
+    </CActorSiteOpRotator>
+    <CActorSiteOpRotator id="ZergCrashMediumRotator">
+        <LocalAxis value="0.000000,0.200000,0.250000"/>
+        <Rate value="30.000000"/>
+    </CActorSiteOpRotator>
+</Catalog>

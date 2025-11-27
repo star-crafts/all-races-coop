@@ -1,0 +1,2057 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CActorSplat id="CommanderPrestigeAlarakDeathFleetPowerVisual">
+        <FogVisibility value="Visible"/>
+        <On Terms="ActorOrphan" Send="Destroy"/>
+        <On Terms="Behavior.CommanderPrestigeAlarakDeathFleetPowerSource.Enable; ValidatePlayer CommanderPrestigeAlarakDeathFleet" Send="Create"/>
+        <On Terms="Abil.AlarakMothershipWarpTrain.TargetOn; ValidatePlayer CommanderPrestigeAlarakDeathFleet" Send="SetVisibility 1"/>
+        <On Terms="Abil.AlarakMothershipWarpTrain.TargetOff; ValidatePlayer CommanderPrestigeAlarakDeathFleet" Send="SetVisibility"/>
+        <On Terms="ActorCreation" Send="SetVisibility"/>
+        <Host Subject="_Selectable"/>
+        <HostSiteOps Ops="SOpShadow"/>
+        <FadeIn value="0.000000"/>
+        <FadeOut value="0.000000"/>
+        <HoldTime value="-1.000000"/>
+        <Layer value="PowerLayer"/>
+        <Model value="PowerVisualFast"/>
+    </CActorSplat>
+    <CActorSound id="OrbitalCommand_CalldownMuleDrop">
+        <On Terms="Effect.MutatorCalldownMULECreatePersistent.Start; At Target" Send="Create"/>
+    </CActorSound>
+    <CActorAction id="AlarakAttack" parent="GenericAttack" effectAttack="AlarakBaneBladesDamage"/>
+    <CActorAction id="AlarakAoEAttack" parent="GenericAttack" effectAttack="AlarakBaneBladesAoEDamage">
+        <ShieldFlashType value="Full"/>
+        <ImpactMap index="None" Model="Alarak_COOP_Empower_Impact"/>
+    </CActorAction>
+
+    <CActorModel id="AlarakForkedLightningAttackBeamLaunchSite" parent="ModelAnimationStyleOneShotNoOrphan">
+        <Model value="Invisible"/>
+        <Supporter Subject="_Unit" Scope="Caster" Actor="Find"/>
+        <On Terms="Effect.AlarakForkedLightning.Start; At Caster" Send="Create"/>
+        <On Terms="Effect.AlarakForkedLightningNewPause.Start; At Target" Send="Create"/>
+        <On Terms="ActorCreation" Send="RefSet ::global.ForkedLightningAttackBeamLaunchSite ::Self"/>
+        <On Terms="ActorCreation" Send="TimerSet 0.250000 DelayDestroy"/>
+        <On Terms="ActorCreation" Send="RefClear ::Host"/>
+        <On Terms="TimerExpired; TimerName DelayDestroy" Send="Destroy"/>
+    </CActorModel>
+    <CActorModel id="AlarakForkedLightningAttackBeamImpactSite" parent="ModelAnimationStyleOneShotNoOrphan">
+        <Model value="Invisible"/>
+        <Supporter Subject="_Unit" Scope="Caster" Actor="Find"/>
+        <On Terms="Effect.AlarakForkedLightningDamage.Start; At Target" Send="Create"/>
+        <On Terms="ActorCreation" Send="RefSet ::global.ForkedLightningAttackBeamImpactSite ::Self"/>
+        <On Terms="ActorCreation" Send="Create AlarakForkedLightningAttackBeamImpactSound"/>
+        <On Terms="ActorCreation" Send="TimerSet 0.250000 DelayDestroy"/>
+        <On Terms="ActorCreation" Send="RefClear ::Host"/>
+        <On Terms="TimerExpired; TimerName DelayDestroy" Send="Destroy"/>
+    </CActorModel>
+    <CActorSound id="AlarakBaneBladeAttackLaunchSound" parent="SoundOneShot">
+        <On Terms="Effect.AlarakBaneBladesDamage.Start" Send="Create"/>
+        <Sound value="Alarak_BaneBlade_AttackLaunchSound"/>
+    </CActorSound>
+    <CActorBeamSimple id="AlarakForkedLightningAttackBeam" parent="BeamSimpleAnimationStyleOneShot">
+        <HostLaunchSiteOps Ops="SOpAttachCenter"/>
+        <HostImpactSiteOps Ops="SOpAttachCenter"/>
+        <HostLaunch Subject="::global.ForkedLightningAttackBeamLaunchSite"/>
+        <HostImpact Subject="::global.ForkedLightningAttackBeamImpactSite"/>
+        <On Terms="Effect.AlarakForkedLightningDamage.Start; At Target" Send="Create"/>
+        <On Terms="ActorCreation" Send="SetTintColor 255,0,0"/>
+    </CActorBeamSimple>
+    <CActorSound id="AlarakForkedLightningAttackBeamImpactSound" parent="SoundOneShot">
+        <Layers Sound="Alarak_LightningStrike_Lyr_Impact">
+            <Chance value="100"/>
+            <Pitch value="0.000000,0.000000"/>
+            <PlayDelay value="0,0"/>
+            <Volume value="0.000000,0.000000"/>
+        </Layers>
+    </CActorSound>
+    <CActorAction id="AlarakSoulAbsorptionDummyAttack" parent="GenericAttack" effectImpact="AlarakSoulAbsorptionImpactDummy" effectLaunch="SoulAbsorptionLM">
+        <LaunchAttachQuery Methods="Center"/>
+        <ImpactAttachQuery Methods="Center"/>
+        <ImpactSiteOps Ops="SOpAttachCenterSoft"/>
+        <ImpactMap index="None" Model="Alarak_COOP_SoulAbsorption_Impact"/>
+        <ShieldFlashType value="Full"/>
+    </CActorAction>
+    <CActorRange id="AlarakSoulAbsorptionRange">
+        <Flags index="SuppressSaveLoad" value="1"/>
+        <!-- 14 plus 1 unit radius -->
+        <Range value="14.000000"/>
+    </CActorRange>
+    <CActorModel id="AlarakInsanityModel" parent="ModelAnimationStyleContinuous">
+        <HostSiteOps Ops="SOpAttachOverhead SOpForwardNorth"/>
+        <On Terms="Behavior.AlarakInsanity.On" Send="Create"/>
+        <On Terms="ActorCreation" Send="SetTintColor 255,64,64"/>
+        <On Terms="ActorCreation" Send="AnimPlay LoopA Stand"/>
+        <On Terms="AnimDone; AnimName LoopA" Send="AnimPlay LoopB Stand"/>
+        <On Terms="AnimDone; AnimName LoopB" Send="AnimPlay LoopA Stand"/>
+        <On Terms="Behavior.AlarakInsanity.Off" Send="Destroy"/>
+        <Host Subject="_Selectable"/>
+    </CActorModel>
+    <CActorRange id="AlarakPsiOrbRange" parent="RangeAbil" abil="AlarakPsiOrb"/>
+    <CActorSplat id="AlarakPsiOrbCursorSplat" parent="ProtossCursorSplat" abil="AlarakPsiOrb">
+        <Model value="PsiStormCursorSplat"/>
+    </CActorSplat>
+    <CActorModel id="AlarakPsiOrbFinalImpactUnit" parent="ModelAnimationStyleOneShot">
+        <EditorCategories value=""/>
+        <On Terms="Effect.AlarakPsiOrbFinalDamage.Start; At Target" Send="Create"/>
+        <Host Subject="_Selectable"/>
+        <HostSiteOps Ops="SOpAttachCenter"/>
+    </CActorModel>
+    <CActorSiteOpLocalOffset id="AlarakPsiOrbImpactOffset">
+        <LocalOffset value="0.000000,0.000000,1.000000"/>
+    </CActorSiteOpLocalOffset>
+    <CActorAction id="AlarakPsiOrbLaunchAction" parent="GenericAttack" effectImpact="AlarakPsiOrbDestroyPersistent" effectLaunch="AlarakPsiOrbLaunchMissile">
+        <EditorCategories value=""/>
+        <ImpactPointSiteOps Ops="SOpTargetPointStationary SOpShadow AlarakPsiOrbImpactOffset"/>
+    </CActorAction>
+    <CActorMissile id="AlarakPsiOrbLaunchActionMissile" parent="GenericAttackMissile" unitName="AlarakPsiOrbMissile">
+        <Macros value="GlobalLoopMacro"/>
+        <On Terms="ActorCreation; ValidatePlayer AlarakAvatar" Send="ModelSwap AlarakPsiOrbAvatarMode"/>
+        <On Terms="ActorCreation; ValidatePlayer AlarakAvatar" Send="SetTintColor {0,255,0 3.000000}"/>
+    </CActorMissile>
+    <CActorAction id="AlarakPsiOrbAttack" parent="GenericAttack" effectAttack="AlarakPsiOrbDamage">
+        <EditorCategories value=""/>
+        <Beam value="AlarakPsiOrbBeam"/>
+    </CActorAction>
+    <CActorBeamSimple id="AlarakPsiOrbBeam" parent="BeamSimpleAnimationStyleOneShot">
+        <On Terms="ActorCreation" Send="TimerSet 1.000000 Death"/>
+        <On Terms="ActorCreation" Send="Create AlarakPsionicOrbAttackSound"/>
+        <On Terms="TimerExpired; TimerName Death" Send="AnimBracketStop BSD"/>
+        <On Terms="ActorCreation; ValidatePlayer AlarakAvatar" Send="SetTintColor {0,255,0 3.000000}"/>
+        <Scale value="0.500000"/>
+    </CActorBeamSimple>
+    <CActorModel id="AlarakPsiOrbFinalImpact" parent="ModelAnimationStyleOneShot">
+        <EditorCategories value=""/>
+        <On Terms="Effect.AlarakPsiOrbFinalSearch.Start" Send="Create"/>
+        <On Terms="ActorCreation; ValidatePlayer AlarakAvatar" Send="SetTintColor {0,255,0 3.000000}"/>
+        <Scale value="0.500000"/>
+    </CActorModel>
+    <CActorUnit id="AlarakPsiOrbUpgraded" parent="GenericUnitStandardNoAutoSoundLinks" unitName="AlarakPsiOrbUpgraded">
+        <Model value="AlarakPsiOrbMissile"/>
+        <StatusBarFlags index="Shields" value="0"/>
+        <StatusBarFlags index="Life" value="0"/>
+        <StatusBarFlags index="Energy" value="0"/>
+        <StatusBarFlags index="Cargo" value="0"/>
+        <StatusBarFlags index="Progress" value="0"/>
+        <StatusBarFlags index="Duration" value="0"/>
+        <UnitFlags index="ShowBlobShadow" value="0"/>
+        <Macros value="RemoveFlyerHelperMacro"/>
+    </CActorUnit>
+    <CActorMissile id="AlarakSoulStealDummyAttackMissile" parent="GenericAttackMissile" unitName="AlarakSoulStealDummyAttackMissile"/>
+    <CActorMissile id="AlarakSoulAbsorptionDummyAttackMissile" parent="GenericAttackMissile" unitName="SoulAbsorptionMissle">
+        <On Terms="ActorCreation" Send="SetTintColor 185,2,38"/>
+<!--        <Model value="AlarakSoulAbsorptionDummyAttackMissile"/>-->
+        <Model value="Alarak_COOP_SoulAbsorption_Missile"/>
+    </CActorMissile>
+    <CActorAction id="AlarakSoulStealDummyAttack" parent="GenericAttack" effectImpact="AlarakSoulStealModifyImpactDummy" effectLaunch="AlarakSoulStealModifyLM">
+        <LaunchAssets Sound=""/>
+        <ImpactMap index="None" Model="" Sound="Raven_PointDefenseDroneReleaseImpact"/>
+        <ShieldFlashType value="None"/>
+    </CActorAction>
+    <CActorSound id="Alarak_SoulSteal_ActorSound" parent="SoundOneShot">
+        <Sound value="Alarak_SoulSteal"/>
+        <On Terms="Effect.SoulAbsorptionMU.Start; At Source" Send="Create"/>
+    </CActorSound>
+    <CActorUnit id="AlarakChampion" parent="GenericUnitStandard" unitName="AlarakChampion">
+        <On Terms="Abil.AlarakPsiOrb.SourceCastStart" Send="AnimPlay Spell Attack NonLooping 0.500000 0.500000 0.500000 AsDuration"/>
+        <On Terms="Abil.AlarakMindBlast.SourceCastStart" Send="AnimPlay Spell Attack NonLooping"/>
+        <On Terms="Abil.EnergyChannel.SourceChannelStart" Send="$Spell PlayForever"/>
+        <On Terms="Abil.EnergyChannel.SourceChannelStop" Send="AnimClear Spell"/>
+        <On Terms="Abil.AlarakKnockback.SourceCastStart; AnimPlaying Spell,A" Send="AnimClear Spell,A"/>
+        <On Terms="Abil.AlarakKnockback.SourceCastStart" Send="$Spell,A"/>
+        <On Terms="Abil.DestructionWaveNoOffset.SourcePrepStart" Send="$Spell,A 0 -1.000000 -1.000000 18.000000 AsDuration"/>
+        <On Terms="Behavior.AlarakAvatar.On" Send="SetTintColor {0,183,0 3.000000} 1.500000 OneShot Avatar"/>
+        <On Terms="Behavior.AlarakAvatar.On" Send="SetScale 1.500000 1.500000 Avatar"/>
+        <On Terms="Behavior.AlarakAvatar.On" Send="HaloStart"/>
+        <On Terms="Behavior.AlarakAvatar.On" Send="HaloSetColor 0,255,0"/>
+        <On Terms="Behavior.AlarakAvatar.Off" Send="ClearTintColor 1.500000 Avatar"/>
+        <On Terms="Behavior.AlarakAvatar.Off" Send="ClearScale 1.500000 Avatar"/>
+        <On Terms="Behavior.AlarakAvatar.Off" Send="HaloStop"/>
+        <On Terms="Behavior.AlarakAvatarPermanent.On" Send="SetTintColor {0,183,0 3.000000} 1.500000 OneShot Avatar"/>
+        <On Terms="Behavior.AlarakAvatarPermanent.On" Send="SetScale 1.500000 1.500000 Avatar"/>
+        <On Terms="Behavior.AlarakAvatarPermanent.On" Send="HaloStart"/>
+        <On Terms="Behavior.AlarakAvatarPermanent.On" Send="HaloSetColor 0,255,0"/>
+        <On Terms="Behavior.AlarakAvatarPermanent.Off" Send="ClearTintColor 1.500000 Avatar"/>
+        <On Terms="Behavior.AlarakAvatarPermanent.Off" Send="ClearScale 1.500000 Avatar"/>
+        <On Terms="Behavior.AlarakAvatarPermanent.Off" Send="HaloStop"/>
+        <Model value="DarkArchonChampion"/>
+        <BuildModel value="DarkArchonChampionWarpIn"/>
+        <DeathArray index="Normal" ModelLink="DarkArchonChampionDeath" SoundLink="Alarak_Death_Fx"/>
+        <PlacementModel value="DarkArchonChampion"/>
+        <PortraitActor value="AlarakEx2Portrait"/>
+        <PortraitModel value="AlarakEx2Portrait"/>
+        <WalkAnimMoveSpeed value="2.9492"/>
+        <AbilSoundArray AbilCmd="AlarakPsiOrb,Execute" Sound="Swarm_Silent"/>
+        <AbilSoundArray AbilCmd="AlarakMindBlast,Execute" Sound="Swarm_Silent"/>
+        <CustomUnitStatusFrame value="LotV_UnitStatus/HeroUnitEnergyStatusFrameTemplate"/>
+        <GroupIcon>
+            <Image value="Assets\Textures\wireframe-protoss-alarak.dds"/>
+        </GroupIcon>
+        <HeroIcon value="Assets\Textures\btn-unit-protoss-alarak.dds"/>
+        <LifeArmorIcon value="Assets\Textures\btn-upgrade-protoss-groundarmorlevel1.dds"/>
+        <SoundArray index="Ready" value="Alarak_Ready"/>
+        <SoundArray index="Help" value="Alarak_Help"/>
+        <SoundArray index="What" value="Alarak_What"/>
+        <SoundArray index="Yes" value="Alarak_Yes"/>
+        <SoundArray index="Attack" value="Alarak_Attack"/>
+        <SoundArray index="Pissed" value="Alarak_Pissed"/>
+        <UnitFlags index="SuppressDefaultStatusBar" value="1"/>
+        <UnitIcon value="Assets\Textures\btn-unit-protoss-alarak.dds"/>
+        <UnitKillRank Text="UnitKillRank/Alarak"/>
+        <Wireframe>
+            <Image value="Assets\Textures\wireframe-protoss-alarak.dds"/>
+        </Wireframe>
+        <WireframeShield>
+            <Image value="Assets\Textures\wireframe-protoss-alarak-shield01.dds"/>
+            <Image value="Assets\Textures\wireframe-protoss-alarak-shield02.dds"/>
+            <Image value="Assets\Textures\wireframe-protoss-alarak-shield03.dds"/>
+        </WireframeShield>
+        <StatusBarOn index="Custom" value="1"/>
+        <Aliases value="_UnitMedium"/>
+    </CActorUnit>
+    <CActorAction id="AlarakChampionAttack" parent="GenericAttack" effectAttack="DarkArchonChampionPsionicShockwaveDamage">
+        <LaunchAssets Sound="Archon_AttackLaunch"/>
+        <BeamScope value="Caster"/>
+        <ImpactGuideAlias value="_InitialImpactGuide"/>
+        <ImpactSiteOps Ops="SOpAttachHarness SOpAttachVolumeNoVizEnhance"/>
+        <ImpactMap index="None" Model="" Sound="Archon_AttackImpact"/>
+    </CActorAction>
+    <CActorBeamSimple id="AlarakChampionAttackBeam" parent="BeamSimpleAnimationStyleOneShot">
+        <On Terms="ActorCreation" Send="SetTintColor {128,0,0 2.000000}"/>
+        <On Terms="ActorCreation; ValidatePlayer AlarakAvatar" Send="SetTintColor {0,255,0 3.000000}"/>
+        <Model value="DarkArchonChampionAttackBeam"/>
+        <Scale value="0.500000"/>
+    </CActorBeamSimple>
+    <CActorAction id="AlarakChampionSplitAttack" parent="GenericAttack" effectAttack="DarkArchonChampionPsionicShockwaveSplitDamage">
+        <LaunchRequest Subject="_InitialImpactGuide" Actor="Find"/>
+        <LaunchAssets Sound="Archon_AttackLaunch"/>
+        <BeamScope value="Caster"/>
+        <ImpactSiteOps Ops="SOpAttachHarness SOpAttachVolumeNoVizEnhance"/>
+        <ImpactMap index="None" Model="" Sound="Archon_AttackImpact"/>
+    </CActorAction>
+    <CActorBeamSimple id="AlarakChampionSplitAttackBeam" parent="BeamSimpleAnimationStyleOneShot">
+        <On Terms="ActorCreation" Send="SetTintColor {128,0,0 2.000000}"/>
+        <Model value="DarkArchonChampionAttackBeam"/>
+        <Scale value="0.300000"/>
+    </CActorBeamSimple>
+    <CActorRange id="AlarakMindBlastRange" parent="RangeAbil" abil="AlarakMindBlast"/>
+    <CActorModel id="AlarakMindBlastModel" parent="ModelAnimationStyleOneShot">
+        <Model value="MindBlastExplosion"/>
+        <On Terms="Effect.AlarakMindBlast.Start; At Target" Send="Create"/>
+        <Host Subject="_Selectable"/>
+        <HostSiteOps Ops="SOpAttachHead"/>
+    </CActorModel>
+    <CActorSound id="AlarakMindBlastCastSound" parent="SoundOneShot">
+        <On Terms="Abil.AlarakMindBlast.SourceCastStart" Send="Create"/>
+    </CActorSound>
+    <CActorSound id="AlarakMindBlastImpactSound" parent="SoundOneShot">
+        <On Terms="Effect.MindBlast.Start; At Target" Send="Create"/>
+    </CActorSound>
+    <CActorSplat id="AlarakChampionMaelstromCursorSplat" parent="ProtossCursorSplat" abil="DarkArchonChampionMaelstrom"/>
+    <CActorModel id="AlarakChampionMaelstromImpact" parent="ModelAnimationStyleOneShot">
+        <On Terms="Effect.DarkArchonChampionMaelstromSearch.Start" Send="Create"/>
+        <Model value="DarkArchonChampionMaelstromImpact"/>
+    </CActorModel>
+    <CActorSound id="AlarakChampionMaelstromLaunchSound" parent="SoundOneShot">
+        <On Terms="Abil.DarkArchonChampionMaelstrom.SourceCastStart" Send="Create"/>
+        <Sound value="AlarakMindBlastCastSound"/>
+    </CActorSound>
+    <CActorRange id="AlarakChampionMaelstromRange" parent="RangeAbil" abil="DarkArchonChampionMaelstrom"/>
+    <CActorModel id="AlarakChampionMaelstromStunImpact" parent="ModelAnimationStyleContinuous">
+        <On Terms="ActorCreation" Send="AnimBracketStart GL_BSD GLbirth GLstand GLdeath"/>
+        <On Terms="Behavior.DarkArchonChampionMaelstrom.On" Send="Create"/>
+        <On Terms="ActorCreation" Send="AnimBracketStart $BSD"/>
+        <On Terms="Behavior.DarkArchonChampionMaelstrom.Off" Send="AnimBracketStop BSD"/>
+        <Host Subject="_Selectable"/>
+        <HostSiteOps Ops="SOpAttachOverhead"/>
+        <Model value="DarkArchonChampionMaelstromStunImpact"/>
+        <ModelFlags index="AutomateGlobalLoops" value="1"/>
+    </CActorModel>
+    <CActorModelMaterial id="AlarakSoulStealGlaze" parent="GlazeParent">
+        <On Terms="Effect.SoulAbsorptionMU.Start; At Target" Send="Create"/>
+        <On Terms="ActorCreation" Send="ModelMaterialApplyTo ::Main"/>
+        <On Terms="ActorCreation" Send="AnimBracketStart Birth Birth"/>
+        <On Terms="AnimDone; AnimName Birth" Send="Destroy"/>
+        <ModelFlags index="AutomateGlobalLoops" value="1"/>
+        <Model value="Glaze_Alarak_COOP_SoulAbsorption"/>
+    </CActorModelMaterial>
+    <CActorSound id="AlarakPsionicOrbLaunchSound" parent="SoundOneShot">
+        <Sound value="AlarakPsionicOrbLaunch"/>
+        <On Terms="Abil.AlarakPsiOrb.SourceCastStart" Send="Create"/>
+    </CActorSound>
+    <CActorSound id="AlarakPsionicOrbImpactSound" parent="SoundOneShot">
+        <Sound value="AlarakPsionicOrbImpact"/>
+        <On Terms="Effect.AlarakPsiOrbFinalSearch.Start" Send="Create"/>
+    </CActorSound>
+    <CActorSound id="AlarakPsionicOrbAttackSound" parent="SoundOneShot">
+        <Sound value="AlarakPsionicOrbAttack"/>
+    </CActorSound>
+    <CActorAction id="AlarakTheStrongestSurviveDummyAttack" parent="GenericAttack" effectImpact="AlarakTheStrongestSurviveDummyAttackMissileImpact" effectLaunch="AlarakTheStrongestSurviveDummyAttackMissile">
+        <LaunchAttachQuery Methods="Center"/>
+        <ImpactAttachQuery Methods="Center"/>
+        <ImpactSiteOps Ops="SOpAttachCenterSoft"/>
+        <ImpactMap index="None" Model="Alarak_COOP_Sacrifice_Missile_Impact"/>
+        <ShieldFlashType value="Full"/>
+    </CActorAction>
+    <CActorAction id="AlarakTheStrongestSurviveDummySecondaryAttack" parent="GenericAttack" effectImpact="AlarakTheStrongestSurviveDummySecondaryAttackMissileImpact" effectLaunch="AlarakTheStrongestSurviveDummySecondaryAttackMissile">
+        <LaunchAttachQuery Methods="Center"/>
+        <ImpactSiteOps Ops="SOpAttachHarness"/>
+        <ImpactMap index="None" Model="Alarak_COOP_Sacrifice_Missile_Impact_Small"/>
+        <ShieldFlashType value="Full"/>
+    </CActorAction>
+    <CActorMissile id="AlarakTheStrongestSurviveDummyAttackMissile" parent="GenericAttackMissile" unitName="AlarakTheStrongestSurviveDummyAttackMissile">
+        <Model value="Alarak_COOP_Sacrifice_Missile"/>
+    </CActorMissile>
+    <CActorMissile id="AlarakTheStrongestSurviveDummySecondaryAttackMissile" parent="GenericAttackMissile" unitName="AlarakTheStrongestSurviveDummySecondaryAttackMissile">
+        <Model value="Alarak_COOP_Sacrifice_Missile"/>
+        <Scale value="0.500000"/>
+    </CActorMissile>
+    <CActorSound id="Alarak_EmpowerBeam_Loop_AS" parent="SoundContinuous">
+        <EditorCategories value=""/>
+        <Sound value="Alarak_EmpowerBeam_Loop"/>
+        <Layers Sound="Alarak_Empower_SoulSteal_Lyr_Loop">
+            <Chance value="100"/>
+            <Pitch value="0.000000,0.000000"/>
+            <PlayDelay value="0,0"/>
+            <Volume value="0.000000,0.000000"/>
+        </Layers>
+    </CActorSound>
+    <CActorSound id="Alarak_LightningStrike_AS" parent="SoundOneShot">
+        <EditorCategories value=""/>
+        <Sound value="Alarak_LightningStrike"/>
+        <Layers Sound="Alarak_LightningStrike_Lyr_Impact">
+            <Chance value="100"/>
+            <Pitch value="0.000000,0.000000"/>
+            <PlayDelay value="0,0"/>
+            <Volume value="0.000000,0.000000"/>
+        </Layers>
+    </CActorSound>
+
+
+    <CActorModel id="AscendantSacrificeLaunchModel" parent="ModelAnimationStyleOneShot">
+        <Host Subject="_Unit"/>
+        <HostSiteOps Ops="SOpAttachOrigin"/>
+        <On Terms="Abil.AscendantSacrifice.SourceCastStart" Send="Create"/>
+    </CActorModel>
+    <CActorModel id="AscendantSacrificeImpactModel" parent="ModelAnimationStyleOneShot">
+        <On Terms="Abil.AscendantSacrifice.TargetCastStart" Send="Create"/>
+    </CActorModel>
+    <CActorSound id="AscendantSacrificeImpactSound" parent="SoundOneShot">
+<!--        <Sound value="Tosh_ConsumptionImpact"/>-->
+        <Sound value="AscendantSacrificeImpact"/>
+        <On Terms="Abil.AscendantSacrifice.SourceCastStart" Send="Create"/>
+    </CActorSound>
+    <CActorSound id="AscendantSacrificeLaunchSound" parent="SoundOneShot">
+<!--        <Sound value="HighTemplar_Sacrifice_Launch"/>-->
+        <On Terms="Abil.AscendantSacrifice.SourceCastStart" Send="Create"/>
+
+        <On Terms="Effect.AscendantSacrificeSelfBuffSet.Start" Send="Create"/>
+        <HostSiteOps Ops="SOpAttachWeapon"/>
+        <!-- <HostSiteOps Ops="SOpAttachOriginStationary"/> -->
+        <!-- <On Terms="Effect.AscendantSacrificeSelfBuffSet.Start; At Caster" Send="Create"/> -->
+        <Sound value="AscendantSacrificeLaunch"/>
+
+    </CActorSound>
+    <CActorMissile id="AscendantSacrificeDummy1AttackMissile" parent="GenericAttackMissile" unitName="AscendantSacrificeWeapon1"/>
+    <CActorAction id="AscendantSacrificeDummy1Attack" parent="GenericAttack" effectImpact="AscendantSacrificeLM1ImpactDummy" effectLaunch="AscendantSacrificeLM1">
+        <ImpactSiteOps Ops="SOpAttachCenter"/>
+        <LaunchSiteOps Ops="SOpTargetUnit SOpAttachCenter"/>
+        <ShieldFlashType value="None"/>
+    </CActorAction>
+    <CActorMissile id="AscendantSacrificeDummy2AttackMissile" parent="GenericAttackMissile" unitName="AscendantSacrificeWeapon2"/>
+    <CActorAction id="AscendantSacrificeDummy2Attack" parent="GenericAttack" effectImpact="AscendantSacrificeLM2ImpactDummy" effectLaunch="AscendantSacrificeLM2">
+        <ImpactSiteOps Ops="SOpAttachCenter"/>
+        <LaunchSiteOps Ops="SOpTargetUnit SOpAttachCenter"/>
+        <ShieldFlashType value="None"/>
+    </CActorAction>
+    <CActorMissile id="AscendantSacrificeDummy3AttackMissile" parent="GenericAttackMissile" unitName="AscendantSacrificeWeapon3"/>
+    <CActorAction id="AscendantSacrificeDummy3Attack" parent="GenericAttack" effectImpact="AscendantSacrificeLM3ImpactDummy" effectLaunch="AscendantSacrificeLM3">
+        <ImpactSiteOps Ops="SOpAttachCenter"/>
+        <LaunchSiteOps Ops="SOpTargetUnit SOpAttachCenter"/>
+        <ShieldFlashType value="None"/>
+    </CActorAction>
+
+    <CActorUnit id="ForceField">
+        <On Terms="Effect.ForceFieldTimedLife.Start; ValidateEffect IsAlarakCoopCommander" Send="SetTintColor {255,16,16 3.000000}"/>
+    </CActorUnit>
+    <CActorUnit id="CoopCasterAlarak" parent="ProtossBuilding" unitName="CoopCasterAlarak">
+        <Macros value="GlobalLoopMacro"/>
+        <Macros value="QueueAnim"/>
+        <Macros value="UnpoweredAnim"/>
+        <Macros value="BuildingFlattenTerrainMacro"/>
+        <Macros value="ProtossBuildingPowerUp"/>
+        <Model value="SoACaster"/>
+        <EventDataSound Name="BuildingWarpIn" Actor="UnitSound" Sound="Protoss_BuildingWarpIn"/>
+        <BuildModel value="SoACasterBirth"/>
+        <DeathArray index="Normal" ModelLink="SoACasterDeath" SoundLink="SoACaster_Explode"/>
+        <DeathArray index="UnderConstruction" ModelLink="ProtossWarpInDeath" SoundLink="Gateway_Explode"/>
+        <PlacementModel value="SoACaster"/>
+        <PlacementSound value="Protoss_BuildingPlacement"/>
+        <PortraitModel value="ExecutorPortrait"/>
+        <BarOffset value="140"/>
+        <BarWidth value="160"/>
+        <GroupIcon>
+            <Image value="Assets\Textures\wireframe-protoss-shipgeneratorsmall.dds"/>
+        </GroupIcon>
+        <HeroIcon value="Assets\Textures\btn-building-protoss-obelisk.dds"/>
+        <LifeArmorIcon value="Assets\Textures\btn-armor-protoss-buildingplating.dds"/>
+        <NameOffset value="130"/>
+        <UnitIcon value="Assets\Textures\btn-building-protoss-obelisk.dds"/>
+        <Wireframe>
+            <Image value="Assets\Textures\wireframe-protoss-shipgeneratorsmall.dds"/>
+        </Wireframe>
+        <WireframeShield>
+            <Image value="Assets\Textures\wireframe-protoss-shipgeneratorsmall-shield01.dds"/>
+            <Image value="Assets\Textures\wireframe-protoss-shipgeneratorsmall-shield02.dds"/>
+            <Image value="Assets\Textures\wireframe-protoss-shipgeneratorsmall-shield03.dds"/>
+        </WireframeShield>
+    </CActorUnit>
+    <CActorRange id="AlarakMothershipMassRecallRange" abil="AlarakMothershipMassRecall">
+        <Flags index="SuppressSaveLoad" value="1"/>
+        <On Terms="Abil.AlarakMothershipMassRecall.TargetOn" Send="Create"/>
+        <On Terms="Abil.AlarakMothershipMassRecall.TargetOff" Send="Destroy"/>
+        <On Terms="Abil.AlarakMothershipMassRecall.ButtonHoverOn" Send="Create"/>
+        <On Terms="Abil.AlarakMothershipMassRecall.ButtonHoverOff" Send="Destroy"/>
+        <Range value="12.000000"/>
+    </CActorRange>
+    <CActorModel id="AlarakTheStrongestSurviveSearchImpact" parent="ModelAnimationStyleOneShot">
+        <On Terms="Effect.AlarakTheStrongestSurviveSearchImpact.Start" Send="Create"/>
+        <InheritType value="OneShot"/>
+        <HostSiteOps Ops="SOpTargetPointStationary"/>
+        <Scale value="2.000000"/>
+        <Model value="Alarak_COOP_Sacrifice_Impact"/>
+    </CActorModel>
+    <CActorText id="SalvagedTextAlly">
+        <On Terms="UnitRefund.AlarakSupplicantWarpTrainDummy.Salvage" Send="Destroy Immediate"/>
+    </CActorText>
+    <CActorText id="SalvagedTextEnemy">
+        <On Terms="UnitRefund.AlarakSupplicantWarpTrainDummy.Salvage" Send="Destroy Immediate"/>
+    </CActorText>
+    <CActorModel id="ColossusTaldarimChargedBeamPowerUpModel" parent="ModelAnimationStyleOneShot">
+        <Host Subject="_Unit"/>
+        <HostSiteOps Ops="SOpAttachHead"/>
+    </CActorModel>
+    <CActorSound id="ColossusTaldarimChargedMissilePowerUpSound" parent="SoundOneShot">
+<!--        <Flags index="SuppressSaveLoad" value="0"/>-->
+<!--        <On Terms="SupporterDestruction" Send="Destroy"/>-->
+<!--        <On Terms="ActorOrphan" Send="Destroy"/>-->
+<!--        <On Terms="ActorCreation" Send="SoundSetPitch Linear 0.000000@0.000000,20.000000@3000.000000"/>-->
+<!--        <Host Subject="_Unit"/>-->
+        <Sound value="ColossusTaldarim_Missile_PowerUpSound"/>
+
+        <Flags index="SuppressSaveLoad" value="1"/>
+        <On index="1" removed="1"/>
+        <On index="2" removed="1"/>
+        <On index="3" removed="1"/>
+        <Host Scope="Target"/>
+        <Layers Sound="VoidShard_UnstableEnergy_LaunchElectricRip">
+            <Chance value="100"/>
+            <Pitch value="0.000000,0.000000"/>
+            <PlayDelay value="0,0"/>
+            <Volume value="-20.000000,-20.000000"/>
+        </Layers>
+    </CActorSound>
+    <CActorMissile id="ColossusTaldarimAttackMissile" parent="GenericAttackMissileWithDeathAnim" unitName="ColossusTaldarimWeapon"/>
+    <CActorAction id="ColossusTaldarimAttack" parent="GenericAttack" effectImpact="ColossusTaldarimDamage" effectLaunch="ColossusTaldarimLM">
+        <LaunchAttachQuery Methods="Head"/>
+        <LaunchAssets Sound="ColossusTaldarim_Missile_AttackLaunch"/>
+        <ImpactMap index="None" Model="ColossusTaldarimAttackBeamImpact" Sound="ColossusTaldarim_Missile_AttackImpact"/>
+    </CActorAction>
+    <CActorSound id="StalkerTaldarimPhaseArmorOff" parent="SoundOneShot">
+        <On Terms="Behavior.AlarakStalkerPhasingArmorBuff.Off" Send="Create"/>
+        <On Terms="Behavior.AlarakStalkerPhasingArmorBuff.On" Send="Destroy"/>
+        <Sound value="StalkerTaldarim_PhaseArmor_Off"/>
+    </CActorSound>
+    <CActorSound id="StalkerTaldarimPhaseArmorOn" parent="SoundOneShot">
+        <On Terms="Behavior.AlarakStalkerPhasingArmorBuff.On" Send="Create"/>
+        <On Terms="Behavior.AlarakStalkerPhasingArmorBuff.Off" Send="Destroy"/>
+        <Sound value="StalkerTaldarim_PhaseArmor_On"/>
+    </CActorSound>
+
+
+    <CActorModel id="AlarakDeadlyCharge" parent="ModelAnimationStyleOneShotNoOrphan">
+        <On Terms="Effect.AlarakDeadlyCharge; At Source" Send="Create"/>
+        <On Terms="ActorCreation" Send="RefSet ::scope.Launch ::Self"/>
+        <Host Subject="_Selectable"/>
+        <HostSiteOps Ops="SOpAttachCenter"/>
+        <On Terms="Abil.AlarakACDeadlyCharge.SourceCastStart" Send="Create"/>
+    </CActorModel>
+    <CActorSiteOpForward id="SOpForwardAlarak">
+        <HostForward Subject="AlarakChampion"/>
+    </CActorSiteOpForward>
+    <CActorModel id="AlarakDeadlyChargeImpact" parent="ModelAnimationStyleOneShotNoOrphan">
+        <On Terms="Effect.AlarakDeadlyChargeDamage.Start; At Target" Send="Create"/>
+        <ModelFlags index="AutomateGlobalLoops" value="1"/>
+        <HostSiteOps Ops="SOpAttachOrigin"/>
+        <On Terms="Effect.AlarakACDeadlyChargePointSearchImpactSet.Start; At Caster" Send="Create"/>
+        <On Terms="Effect.AlarakACDeadlyChargeImpactSet.Start; At Caster" Send="Create"/>
+    </CActorModel>
+    <CActorSiteMover id="AlarakDestructionWaveImpactSite">
+        <Acceleration value="99"/>
+        <Deceleration value="999"/>
+        <Speed value="15"/>
+        <SpeedMax value="15"/>
+        <HostSiteOps Ops="SOpShadow"/>
+        <On Terms="Effect.AlarakKnockbackModelStartPoint.Start" Send="Create"/>
+        <On Terms="Effect.AlarakKnockbackModelEndPoint.Start; At Effect" Send="MoverSetDestination2D"/>
+    </CActorSiteMover>
+    <CActorModel id="AlarakDestructionWave" parent="ModelAnimationStyleContinuous">
+        <On Terms="ActorCreation" Send="AnimBracketStart BSD Birth Stand Death"/>
+        <On Terms="Effect.AlarakKnockbackSecondCP.Stop" Send="AnimBracketStop BSD"/>
+        <On Terms="Effect.AlarakKnockbackModelEndPoint.Start" Target="AlarakDestructionWaveImpactSite" Send="MoverMove"/>
+        <On Terms="AnimBracketState.*.AfterClosing; AnimName BSD" Send="Destroy"/>
+        <On Terms="Effect.AlarakKnockbackModelStartPoint.Start" Send="Create"/>
+        <Host Subject="AlarakDestructionWaveImpactSite"/>
+        <HostSiteOps Ops="SOpForwardAlarak" HoldRotation="1"/>
+        <ModelFlags index="AutomateGlobalLoops" value="1"/>
+    </CActorModel>
+    <CActorModel id="AlarakDestructionWaveNoOffset" parent="ModelAnimationStyleContinuous">
+        <On Terms="ActorCreation" Send="AnimBracketStart BSD Birth Stand Death"/>
+        <On Terms="Effect.AlarakKnockbackSecondCPNoOffset.Stop" Send="AnimBracketStop BSD"/>
+        <On Terms="Effect.AlarakKnockbackModelEndPointNoOffset.Start" Target="AlarakDestructionWaveImpactSiteNoOffset" Send="MoverMove"/>
+        <On Terms="AnimBracketState.*.AfterClosing; AnimName BSD" Send="Destroy"/>
+        <On Terms="Effect.AlarakKnockbackModelStartPointNoOffset.Start" Send="Create"/>
+        <Host Subject="AlarakDestructionWaveImpactSiteNoOffset"/>
+        <HostSiteOps Ops="SOpForwardAlarak" HoldRotation="1"/>
+        <ModelFlags index="AutomateGlobalLoops" value="1"/>
+    </CActorModel>
+    <CActorSiteMover id="AlarakDestructionWaveImpactSiteNoOffset">
+        <Acceleration value="99"/>
+        <Deceleration value="999"/>
+        <Speed value="15"/>
+        <SpeedMax value="15"/>
+        <HostSiteOps Ops="SOpShadow"/>
+        <On Terms="Effect.AlarakKnockbackModelStartPointNoOffset.Start" Send="Create"/>
+        <On Terms="Effect.AlarakKnockbackModelEndPointNoOffset.Start; At Effect" Send="MoverSetDestination2D"/>
+    </CActorSiteMover>
+    <CActorModel id="AlarakDestructionWaveImpact" parent="ModelAnimationStyleOneShot">
+        <On Terms="Effect.AlarakKnockbackSearchN4Switch.Start" Send="Create"/>
+        <On Terms="Effect.AlarakKnockbackSearchN3Switch.Start" Send="Create"/>
+        <On Terms="Effect.AlarakKnockbackSearchN2Switch.Start" Send="Create"/>
+        <On Terms="Effect.AlarakKnockbackSearchN1Switch.Start" Send="Create"/>
+        <On Terms="Effect.AlarakKnockbackSearchPSwitch.Start" Send="Create"/>
+        <HostSiteOps Ops="SOpAttachOrigin"/>
+    </CActorModel>
+    <CActorQuad id="AlarakDestructionWaveGuide" parent="ZergGuideVisualQuadDown" abil="AlarakKnockback">
+        <HostSiteOps Ops="SOpAttachOrigin SOpMoveBackBy2 SOpMoveBackBy2"/>
+        <Height value="14.000000"/>
+        <Width value="6"/>
+        <LaunchActor value="ProtossGuideVisualQuadLargeLaunch"/>
+        <CenterActor value="ProtossGuideVisualQuadLargeCenter"/>
+        <ImpactActor value="ProtossGuideVisualQuadLargeImpact"/>
+        <Remove Terms="ActorDestruction" Target="_GuideQuadSegment" Send="Destroy"/>
+        <On Terms="ActorDestruction" Target="_GuideQuadSegment" Send="AnimBracketStop BSD"/>
+
+        <Remove index="0" Send="AnimBracketStop BSD"/>
+        <On Terms="ActorDestruction" Target="_GuideQuadSegment" Send="Destroy"/>
+    </CActorQuad>
+    <CActorRange id="AlarakDestructionRange">
+        <On Terms="Abil.AlarakKnockback.TargetOn" Send="Create"/>
+        <On Terms="Abil.AlarakKnockback.TargetOff" Send="Destroy"/>
+        <Flags index="SuppressSaveLoad" value="1"/>
+        <Range value="8"/>
+        <Remove Terms="ActorOrphan" Send="Destroy"/>
+        <Remove Terms="Abil.AlarakKnockback.TargetOn" Send="Create"/>
+        <Remove Terms="Abil.AlarakKnockback.TargetOff" Send="Destroy"/>
+    </CActorRange>
+    <CActorSound id="DestructionWave_Cast_ActorSound" parent="SoundOneShot">
+        <On Terms="Abil.AlarakKnockback.TargetCastStart" Send="Create"/>
+        <Sound value="Alarak_DestructionWave_Cast"/>
+    </CActorSound>
+    <CActorSound id="DestructionWave_Impact_ActorSound" parent="SoundOneShot">
+        <On Terms="Effect.DestructionWaveDamage.Start" Send="Create"/>
+        <Sound value="Alarak_DestructionWave_Impact"/>
+    </CActorSound>
+    <CActorSound id="AlarakDeadlyChargeCastSound" parent="SoundOneShot">
+        <On Terms="Effect.AlarakDeadlyCharge.Start" Send="Create"/>
+        <On Terms="Abil.AlarakACDeadlyCharge.SourceCastStart" Send="Create"/>
+    </CActorSound>
+    <CActorSound id="AlarakDeadlyChargeImpactSound" parent="SoundOneShot">
+        <On Terms="Effect.AlarakDeadlyChargeDamage.Start" Send="Create"/>
+    </CActorSound>
+
+
+
+    <CActorBeamSimple id="AlarakLightningStrikesAttackBeam">
+        <Flags index="SuppressSaveLoad" value="1"/>
+        <On Terms="ActorCreation" Send="AnimBracketStart BSD Birth {} Death ContentPlayOnce"/>
+        <On Terms="ActorOrphan" Send="AnimBracketStop BSD"/>
+        <On Terms="AnimBracketState.*.AfterClosing; AnimName BSD" Send="Destroy"/>
+        <Model value="Alarak_COOP_LightningStrikes_Beam"/>
+    </CActorBeamSimple>
+    <CActorModel id="AlarakLightningStrike" parent="BuffContinuous">
+        <On Terms="Behavior.AlarakLightningStrikes.On" Send="Create"/>
+        <On Terms="Behavior.AlarakLightningStrikes.Off" Send="AnimBracketStop BSD"/>
+        <Host Subject="_Unit"/>
+        <HostSiteOps Ops="SOpAttachOriginSoft"/>
+        <Model value="Alarak_COOP_LightningStrikes_PowerUp"/>
+    </CActorModel>
+    <CActorModel id="AlarakSummonDeathFleetCursor" parent="TerranCursorModel" abil="AlarakACSummonDeathfleetTarget">
+        <On Terms="ActorCreation" Send="SetFacing 95.000000"/>
+        <HostSiteOps Ops="SOpBasicScopePositionFollowHoldRotation SOpDeathFleetPlacement"/>
+        <Model value="MothershipTaldarimPlacement"/>
+    </CActorModel>
+    <!--CActorModel id="AlarakTheStrongestSurviveSupplicantSacrificeDamage" parent="ModelAnimationStyleOneShot">
+        <On Terms="Effect.AlarakTheStrongestSurviveSupplicantSacrificeDamageUD.Start" Send="Create"/>
+    </CActorModel-->
+    <CActorRange id="AscendantSacrificeRange" parent="RangeAbil" abil="AscendantSacrifice"/>
+    <CActorRange id="AscendantSacrificeInstantRange">
+        <Range value="12.000000"/>
+        <On Terms="ActorOrphan" Send="Destroy"/>
+        <On Terms="Abil.AscendantSacrificeInstant.TargetOn" Send="Create"/>
+        <On Terms="Abil.AscendantSacrificeInstant.TargetOff" Send="Destroy"/>
+        <On Terms="Abil.AscendantSacrificeInstant.ButtonHoverOn" Send="Create"/>
+        <On Terms="Abil.AscendantSacrificeInstant.ButtonHoverOff" Send="Destroy"/>
+    </CActorRange>
+
+    <CActorUnit id="HighTemplarTaldarim" parent="GenericUnitStandard" unitName="HighTemplarTaldarim">
+        <ModelFlags index="OutlineEmitter" value="1"/>
+        <PortraitModel value="HighTemplarTaldarimPortrait"/>
+        <PlacementModel value="HighTemplarTaldarimPlacement"/>
+        <PlacementSound value="Protoss_BuildingPlacementSmall"/>
+        <BuildModel value="HighTemplarTaldarimWarpIn"/>
+        <DeathArray index="Normal" ModelLink="HighTemplarTaldarimDeath" SoundLink="Ascendant_Death_Fx" VoiceLink="Ascendant_Death"/>
+        <AnimBlendTime value="0.45"/>
+        <On Terms="Abil.PsiStorm.SourceCastStart" Send="AnimPlay A A"/>
+        <On Terms="Abil.PhaseShift.SourceCastStart" Send="AnimPlay B B"/>
+        <On Terms="Abil.Feedback.SourceCastStart" Send="AnimPlay B B"/>
+        <On Terms="Abil.PlasmaSurge.SourceCastStart" Send="AnimPlay B B"/>
+        <On Terms="Abil.Vortex.SourceCastStart" Send="AnimPlay A A"/>
+        <On Terms="Abil.TemporalRift.SourceCastStart" Send="AnimPlay A A"/>
+        <On Terms="Abil.VoidHighTemplarMindBlast.SourceCastStart" Send="AnimPlay A A"/>
+        <On Terms="Abil.VoidHighTemplarPsiOrb.SourceCastStart" Send="AnimPlay A A"/>
+        <On Terms="Abil.AscendantSacrifice.SourceCastStart" Send="AnimPlay B Spell,B"/>
+        <On Terms="Behavior.Hallucination.On" Send="Create HallucinationBirthSoundSmall"/>
+        <On Terms="UnitDeathCustomize; ValidateUnit IsHallucination" Send="DeathCustomize Hallucination"/>
+        <On Terms="WeaponStart.AscendantWeapon.AttackStart" Send="$Spell,A"/>
+        <On Terms="ActorCreation" Send="TimerSet 0.200000 Shadow"/>
+        <On Terms="TimerExpired; TimerName Shadow; IsStatus ShadowCreate 1; !ModelIsLowQuality" Send="Create HighTemplarTaldarimShadow"/>
+        <On Terms="TimerExpired; TimerName Shadow" Send="TimerSet 0.200000 Shadow"/>
+        <On Terms="UnitMovementUpdate.*.Stand" Send="StatusSet ShadowCreate 0"/>
+        <On Terms="UnitMovementUpdate.*.Walk" Send="StatusSet ShadowCreate 1"/>
+        <On Terms="ActorCreation" Send="StatusSet ShadowCreate 0"/>
+        <On Terms="UnitHeightUpdate.*.Land" Send="Create HighTemplar_Land"/>
+        <On Terms="UnitHeightUpdate.*.Land" Send="Create Templar_LandSweetener"/>
+        <WalkAnimMoveSpeed value="2.25"/>
+        <DeathCustoms ModelLink="HallucinationDeath" SoundLink="Sentry_HallucinationDeathSmall" Name="Hallucination"/>
+        <BarWidth value="42"/>
+        <BarOffset value="70"/>
+        <UnitIcon value="Assets\Textures\btn-unit-protoss-hightemplar-taldarim.dds"/>
+        <HeroIcon value="Assets\Textures\btn-unit-protoss-hightemplar-taldarim.dds"/>
+        <WireframeShield>
+            <Image value="Assets\Textures\wireframe-protoss-hightemplar-taldarim-shield01.dds"/>
+            <Image value="Assets\Textures\wireframe-protoss-hightemplar-taldarim-shield02.dds"/>
+            <Image value="Assets\Textures\wireframe-protoss-hightemplar-taldarim-shield03.dds"/>
+        </WireframeShield>
+        <GroupIcon>
+            <Image value="Assets\Textures\wireframe-protoss-hightemplar-taldarim.dds"/>
+        </GroupIcon>
+        <Wireframe>
+            <Image value="Assets\Textures\wireframe-protoss-hightemplar-taldarim.dds"/>
+        </Wireframe>
+        <AbilSoundArray AbilCmd="PsiStorm,Execute" Sound="HighTemplar_PsionicStormVO"/>
+        <AbilSoundArray AbilCmd="ArchonWarp,SelectedUnits" Sound="HighTemplar_ArchonWarpVO"/>
+        <AbilSoundArray AbilCmd="TemporalRift,Execute" Sound="HighTemplar_Attack"/>
+        <LifeArmorIcon value="Assets\Textures\btn-upgrade-protoss-groundarmorlevel0.dds"/>
+        <SelectAbilCmd value="PsiStorm,Execute"/>
+        <SoundArray index="Birth" value="HighTemplar_Birth"/>
+        <SoundArray index="Ready" value="Ascendant_Ready"/>
+        <SoundArray index="Help" value="Ascendant_What"/>
+        <SoundArray index="What" value="Ascendant_What"/>
+        <SoundArray index="Yes" value="Ascendant_Yes"/>
+        <SoundArray index="Attack" value="Ascendant_Attack"/>
+        <SoundArray index="Pissed" value="Ascendant_Pissed"/>
+        <Aliases value="_UnitSmall"/>
+
+        <On Terms="Behavior.AscendantSacrificeSelfBuff.On" Send="Create AscendantSacrificeEffect"/>
+        <HeroIcon value="Assets\Textures\btn-unit-protoss-alarak-taldarim-hightemplar.dds"/>
+        <UnitIcon value="Assets\Textures\btn-unit-protoss-alarak-taldarim-hightemplar.dds"/>
+        <AbilSoundArray AbilCmd="VoidHighTemplarPsiOrb,Execute" Sound="HighTemplarTaldarim_SpellAttackVO"/>
+        <AbilSoundArray AbilCmd="VoidHighTemplarMindBlast,Execute" Sound="HighTemplarTaldarim_SpellAttackVO"/>
+
+    </CActorUnit>
+    <CActorModel id="HighTemplarTaldarimShadow" parent="ModelAnimationStyleOneShotNoOrphan">
+        <Model value="HighTemplarShadow"/>
+        <Host Subject="_Selectable"/>
+        <HostSiteOps Ops="SOpAttachOriginStationary SOp2DRotation"/>
+        <On Terms="ActorCreation" Send="TimerSet 0.400000 ShadowFade"/>
+        <On Terms="ActorCreation" Send="SetTintColor 0,0,128 0.800000"/>
+        <On Terms="ActorCreation" Send="SetOpacity"/>
+        <On Terms="ActorCreation" Send="SetOpacity 0.500000 0.400000"/>
+        <On Terms="TimerExpired; TimerName ShadowFade" Send="SetOpacity 0.000000 0.400000"/>
+        <Inherits index="CloakEffect" value="1"/>
+    </CActorModel>
+    <CActorForceSphere id="HighTemplarPsiBlastDeathImpactForce">
+        <Receiver Subject="::Main"/>
+        <HostSiteOps Ops="SOpIncomingMissileDot25 SOpRotVariancerForward15"/>
+        <Magnitude value="20.000000,5.000000"/>
+        <Radius value="0.500000,0.250000"/>
+        <Field value="Directional"/>
+        <Direction value="Forward"/>
+        <Duration value="0.25"/>
+    </CActorForceSphere>
+
+
+    <CActorBeamSimple id="SupplicantSacrificeBeam" parent="BeamSimpleAnimationStyleOneShot">
+        <On Terms="Effect.AscendantSacrificeSelfBuffSet.Start" Send="Create"/>
+        <On Terms="ActorCreation" Send="TimerSet 0.250000 BeamDelay"/>
+        <On Terms="TimerExpired; TimerName BeamDelay" Send="Create SupplicantSacrificeBeamImpact"/>
+        <On Terms="TimerExpired; TimerName BeamDelay" Send="Create AscendantSacrificeImpactSound"/>
+        <ModelFlags index="AutomateGlobalLoops" value="1"/>
+        <Macros value="GlobalLoopMacro"/>
+        <HostLaunchSiteOps Ops="SOpAttachWeapon"/>
+        <HostImpactSiteOps Ops="SOpAttachOrigin"/>
+        <HostLaunch Subject="_Unit" Scope="Caster" Actor="Find"/>
+        <HostImpact Subject="_Unit" Scope="Target" Actor="Find"/>
+    </CActorBeamSimple>
+    <CActorModel id="SupplicantSacrificeBeamImpact" parent="ModelAnimationStyleOneShot"/>
+    <CActorModel id="AscendantSacrificeEffect" parent="ModelAddition">
+        <HostSiteOps Ops="SOpAttachOrigin SOpMoveUpByDot5"/>
+        <Macros value="GlobalLoopMacroMore"/>
+        <On Terms="ActorCreation" Send="SetTintColor {255,0,0 5.000000}"/>
+        <On Terms="ActorCreation" Send="SetOpacity 0.050000"/>
+        <On Terms="Signal.*.2" Send="SetScale 1.100000"/>
+        <On Terms="Signal.*.2" Send="SetOpacity 0.050000"/>
+        <On Terms="Signal.*.3" Send="SetScale 1.200000"/>
+        <On Terms="Signal.*.3" Send="SetOpacity 0.075000"/>
+        <On Terms="Signal.*.4" Send="SetScale 1.300000"/>
+        <On Terms="Signal.*.4" Send="SetOpacity 0.100000"/>
+        <On Terms="Signal.*.5" Send="SetScale 1.400000"/>
+        <On Terms="Signal.*.5" Send="SetOpacity 0.150000"/>
+        <On Terms="Signal.*.6" Send="SetScale 1.500000"/>
+        <On Terms="Signal.*.6" Send="SetOpacity 0.250000"/>
+        <On Terms="Signal.*.7" Send="SetScale 1.600000"/>
+        <On Terms="Signal.*.7" Send="SetOpacity 0.350000"/>
+        <On Terms="Signal.*.8" Send="SetScale 1.700000"/>
+        <On Terms="Signal.*.8" Send="SetOpacity 0.450000"/>
+        <On Terms="Signal.*.9" Send="SetScale 1.800000"/>
+        <On Terms="Signal.*.9" Send="SetOpacity 0.550000"/>
+        <On Terms="Signal.*.10" Send="SetScale 1.900000"/>
+        <On Terms="Signal.*.10" Send="SetOpacity 1.000000"/>
+    </CActorModel>
+    <CActorUnit id="AlarakRushPlaceholder" parent="GenericUnitMinimal" unitName="AlarakRushPlaceholder">
+        <Model value="Invisible"/>
+        <BuildModel value="Invisible"/>
+        <PlacementModel value="Invisible"/>
+    </CActorUnit>
+
+    <!--CActorModel id="AlarakStructureOverchargeShieldModel" parent="ModelAnimationStyleContinuous">-->
+    <!--        <Macros value="GlobalLoopMacro"/>-->
+    <!--        <Macros value="GlobalLoopMacroMore"/>-->
+    <!--        <On Terms="Behavior.AlarakStructureOvercharge.On" Send="Create"/>-->
+    <!--        <On Terms="Behavior.AlarakStructureOvercharge.DamageExhausted" Send="AnimBracketStop BSD"/>-->
+    <!--        <On Terms="Effect.AlarakStructureOverchargeRefresh.Start; At Target" Send="Create"/>-->
+    <!--        <On Terms="Behavior.AlarakStructureOvercharge.Off" Send="AnimBracketStop BSD"/>-->
+    <!--        <Host Subject="_Selectable"/>-->
+    <!--        <HostSiteOps Ops="SOpAttachCenter SOpForwardNorth"/>-->
+    <!--        <AutoScaleFactor value="1.000000"/>-->
+    <!--        <Terms value="Cap 1"/>-->
+    <!--        <Model value="SuperShieldModel"/>-->
+    <!--    </CActorModel-->
+    <CActorModelMaterial id="AlarakStructureOverchargeShieldGlaze" parent="GlazeParent">
+        <On Terms="ActorCreation" Send="ModelMaterialApplyTo ::Main"/>
+        <On Terms="Behavior.AlarakStructureOverchargeShield.Off" Send="Destroy"/>
+        <On Terms="Behavior.AlarakStructureOverchargeShield.On" Send="Create"/>
+        <Model value="GlazeSuperShield"/>
+        <ModelFlags index="AutomateGlobalLoops" value="1"/>
+    </CActorModelMaterial>
+    <CActorSiteOpLocalOffset id="SOpDeathFleetPlacement">
+        <LocalOffset value="0.000000,0.000000,3.750000"/>
+    </CActorSiteOpLocalOffset>
+    <CActorSiteOpLocalOffset id="SOpSupplicantPlacementLeft">
+        <LocalOffset value="-0.500000,0.000000,0.000000"/>
+    </CActorSiteOpLocalOffset>
+    <CActorSiteOpLocalOffset id="SOpSupplicantPlacementRight">
+        <LocalOffset value="0.500000,0.000000,0.000000"/>
+    </CActorSiteOpLocalOffset>
+    <!--CActorModel id="SquadSightAttachment">-->
+    <!--        <On Terms="Upgrade.AlarakHavocAbilityRange.Add" Send="SetScale 1.500000"/>-->
+    <!--        <On Terms="Upgrade.AlarakHavocAbilityRange.Remove" Send="SetScale"/>-->
+    <!--    </CActorModel-->
+    <CActorRange id="SquadSightRange">
+        <Range value="3.500000"/>
+        <On Terms="SelectionLocalUpdate.Monitor.Start" Send="Create"/>
+        <On Terms="SelectionLocalUpdate.Monitor.StartEditorGround" Send="Create"/>
+        <On Terms="SelectionLocalUpdate.Monitor.StartEditorFlyer" Send="Create"/>
+        <On Terms="SelectionLocalUpdate.Monitor.Stop" Send="Destroy"/>
+        <Icon value="Assets\Textures\RadarIcon2.dds"/>
+        <IconTint value="255,255,0,0"/>
+    </CActorRange>
+    <CActorAction id="SupplicantAttack" parent="GenericAttack" effectImpact="SupplicantDamage" effectLaunch="SupplicantLM">
+        <LaunchAssets Model="Supplicant_COOP_Missile_Launch" Sound="Supplicant_AttackLaunch"/>
+        <ImpactMap index="None" Model="SupplicantImpact" Sound="Supplicant_AttackImpact"/>
+        <LaunchSiteOps Ops="SOpAttachWeaponRight"/>
+    </CActorAction>
+    <!--CActorModel id="SquadSightAttachment">
+        <On Terms="Upgrade.AlarakHavocAbilityRange.Add" Send="SetScale 1.500000"/>
+        <On Terms="Upgrade.AlarakHavocAbilityRange.Remove" Send="SetScale"/>
+    </CActorModel-->
+    <CActorMissile id="SupplicantAttackMissile" parent="GenericAttackMissile" unitName="SupplicantWeapon"/>
+    <!--CActorModel id="AlarakACTeleportOut" parent="ModelAnimationStyleOneShotNoOrphan">
+        <On Terms="Effect.AlarakACTeleportOut.Start" Send="Create"/>
+        <Model value="HybridWarpOut"/>
+    </CActorModel-->
+    <CActorModel id="AlarakACTeleportIn" parent="ModelAnimationStyleOneShotNoOrphan">
+        <On Terms="Behavior.AlarakACTeleportOut.Off" Send="Create"/>
+        <Model value="DarkArchonChampionWarpIn"/>
+    </CActorModel>
+    <CActorRange id="AlarakEmpowerRange">
+        <EditorCategories value=""/>
+        <On Terms="Behavior.AlarakEmpowerCaster.On" Send="Create"/>
+        <On Terms="Behavior.AlarakEmpowerCaster.Off" Send="Destroy"/>
+        <Range value="10.000000"/>
+    </CActorRange>
+    <!--CActorBeamSimple id="AlarakTheStrongestSurviveBeam" parent="BeamSimpleAnimationStyleOneShot">
+        <On Terms="Effect.AlarakTheStrongestSurviveStealLife.Start" Send="Create"/>
+        <On Terms="ActorCreation" Send="SetTeamColor 255,0,0 255,0,0"/>
+        <On Terms="ActorCreation" Send="Create PitAlarakPowerConduitLoopSound"/>
+        <On Terms="ActorDestruction" Target="PitAlarakPowerConduitLoopSound" Send="Destroy"/>
+        <Model value="PitAlarakPowerConduit"/>
+        <ModelFlags index="AutomateGlobalLoops" value="1"/>
+        <ModelFlags index="UpdateVisibility" value="0"/>
+        <HostLaunch Scope="Target"/>
+        <HostLaunchSiteOps Ops="SOpAttachHarnessStationary"/>
+        <HostImpact Subject="_Unit" Scope="Caster"/>
+        <HostImpactSiteOps Ops="SOpAttachTarget"/>
+    </CActorBeamSimple-->
+    <CActorBeamSimple id="AlarakWorshipAlarakBeam" parent="BeamSimpleAnimationStyleContinuous">
+        <Flags index="SuppressSaveLoad" value="1"/>
+        <On Terms="Behavior.WorshipAlarak.On" Send="Create"/>
+        <On Terms="ActorCreation" Send="SetTeamColor 255,255,255 255,0,0"/>
+        <On Terms="Behavior.WorshipAlarak.Off" Send="AnimBracketStop BSD"/>
+        <Model value="PitAlarakPowerConduit"/>
+        <ModelFlags index="AutomateGlobalLoops" value="1"/>
+        <HostLaunch Subject="_Unit"/>
+        <HostLaunchSiteOps Ops="SOpAttachCenter"/>
+        <HostImpact Subject="::external.AlarakCoop"/>
+        <HostImpactSiteOps Ops="SOpAttachTarget"/>
+        <Inherits index="Visibility" value="1"/>
+        <HostForProps Subject="::external.AlarakCoop"/>
+    </CActorBeamSimple>
+    <CActorBeamSimple id="AlarakEmpowerBeam" parent="BeamSimpleAnimationStyleContinuous">
+        <Inherits index="TeamColor" value="1"/>
+        <On Terms="Effect.AlarakEmpowerTargetPlayerStart.Start; At Target" Send="Create"/>
+        <On Terms="ActorCreation" Send="Create Alarak_EmpowerBeam_Loop_AS"/>
+        <On Terms="ActorDestruction" Target="Alarak_EmpowerBeam_Loop_AS" Send="Destroy"/>
+        <On Terms="Signal.*.Destroy1; PlayerId 1 1 ::Self" Send="AnimBracketStop BSD"/>
+        <On Terms="Signal.*.Destroy2; PlayerId 2 2 ::Self" Send="AnimBracketStop BSD"/>
+        <On Terms="Behavior.AlarakEmpowerTarget.Off" Send="AnimBracketStop BSD"/>
+        <On Terms="ActorCreation" Send="SetTintColor {255,255,255 1.500000}"/>
+        <HostForProps Subject="_Unit" Scope="Caster"/>
+        <Model value="Alarak_COOP_Empower_Beam"/>
+        <ModelFlags index="AutomateGlobalLoops" value="1"/>
+        <HostLaunch Subject="_Unit"/>
+        <HostLaunchSiteOps Ops="SOpAttachCenter"/>
+        <HostImpact Subject="_Unit" Scope="Caster"/>
+        <HostImpactSiteOps Ops="SOpAttachTarget"/>
+    </CActorBeamSimple>
+    <CActorModel id="AlarakEmpowerBubble" parent="ModelAnimationStyleContinuous">
+        <HostSiteOps Ops="SOpAttachCenter" HoldRotation="1"/>
+        <!--Commenting out for reference once we have final animations for the warning-->
+        <!--On Terms="Behavior.BiomassTimedLifeWarningDelay.Off" Send="SetTintColorBlendPair 255,255,255 255,64,64 0.400000 Bounce BounceSlow 175.000000"/>
+        <On Terms="Effect.BiomassTimedLifeWarning.Start" Send="ClearTintColor 0.000000 BounceSlow"/>
+        <On Terms="Effect.BiomassTimedLifeWarning.Start" Send="SetTintColorBlendPair 255,255,255 255,0,0 0.200000 Bounce BounceFast 175.000000"/-->
+        <On Terms="Behavior.AlarakEmpowerCaster.On" Send="Create"/>
+        <On Terms="Behavior.AlarakEmpowerCaster.Off" Send="Destroy"/>
+        <On Terms="ActorCreation" Send="SetTintColor {255,255,255 2.000000}"/>
+        <FogVisibility value="Dimmed"/>
+        <ModelFlags index="AllowHitTest" value="0"/>
+        <ModelFlags index="AutomateGlobalLoops" value="1"/>
+        <Model value="Alarak_COOP_Empower_PowerUp"/>
+    </CActorModel>
+    <CActorBeamSimple id="PitAlarak_Strong_Beam">
+        <HostLaunchSiteOps Ops="SOpAttachWeaponRight"/>
+    </CActorBeamSimple>
+    <CActorBeamSimple id="PitMalashPowerConduitReverse">
+        <On Terms="Effect.PitMalashShieldRegenDummyDamage.Start; At Target; ValidateEffect TargetisHybrid" Send="ModelSwap PitChampionPowerConduit"/>
+        <HostFor2ndVisibilityTest>
+            <Subject value="_Unit"/>
+            <Scope value="Caster"/>
+            <Actor value="Find"/>
+            <Effect value="PitMalashShieldRegenDummyDamage"/>
+        </HostFor2ndVisibilityTest>
+    </CActorBeamSimple>
+    <CActorForceSphere id="AlarakACDeadlyChargeAttackForce">
+        <On Terms="Effect.AlarakACDeadlyChargePointSearch.Start; At Caster" Send="Create"/>
+        <On Terms="Effect.PrimalSlash.Start; At Target" Send="Create"/>
+        <On Terms="ActorCreation" Send="Create PrimalSlashAttackUpForce"/>
+        <Host Subject="_ImpactGuide"/>
+        <HostSiteOps Ops="SOpRandomPointInSphereDot15"/>
+        <Duration value="0.250000"/>
+        <Magnitude value="37.500000,8.000000"/>
+        <Radius value="1.050000,0.150000"/>
+    </CActorForceSphere>
+    <CActorSound id="AlarakACDeadlyChargeRushSound" parent="SoundOneShot">
+        <On Terms="Effect.AlarakACDeadlyChargeRushOnly.Start" Send="Create"/>
+        <On Terms="Effect.AlarakACDeadlyChargeRushOnlyUnit.Start" Send="Create"/>
+        <On Terms="Effect.AlarakACDeadlyChargeLMTarget.Start" Send="Create"/>
+        <Sound value="Spell_LeapingStrike_Launch"/>
+    </CActorSound>
+    <CActorSound id="AlarakACDeadlyChargeImpactSound" parent="SoundOneShot">
+        <On Terms="Effect.AlarakACDeadlyChargePointSearch.Start" Send="Create"/>
+        <On Terms="Effect.AlarakACDeadlyChargeImpactSet.Start" Send="Create"/>
+        <Sound value="Spell_LeapingStrike_Impact"/>
+    </CActorSound>
+    <CActorModel id="AlarakACDeadlyChargeModel" parent="ModelAnimationStyleOneShot">
+        <Inherits index="CloakEffect" value="1"/>
+        <Inherits index="Visibility" value="1"/>
+        <On Terms="Effect.PrimalSlash.Start; At Target" Send="Create"/>
+        <Host Subject="_Selectable"/>
+        <HostSiteOps Ops="SOpAttachOrigin SOpShadow"/>
+        <Model value="PrimalSlashModel"/>
+    </CActorModel>
+    <CActorRange id="AlarakACDeadlyChargeRange" parent="RangeAbil" abil="AlarakACDeadlyCharge"/>
+
+    <CActorUnit id="ColossusTaldarim" parent="GenericUnitBase" unitName="ColossusTaldarim">
+        <ModelFlags index="OutlineEmitter" value="1"/>
+        <On Terms="WeaponStart.ColossusTaldarimChargedBeam.AttackStart" Send="Create ColossusTaldarimChargedMissilePowerUpSound"/>
+        <On Terms="WeaponStart.ColossusTaldarimChargedBeam.AttackStart" Send="Create ColossusTaldarimChargedBeamPowerUpModel"/>
+        <On Terms="WeaponStart.ColossusTaldarimChargedBeam.AttackStart" Send="AnimBracketStart Attack Stand,Channel,Start Stand,Channel Stand,Channel,End"/>
+        <On Terms="Effect.ColossusTaldarimLM.Launch" Send="AnimBracketStop Attack"/>
+        <On Terms="TimerExpired; TimerName BeamDestroy" Target="ColossusTaldarimChargedBeamPowerUpModel" Send="Destroy"/>
+        <On Terms="AbilTransport.WarpPrismTransport.CargoLoad" Target="ColossusTaldarimAttackBeam" Send="Destroy"/>
+        <On Terms="UnitHeightUpdate.*.Land" Send="Create Colossus_Land"/>
+        <Macros value="TerrainSquibAnimations"/>
+        <BuildModel value="ColossusTaldarimWarpIn"/>
+        <PortraitModel value="ColossusTaldarimPortrait"/>
+        <DeathArray index="Normal" ModelLink="ColossusTaldarimDeath" SoundLink=""/>
+        <DeathCustoms ModelLink="ProtossLargeUnitDeathLow" Name="AntiGravProtoss"/>
+        <DeathCustoms ModelLink="HallucinationColossusDeath" SoundLink="Sentry_HallucinationDeathLarge" Name="Hallucination"/>
+        <WalkAnimMoveSpeed value="2.1445"/>
+        <BarWidth value="140"/>
+        <BarOffset value="250"/>
+        <UnitIcon value="Assets\Textures\btn-unit-protoss-colossus-taldarim.dds"/>
+        <HeroIcon value="Assets\Textures\btn-unit-protoss-colossus-taldarim.dds"/>
+        <WireframeShield>
+            <Image value="Assets\Textures\wireframe-protoss-colossus-taldarim-shield01.dds"/>
+            <Image value="Assets\Textures\wireframe-protoss-colossus-taldarim-shield02.dds"/>
+            <Image value="Assets\Textures\wireframe-protoss-colossus-taldarim-shield03.dds"/>
+        </WireframeShield>
+        <GroupIcon>
+            <Image value="Assets\Textures\wireframe-protoss-colossus-taldarim.dds"/>
+        </GroupIcon>
+        <Wireframe>
+            <Image value="Assets\Textures\wireframe-protoss-colossus-taldarim.dds"/>
+        </Wireframe>
+        <LifeArmorIcon value="Assets\Textures\btn-upgrade-protoss-groundarmorlevel0.dds"/>
+        <SoundArray index="Ready" value="Wrathwalker_Ready"/>
+        <SoundArray index="Help" value="Wrathwalker_Help"/>
+        <SoundArray index="What" value="Wrathwalker_What"/>
+        <SoundArray index="Yes" value="Wrathwalker_Yes"/>
+        <SoundArray index="Pissed" value="Wrathwalker_Pissed"/>
+        <TerrainSquibs MovementDistance="0.150000,0.150000" IdlePeriod="0.250000,0.500000" RangeUp="2.75" RangeDown="0.1">
+            <AttachQuery Methods="AMFilterHardpoint"/>
+            <Visuals TerrainPhysicsMaterial="Water" ActorModel="TerrainSquibHarnessContinuous" ModelLink="WaterRippleMedium"/>
+        </TerrainSquibs>
+        <TerrainSquibs MovementDistance="0.150000,0.150000" IdlePeriod="0.250000,0.500000" RangeUp="3" RangeDown="0.25">
+            <AttachQuery Methods="AMFilterCenter"/>
+            <Visuals TerrainPhysicsMaterial="Water" ActorModel="TerrainSquibHarnessContinuous" ModelLink="WaterRippleLargeVehicle"/>
+        </TerrainSquibs>
+        <PlacementModel value="ColossusTaldarimPlacement"/>
+        <Aliases value="_UnitHuge"/>
+        <UnitIcon value="Assets\Textures\btn-unit-protoss-colossus-taldarimex3.dds"/>
+        <HeroIcon value="Assets\Textures\btn-unit-protoss-colossus-taldarimex3.dds"/>
+        <On Terms="WeaponStart.ColossusTaldarimChargedBeamFast.AttackStart" Send="Create ColossusTaldarimChargedMissilePowerUpSound"/>
+        <On Terms="WeaponStart.ColossusTaldarimChargedBeamFast.AttackStart" Send="Create ColossusTaldarimChargedBeamPowerUpModel"/>
+        <On Terms="WeaponStart.ColossusTaldarimChargedBeamFast.AttackStart" Target="ColossusTaldarimChargedBeamPowerUpModel" Send="AnimSetTimeScale BSD 5.000000"/>
+    </CActorUnit>
+
+
+    <CActorUnit id="Monitor" parent="GenericUnitStandard" unitName="Monitor">
+        <ModelFlags index="OutlineEmitter" value="1"/>
+        <BuildModel value="SentryTalDarimWarpIn"/>
+        <On Terms="UnitHeightUpdate.*.Land" Send="Create Sentry_Land"/>
+        <On Terms="Behavior.WarpInEffect15.On" Send="ModelSwap MonitorWarpIn"/>
+        <On Terms="Behavior.WarpInEffect15.On" Send="$Birth"/>
+        <On Terms="Behavior.WarpInEffect15.Off" Send="ModelSwap Monitor"/>
+        <On Terms="Behavior.WarpInEffect15.Off" Send="AnimBaselineStart"/>
+        <Macros value="TerrainSquibAnimations"/>
+        <PortraitModel value="MonitorPortrait"/>
+        <DeathArray index="Normal" ModelLink="MonitorDeath" SoundLink="Havoc_Explode"/>
+        <AnimBlendTime value="1.2"/>
+        <BarWidth value="42"/>
+        <BarOffset value="40"/>
+        <UnitIcon value="Assets\Textures\btn-unit-protoss-sentry-taldarim.dds"/>
+        <HeroIcon value="Assets\Textures\btn-unit-protoss-sentry-taldarim.dds"/>
+        <WireframeShield>
+            <Image value="Assets\Textures\wireframe-protoss-sentry-taldarim-shield01.dds"/>
+            <Image value="Assets\Textures\wireframe-protoss-sentry-taldarim-shield02.dds"/>
+            <Image value="Assets\Textures\wireframe-protoss-sentry-taldarim-shield03.dds"/>
+        </WireframeShield>
+        <GroupIcon>
+            <Image value="Assets\Textures\wireframe-protoss-sentry-taldarim.dds"/>
+        </GroupIcon>
+        <Wireframe>
+            <Image value="Assets\Textures\wireframe-protoss-sentry-taldarim.dds"/>
+        </Wireframe>
+        <LifeArmorIcon value="Assets\Textures\btn-upgrade-protoss-airarmorlevel0.dds"/>
+        <SoundArray index="Ready" value="Havoc_Ready"/>
+        <SoundArray index="Help" value="Havoc_Help"/>
+        <SoundArray index="What" value="Havoc_What"/>
+        <SoundArray index="Yes" value="Havoc_Yes"/>
+        <SoundArray index="Attack" value="Havoc_Attack"/>
+        <SoundArray index="Pissed" value="Havoc_Pissed"/>
+        <PlacementModel value="SentryTalDarimPlacement"/>
+        <TerrainSquibs MovementDistance="0.150000,0.150000" IdlePeriod="0.100000,0.250000" RangeUp="0.6" RangeDown="0.6">
+            <AttachQuery Methods="AMFilterCenter"/>
+            <Visuals TerrainPhysicsMaterial="Water" ActorModel="TerrainSquibHarnessContinuous" ModelLink="WaterRippleLargeVehicle"/>
+        </TerrainSquibs>
+        <Aliases value="_UnitMedium"/>
+        <On Terms="Upgrade.AlarakHavocAbilityRange.Add" Target="SquadSightAttachment" Send="SetScale 1.750000"/>
+        <On Terms="Upgrade.AlarakHavocAbilityRange.Remove" Target="SquadSightAttachment" Send="SetScale"/>
+        <HeroIcon value="Assets\Textures\btn-unit-protoss-alarak-taldarim-sentry.dds"/>
+        <UnitIcon value="Assets\Textures\btn-unit-protoss-alarak-taldarim-sentry.dds"/>
+
+    </CActorUnit>
+    <CActorSplat id="ForceFieldMonitorCursorSplat" parent="ProtossCursorSplat" abil="ForceFieldMonitor"/>
+    <CActorRange id="ForceFieldMonitorRange" parent="RangeAbil" abil="ForceFieldMonitor"/>
+
+    <CActorUnit id="ImmortalTaldarim" parent="GenericUnitBase" unitName="ImmortalTaldarim">
+        <ModelFlags index="OutlineEmitter" value="1"/>
+        <DeathArray index="Normal" ModelLink="ImmortalTaldarimDeath" SoundLink=""/>
+        <PortraitModel value="ImmortalTaldarimPortrait"/>
+        <PlacementModel value="ImmortalTaldarimPlacement"/>
+        <PlacementSound value="Protoss_BuildingPlacementSmall"/>
+        <BuildModel value="ImmortalTaldarimWarpIn"/>
+        <WalkAnimMoveSpeed value="1.25"/>
+        <On Terms="Behavior.Hallucination.On" Send="Create HallucinationBirthSoundMedium"/>
+        <On Terms="UnitDeathCustomize; ValidateUnit IsHallucination" Send="DeathCustomize Hallucination"/>
+        <On Terms="Abil.attack.ReadyStart" Send="AnimGroupApply Ready"/>
+        <On Terms="WeaponStart.PhaseDisruptors.AttackStart; WeaponTargetElevation GE 20.000000" Send="AnimBracketStart Attack Attack,Superior"/>
+        <On Terms="WeaponStart.PhaseDisruptors.AttackStart; WeaponTargetElevation LE -20.000000" Send="AnimBracketStart Attack Attack,Inferior"/>
+        <On Terms="WeaponStart.PhaseDisruptors.AttackStart" Send="AnimBracketStart Attack Attack"/>
+        <On Terms="WeaponStop.PhaseDisruptors.AttackStop" Send="AnimBracketStop Attack"/>
+        <On Terms="Abil.attack.ReadyStop" Send="AnimGroupRemove Ready"/>
+        <On Terms="UnitHeightUpdate.*.Land" Send="Create Immortal_Land"/>
+        <On Terms="Effect.ImmortalTaldarimWeaponLM.Start" Send="AnimPlay Attack Attack,Superior"/>
+        <On Terms="Effect.ImmortalTaldarimWeaponCP.Stop" Send="AnimClear Attack"/>
+        <On Terms="UnitMovementUpdate.*.Walk" Send="AnimClear Attack"/>
+        <Macros value="TerrainSquibAnimations"/>
+        <DeathCustoms ModelLink="HallucinationDeath" SoundLink="Sentry_HallucinationDeathMedium" Name="Hallucination"/>
+        <DeathCustoms ModelLink="ProtossLargeUnitDeathLow" Name="AntiGravProtoss"/>
+        <BarWidth value="90"/>
+        <BarOffset value="80"/>
+<!--        <UnitIcon value="Assets\Textures\BTN-Unit-Protoss-Immortal-Taldarim.dds"/>-->
+        <HeroIcon value="Assets\Textures\BTN-Unit-Protoss-Immortal.dds"/>
+        <WireframeShield>
+            <Image value="Assets\Textures\Wireframe-Protoss-Immortal-Taldarim-Shield01.dds"/>
+            <Image value="Assets\Textures\Wireframe-Protoss-Immortal-Taldarim-Shield02.dds"/>
+            <Image value="Assets\Textures\Wireframe-Protoss-Immortal-Taldarim-Shield03.dds"/>
+        </WireframeShield>
+        <GroupIcon>
+            <Image value="Assets\Textures\wireframe-protoss-immortal-taldarim.dds"/>
+        </GroupIcon>
+        <Wireframe>
+            <Image value="Assets\Textures\wireframe-protoss-immortal-taldarim.dds"/>
+        </Wireframe>
+        <LifeArmorIcon value="Assets\Textures\btn-upgrade-protoss-groundarmorlevel0.dds"/>
+        <TerrainSquibs MovementDistance="0.150000,0.150000" IdlePeriod="0.100000,0.250000" RangeUp="0.6" RangeDown="1">
+            <AttachQuery Methods="AMFilterCenter"/>
+            <Visuals TerrainPhysicsMaterial="Water" ActorModel="TerrainSquibHarnessContinuous" ModelLink="WaterRippleImmortal"/>
+        </TerrainSquibs>
+        <SoundArray index="Birth" value="Immortal_Birth"/>
+        <SoundArray index="Ready" value="Vanguard_Ready"/>
+        <SoundArray index="Help" value="Vanguard_Help"/>
+        <SoundArray index="What" value="Vanguard_What"/>
+        <SoundArray index="Yes" value="Vanguard_Yes"/>
+        <SoundArray index="Attack" value="Vanguard_Attack"/>
+        <SoundArray index="Pissed" value="Vanguard_Pissed"/>
+        <Aliases value="_UnitLarge"/>
+        <UnitIcon value="Assets\Textures\btn-unit-protoss-alarak-taldarim-immortal.dds"/>
+    </CActorUnit>
+    <CActorMissile id="ImmortalTaldarimWeaponMissile" parent="GenericAttackMissileWithDeathAnim" unitName="ImmortalTaldarimWeaponMissile">
+        <On Terms="ActorCreation" Send="Create ImmortalTaldarimWeaponMissileA"/>
+        <On Terms="ActorCreation; ValidatePlayer HaveVanguardArmoredDamage" Send="ModelSwap ImmortalTaldarimWeaponMissile_Upgraded"/>
+        <On Terms="ActorCreation; ValidatePlayer HaveAlarakVanguardIncreaseSplashArea" Send="SetScale 1.300000"/>
+
+    </CActorMissile>
+    <CActorModel id="ImmortalTaldarimWeaponMissileA" parent="ModelAnimationStyleContinuous">
+        <Model value="ImmortalTaldarimWeaponMissile"/>
+        <Host Subject="_Missile"/>
+        <HostSiteOps Ops="ImmortalTaldarimWeaponMissileAOffset"/>
+        <On Terms="ActorCreation; ValidatePlayer HaveVanguardArmoredDamage" Send="ModelSwap ImmortalTaldarimWeaponMissile_Upgraded"/>
+        <On Terms="ActorCreation; ValidatePlayer HaveAlarakVanguardIncreaseSplashArea" Send="SetScale 1.300000"/>
+
+    </CActorModel>
+    <CActorSiteOpLocalOffset id="ImmortalTaldarimWeaponMissileAOffset">
+        <LocalOffset value="0.000000,0.000000,0.300000"/>
+    </CActorSiteOpLocalOffset>
+    <CActorAction id="ImmortalTaldarimWeaponAttack" parent="GenericAttack" effectImpact="ImmortalTaldarimWeaponSearch" effectLaunch="ImmortalTaldarimWeaponLM">
+        <LaunchAttachQuery Methods="AMPatternImmortalTaldarim"/>
+        <LaunchAssets Sound="ImmortalTaldarim_ScatterCannon_AttackLaunch"/>
+        <Missile value="ImmortalTaldarimWeaponMissile"/>
+        <ImpactMap index="None" Model="ImmortalTaldarimWeaponImpact" Sound="ImmortalTaldarim_ScatterCannon_AttackImpact"/>
+        <ImpactModel value="ImmortalTaldarimWeaponAttackImpact"/>
+    </CActorAction>
+    <CActorModel id="ImmortalTaldarimWeaponAttackImpact" parent="GenericAttackImpactModel">
+        <On Terms="ActorCreation; ValidatePlayer HaveVanguardArmoredDamage" Send="ModelSwap ImmortalTaldarimWeaponImpact_Upgraded"/>
+        <On Terms="ActorCreation; ValidatePlayer HaveAlarakVanguardIncreaseSplashArea" Send="SetScale 1.300000"/>
+    </CActorModel>
+
+
+
+    <CActorAction id="ImmortalTaldarimWeaponAttackDirect" parent="GenericAttack" effectImpact="ImmortalTaldarimWeaponDamage" effectLaunch="ImmortalTaldarimWeaponLMNoSearch">
+        <LaunchAttachQuery Methods="AMPatternImmortalTaldarim"/>
+        <LaunchAssets Sound="ImmortalTaldarim_ScatterCannon_AttackLaunch"/>
+        <Missile value="ImmortalTaldarimWeaponMissile"/>
+        <ImpactMap index="None" Model="ImmortalTaldarimWeaponImpact" Sound="ImmortalTaldarim_ScatterCannon_AttackImpact"/>
+    </CActorAction>
+    <CActorModel id="ImmortalTaldarimWeaponAttackLaunchModelLeft" parent="ModelAnimationStyleOneShot">
+        <Model value="ImmortalTaldarimWeaponAttackLaunchModel"/>
+        <On Terms="Effect.ImmortalTaldarimWeaponRandomLarge.Start" Send="Create"/>
+        <Host Subject="_Unit"/>
+        <HostSiteOps Ops="SOpAttachWeaponLeft SOpPointUp1By1"/>
+        <On Terms="ActorCreation; ValidatePlayer HaveVanguardArmoredDamage" Send="ModelSwap ImmortalTaldarimWeaponAttackLaunchModel_Upgraded"/>
+        <On Terms="ActorCreation; ValidatePlayer HaveAlarakVanguardIncreaseSplashArea" Send="SetScale 1.300000"/>
+
+    </CActorModel>
+    <CActorModel id="ImmortalTaldarimWeaponAttackLaunchModelRight" parent="ModelAnimationStyleOneShot">
+        <Model value="ImmortalTaldarimWeaponAttackLaunchModel"/>
+        <On Terms="Effect.ImmortalTaldarimWeaponRandomLarge.Start" Send="Create"/>
+        <Host Subject="_Unit"/>
+        <HostSiteOps Ops="SOpAttachWeaponRight SOpPointUp1By1"/>
+        <On Terms="ActorCreation; ValidatePlayer HaveVanguardArmoredDamage" Send="ModelSwap ImmortalTaldarimWeaponAttackLaunchModel_Upgraded"/>
+        <On Terms="ActorCreation; ValidatePlayer HaveAlarakVanguardIncreaseSplashArea" Send="SetScale 1.300000"/>
+
+    </CActorModel>
+    <CActorForceSphere id="ImmortalTaldarimWeaponAttackImpactForce">
+        <On Terms="Effect.ImmortalTaldarimWeaponSearch.Start" Send="Create"/>
+        <HostSiteOps Ops="SOpTargetPoint SOpForwardLaunchGuide SOp2DRotation SOpRandomPointInCircleDot35"/>
+        <Magnitude value="25.000000,12.000000"/>
+        <Radius value="2.150000,0.200000"/>
+        <Duration value="0.15"/>
+    </CActorForceSphere>
+
+
+
+
+    <CActorSound id="SOAMothershipv4AttackImpact" parent="SoundContinuous">
+        <On Terms="Effect.SOAMothershipv4BeamDamage.Start; EffectExecuteIndex 1" Send="Create"/>
+        <On Terms="Effect.SOAMothershipv4BeamPersistent.Stop" Send="Destroy"/>
+        <Sound value="MothershipVoid_AttackImpactLoop"/>
+    </CActorSound>
+    <CActorAction id="SOAMothershipv4Attack" parent="GenericAttackBase">
+        <On Terms="Effect.SOAMothershipv4BeamPersistent.Start" Send="Create"/>
+        <On Terms="Effect.SOAMothershipv4BeamDamage.Start; FromEffectTreeDescendant" Send="ActionDamage"/>
+        <On Terms="Effect.SOAMothershipv4BeamPersistent.Stop" Send="Destroy WhenReady"/>
+        <LaunchAttachQuery Methods="AMFilterWeaponSetA0 AMClosest2ToTarget AMPatternSOAMothershipv4Beam"/>
+        <LaunchAssets Sound="MothershipVoid_AttackLaunch"/>
+        <ActionFlags index="AlignedImpactsAndDamages" value="1"/>
+        <ActionFlags index="ImpactMonitorsTeleports" value="1"/>
+        <Lifetime value="-1"/>
+        <ImpactMap index="None" Sound="MothershipVoid_AttackImpact"/>
+    </CActorAction>
+    <CActorAction id="SOAMothershipv4SecondaryAttack" parent="GenericAttackBase">
+        <LaunchAttachQuery Methods="AMFilterWeaponSetA0 AMClosest2ToTarget AMPatternSOAMothershipv4Beam"/>
+        <ActionFlags index="AlignedImpactsAndDamages" value="1"/>
+        <ActionFlags index="ImpactMonitorsTeleports" value="1"/>
+        <Lifetime value="-1"/>
+        <On Terms="Effect.SOAMothershipv4SecondaryBeamPersistent.Start" Send="Create"/>
+        <On Terms="Effect.SOAMothershipv4BeamDamage.Start; FromEffectTreeDescendant" Send="ActionDamage"/>
+        <On Terms="Effect.SOAMothershipv4BeamPersistent.Stop" Send="Destroy WhenReady"/>
+        <ImpactMap index="None" Model="SOAMothershipv4AttackImpact"/>
+    </CActorAction>
+    <CActorBeamSimple id="SOAMothershipv4AttackBeam" parent="BeamSimpleAnimationStyleContinuous">
+        <Macros value="ActionTargetTeleportDestroy"/>
+        <On Terms="Effect.SOAMothershipv4BeamPersistent.Stop" Send="AnimBracketStop BSD"/>
+    </CActorBeamSimple>
+    <CActorBeamSimple id="SOAMothershipv4SecondaryAttackBeam" parent="BeamSimpleAnimationStyleContinuous">
+        <Model value="SOAMothershipv4AttackBeam"/>
+        <On Terms="Effect.SOAMothershipv4SecondaryBeamPersistent.Stop" Send="AnimBracketStop BSD"/>
+        <Macros value="ActionTargetTeleportDestroy"/>
+    </CActorBeamSimple>
+    <CActorUnit id="SOAMothershipv4" parent="GenericUnitBase" unitName="SOAMothershipv4">
+        <Macros value="TerrainSquibAnimations"/>
+        <Macros value="PhysicsDeathsSwarmAir"/>
+        <Macros value="PhysicsDeathsVoidAir"/>
+        <On Terms="Abil.Vortex.SourceCastStart" Send="$Spell"/>
+        <On Terms="Effect.SOAMothershipBlinkCP.Start" Send="SetOpacity 0.050000 0.375000"/>
+        <On Terms="Effect.SOAMothershipBlinkTeleport.Stop" Send="SetOpacity 1.000000 0.625000"/>
+        <On Terms="Abil.MassRecall.SourceCastStart" Send="$Spell"/>
+        <On Terms="Effect.MothershipMassRecallTeleport.Start" Send="CombatRevealClearTimers"/>
+        <On Terms="UnitHeightUpdate.*.Land" Send="Create Mothership_Land"/>
+        <On Terms="AbilMorph.*.Finish; MorphFrom MothershipCore" Send="Create"/>
+        <On Terms="AbilMorph.*.Finish; MorphFrom MothershipCore" Send="SetScale 0.010000"/>
+        <On Terms="AbilMorph.*.Finish; MorphFrom MothershipCore" Send="SetScale 1.000000 0.500000"/>
+        <On Terms="AbilMorph.*.Finish; MorphFrom MothershipCore" Send="Create MothershipCoreTeleportIn"/>
+        <On Terms="AbilMorph.*.Finish; MorphFrom MothershipCore" Send="Create MothershipCore_UpgradeToMothershipEnd"/>
+        <On Terms="AbilMorph.*.Finish; MorphFrom MothershipCore" Send="Create MothershipCore_UpgradeToMothershipEnd2"/>
+        <On Terms="AbilMorph.*.Finish; MorphFrom MothershipCore" Send="Create MothershipCore_UpgradeToMothershipEnd3"/>
+        <On Terms="AbilMorph.*.Finish; MorphFrom MothershipCore" Send="Create MothershipCore_UpgradeToMothershipEndHit"/>
+        <On Terms="Abil.MothershipCoreTeleport.SourceCastStart" Send="SetScale 0.010000 0.500000"/>
+        <On Terms="Abil.MothershipCoreTeleport.SourceCastStart" Send="Create MothershipCoreTeleportOut"/>
+        <On Terms="Abil.MothershipCoreTeleport.SourceFinishStart" Send="Create MothershipCoreTeleportIn"/>
+        <On Terms="Abil.MothershipCoreTeleport.SourceCastStart" Send="TimerSet 0.500000 ShrinkDelay"/>
+        <On Terms="TimerExpired; TimerName ShrinkDelay" Target="::Main" Send="SetScale 1.000000 0.500000"/>
+        <On Terms="Behavior.WarpInEffect.On" Send="ModelSwap MothershipTaldarimWarpInStargateBig"/>
+        <On Terms="Behavior.WarpInEffect.On" Send="$Spell"/>
+        <On Terms="AnimDone; AnimName Spell" Send="ModelSwap TaldarimMothership"/>
+        <On Terms="AnimDone; AnimName Spell" Send="AnimBracketStart GL_BSD GLbirth GLstand GLdeath"/>
+        <On Terms="AnimDone; AnimName Spell" Send="AnimClear Spell"/>
+        <Model value="TaldarimMothership"/>
+        <Baselines index="Walk" AnimProps="Walk,01"/>
+        <BuildModel value="MotherShipTaldarimWarpIn"/>
+        <DeathArray index="Normal" ModelLink="TaldarimMothershipDeath" SoundLink="Mothership_Explode" VoiceLink=""/>
+        <DeathCustoms ActorModel="MothershipDeathRagdoll" ModelLink="MothershipDeathRagdoll" Name="RagdollBasic" PhysicsMatchKeysOrdered="BasicAir,Basic">
+            <BodySquibs Name="BasicHeavy" Model="ProtossLargeRobotSquibDeathRagdoll"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollNuke" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="FireHeavy"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollFire" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="FireHeavy"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollAcid" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Acid"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollOverkillDPRH" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollOverkillDOI" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollMidair" InheritsFrom="RagdollBasic"/>
+        <DeathActorModel value="TaldarimMothershipDeathModel"/>
+        <PhysicsMatchKeysOrdered value="BasicAir,Basic"/>
+        <PlacementModel value="MothershipTaldarimPlacement"/>
+        <PortraitModel value="MothershipTaldarimPortrait"/>
+        <TerrainSquibs MovementDistance="0.150000,0.150000" IdlePeriod="0.250000,0.500000" RangeDown="5" RangeDownFade="1">
+            <AttachQuery Methods="AMFilterCenter"/>
+            <Visuals TerrainPhysicsMaterial="Water" ActorModel="TerrainSquibHarnessContinuous" ModelLink="WaterRippleMassive3"/>
+        </TerrainSquibs>
+        <BarOffset value="180"/>
+        <BarWidth value="216"/>
+        <GlossaryAnim value="GLstand"/>
+        <GroupIcon>
+            <Image value="Assets\Textures\Wireframe-Protoss-Mothership.dds"/>
+        </GroupIcon>
+        <GroupSoundArray index="What" value="Mothership_GroupWhat"/>
+        <GroupSoundArray index="Yes" value="Mothership_GroupYes"/>
+        <GroupSoundArray index="Attack" value="Mothership_GroupAttack"/>
+        <GroupSoundArray index="Board" value="Mothership_GroupBoard"/>
+<!--        <HeroIcon value="Assets\Textures\btn-unit-protoss-mothership-taldarim.dds"/>-->
+        <LifeArmorIcon value="Assets\Textures\btn-upgrade-protoss-airarmorlevel0.dds"/>
+        <NameOffset value="130"/>
+        <SoundArray index="Ready" value="MothershipVoid_Ready"/>
+        <SoundArray index="Help" value="MothershipVoid_Help"/>
+        <SoundArray index="What" value="MothershipVoid_What"/>
+        <SoundArray index="Yes" value="MothershipVoid_Yes"/>
+        <SoundArray index="Attack" value="MothershipVoid_Attack"/>
+        <SoundArray index="Pissed" value="MothershipVoid_Pissed"/>
+        <SoundArray index="Movement" value="MothershipVoid_MoveStart"/>
+        <SoundArray index="Turning" value="Mothership_Turning"/>
+        <SoundArray index="Board" value="Mothership_Board"/>
+        <SoundArray index="Click" value="Mothership_Click"/>
+        <SoundArray index="ClickError" value="Mothership_ClickError"/>
+        <SoundArray index="Highlight" value="Mothership_Highlight"/>
+<!--        <UnitIcon value="Assets\Textures\btn-unit-protoss-mothership-taldarim.dds"/>-->
+        <Wireframe>
+            <Image value="Assets\Textures\wireframe-protoss-mothership-taldarim.dds"/>
+        </Wireframe>
+        <WireframeShield>
+            <Image value="Assets\Textures\Wireframe-Protoss-Mothership-taldarim-Shield01.dds"/>
+            <Image value="Assets\Textures\Wireframe-Protoss-Mothership-taldarim-Shield02.dds"/>
+            <Image value="Assets\Textures\Wireframe-Protoss-Mothership-taldarim-Shield03.dds"/>
+        </WireframeShield>
+        <Aliases value="_UnitHuge"/>
+
+
+        <StatusBarFlags index="Magazine" value="0"/>
+        <HeroIcon value="Assets\Textures\btn-unit-protoss-alarak-taldarim-mothership.dds"/>
+        <UnitIcon value="Assets\Textures\btn-unit-protoss-alarak-taldarim-mothership.dds"/>
+        <MinimapIcon value="Assets\Textures\btn-ac-protoss-taldarimmothershipmapicon.dds"/>
+        <MinimapUseSelfColor value="0"/>
+        <MinimapUseSelectionColor value="0"/>
+        <MinimapTooltip value="Unit/Name/SOAMothershipv4"/>
+        <MinimapRenderPriority value="Hero"/>
+    </CActorUnit>
+    <CActorMissile id="SOAMothershipLineAttackMissile" parent="GenericAttackMissile" unitName="SOAMothershipLineAttackWeapon">
+        <On Terms="ActorCreation" Send="Create SOAMothershipLineAttackMissileBeam"/>
+        <On Terms="ActorDestruction" Target="SOAMothershipLineAttackMissileBeam" Send="Destroy"/>
+    </CActorMissile>
+    <CActorAction id="SOAMothershipLineAttack" parent="GenericAttack" effectImpact="SOAMothershipLineAttackCasterImpactDummy" effectLaunch="SOAMothershipLineAttackCasterLM">
+        <LaunchSiteOps Ops="SOpCasterPoint SOpShadow"/>
+        <ImpactPointSiteOps Ops="SOpTargetPointStationary SOpShadow"/>
+    </CActorAction>
+    <CActorBeamSimple id="SOAMothershipLineAttackMissileBeam" parent="BeamSimpleAnimationStyleContinuous">
+        <On Terms="ActorCreation" Send="Create VoidMothership_ThermalLance_AttackLaunchSound"/>
+        <On Terms="ActorDestruction" Send="Create VoidMothership_ThermalLance_BeamDeathSound"/>
+        <HostLaunch Subject="_Unit" Scope="Caster" Actor="Find"/>
+        <HostLaunchSiteOps Ops="SOpAttachCenter"/>
+        <HostImpact Subject="_Missile"/>
+        <HostImpactSiteOps Ops="SOpAttachCenter"/>
+    </CActorBeamSimple>
+
+
+    <CActorModel id="SOAMothershipv4WarpIn" parent="ModelAnimationStyleOneShot">
+        <On Terms="Behavior.SOAMothershipTimedLife.On" Send="Create"/>
+        <On Terms="ActorCreation" Send="Create SOAMothershipv4WarpInSound"/>
+        <On Terms="Behavior.WarpInEffect.On; ValidateUnit IsDeathFleetMothership" Send="Create"/>
+        <Host Subject="_Unit"/>
+        <HostSiteOps Ops="SOpAttachOrigin"/>
+        <Model value="SOAMothershipBlinkStrikeIn"/>
+        <Remove Terms="Behavior.SOAMothershipTimedLife.On" Send="Create"/>
+    </CActorModel>
+    <CActorSound id="SOAMothershipv4WarpInSound" parent="SoundOneShot">
+        <Host Subject="_Unit"/>
+        <HostSiteOps Ops="SOpAttachOrigin"/>
+<!--        <Sound value="SOAMothership_BlinkStrikeInSound"/>-->
+        <On Terms="AssetPreInit; ValidatePlayer NoDarkProtoss" Send="ModelLinkCustomize SOAMothershipBlinkStrikeIn"/>
+        <Sound value="Alarak_DeathFleet_Summon"/>
+
+    </CActorSound>
+    <CActorModel id="SOAMothershipv4WarpAway" parent="ModelAnimationStyleOneShot">
+        <On Terms="Behavior.SOAMothershipWarpAway.On" Send="Create"/>
+        <On Terms="ActorCreation" Target="_Selectable" Send="SetOpacity 0.000000 0.750000"/>
+        <On Terms="ActorCreation" Send="Create SOAMothershipv4WarpAwaySound"/>
+        <Host Subject="_Selectable"/>
+        <HostSiteOps Ops="SOpAttachOrigin"/>
+    </CActorModel>
+    <CActorSound id="SOAMothershipv4WarpAwaySound" parent="SoundOneShot">
+        <On Terms="AssetPreInit; ValidatePlayer NoDarkProtoss" Send="ModelLinkCustomize SOAMothershipBlinkStrikeOut"/>
+        <Sound value="Alarak_DeathFleet_Retreat"/>
+    </CActorSound>
+
+    <CActorUnit id="Supplicant" parent="GenericUnitStandard" unitName="Supplicant">
+        <On Terms="UnitDeathCustomize; KilledByEffect AscendantSacrificeKillSupplicant" Send="DeathCustomize Shadow"/>
+        <On Terms="UnitHeightUpdate.*.Land" Send="Create Adept_Land"/>
+        <On Terms="UnitHeightUpdate.*.Land" Send="Create Templar_LandSweetener"/>
+        <On Terms="Behavior.Hallucination.On" Send="Create HallucinationBirthSoundSmall"/>
+        <On Terms="UnitDeathCustomize; ValidateUnit IsHallucination" Send="DeathCustomize Hallucination"/>
+        <On Terms="UnitMovementUpdate.*.Walk; AnimPlaying Spell" Send="AnimClear Spell"/>
+        <!-- Neural parasite setup, to disconnect tentacle -->
+        <On Terms="Signal.*.NeuralLinkStarted" Send="RefSetFromMsg ::actor.NeuralLinkSite ::Sender"/>
+        <On Terms="Effect.AdeptPhaseShiftTeleportSet.Start" Target="::actor.NeuralLinkSite" Send="Signal BreakLinkInstant"/>
+        <On Terms="Effect.AlarakTheStrongestSurviveStealLife.Start" Send="StatusSet TakeLife 1"/>
+        <On Terms="Effect.AlarakTheStrongestSurviveStealLife.Stop" Send="StatusSet TakeLife 0"/>
+        <On Terms="UnitDeathCustomize; IsStatus TakeLife 1" Send="DeathCustomize Shadow"/>
+        <Macros value="PhysicsDeathsSwarmGround"/>
+        <Macros value="PhysicsDeathsVoidGround"/>
+        <Macros value="TerrainSquibAnimations"/>
+        <!--On Terms="UnitDeathCustomize; !ValidateUnit IsHallucination" Send="Create AdeptProtossSpiritDeathModel"/-->
+        <BuildModel value="Supplicant_WarpIn"/>
+        <DeathArray index="Normal" ModelLink="Supplicant_Death" SoundLink="Supplicant_DeathFX"/>
+        <PlacementModel value="Supplicant_PlacementModel"/>
+        <PlacementSound value="Protoss_BuildingPlacementSmall"/>
+        <PortraitModel value="Supplicant_Portrait"/>
+        <WalkAnimMoveSpeed value="3"/>
+        <BarOffset value="60"/>
+        <BarWidth value="42"/>
+        <GroupIcon>
+            <Image value="Assets\Textures\wireframe-protoss-supplicant-taldarim.dds"/>
+        </GroupIcon>
+        <LifeArmorIcon value="Assets\Textures\btn-upgrade-protoss-groundarmorlevel0.dds"/>
+        <UnitIcon value="Assets\Textures\btn-unit-protoss-alarak-taldarim-supplicant.dds"/>
+        <Wireframe>
+            <Image value="Assets\Textures\wireframe-protoss-supplicant-taldarim.dds"/>
+        </Wireframe>
+        <WireframeShield>
+            <Image value="Assets\Textures\wireframe-protoss-supplicant-taldarim-shield01.dds"/>
+            <Image value="Assets\Textures\wireframe-protoss-supplicant-taldarim-shield02.dds"/>
+            <Image value="Assets\Textures\wireframe-protoss-supplicant-taldarim-shield03.dds"/>
+        </WireframeShield>
+        <SoundArray index="Ready" value="ZealotAlarak_Ready"/>
+        <SoundArray index="Help" value="ZealotAlarak_Help"/>
+        <SoundArray index="What" value="ZealotAlarak_What"/>
+        <SoundArray index="Yes" value="ZealotAlarak_Yes"/>
+        <SoundArray index="Attack" value="ZealotAlarak_Attack"/>
+        <SoundArray index="Pissed" value="ZealotAlarak_Pissed"/>
+        <DeathCustoms ModelLink="Supplicant_Sacrifice_Death" Name="Shadow"/>
+    </CActorUnit>
+    <CActorSound id="Supplicant_Death" parent="SoundOneShot">
+        <On Terms="UnitDeathCustomize.Supplicant; ValidateUnit IsNotHallucination; PassChance 25.000000" Send="Create"/>
+        <Sound value="ZealotAlarak_Death"/>
+    </CActorSound>
+    <CActorModel id="SupplicantPlacementLeft">
+        <HostSiteOps Ops="SOpSupplicantPlacementLeft SOpTipabilityFloorScope"/>
+        <FogVisibility value="Visible"/>
+        <Filter index="Neutral" value="1"/>
+        <Filter index="Enemy" value="1"/>
+        <Aliases value="_Main"/>
+        <Aliases value="_Unit"/>
+        <Aliases value="_Selectable"/>
+        <On Terms="ActorCreation; ModelIsLowQuality" Send="SetOpacity 0.300000"/>
+        <On Terms="ActorCreation" Send="AnimGroupApply Placement"/>
+        <On Terms="ActorCreation" Send="$Stand PlayForever"/>
+        <On Terms="ActorOrphan" Send="Destroy"/>
+        <On Terms="Signal.*.HidePlacement" Send="SetVisibility"/>
+        <On Terms="Signal.*.ShowPlacement" Send="SetVisibility 1"/>
+        <On Terms="ActorCreation" Send="Create SupplicantPlacementRight"/>
+        <Model value="Supplicant_PlacementModel"/>
+    </CActorModel>
+    <CActorModel id="SupplicantPlacementRight">
+        <HostSiteOps Ops="SOpBasicScopeFollow SOpSupplicantPlacementRight SOpTipabilityFloorScope"/>
+        <FogVisibility value="Visible"/>
+        <Filter index="Neutral" value="1"/>
+        <Filter index="Enemy" value="1"/>
+        <Aliases value="_Unit"/>
+        <Aliases value="_Selectable"/>
+        <On Terms="ActorCreation; ModelIsLowQuality" Send="SetOpacity 0.300000"/>
+        <On Terms="ActorCreation" Send="AnimGroupApply Placement"/>
+        <On Terms="ActorCreation" Send="$Stand PlayForever"/>
+        <On Terms="ActorOrphan" Send="Destroy"/>
+        <On Terms="Signal.*.HidePlacement" Send="SetVisibility"/>
+        <On Terms="Signal.*.ShowPlacement" Send="SetVisibility 1"/>
+        <On Terms="SupporterDestruction" Send="Destroy"/>
+        <Model value="Supplicant_PlacementModel"/>
+        <Inherits index="Opacity" value="1"/>
+        <Inherits index="TintColor" value="1"/>
+        <Inherits index="Visibility" value="1"/>
+        <Supporter Subject="SupplicantPlacementLeft"/>
+        <HostForProps Subject="SupplicantPlacementLeft"/>
+    </CActorModel>
+    <CActorUnit id="SupplicantWarpTrainDummy" parent="GenericUnitMinimal" unitName="AlarakSupplicantWarpTrainDummy">
+        <PlacementModel value="Supplicant_PlacementModel"/>
+        <Model value="Invisible"/>
+        <BuildModel value="Invisible"/>
+        <PlacementActorModel value="SupplicantPlacementLeft"/>
+        <PlaceholderActorModel value="SupplicantPlacementLeft"/>
+        <HighlightTooltip value="Unit/Name/SupplicantWarpTrainDummy"/>
+    </CActorUnit>
+    <CActorUnit id="SupplicantWarpTrainCreator" parent="GenericUnitMinimal" unitName="AlarakSupplicantWarpTrainCreator">
+        <Model value="Invisible"/>
+        <HighlightTooltip value="Unit/Name/SupplicantWarpTrainCreator"/>
+    </CActorUnit>
+
+    <CActorModel id="AlarakStalkerForceBlast" parent="ModelAnimationStyleOneShot">
+        <EditorCategories value=""/>
+        <On Terms="Effect.AlarakStalkerForceBlastCP.Start" Send="Create"/>
+    </CActorModel>
+
+    <CActorUnit id="VoidRayTaldarim" parent="GenericUnitBase" unitName="VoidRayTaldarim">
+        <ModelFlags index="OutlineEmitter" value="1"/>
+        <Baselines index="Walk" BlendIn="1.5" BlendOut="2"/>
+        <PortraitModel value="VoidRayTaldarimPortrait"/>
+        <BuildModel value="VoidRayTaldarimWarpIn"/>
+        <DeathArray index="Normal" ModelLink="VoidRayTaldarimDeath" SoundLink="VoidRay_Explode"/>
+        <AnimBlendTime value="0.5"/>
+        <On Terms="UnitHeightUpdate.*.Land" Send="Create VoidRay_Land"/>
+        <On Terms="ActorCreation" Send="StatusSet WeaponAttacking 0"/>
+        <On Terms="ActorCreation" Send="StatusSet WeaponAnim 0"/>
+        <On Terms="WeaponStart.*.AttackStart" Send="StatusSet WeaponAttacking 1"/>
+        <On Terms="WeaponStop.*.AttackStop" Send="StatusSet WeaponAttacking 0"/>
+        <On Terms="Behavior.VoidRayChargeBeamCounter.On; IsStatus WeaponAnim 0" Send="AnimBracketStart Powered Attack Stand,Channel Attack,End"/>
+        <On Terms="Behavior.VoidRayChargeBeamCounter.On; IsStatus WeaponAnim 0" Send="StatusSet WeaponAnim 1"/>
+        <On Terms="Behavior.VoidRayChargeBeamCounter.On" Send="StatusSet WeaponEnhanced 1"/>
+        <On Terms="Behavior.VoidRayChargeBeamCounter.Off" Send="StatusSet WeaponEnhanced 0"/>
+        <On Terms="Behavior.VoidRayChargeBeamCounter.Off; IsStatus WeaponAttacking 0" Send="AnimBracketStop Powered"/>
+        <On Terms="Behavior.VoidRayChargeBeamCounter.Off; IsStatus WeaponAttacking 0" Send="StatusSet WeaponAnim 0"/>
+        <On Terms="WeaponStart.*.AttackStart; ValidateUnit VoidRayChargeBeamPhase1" Send="Create VoidRaySound1"/>
+        <On Terms="WeaponStart.*.AttackStart; ValidateUnit VoidRayChargeBeamPhase2" Send="Create VoidRaySound2"/>
+        <On Terms="WeaponStart.*.AttackStart; ValidateUnit VoidRayChargeBeamPhase3" Send="Create VoidRaySound3"/>
+        <On Terms="WeaponStop.*.AttackStop" Target="VoidRaySound1" Send="Destroy"/>
+        <On Terms="WeaponStop.*.AttackStop" Target="VoidRaySound2" Send="Destroy"/>
+        <On Terms="WeaponStop.*.AttackStop" Target="VoidRaySound3" Send="Destroy"/>
+        <On Terms="Behavior.VoidRayChargeBeamPhase2.On" Target="VoidRaySound1" Send="Destroy"/>
+        <On Terms="Behavior.VoidRayChargeBeamPhase2.On; IsStatus WeaponAttacking 1" Send="Create VoidRaySound2"/>
+        <On Terms="Behavior.VoidRayChargeBeamPhase3.On" Target="VoidRaySound2" Send="Destroy"/>
+        <On Terms="Behavior.VoidRayChargeBeamPhase3.On; IsStatus WeaponAttacking 1" Send="Create VoidRaySound3"/>
+        <On Terms="Behavior.WarpInEffect.On" Send="ModelSwap VoidRayTaldarimWarpInStargate"/>
+        <On Terms="Behavior.WarpInEffect.On" Send="$Spell"/>
+        <On Terms="AnimDone; AnimName Spell" Send="ModelSwap VoidRayTaldarim"/>
+        <On Terms="AnimDone; AnimName Spell" Send="AnimClear Spell"/>
+        <On Terms="Signal.*.UnitRemoved" Target="VoidRayChargeBeamBounce1AttackBeam" Send="Destroy Immediate"/>
+        <On Terms="Signal.*.CampaignBeamCreated" Send="RefSetFromMsg ::actor.MyAttackBeam ::Sender"/>
+        <On Terms="Signal.*.UnitRemoved" Target="::actor.MyAttackBeam" Send="Destroy Immediate"/>
+        <BarWidth value="100"/>
+        <BarOffset value="65"/>
+        <NameOffset value="60"/>
+<!--        <UnitIcon value="Assets\Textures\btn-unit-protoss-voidray-taldarim.dds"/>-->
+<!--        <HeroIcon value="Assets\Textures\btn-unit-protoss-voidray-taldarim.dds"/>-->
+        <WireframeShield>
+            <Image value="Assets\Textures\wireframe-protoss-voidray-taldarim-shield01.dds"/>
+            <Image value="Assets\Textures\wireframe-protoss-voidray-taldarim-shield02.dds"/>
+            <Image value="Assets\Textures\wireframe-protoss-voidray-taldarim-shield03.dds"/>
+        </WireframeShield>
+        <GroupIcon>
+            <Image value="Assets\Textures\wireframe-protoss-voidray-taldarim.dds"/>
+        </GroupIcon>
+        <Wireframe>
+            <Image value="Assets\Textures\wireframe-protoss-voidray-taldarim.dds"/>
+        </Wireframe>
+        <LifeArmorIcon value="Assets\Textures\btn-upgrade-protoss-airarmorlevel0.dds"/>
+        <HostSiteOps Ops="SOpBankerVoidRay"/>
+        <SoundArray index="Birth" value="VoidRay_Birth"/>
+        <SoundArray index="Ready" value="Destroyer_Ready"/>
+        <SoundArray index="Help" value="Destroyer_Help"/>
+        <SoundArray index="What" value="Destroyer_What"/>
+        <SoundArray index="Yes" value="Destroyer_Yes"/>
+        <SoundArray index="Attack" value="Destroyer_Attack"/>
+        <SoundArray index="Pissed" value="Destroyer_Pissed"/>
+        <SoundArray index="Movement" value="VoidRay_Movement"/>
+        <PlacementModel value="VoidRayTalDarimPlacement"/>
+        <Aliases value="_UnitLarge"/>
+
+
+        <DeathArray index="Timeout">
+            <ActorModel value="VoidRayTaldarimTimeoutDeath"/>
+            <AnimProps value="Birth"/>
+            <ModelLink value="VoidRay_Taldarim_WarpOut"/>
+            <SoundLink value="FenixWarpOut"/>
+        </DeathArray>
+        <HeroIcon value="Assets\Textures\btn-unit-protoss-alarak-taldarim-voidray.dds"/>
+        <UnitIcon value="Assets\Textures\btn-unit-protoss-alarak-taldarim-voidray.dds"/>
+    </CActorUnit>
+    <CActorModel id="VoidRayTaldarimTimeoutDeath">
+        <Aliases value="_Main"/>
+        <Aliases value="_Unit"/>
+        <Aliases value="_DeathModel"/>
+        <Macros value="DeadAnimationMacro"/>
+        <Inherits index="BaseModelScale" value="1"/>
+        <Inherits index="CastShadows" value="1"/>
+        <Inherits index="CreepEngulfment" value="1"/>
+        <Inherits index="Scale" value="1"/>
+        <Inherits index="TeamColor" value="1"/>
+        <Inherits index="TintColor" value="1"/>
+        <Inherits index="Visibility" value="1"/>
+        <AcceptedHostedPropTransfers index="TimeScale" value="0"/>
+        <EditorCategories value=""/>
+        <On Terms="ActorCreation" Send="RefClear ::Host"/>
+        <On Terms="ActorCreation" Send="SetTintColor 255,0,0 0.600000"/>
+        <On Terms="ActorCreation" Target="ModelPretargetGround" Send="Destroy"/>
+        <On Terms="ActorCreation" Target="GroundPreSelection" Send="Destroy"/>
+        <On Terms="Signal.*.ClearDeathModel" Send="Destroy"/>
+        <Host Subject="::Creator"/>
+        <Model value="UnitDeathModel"/>
+        <ModelFlags index="SuppressMissingAttachErrors" value="1"/>
+        <ModelFlags index="UpdateVisibility" value="0"/>
+        <ModelFlags index="UseSyncSeed" value="1"/>
+        <EventDataSound Name="NydusCanalThud" Actor="UnitSound" Sound="NydusWorm_DeathThud"/>
+        <EventDataSound Name="ZergExplosionSlime" Actor="UnitSound" Sound="Zerg_ExplosionSlime"/>
+        <EventDataSound Name="ZergPreExplosionSmall" Actor="UnitSound" Sound="Zerg_PreExplosionSmall"/>
+        <EventDataSound Name="ZergExplosionTiny" Actor="UnitSound" Sound="Zerg_ExplosionTiny"/>
+        <EventDataSound Name="ZergExplosionSmall" Actor="UnitSound" Sound="Zerg_ExplosionSmall"/>
+        <EventDataSound Name="ZergExplosionMedium" Actor="UnitSound" Sound="Zerg_ExplosionMedium"/>
+        <EventDataSound Name="ZergExplosionLarge" Actor="UnitSound" Sound="Zerg_ExplosionLarge"/>
+        <EventDataSound Name="ProtossPreExplosionSmall" Actor="UnitSound" Sound="Protoss_PreExplosionSmall"/>
+        <EventDataSound Name="ProtossExplosionSmall" Actor="UnitSound" Sound="Protoss_ExplosionSmall"/>
+        <EventDataSound Name="ProtossExplosionMedium" Actor="UnitSound" Sound="Protoss_ExplosionMedium"/>
+        <EventDataSound Name="ProtossExplosionLarge" Actor="UnitSound" Sound="Protoss_ExplosionLarge"/>
+        <EventDataSound Name="TerranPreExplosionSmall" Actor="UnitSound" Sound="Terran_PreExplosionSmall"/>
+        <EventDataSound Name="TerranExplosionSmall" Actor="UnitSound" Sound="Terran_ExplosionSmall"/>
+        <EventDataSound Name="TerranExplosionMedium" Actor="UnitSound" Sound="Terran_ExplosionMedium"/>
+        <EventDataSound Name="TerranExplosionLarge" Actor="UnitSound" Sound="Terran_ExplosionLarge"/>
+    </CActorModel>
+
+    <CActorUnit id="WarpPrismPhasingTaldarim" parent="GenericUnitStandard" unitName="WarpPrismPhasingTaldarim">
+        <Aliases value="_UnitLarge"/>
+        <Macros value="PhysicsDeathsSwarmAir"/>
+        <Macros value="PhysicsDeathsVoidAir"/>
+        <On Terms="AbilMorph.*.Start; MorphFrom WarpPrismPhasingTaldarim; MorphTo WarpPrismTaldarim" Send="Destroy"/>
+        <On Terms="AbilMorph.*.Start; MorphFrom WarpPrismTaldarim; MorphTo WarpPrismPhasingTaldarim" Send="Create"/>
+        <On Terms="UnitBirth.WarpPrismPhasingTaldarim" Send="AnimBracketStart Phasing Work,Start Work Work,End Instant"/>
+        <On Terms="AbilMorph.*.Start; MorphTo WarpPrismPhasingTaldarim" Send="AnimBracketStart Phasing Work,Start Work Work,End"/>
+        <On Terms="AbilMorph.*.Start; MorphTo WarpPrismTaldarim" Send="AnimBracketStop Phasing"/>
+        <On Terms="Behavior.Hallucination.On" Send="Create HallucinationBirthSoundMedium"/>
+        <On Terms="UnitDeathCustomize; ValidateUnit IsHallucination" Send="DeathCustomize Hallucination"/>
+        <On Terms="Upgrade.DarkProtoss.Add" Send="ModelSwap DarkWarpPrism"/>
+        <On Terms="UnitBirth; ValidateUnit NoDarkProtoss" Send="ModelSwap DarkWarpPrism"/>
+        <On Terms="AbilMorph.*.Start; MorphFrom WarpPrismTaldarim; MorphTo WarpPrismPhasingTaldarim; ValidateUnit NoDarkProtoss" Send="ModelSwap DarkWarpPrism"/>
+        <On Terms="UnitDeathCustomize; ValidateUnit NoDarkProtoss" Send="DeathCustomize DarkProtoss"/>
+        <On Terms="UnitHeightUpdate.*.Land" Send="Create WarpPrismPhasing_Land"/>
+        <On Terms="Upgrade.DarkProtoss.Add" Send="DeathCustomsEnablePhysics 0"/>
+        <On Terms="UnitBirth; ValidateUnit NoDarkProtoss" Send="DeathCustomsEnablePhysics 0"/>
+        <On Terms="Upgrade.DarkProtoss.Add" Send="DeathCustomsEnablePhysics 0"/>
+        <On Terms="UnitBirth; ValidateUnit NoDarkProtoss" Send="DeathCustomsEnablePhysics 0"/>
+        <On Terms="UnitBirth; ValidateUnit HasPurifierProtoss" Send="TextureSelectById PurifierHackDiffuse"/>
+        <On Terms="Upgrade.PurifierProtoss.Add" Send="TextureSelectById PurifierHackDiffuse"/>
+        <On Terms="Signal.*.PurifierHack" Send="TextureSelectById PurifierHackDiffuse"/>
+        <On Terms="UnitDeathCustomize; ValidateUnit IsTerrazineShadow" Send="DeathCustomize Hallucination"/>
+        <ModelFlags index="OutlineEmitter" value="1"/>
+        <DeathArray index="Normal" ModelLink="WarpPrismOpenDeath" SoundLink="WarpPrism_Explode"/>
+        <DeathCustoms ModelLink="HallucinationDeath" SoundLink="Sentry_HallucinationDeathMedium" Name="Hallucination"/>
+        <DeathCustoms ModelLink="DarkWarpPrismOpenDeath" Name="DarkProtoss"/>
+        <DeathCustoms ModelLink="WarpPrismPhasingDeathRagdoll" Name="RagdollBasic" PhysicsMatchKeysOrdered="BasicAir,Basic">
+            <BodySquibs Name="Basic" Model="ProtossRobotSquibDeathRagdoll"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollNuke" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Fire"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollFire" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Fire"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollAcid" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Acid"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollOverkillDPRH" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollOverkillDOI" InheritsFrom="RagdollBasic"/>
+        <PhysicsMatchKeysOrdered value="BasicAir,Basic"/>
+        <PortraitModel value="WarpPrismPortrait"/>
+        <BarOffset value="55"/>
+        <BarWidth value="78"/>
+        <GroupIcon>
+            <Image value="Assets\Textures\Wireframe-Protoss-WarpPrism01.dds"/>
+        </GroupIcon>
+        <HeroIcon value="Assets\Textures\btn-unit-protoss-warpprismstationary.dds"/>
+        <LifeArmorIcon value="Assets\Textures\btn-upgrade-protoss-airarmorlevel0.dds"/>
+        <NameOffset value="60"/>
+        <SoundArray index="Ready" value="WarpPrism_Ready"/>
+        <SoundArray index="What" value="WarpPrism_What"/>
+        <SoundArray index="Yes" value="WarpPrism_Yes"/>
+        <SoundArray index="Pissed" value="WarpPrism_Pissed"/>
+        <UnitIcon value="Assets\Textures\btn-unit-protoss-alarak-taldarim-warpprismstationary.dds"/>
+        <Wireframe>
+            <Image value="Assets\Textures\Wireframe-Protoss-WarpPrism01.dds"/>
+        </Wireframe>
+        <WireframeShield>
+            <Image value="Assets\Textures\Wireframe-Protoss-WarpPrism01-Shield01.dds"/>
+            <Image value="Assets\Textures\Wireframe-Protoss-WarpPrism01-Shield02.dds"/>
+            <Image value="Assets\Textures\Wireframe-Protoss-WarpPrism01-Shield03.dds"/>
+        </WireframeShield>
+        <Model value="WarpPrismPhasing"/>
+        <BuildModel value="WarpPrismPhasing"/>
+        <PlacementModel value="WarpPrismPhasing"/>
+    </CActorUnit>
+    <CActorPower id="WarpPrismPowerTaldarim">
+        <On Terms="Behavior.WarpPrismTaldarimPowerSource.Create; !Option Model Low" Send="Create"/>
+        <On Terms="Behavior.WarpPrismTaldarimPowerSource.Destroy; !Option Model Low" Send="Destroy"/>
+        <PowerSource value="WarpPrismTaldarimPowerSource"/>
+        <VisualArray value="WarpPrismUnpoweredVisualTaldarim"/>
+        <VisualArray value="WarpPrismPowerVisualTaldarim"/>
+    </CActorPower>
+    <CActorPower id="WarpPrismPowerLowTaldarim">
+        <On Terms="Behavior.WarpPrismTaldarimPowerSource.Create; Option Model Low" Send="Create"/>
+        <On Terms="Behavior.WarpPrismTaldarimPowerSource.Destroy; Option Model Low" Send="Destroy"/>
+        <PowerSource value="WarpPrismTaldarimPowerSource"/>
+        <VisualArray value="WarpPrismUnpoweredVisualLowTaldarim"/>
+        <VisualArray value="WarpPrismPowerVisualLowTaldarim"/>
+    </CActorPower>
+    <CActorSplat id="WarpPrismPowerVisualTaldarim">
+        <FogVisibility value="Visible"/>
+        <Host Subject="_Selectable"/>
+        <HostSiteOps Ops="SOpShadow"/>
+        <FadeIn value="0.000000"/>
+        <FadeOut value="0.000000"/>
+        <HoldTime value="-1.000000"/>
+        <Layer value="PowerLayer"/>
+    </CActorSplat>
+    <CActorRange id="WarpPrismPowerVisualLowTaldarim">
+        <Behavior value="WarpPrismTaldarimPowerSource"/>
+        <Icon value="Assets\Textures\PylonLowRingSplat.dds"/>
+        <IconArcLength value="0.750000"/>
+    </CActorRange>
+    <CActorUnit id="WarpPrismTaldarim" parent="GenericUnitStandard" unitName="WarpPrismTaldarim">
+        <Aliases value="_UnitLarge"/>
+        <Macros value="PhysicsDeathsSwarmAir"/>
+        <Macros value="PhysicsDeathsVoidAir"/>
+        <On Terms="AbilMorph.*.Start; MorphFrom WarpPrismTaldarim; MorphTo WarpPrismPhasingTaldarim" Send="Destroy"/>
+        <On Terms="AbilMorph.*.Start; MorphFrom WarpPrismPhasingTaldarim; MorphTo WarpPrismTaldarim" Send="Create"/>
+        <On Terms="AbilMorph.*.Start; MorphFrom WarpPrismPhasingTaldarim; MorphTo WarpPrismTaldarim" Send="AnimPlay Work Work,End 0 0.000000"/>
+        <On Terms="Behavior.Hallucination.On" Send="Create HallucinationBirthSoundMedium"/>
+        <On Terms="UnitDeathCustomize; ValidateUnit IsHallucination" Send="DeathCustomize Hallucination"/>
+        <On Terms="Behavior.WarpInEffect15.On; !ValidateUnit NoDarkProtoss" Send="ModelSwap WarpPrismWarpIn"/>
+        <On Terms="Behavior.WarpInEffect15.On; !ValidateUnit NoDarkProtoss" Send="$Birth"/>
+        <On Terms="Behavior.WarpInEffect15.Off; !ValidateUnit NoDarkProtoss" Send="ModelSwap WarpPrism"/>
+        <On Terms="Behavior.WarpInEffect15.Off; !ValidateUnit NoDarkProtoss" Send="AnimBaselineStart"/>
+        <On Terms="Upgrade.DarkProtoss.Add" Send="ModelSwap DarkWarpPrism"/>
+        <On Terms="UnitBirth; ValidateUnit NoDarkProtoss" Send="ModelSwap DarkWarpPrism"/>
+        <On Terms="AbilMorph.*.Start; MorphFrom WarpPrismPhasingTaldarim; MorphTo WarpPrismTaldarim; ValidateUnit NoDarkProtoss" Send="ModelSwap DarkWarpPrism"/>
+        <On Terms="UnitDeathCustomize; ValidateUnit NoDarkProtoss" Send="DeathCustomize DarkProtoss"/>
+        <On Terms="UnitHeightUpdate.*.Land" Send="Create WarpPrism_Land"/>
+        <On Terms="Behavior.WarpInEffect15.On" Send="ModelSwap WarpPrismWarpIn"/>
+        <On Terms="Behavior.WarpInEffect15.On" Send="$Birth"/>
+        <On Terms="Behavior.WarpInEffect15.Off" Send="ModelSwap WarpPrism"/>
+        <On Terms="Behavior.WarpInEffect15.Off" Send="AnimBaselineStart"/>
+        <On Terms="Upgrade.DarkProtoss.Add" Send="DeathCustomsEnablePhysics 0"/>
+        <On Terms="UnitBirth; ValidateUnit NoDarkProtoss" Send="DeathCustomsEnablePhysics 0"/>
+        <On Terms="Upgrade.DarkProtoss.Add" Send="DeathCustomsEnablePhysics 0"/>
+        <On Terms="UnitBirth; ValidateUnit NoDarkProtoss" Send="DeathCustomsEnablePhysics 0"/>
+        <On Terms="UnitBirth; ValidateUnit HasPurifierProtoss" Send="TextureSelectById PurifierHackDiffuse"/>
+        <On Terms="Upgrade.PurifierProtoss.Add" Send="TextureSelectById PurifierHackDiffuse"/>
+        <On Terms="Signal.*.PurifierHack" Send="TextureSelectById PurifierHackDiffuse"/>
+        <On Terms="UnitDeathCustomize; ValidateUnit IsTerrazineShadow" Send="DeathCustomize Hallucination"/>
+        <On Terms="Behavior.WarpInEffect15.Off; ValidateUnit NoDarkProtoss" Send="ModelSwap DarkWarpPrism"/>
+        <ModelFlags index="OutlineEmitter" value="1"/>
+        <BuildModel value="WarpPrismWarpIn"/>
+        <DeathArray index="Normal" ModelLink="WarpPrismDeath" SoundLink="WarpPrism_Explode"/>
+        <DeathCustoms ModelLink="HallucinationDeath" SoundLink="Sentry_HallucinationDeathMedium" Name="Hallucination"/>
+        <DeathCustoms ModelLink="DarkWarpPrismDeath" Name="DarkProtoss"/>
+        <DeathCustoms>
+            <ActorModel value="WarpPrismDeathRagdoll"/>
+            <ModelLink value="WarpPrismDeathRagdoll"/>
+            <Name value="RagdollBasic"/>
+            <PhysicsMatchKeysOrdered value="BasicAir,Basic"/>
+            <BodySquibs Name="Basic" Model="ProtossRobotSquibDeathRagdoll"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollNuke" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Fire"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollFire" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Fire"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollAcid" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Acid"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollOverkillDPRH" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollOverkillDOI" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollMidair" InheritsFrom="RagdollBasic"/>
+        <PhysicsMatchKeysOrdered value="BasicAir,Basic"/>
+        <PortraitModel value="WarpPrismPortrait"/>
+        <BarOffset value="55"/>
+        <BarWidth value="78"/>
+        <GlossaryAnim value="GLstand,A"/>
+        <GroupIcon>
+            <Image value="Assets\Textures\Wireframe-Protoss-WarpPrism00.dds"/>
+        </GroupIcon>
+        <HeroIcon value="Assets\Textures\btn-unit-protoss-warpprism.dds"/>
+        <LifeArmorIcon value="Assets\Textures\btn-upgrade-protoss-airarmorlevel0.dds"/>
+        <NameOffset value="60"/>
+        <UnitIcon value="Assets\Textures\btn-unit-protoss-alarak-taldarim-warpprism.dds"/>
+        <Wireframe>
+            <Image value="Assets\Textures\Wireframe-Protoss-WarpPrism00.dds"/>
+        </Wireframe>
+        <WireframeShield>
+            <Image value="Assets\Textures\Wireframe-Protoss-WarpPrism00-Shield01.dds"/>
+            <Image value="Assets\Textures\Wireframe-Protoss-WarpPrism00-Shield02.dds"/>
+            <Image value="Assets\Textures\Wireframe-Protoss-WarpPrism00-Shield03.dds"/>
+        </WireframeShield>
+        <Model value="WarpPrism"/>
+        <PlacementModel value="WarpPrism"/>
+    </CActorUnit>
+    <CActorSound id="WarpPrismTaldarim_PhasingModeSound" parent="SoundOneShot">
+        <Sound value="WarpPrism_MorphToPhasing"/>
+        <On Terms="AbilMorph.*.Start; MorphTo WarpPrismPhasingTaldarim" Send="Create"/>
+    </CActorSound>
+    <CActorSound id="WarpPrismTaldarim_TransportModeSound" parent="SoundOneShot">
+        <Sound value="WarpPrism_MorphToTransport"/>
+        <On Terms="AbilMorph.*.Start; MorphTo WarpPrismTaldarim" Send="Create"/>
+    </CActorSound>
+    <CActorMissile id="WarpPrismTaldarimWeaponMissile" parent="GenericAttackMissile" unitName="WarpPrismTaldarimWeaponMissile">
+        <On Terms="ActorCreation" Send="SetTintColor 255,0,0"/>
+        <On Terms="ActorCreation" Send="Create WarpPrismTaldarim_AttackLaunchSound"/>
+        <Model value="ArbiterMPWeaponMissile"/>
+    </CActorMissile>
+    <CActorSound id="WarpPrismTaldarim_AttackLaunchSound" parent="SoundOneShot">
+        <Sound value="WarpPrismTaldarim_AttackLaunch"/>
+    </CActorSound>
+    <CActorAction id="WarpPrismTaldarimWeaponAttack" parent="GenericAttack" effectImpact="WarpPrismTaldarimWeaponDamage" effectLaunch="WarpPrismTaldarimWeaponLaunch">
+        <ImpactMap index="None" Model="ArbiterMPWeaponImpact" Sound="WarpPrismTaldarim_AttackImpact"/>
+        <Missile value="WarpPrismTaldarimWeaponMissile"/>
+    </CActorAction>
+    <CActorSplat id="WarpPrismUnpoweredVisualTaldarim">
+        <FogVisibility value="Visible"/>
+        <Host Subject="_Selectable"/>
+        <HostSiteOps Ops="SOpShadow"/>
+        <FadeIn value="0.000000"/>
+        <FadeOut value="0.000000"/>
+        <HoldTime value="-1.000000"/>
+        <Layer value="PowerLayer"/>
+        <Model value="WarpPrismUnpoweredVisual"/>
+    </CActorSplat>
+    <CActorRange id="WarpPrismUnpoweredVisualLowTaldarim">
+        <Behavior value="WarpPrismPowerSource"/>
+        <Icon value="Assets\Textures\PylonLowRingSplatGrey.dds"/>
+        <IconArcLength value="0.750000"/>
+    </CActorRange>
+    <CActorUnit id="AlarakCoop" parent="GenericUnitBase" unitName="AlarakCoop">
+        <Aliases value="_UnitMedium"/>
+        <Aliases value="_ShieldRed"/>
+        <Flags index="AddToExternalFinder" value="1"/>
+        <On Terms="Abil.attack.ReadyStart" Send="AnimGroupApply Ready"/>
+        <On Terms="WeaponStart.DarkArchonChampionWeaponFunctional.AttackStart" Send="AnimBracketStart Attack Attack"/>
+        <On Terms="WeaponStart.DarkArchonChampionWeaponFunctionalHoldPos.AttackStart" Send="AnimBracketStart Attack Attack"/>
+        <On Terms="WeaponStart.AlarakAA.AttackStart" Send="AnimBracketStart Attack Spell,C"/>
+        <On Terms="WeaponStart.*.AttackStart; AnimPlaying Birth" Send="AnimClear Birth"/>
+        <On Terms="WeaponStop.*.AttackStop" Send="AnimBracketStop Attack"/>
+        <On Terms="WeaponStop.AlarakAA.AttackStop" Target="AlarakAAAttackBeam" Send="Destroy"/>
+        <On Terms="Abil.attack.ReadyStop" Send="AnimGroupRemove Ready"/>
+        <On Terms="Abil.AlarakPsiOrb.SourceCastStart" Send="AnimPlay Spell Attack NonLooping 0.500000 0.500000 0.500000 AsDuration"/>
+        <On Terms="Abil.AlarakMindBlast.SourceCastStart" Send="AnimPlay Spell Attack NonLooping"/>
+        <On Terms="Abil.EnergyChannel.SourceChannelStart" Send="$Spell PlayForever"/>
+        <On Terms="Abil.EnergyChannel.SourceChannelStop" Send="AnimClear Spell"/>
+        <On Terms="Abil.AlarakKnockback.SourceCastStart; AnimPlayingName Spell" Send="AnimClear Spell"/>
+        <On Terms="Abil.AlarakKnockback.SourceCastStart" Send="$Spell,A DontResetOnUnhide"/>
+        <!--On Terms="Abil.DestructionWaveNoOffset.SourcePrepStart" Send="$Spell,A 0 -1.000000 -1.000000 18.000000 AsDuration"/-->
+        <On Terms="Behavior.AlarakAvatar.On" Send="SetTintColor {0,183,0 3.000000} 1.500000 OneShot Avatar"/>
+        <On Terms="Behavior.AlarakAvatar.On" Send="SetScale 1.500000 1.500000 Avatar"/>
+        <On Terms="Behavior.AlarakAvatar.On" Send="HaloStart"/>
+        <On Terms="Behavior.AlarakAvatar.On" Send="HaloSetColor 0,255,0"/>
+        <On Terms="Behavior.AlarakAvatar.Off" Send="ClearTintColor 1.500000 Avatar"/>
+        <On Terms="Behavior.AlarakAvatar.Off" Send="ClearScale 1.500000 Avatar"/>
+        <On Terms="Behavior.AlarakAvatar.Off" Send="HaloStop"/>
+        <On Terms="Behavior.AlarakAvatarPermanent.On" Send="SetTintColor {0,183,0 3.000000} 1.500000 OneShot Avatar"/>
+        <On Terms="Behavior.AlarakAvatarPermanent.On" Send="SetScale 1.500000 1.500000 Avatar"/>
+        <On Terms="Behavior.AlarakAvatarPermanent.On" Send="HaloStart"/>
+        <On Terms="Behavior.AlarakAvatarPermanent.On" Send="HaloSetColor 0,255,0"/>
+        <On Terms="Behavior.AlarakAvatarPermanent.Off" Send="ClearTintColor 1.500000 Avatar"/>
+        <On Terms="Behavior.AlarakAvatarPermanent.Off" Send="ClearScale 1.500000 Avatar"/>
+        <On Terms="Behavior.AlarakAvatarPermanent.Off" Send="HaloStop"/>
+        <On Terms="Abil.AlarakACDeadlyCharge.SourceCastStart" Send="AnimPlay SpellAttack Spell,B"/>
+        <!--On Terms="WeaponStart.AlarakAA.AttackStart" Send="AnimPlay SpellAttack Spell,B 0 -1.000000 -1.000000 2.000000 AsTimeScale 0.000000 100"/>
+        <On Terms="WeaponStart.AlarakAA.AttackStart" Send="TimerSet 1.500000 AnimClear"/>
+        <On Terms="TimerExpired; TimerName AnimClear" Send="AnimClear SpellAttack"/-->
+        <On Terms="Effect.AlarakBaneBladesLM.Start" Send="AnimPlay DashAttack Spell,B"/>
+        <On Terms="Effect.AlarakBaneBladesLM.Start" Send="TimerSet 0.125000 DashAttack"/>
+        <On Terms="TimerExpired; TimerName DashAttack" Send="AnimClear DashAttack"/>
+        <On Terms="TimerExpired; TimerName DashAttack" Send="AnimPlay DashAttackEnd Attack"/>
+        <On Terms="TimerExpired; TimerName DashAttack" Send="TimerSet 0.125000 DashAttackEnd"/>
+        <On Terms="TimerExpired; TimerName DashAttackEnd" Send="AnimClear DashAttackEnd"/>
+        <On Terms="Behavior.AlarakEmpowerCaster.On; ValidateUnit HaveAlarakAreaDamageUpgrade" Send="AnimGroupApply Upgrade"/>
+        <On Terms="Behavior.AlarakEmpowerCaster.Off" Send="AnimGroupRemove Upgrade"/>
+        <On Terms="Upgrade.AlarakAreaDamageUpgrade.Add; ValidateUnit HaveAlarakEmpowerCaster" Send="AnimGroupApply Upgrade"/>
+        <On Terms="Behavior.AlarakReviveWarpIn.On" Send="AnimBaselineStop"/>
+        <On Terms="Behavior.AlarakReviveWarpIn.Off" Send="AnimPlay Attack Stand,00"/>
+        <On Terms="Behavior.AlarakReviveWarpIn.Off" Send="AnimBaselineStart"/>
+        <On Terms="UnitMovementUpdate.*.Walk" Send="AnimClear SpellAttack"/>
+        <On Terms="WeaponStart.DarkArchonChampionWeaponFunctional.AttackStart" Send="AnimClear SpellAttack"/>
+        <On Terms="WeaponStart.DarkArchonChampionWeaponFunctionalHoldPos.AttackStart" Send="AnimClear SpellAttack"/>
+        <On Terms="UnitMovementUpdate.*.Walk" Send="AnimClear SpellAttack"/>
+        <On Terms="WeaponStart.*.AttackStart" Send="AnimClear Spell"/>
+        <On Terms="ButtonHover.SoulAbsorption.On; ButtonEnabled" Send="Create AlarakSoulAbsorptionRange"/>
+        <On Terms="ButtonHover.SoulAbsorption.Off; ButtonEnabled" Target="AlarakSoulAbsorptionRange" Send="Destroy"/>
+        <On Terms="UnitMovementUpdate.*.Walk" Send="AnimClear Spell"/>
+        <Model value="Alarak_COOP"/>
+        <BuildModel value="DarkArchonChampionWarpIn"/>
+        <DeathArray index="Normal" ModelLink="DarkArchonChampionDeath" SoundLink="Alarak_Death_Fx" VoiceLink="AlarakChampionDeathVoice"/>
+        <PlacementModel value="Alarak_COOP"/>
+        <PortraitActor value="AlarakEx2Portrait"/>
+        <PortraitModel value="AlarakEx2Portrait"/>
+        <WalkAnimMoveSpeed value="2.9492"/>
+        <AbilSoundArray AbilCmd="AlarakPsiOrb,Execute" Sound="Swarm_Silent"/>
+        <AbilSoundArray AbilCmd="AlarakMindBlast,Execute" Sound="Swarm_Silent"/>
+        <CustomUnitStatusFrame value="LotV_UnitStatus/HeroUnitEnergyStatusFrameTemplate"/>
+        <GroupIcon>
+            <Image value="Assets\Textures\wireframe-protoss-alarak.dds"/>
+        </GroupIcon>
+        <GroupSoundArray index="What" value="AlarakChampion_GroupWhat"/>
+        <GroupSoundArray index="Yes" value="AlarakChampion_GroupYes"/>
+        <GroupSoundArray index="Attack" value="AlarakChampion_GroupAttack"/>
+        <GroupSoundArray index="Board" value="AlarakChampion_GroupBoard"/>
+        <HeroIcon value="Assets\Textures\btn-unit-protoss-alarak.dds"/>
+        <HighlightTooltip value="Unit/Name/AlarakChampion"/>
+        <LifeArmorIcon value="Assets\Textures\btn-upgrade-protoss-groundarmorlevel1.dds"/>
+        <MinimapIcon value="Assets\Textures\BTN-AC-Protoss-AlarakMapIcon.dds"/>
+        <MinimapIconScale value="0.700000"/>
+        <MinimapTooltip value="Unit/Name/AlarakCoop"/>
+        <MinimapUseSelfColor value="0"/>
+        <MinimapUseSelectionColor value="0"/>
+        <SoundArray index="Birth" value="AlarakChampion_Birth"/>
+        <SoundArray index="Ready" value="Alarak_Ready"/>
+        <SoundArray index="Help" value="Alarak_Help"/>
+        <SoundArray index="What" value="Alarak_What"/>
+        <SoundArray index="Yes" value="Alarak_Yes"/>
+        <SoundArray index="Attack" value="Alarak_Attack"/>
+        <SoundArray index="Pissed" value="Alarak_Pissed"/>
+        <SoundArray index="Movement" value="AlarakChampion_Movement"/>
+        <SoundArray index="Turning" value="AlarakChampion_Turning"/>
+        <SoundArray index="Board" value="AlarakChampion_Board"/>
+        <SoundArray index="Click" value="AlarakChampion_Click"/>
+        <SoundArray index="ClickError" value="AlarakChampion_ClickError"/>
+        <SoundArray index="Highlight" value="AlarakChampion_Highlight"/>
+        <StatusBarOn index="Custom" value="1"/>
+        <UnitFlags index="SuppressDefaultStatusBar" value="1"/>
+        <UnitIcon value="Assets\Textures\btn-unit-protoss-alarak.dds"/>
+        <UnitKillRank Text="UnitKillRank/Alarak"/>
+        <Wireframe>
+            <Image value="Assets\Textures\wireframe-protoss-alarak.dds"/>
+        </Wireframe>
+        <WireframeShield>
+            <Image value="Assets\Textures\wireframe-protoss-alarak-shield01.dds"/>
+            <Image value="Assets\Textures\wireframe-protoss-alarak-shield02.dds"/>
+            <Image value="Assets\Textures\wireframe-protoss-alarak-shield03.dds"/>
+        </WireframeShield>
+        <MinimapRenderPriority value="Hero"/>
+    </CActorUnit>
+    <CActorUnit id="AlarakReviveBeacon" parent="GenericUnitMorph" unitName="AlarakReviveBeacon">
+        <!--On Terms="ActorCreation" Send="$Birth 0 0.000000 -1.000000 0.000000"/>
+        <On Terms="AbilMorph.*.Finish; MorphTo ZagaraReviveCocoon" Send="AnimBaselineStop"/>
+        <On Terms="AbilMorph.*.Finish; MorphTo ZagaraReviveCocoon" Send="$Birth 0 0.000000 -1.000000 0.000000"/>
+        <On Terms="AnimDone; AnimName Birth" Send="AnimBaselineStart"/>
+        <DeathArray index="Normal" ModelLink="KerriganReviveCocoonDeath" SoundLink="CocoonAC_Hatch"/>
+        <DeathActorModel value="UnitDeathModelReviveCocoon"/>
+        <DeathActorModelLow value="UnitDeathModelReviveCocoon"/-->
+        <PortraitActor value="AlarakEx2Portrait"/>
+        <PortraitModel value="AlarakEx2Portrait"/>
+        <BarOffset value="80"/>
+        <BarWidth value="78"/>
+        <GroupIcon>
+            <Image value="Assets\Textures\wireframe-protoss-alarakrespawnbase.dds"/>
+        </GroupIcon>
+        <UnitIcon value="Assets\Textures\btn-unit-protoss-alarak-taldarim-respawnbase.dds"/>
+        <HeroIcon value="Assets\Textures\btn-unit-protoss-alarak-taldarim-respawnbase.dds"/>
+        <Wireframe>
+            <Image value="Assets\Textures\wireframe-protoss-alarakrespawnbase.dds"/>
+        </Wireframe>
+        <WireframeShield>
+            <Image value="Assets\Textures\wireframe-protoss-alarakrespawnbase-shield01.dds"/>
+            <Image value="Assets\Textures\wireframe-protoss-alarakrespawnbase-shield02.dds"/>
+            <Image value="Assets\Textures\wireframe-protoss-alarakrespawnbase-shield03.dds"/>
+        </WireframeShield>
+        <On Terms="ActorCreation" Send="$Birth"/>
+        <On Terms="ActorCreation" Send="Create AlarakReviveBeacon_BirthSound"/>
+        <Model value="Alarak_COOP_RespawnBase"/>
+        <BuildModel value="Alarak_COOP_RespawnBase"/>
+        <PlacementModel value="Alarak_COOP_RespawnBase"/>
+        <StatusBarFlags index="Life" value="0"/>
+    </CActorUnit>
+    <CActorSound id="AlarakReviveBeacon_BirthSound" parent="SoundOneShot">
+        <Sound value="AlarakReviveBeacon_Birth"/>
+        <Layers>
+            <Sound value="AlarakReviveBeacon_Birth2"/>
+            <PitchSource value="Sound"/>
+            <PlayDelaySource value="Sound"/>
+            <VolumeSource value="Sound"/>
+            <Chance value="100"/>
+            <Pitch value="0.000000,0.000000"/>
+            <PlayDelay value="0,0"/>
+            <Volume value="0.000000,0.000000"/>
+        </Layers>
+        <Layers>
+            <Sound value="AlarakReviveBeacon_BirthHit"/>
+            <PitchSource value="Sound"/>
+            <PlayDelaySource value="Sound"/>
+            <VolumeSource value="Sound"/>
+            <Chance value="100"/>
+            <Pitch value="0.000000,0.000000"/>
+            <PlayDelay value="0,0"/>
+            <Volume value="0.000000,0.000000"/>
+        </Layers>
+    </CActorSound>
+    <CActorSound id="AlarakCommander_Revive" parent="SoundOneShot"/>
+    <CActorSound id="AlarakStalkerForceBlast_CreationSound" parent="SoundOneShot">
+        <On Terms="Effect.AlarakStalkerForceBlastCP.Start" Send="Create"/>
+        <Sound value="Reaper_D8ChargeExplode"/>
+    </CActorSound>
+    <CActorSound id="AlarakTheStrongestSurviveSupplicantSacrificeDamage_CreationSound" parent="SoundOneShot">
+        <On Terms="Effect.AlarakTheStrongestSurviveSupplicantSacrificeDamageUD.Start" Send="Create"/>
+        <Sound value="Reaper_D8ChargeExplode"/>
+    </CActorSound>
+    <CActorModel id="AlarakStructureOvercharge" parent="ModelAnimationStyleContinuous">
+        <On Terms="Behavior.AlarakStructureOvercharge.Create" Send="Create"/>
+        <On Terms="Behavior.AlarakStructureOvercharge.Destroy" Send="Destroy"/>
+        <On Terms="ActorCreation" Send="AnimBracketStart Work Stand,Work,Start Stand,Work Stand,Work,End"/>
+        <On Terms="ActorCreation" Send="SetTintColor {188,22,39 4.000000}"/>
+        <Host Subject="_Unit"/>
+        <HostSiteOps Ops="SOpAttachOverhead"/>
+        <Inherits index="CloakEffect" value="1"/>
+    </CActorModel>
+    <CActorSound id="Alarak_StructureOvercharge_Loop_AS" parent="SoundContinuous">
+        <On Terms="Behavior.AlarakStructureOvercharge.On" Send="Create"/>
+        <On Terms="Behavior.AlarakStructureOvercharge.Off" Send="Destroy"/>
+        <Sound value="Alarak_StructureOvercharge_Loop"/>
+    </CActorSound>
+    <CActorSound id="AlarakStructureOverchargeOff_AS" parent="SoundOneShot">
+        <On Terms="Behavior.AlarakStructureOvercharge.Off" Send="Create"/>
+        <Sound value="Alarak_StructureOvercharge_Off"/>
+        <Layers Sound="Alarak_StructureOvercharge">
+            <Chance value="100"/>
+            <Pitch value="0.000000,0.000000"/>
+            <PlayDelay value="0,0"/>
+            <Volume value="-4.000000,-4.000000"/>
+        </Layers>
+    </CActorSound>
+    <CActorAction id="AlarakStructureOverchargeAttack" parent="GenericAttack" effectImpact="AlarakStructureOverchargeDamage" effectLaunch="AlarakStructureOverchargeLM">
+        <ImpactMap index="None" Sound="PhotonCannon_AttackImpact"/>
+        <ImpactMap index="Flesh" ModelReaction="BloodTargetImpact"/>
+        <LaunchAttachQuery Methods="TurretZ"/>
+        <LaunchAssets Sound="PhotonCannon_AttackLaunch"/>
+        <ImpactPhysics Name="PurifyImpact" MatchKeys="Basic" Physics="MothershipCoreAttackForce"/>
+        <LaunchSiteOps Ops="SOpForwardTargetPoint SOp2DRotation SOpAttachOverhead"/>
+        <On Terms="ActorCreation" Send="SetTintColor {188,22,39 4.000000}"/>
+    </CActorAction>
+    <CActorMissile id="AlarakStructureOverchargeAttackMissile" parent="GenericAttackMissile" unitName="AlarakStructureOverchargeWeapon">
+        <On Terms="UnitBirth" Send="AnimSetTimeScaleAbsolute Lifetime 1.000000"/>
+        <On Terms="ActorCreation" Send="SetTintColor {188,22,39 4.000000}"/>
+    </CActorMissile>
+    <CActorSound id="AlarakStructureOverchargeCastSound" parent="SoundOneShot">
+        <On Terms="Behavior.AlarakStructureOvercharge.On" Send="Create"/>
+        <On Terms="ActorCreation" Send="SetTintColor {188,22,39 4.000000}"/>
+        <Sound value="AlarakStructureOverchargeActivate"/>
+        <Layers Sound="Alarak_StructureOvercharge">
+            <Chance value="100"/>
+            <Pitch value="0.000000,0.000000"/>
+            <PlayDelay value="0,0"/>
+            <Volume value="0.000000,0.000000"/>
+        </Layers>
+    </CActorSound>
+    <CActorRange id="AlarakStructureOverchargeRange">
+        <On Terms="Behavior.AlarakStructureOvercharge.On" Send="Create"/>
+        <On Terms="Behavior.AlarakStructureOvercharge.Off" Send="Destroy"/>
+        <Range value="15.000000"/>
+        <Icon value="Assets\Textures\RadarIcon2.dds"/>
+        <IconArcLength value="3.250000"/>
+    </CActorRange>
+    <CActorModel id="AlarakTheStrongestSurviveSupplicantSacrificeCDR" parent="ModelAnimationStyleOneShot">
+        <On Terms="Effect.AlarakSupplicantSacrificeCDR.Start" Send="Create"/>
+        <Host Subject="::external.AlarakCoop"/>
+        <Model value="Alarak_COOP_Sacrifice_CDR"/>
+    </CActorModel>
+    <CActorSound id="AlarakTheStrongestSurviveSupplicantSacrificeCDR_CreationSound" parent="SoundOneShot">
+        <On Terms="Effect.AlarakSupplicantSacrificeCDR.Start" Send="Create"/>
+        <Sound value="VoidShard_Charged_Electric"/>
+        <Host Subject="::external.AlarakCoop"/>
+    </CActorSound>
+    <CActorModel id="AlarakAttackStunDebuff" parent="ModelAnimationStyleContinuous">
+        <On Terms="Behavior.AlarakBaneBladesStun.On" Send="Create"/>
+        <On Terms="Behavior.AlarakBaneBladesStun.Off" Send="Destroy"/>
+        <Host Subject="_Selectable"/>
+        <HostSiteOps Ops="SOpAttachOverhead"/>
+        <Model value="AlarakAttackStun"/>
+    </CActorModel>
+    <CActorModel id="AlarakAttackSlowDebuff" parent="ModelAnimationStyleContinuous">
+        <On Terms="Behavior.AlarakBaneBladesSlow.On" Send="Create"/>
+        <On Terms="Behavior.AlarakBaneBladesSlow.Off" Send="Destroy"/>
+        <AutoScaleFactor value="2.000000"/>
+        <Host Subject="_Selectable"/>
+        <Terms value="Cap 1"/>
+        <HostSiteOps Ops="SOpAttachOverhead"/>
+        <Model value="AlarakAttackSlow"/>
+    </CActorModel>
+    <!--CActorModel id="AlarakAreaDamageUpgrade" parent="ModelAnimationStyleOneShot">-->
+    <!--        <EditorCategories value=""/>-->
+    <!--        <On Terms="Effect.AlarakBaneBladesAoeSearch.Start" Send="Create"/>-->
+    <!--    </CActorModel-->
+    <CActorAction id="AlarakLightningStrikesAttack" parent="GenericAttack" effectAttack="AlarakLightningStrikesDamage">
+        <BeamScope value="Caster"/>
+        <ImpactSiteOps Ops="SOpAttachHarness SOpAttachVolumeNoVizEnhance VoidRaySOpForwardLaunch"/>
+        <LaunchAssets Sound="Archon_AttackLaunch"/>
+        <ImpactMap index="None" Model="" Sound="Alarak_LightningStrike_AS"/>
+        <ActionFlags index="ImpactMonitorsTeleports" value="1"/>
+    </CActorAction>
+    <!--CActorMissile id="AlarakAAAttackMissile" parent="GenericAttackMissile" unitName="AlarakAAWeapon"/-->
+    <CActorAction id="AlarakAAAttack" parent="GenericAttack" effectAttack="AlarakAADamage">
+        <LaunchSiteOps Ops="SOpAttachWeapon01"/>
+        <LaunchAssets Sound="Archon_AttackLaunch"/>
+        <BeamScope value="Caster"/>
+        <ImpactSiteOps Ops="SOpAttachHarness SOpAttachVolumeNoVizEnhance VoidRaySOpForwardLaunch"/>
+        <ImpactMap index="None" Model="" Sound="AlarakForkedLightningAttackBeamImpactSound"/>
+        <ActionFlags index="AlignedImpactsAndDamages" value="1"/>
+        <ActionFlags index="ImpactMonitorsTeleports" value="1"/>
+    </CActorAction>
+    <CActorBeamSimple id="AlarakAAAttackBeam">
+        <Flags index="SuppressSaveLoad" value="1"/>
+        <On Terms="ActorCreation" Send="AnimBracketStart BSD Birth {} Death ContentPlayOnce"/>
+        <On Terms="ActorOrphan" Send="AnimBracketStop BSD"/>
+        <On Terms="AnimBracketState.*.AfterClosing; AnimName BSD" Send="Destroy"/>
+        <Model value="Alarak_COOP_AirAttack_Missile"/>
+    </CActorBeamSimple>
+    <CActorModelMaterial id="Glaze_Alarak_COOP_Sacrifice" parent="GlazeParent">
+        <On Terms="Effect.AlarakTheStrongestSurviveSearchImpact.Stop; At Caster" Send="Create"/>
+        <On Terms="ActorCreation" Send="ModelMaterialApplyTo ::Main"/>
+        <On Terms="ActorCreation" Send="AnimBracketStart Birth Birth"/>
+        <On Terms="AnimDone; AnimName Birth" Send="Destroy"/>
+        <ModelFlags index="AutomateGlobalLoops" value="1"/>
+    </CActorModelMaterial>
+    <CActorModelMaterial id="Glaze_Alarak_COOP_PrestigeMechBuff">
+        <ModelFlags index="AutomateGlobalLoops" value="1"/>
+        <On Terms="ActorCreation" Send="AnimBracketStart BSD {} Stand Death"/>
+        <On Terms="ActorCreation" Send="StatusSet IgnoreTens 0"/>
+        <On Terms="ActorOrphan" Send="Destroy"/>
+        <On Terms="AnimBracketState.*.AfterClosing; !AnimBracketExitReason ModelSwap; AnimName BSD" Send="Destroy"/>
+        <On Terms="Signal.*.PrestigeMechAnimGroupA" Send="AnimGroupApply A"/>
+        <On Terms="Signal.*.PrestigeMechAnimGroupA" Send="AnimGroupRemove B"/>
+        <On Terms="Signal.*.PrestigeMechAnimGroupA" Send="AnimGroupRemove C"/>
+        <On Terms="Signal.*.PrestigeMechAnimGroupB" Send="AnimGroupApply B"/>
+        <On Terms="Signal.*.PrestigeMechAnimGroupB" Send="AnimGroupRemove A"/>
+        <On Terms="Signal.*.PrestigeMechAnimGroupB" Send="AnimGroupRemove C"/>
+        <On Terms="Signal.*.PrestigeMechAnimGroupC" Send="AnimGroupApply C"/>
+        <On Terms="Signal.*.PrestigeMechAnimGroupC" Send="AnimGroupRemove A"/>
+        <On Terms="Signal.*.PrestigeMechAnimGroupC" Send="AnimGroupRemove B"/>
+        <On Terms="ActorCreation" Send="ModelMaterialApplyTo ::Main"/>
+        <Terms value="Cap 1"/>
+    </CActorModelMaterial>
+    <CActorModelMaterial id="Glaze_Alarak_COOP_Empower" parent="GlazeParent">
+        <On Terms="ActorCreation" Send="ModelMaterialApplyTo ::Main"/>
+        <On Terms="Behavior.AlarakEmpowerTarget.On" Send="Create"/>
+        <On Terms="Behavior.AlarakEmpowerTarget.Off" Send="AnimBracketStop BSD"/>
+        <ModelFlags index="AutomateGlobalLoops" value="1"/>
+    </CActorModelMaterial>
+
+
+
+</Catalog>

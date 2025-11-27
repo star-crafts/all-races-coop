@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+
+    <CUnit id="LabTurret">
+        <DeathRevealRadius value="3"/>
+        <Race value="Terr"/>
+        <FlagArray index="Turnable" value="0"/>
+        <FlagArray index="UseLineOfSight" value="1"/>
+        <FlagArray index="TownAlert" value="1"/>
+        <FlagArray index="Cloaked" value="1"/>
+        <FlagArray index="Buried" value="1"/>
+        <FlagArray index="NoPortraitTalk" value="1"/>
+        <FlagArray index="ArmorDisabledWhileConstructing" value="1"/>
+        <FogVisibility value="Snapshot"/>
+        <PlaneArray index="Ground" value="1"/>
+        <Collide index="Burrow" value="1"/>
+        <Collide index="Structure" value="1"/>
+        <Attributes index="Armored" value="1"/>
+        <Attributes index="Mechanical" value="1"/>
+        <Attributes index="Structure" value="1"/>
+        <LifeStart value="250"/>
+        <LifeMax value="250"/>
+        <LifeArmor value="1"/>
+        <LifeArmorName value="Unit/LifeArmorName/TerranBuildingPlating"/>
+        <Sight value="7"/>
+        <CostResource index="Minerals" value="150"/>
+        <RepairTime value="33.3332"/>
+        <AttackTargetPriority value="20"/>
+        <AbilArray Link="LabTurretUnburrow"/>
+        <BehaviorArray Link="TerranBuildingBurnDown"/>
+        <WeaponArray Turret="LabTurret"/>
+        <CardLayouts>
+            <LayoutButtons Face="Cancel" Type="AbilCmd" AbilCmd="BuildInProgress,Cancel" Row="2" Column="4"/>
+            <LayoutButtons Face="Attack" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="4"/>
+            <LayoutButtons Face="Detector" Type="Passive" Behavior="DistortionSensors" Row="2" Column="3"/>
+            <LayoutButtons Face="BurrowUp" Type="AbilCmd" AbilCmd="LabTurretUnburrow,Execute" Row="2" Column="4"/>
+        </CardLayouts>
+        <Radius value="0.75"/>
+        <SeparationRadius value="0.75"/>
+        <ScoreMake value="50"/>
+        <ScoreKill value="150"/>
+        <SubgroupPriority value="12"/>
+        <MinimapRadius value="0.75"/>
+        <SelectAlias value="LabTurretReady"/>
+        <KillDisplay value="Always"/>
+        <RankDisplay value="Always"/>
+        <AbilArray Link="BuildInProgress"/>
+        <AbilArray Link="SalvageShared"/>
+        <CardLayouts index="0">
+            <LayoutButtons index="2" Face="Halt" Type="AbilCmd" AbilCmd="BuildInProgress,Halt" Behavior=""/>
+            <LayoutButtons index="3" Face="SelectBuilder" Type="SelectBuilder" AbilCmd="" Row="1" Column="3"/>
+            <LayoutButtons Face="UnburrowTurret" Type="AbilCmd" AbilCmd="LabTurretUnburrow,Execute" Row="2" Column="0"/>
+            <LayoutButtons Face="Salvage" Type="AbilCmd" AbilCmd="SalvageShared,On" Row="2" Column="4"/>
+        </CardLayouts>
+        <CostCategory value="Technology"/>
+        <PlacementFootprint value="Footprint2x2"/>
+        <BehaviorArray Link="UnderConstruction"/>
+        <BehaviorArray Link="FireSuppressionSystem"/>
+        <BehaviorArray Link="P2Effect"/>
+        <Collide index="RoachBurrow" value="1"/>
+        <Footprint value="Footprint2x2Underground"/>
+        <AddedOnArray BehaviorLink="Detector7"/>
+        <EditorCategories value="ObjectType:Structure,ObjectFamily:Coop"/>
+    </CUnit>
+    <CUnit id="LabTurretUp">
+        <DeathRevealRadius value="3"/>
+        <Facing value="29.9926"/>
+        <Race value="Terr"/>
+        <Mob value="Campaign"/>
+        <FlagArray index="Turnable" value="0"/>
+        <FlagArray index="UseLineOfSight" value="1"/>
+        <FlagArray index="TownAlert" value="1"/>
+        <FlagArray index="NoPortraitTalk" value="1"/>
+        <FlagArray index="AIDefense" value="1"/>
+        <FlagArray index="ArmorDisabledWhileConstructing" value="1"/>
+        <FogVisibility value="Snapshot"/>
+        <PlaneArray index="Ground" value="1"/>
+        <Collide index="Burrow" value="1"/>
+        <Collide index="Ground" value="1"/>
+        <Collide index="Structure" value="1"/>
+        <Collide index="Small" value="1"/>
+        <Attributes index="Armored" value="1"/>
+        <Attributes index="Mechanical" value="1"/>
+        <Attributes index="Structure" value="1"/>
+        <LifeStart value="250"/>
+        <LifeMax value="250"/>
+        <LifeArmor value="1"/>
+        <LifeArmorName value="Unit/LifeArmorName/TerranBuildingPlating"/>
+        <Sight value="7"/>
+        <CostResource index="Minerals" value="150"/>
+        <RepairTime value="33.3332"/>
+        <AttackTargetPriority value="20"/>
+        <AbilArray Link="LabTurretBurrow"/>
+        <BehaviorArray Link="TerranBuildingBurnDown"/>
+        <BehaviorArray Link="PoisonGasFiring"/>
+        <WeaponArray Turret="LabTurret"/>
+        <CardLayouts>
+            <LayoutButtons Face="Halt" Type="AbilCmd" AbilCmd="BuildInProgress,Halt" Row="2" Column="3"/>
+            <LayoutButtons Face="CancelBuilding" Type="AbilCmd" AbilCmd="BuildInProgress,Cancel" Row="2" Column="4"/>
+            <LayoutButtons Face="Attack" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="4"/>
+            <LayoutButtons Face="Detector" Type="Passive" Behavior="DistortionSensors" Row="2" Column="3"/>
+            <LayoutButtons Face="BurrowDown" Type="AbilCmd" AbilCmd="LabTurretBurrow,Execute" Row="2" Column="4"/>
+        </CardLayouts>
+        <Radius value="0.75"/>
+        <SeparationRadius value="0.75"/>
+        <ScoreMake value="50"/>
+        <ScoreKill value="150"/>
+        <ScoreResult value="BuildOrder"/>
+        <SubgroupPriority value="12"/>
+        <MinimapRadius value="0.75"/>
+        <GlossaryCategory value="Unit/Category/TerranUnits"/>
+        <GlossaryPriority value="263"/>
+        <KillDisplay value="Always"/>
+        <RankDisplay value="Always"/>
+        <AbilArray Link="SalvageShared"/>
+        <AbilArray Link="attack"/>
+        <CardLayouts index="0">
+            <LayoutButtons index="3" Face="SelectBuilder" Type="SelectBuilder" Behavior="" Row="1"/>
+            <LayoutButtons index="4" Face="Salvage" AbilCmd="SalvageShared,On"/>
+            <LayoutButtons Face="BurrowTurret" Type="AbilCmd" AbilCmd="LabTurretBurrow,Execute" Row="2" Column="0"/>
+        </CardLayouts>
+        <CostCategory value="Technology"/>
+        <BehaviorArray Link="GasTurretBurrow"/>
+        <BehaviorArray Link="P2Effect"/>
+        <Footprint value="Footprint2x2Contour"/>
+        <WeaponArray index="0" Link="GasTurretDummy"/>
+        <Collide index="RoachBurrow" value="1"/>
+        <Collide index="ForceField" value="1"/>
+        <EditorCategories value="ObjectType:Structure,ObjectFamily:Coop"/>
+    </CUnit>
+    <CTurret id="LabTurret" parent="FreeRotate">
+        <Idle value="Spin"/>
+        <YawIdleRate value="-45"/>
+    </CTurret>
+    <CAbilMorph id="LabTurretBurrow">
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="BurrowDown">
+            <Flags index="ToSelection" value="1"/>
+        </CmdButtonArray>
+        <ActorKey value="BurrowDown"/>
+        <Flags index="IgnoreFacing" value="1"/>
+        <Flags index="SuppressMovement" value="1"/>
+        <InfoArray Unit="LabTurret" index="0">
+            <SectionArray index="Actor">
+                <DurationArray index="Duration" value="1"/>
+            </SectionArray>
+            <SectionArray index="Mover">
+                <DurationArray index="Duration" value="1"/>
+            </SectionArray>
+            <SectionArray index="Stats">
+                <DurationArray index="Delay" value="1"/>
+            </SectionArray>
+        </InfoArray>
+    </CAbilMorph>
+    <CAbilMorph id="LabTurretUnburrow">
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="BurrowUp">
+            <Flags index="ToSelection" value="1"/>
+        </CmdButtonArray>
+        <ActorKey value="BurrowUp"/>
+        <Flags index="IgnoreFacing" value="1"/>
+        <Flags index="MoveBlockers" value="1"/>
+        <Flags index="SuppressMovement" value="1"/>
+        <InfoArray Unit="LabTurretUp" CollideRange="0" index="0">
+            <SectionArray index="Actor">
+                <DurationArray index="Duration" value="0.6"/>
+            </SectionArray>
+            <SectionArray index="Mover">
+                <DurationArray index="Duration" value="0.6"/>
+            </SectionArray>
+            <SectionArray index="Stats">
+                <DurationArray index="Duration" value="0.6"/>
+            </SectionArray>
+        </InfoArray>
+        <AutoCastFilters value="Ground,Visible;Self,Player,Ally,Neutral,Structure,Missile,Destructible,Stasis,Dead,Hidden,Invulnerable,Benign"/>
+        <AutoCastRange value="4.7"/>
+        <AutoCastCountMin value="1"/>
+        <Flags index="AutoCast" value="1"/>
+        <Flags index="AutoCastOn" value="1"/>
+        <Flags index="IgnorePlacement" value="0"/>
+    </CAbilMorph>
+    <CActorUnit id="LabTurret" parent="TerranBuilding" unitName="LabTurret">
+        <CreepHeightClass value="Small"/>
+        <On Terms="UnitBirth.LabTurretUp" Send="Create"/>
+        <On Terms="UnitBirth.LabTurretUp" Send="AnimBracketStart Work Stand,Work,Start Stand,Work Stand,Work,End ClosingFull,OpeningPlayForever,Instant"/>
+        <On Terms="AbilMorph.*.Start; MorphTo LabTurretUp" Send="AnimBracketStart Work Stand,Work,Start Stand,Work Stand,Work,End ClosingFull,OpeningPlayForever"/>
+        <On Terms="AbilMorph.*.Finish; MorphTo LabTurretUp" Send="Create Doodad_UmojanLabGasTurret_StandWork"/>
+        <On Terms="AbilMorph.*.Start; MorphTo LabTurret" Target="Doodad_UmojanLabGasTurret_StandWork" Send="Destroy"/>
+        <On Terms="AbilMorph.*.Start; MorphTo LabTurret" Send="AnimBracketStop Work"/>
+        <On Terms="ActorCreation" Send="AnimBracketStart GL_BSD_B GLbirth,B GLstand,B GLdeath,B"/>
+        <On Terms="AbilMorph.*.Start; MorphTo LabTurretUp" Send="Create LabTurretPoisonGasCloud"/>
+        <On Terms="AbilMorph.*.Start; MorphTo LabTurret" Target="LabTurretPoisonGasCloud" Send="Destroy"/>
+        <DeathArray index="Normal" ModelLink="LabTurretDeath" SoundLink="PerditionTurret_Explode"/>
+        <DeathArray index="UnderConstruction" ModelLink="TerranBuildingDeath" SoundLink="PerditionTurret_Explode"/>
+        <DeathCustoms ModelLink="TerranBuildingDeath" SoundLink="Terran_ExplosionMedium" Name="Burrowed"/>
+        <PlacementSound value="Terran_BuildingPlacement"/>
+        <PortraitModel value="AdjutantPortrait"/>
+        <BarWidth value="85"/>
+        <BarOffset value="75"/>
+        <LifeArmorIcon value="Assets\Textures\btn-upgrade-terran-buildingarmor.dds"/>
+        <SoundArray index="Construction" value="Terran_ConstructionWhat"/>
+        <UnitIcon value="Assets\Textures\Wireframe-Terran-LabGasTurret.dds"/>
+        <HeroIcon value="Assets\Textures\Wireframe-Terran-LabGasTurret.dds"/>
+        <GroupIcon>
+            <Image value="Assets\Textures\Wireframe-Terran-LabGasTurret.dds"/>
+        </GroupIcon>
+        <Wireframe>
+            <Image value="Assets\Textures\Wireframe-Terran-LabGasTurret.dds"/>
+        </Wireframe>
+        <Aliases value="_UnitLarge"/>
+        <PlacementModel value="LabTurret"/>
+        <On Terms="UnitConstruction.LabTurret.Start" Send="Create MissileTurretBuild"/>
+    </CActorUnit>
+
+
+
+    <CBehaviorBuff id="PoisonGasCloud">
+        <InfoFlags index="Hidden" value="1"/>
+        <Period value="0.5"/>
+        <PeriodicEffect value="PoisonGasCloudSearch"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="PoisonGasFiring">
+        <InfoFlags index="Hidden" value="1"/>
+        <Period value="0.5"/>
+        <PeriodicEffect value="PoisonGasCloudSearch"/>
+        <Modification>
+            <BehaviorLinkDisableArray value="LabTurretHidden"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CActorTurret id="LabTurretTurret">
+        <On Terms="TurretEnable.LabTurret" Send="Create"/>
+    </CActorTurret>
+    <CActorModel id="LabTurretPoisonGasCloud" parent="ModelAddition">
+        <CreepHeightClass value="Small"/>
+        <HostSiteOps Ops="SOpAttachCenter"/>
+        <On Terms="ActorCreation" Send="SetOpacity"/>
+        <On Terms="ActorCreation" Send="SetOpacity 1.000000 3.000000"/>
+        <InheritType value="OneShot"/>
+        <Inherits index="Visibility" value="0"/>
+        <ModelFlags index="AllowHitTest" value="0"/>
+    </CActorModel>
+    <CBehaviorBuff id="LabTurretHidden">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <Modification>
+            <StateFlags index="Bury" value="1"/>
+            <StateFlags index="Cloak" value="1"/>
+            <StateFlags index="SuppressCollision" value="1"/>
+        </Modification>
+    </CBehaviorBuff>
+
+
+    <CEffectEnumArea id="PoisonGasCloudSearch">
+        <EditorCategories value="Race:Terran"/>
+        <AreaArray Radius="5" Effect="PoisonGasCloudAB"/>
+        <SearchFilters value="Visible;Self,Player,Ally,Neutral,Structure,Missile,Destructible,Stasis,Invulnerable"/>
+        <SearchFlags index="OffsetByUnitRadius" value="1"/>
+    </CEffectEnumArea>
+    <CEffectApplyBehavior id="PoisonGasCloudAB">
+        <EditorCategories value="Race:Terran"/>
+        <Behavior value="PoisonGas"/>
+        <ValidatorArray value="NotUltraliskVars"/>
+    </CEffectApplyBehavior>
+
+    <CEffectIssueOrder id="GasTurretBurrowOrder">
+        <EditorCategories value="Race:Terran"/>
+        <WhichUnit Value="Caster"/>
+        <Abil value="LabTurretBurrow"/>
+        <CmdFlags index="Preempt" value="1"/>
+        <ValidatorArray value="CasterNotAttacking"/>
+    </CEffectIssueOrder>
+    <CEffectDamage id="GasTurretDamage">
+        <EditorCategories value="Race:Terran"/>
+        <Flags index="Notification" value="1"/>
+        <Amount value="0.2"/>
+        <Death value="Disintegrate"/>
+    </CEffectDamage>
+    <CEffectApplyBehavior id="GasTurretRenewBurrow">
+        <EditorCategories value="Race:Terran"/>
+        <WhichUnit Value="Caster"/>
+        <Behavior value="GasTurretBurrow"/>
+    </CEffectApplyBehavior>
+    <CButton id="LabTurret">
+        <AlertIcon value="Assets\Textures\wireframe-terran-labgasturret.dds"/>
+        <Icon value="Assets\Textures\wireframe-terran-labgasturret.dds"/>
+        <EditorCategories value="Race:Terran"/>
+    </CButton>
+    <CWeaponLegacy id="GasTurretDummy">
+        <EditorCategories value="Race:Terran"/>
+        <Options index="Hidden" value="1"/>
+        <TargetFilters value="Ground,Visible;Self,Structure,Missile,Destructible,Stasis,Dead,Invulnerable"/>
+        <Effect value="GasTurretRenewBurrow"/>
+        <Arc value="360"/>
+        <Period value="0.5"/>
+        <Range value="4.75"/>
+    </CWeaponLegacy>
+    <CBehaviorBuff id="PoisonGas">
+        <InfoFlags index="Hidden" value="0"/>
+<!--        <InfoIcon value="Assets\Textures\btn-ability-zerg-sporecloud.dds"/>-->
+        <DisplayShield index="Self" value="1"/>
+        <DisplayShield index="Ally" value="1"/>
+        <DisplayShield index="Neutral" value="1"/>
+        <DisplayShield index="Enemy" value="1"/>
+<!--        <Duration value="1"/>-->
+        <PeriodicEffect value="GasTurretDamage"/>
+        <Modification>
+            <LifeArmorBonus value="-1"/>
+        </Modification>
+        <Alignment value="Negative"/>
+        <InfoIcon value="Assets\Textures\btn-ability-protoss-psistorm.dds"/>
+        <Duration value="0.51"/>
+        <InfoFlags index="Hidden" value="1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="GasTurretBurrow">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Structures"/>
+        <Period value="1"/>
+        <PeriodicEffect value="GasTurretBurrowOrder"/>
+        <BuffFlags index="DisableWhileUnderConstruction" value="1"/>
+    </CBehaviorBuff>
+
+
+    <CModel id="PoisonGasCloud" parent="Unit">
+        <Model value="Assets\Effects\Terran\LabToxicGasCloud\LabToxicGasCloud.m3"/>
+        <SelectionRadius value="7"/>
+        <Radius value="7"/>
+    </CModel>
+    <CModel id="LabTurret" parent="Building" Race="Terran">
+        <Model value="Assets\Units\Terran\UmojanLabGasTurret\UmojanLabGasTurret.m3"/>
+        <Occlusion value="Show"/>
+        <SelectionLayer value="2"/>
+        <SelectionRadius value="0.9375"/>
+        <Radius value="0.75"/>
+        <TechPurchaseCamera value="Star2CameraMid05"/>
+        <UnitGlossaryCamera value="Star2CameraMid05"/>
+        <PlanetPanelCamera value="Star2CameraMid05"/>
+        <ShadowRadius value="0.9375"/>
+        <Events Anim="Stand,Work,Start,00" Name="Doodad_UmojanLabGasTurret_StandWorkStart" Type="Sound" Time="0.01" Payload="Doodad_UmojanLabGasTurret_StandWorkStart"/>
+        <Events Anim="Stand,Work,End,00" Name="Doodad_UmojanLabGasTurret_StandWorkEnd" Type="Sound" Time="0.01" Payload="Doodad_UmojanLabGasTurret_StandWorkEnd"/>
+
+        <ScaleMax value="0.900000,0.900000,0.900000"/>
+        <ScaleMin value="0.900000,0.900000,0.900000"/>
+    </CModel>
+    <CModel id="LabTurretDeath" parent="BuildingDeath" Race="Terran">
+        <Model value="Assets\Units\Terran\UmojanLabGasTurretDeath\UmojanLabGasTurretDeath.m3"/>
+        <LowQualityModel value="TerranBuildingDeathLow"/>
+    </CModel>
+    <CModel id="LabTurretPoisonGas">
+        <Model value="Assets\Effects\Terran\FirebatFireSprite\FirebatFireSprite.m3"/>
+        <EditorCategories value="Race:Terran"/>
+        <ScaleMax value="5.000000,5.000000,5.000000"/>
+        <ScaleMin value="5.000000,5.000000,5.000000"/>
+    </CModel>
+    <CModel id="LabTurretPoisonGasCloud" parent="Unit">
+        <Model value="Assets\Effects\Terran\LabToxicGasCloud\LabToxicGasCloud.m3"/>
+        <SelectionRadius value="7"/>
+        <Radius value="7"/>
+        <ScaleMax value="2.000000,2.000000,1.000000"/>
+        <ScaleMin value="2.000000,2.000000,1.000000"/>
+    </CModel>
+</Catalog>

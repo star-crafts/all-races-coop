@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DocInfo>
+    <ModType>
+        <Value>Interface</Value>
+    </ModType>
+    <Dependencies>
+        <Value>file:ASSETS\all-races-assets\UPL.SC2Mod</Value>
+        <Value>file:ASSETS\all-races-assets\UPLMulti.SC2Mod</Value>
+        <Value>file:ASSETS\all-races-assets\Campaign.SC2Mod</Value>
+    </Dependencies>
+</DocInfo>
