@@ -1,0 +1,7 @@
+<Catalog>
+
+    <CEffectDamage id="Damage">
+        <EditorCategories value=""/>
+        <Amount value="100000"/>
+    </CEffectDamage>
+</Catalog>

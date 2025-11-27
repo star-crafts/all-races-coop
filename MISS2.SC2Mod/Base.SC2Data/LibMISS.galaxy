@@ -1,0 +1,1706 @@
+include "TriggerLibs/NativeLib"
+include "LibARRA"
+include "LibMLIB_h"
+
+include "LibMISS_h"
+
+//--------------------------------------------------------------------------------------------------
+// Library: MISSIONS
+//--------------------------------------------------------------------------------------------------
+// External Library Initialization
+void libMISS_InitLibraries () {
+    libNtve_InitVariables();
+    libARRA_InitVariables();
+    libMLIB_InitVariables();
+}
+
+// Functions
+void libMISS_gf_BEVO () {
+    // Automatic Variable Declarations
+    int auto900EB5BA_saved_option;
+    int auto10D0E31A_saved_option;
+    string auto55FB8D40_val;
+    int auto6383D43B_saved_option;
+    int auto303197B5_saved_option;
+    int auto38C7FC54_saved_option;
+    int auto7719B15F_saved_option;
+    int auto7ED5900D_saved_option;
+    int auto38B0993F_saved_option;
+    int auto634346AE_saved_option;
+    int auto3607650A_saved_option;
+    int auto65B29D1A_saved_option;
+    int auto60351868_saved_option;
+    int auto0DC0F548_saved_option;
+    int autoF67C780F_saved_option;
+    int autoE222463C_saved_option;
+    int auto6D7E1E43_saved_option;
+    int autoBFF1EE04_saved_option;
+    int autoE4A5A972_saved_option;
+    int autoE20FB59E_saved_option;
+    int auto4C0126DD_saved_option;
+    int autoDABE8719_saved_option;
+    int auto7F1DD6B1_saved_option;
+    int auto6AC065BB_saved_option;
+    int auto3DCA79B1_saved_option;
+    int auto81F15632_saved_option;
+    int auto7FF699C4_saved_option;
+    int auto56D19A60_saved_option;
+
+    // Implementation
+    auto900EB5BA_saved_option   = libARRA_gv_selectedTransmissionOption;
+    libARRA_gf_CreateTransmissionGroupImpl("UnderAttack");
+    libARRA_gf_SetTransmissionInterval(15);
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1599", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1600", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1601", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1602", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1603", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1604", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1605", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1606", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1607", -1));
+    libARRA_gv_selectedTransmissionOption = auto900EB5BA_saved_option; 
+    auto10D0E31A_saved_option   = libARRA_gv_selectedTransmissionOption;
+    libARRA_gf_CreateTransmissionGroupImpl("EnemyReinforcements");
+    libARRA_gf_SetTransmissionInterval(15);
+    auto55FB8D40_val = libMLIB_gf_GetPlayerRaceVO(PlayerGroupPlayer(libMLIB_gf_GetEnemyAIPlayers(), 1));
+    if (auto55FB8D40_val == "Prot") {
+        libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1578", -1));
+        libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1579", -1));
+        libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1580", -1));
+    }
+    else if (auto55FB8D40_val == "Terr") {
+        libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1581", -1));
+        libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1582", -1));
+        libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1583", -1));
+    }
+    else if (auto55FB8D40_val == "Zerg") {
+        libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1584", -1));
+        libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1585", -1));
+        libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1586", -1));
+    }
+    else {
+    }
+    libARRA_gv_selectedTransmissionOption = auto10D0E31A_saved_option; 
+    auto6383D43B_saved_option   = libARRA_gv_selectedTransmissionOption;
+    libARRA_gf_CreateTransmissionGroupImpl("EnemyHarass");
+    libARRA_gf_SetTransmissionInterval(15);
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1568", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1569", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1570", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1571", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1572", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1573", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1574", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1575", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1576", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1577", -1));
+    libARRA_gv_selectedTransmissionOption = auto6383D43B_saved_option; 
+    auto303197B5_saved_option   = libARRA_gv_selectedTransmissionOption;
+    libARRA_gf_CreateTransmissionGroupImpl("BelshirScientist");
+    auto38C7FC54_saved_option   = libARRA_gv_selectedTransmissionOption;
+    libARRA_gf_CreateTransmissionChainImpl();
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1514", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1515", -1));
+    libARRA_gv_selectedTransmissionOption = auto38C7FC54_saved_option;
+    auto7719B15F_saved_option   = libARRA_gv_selectedTransmissionOption;
+    libARRA_gf_CreateTransmissionChainImpl();
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1516", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1517", -1));
+    libARRA_gv_selectedTransmissionOption = auto7719B15F_saved_option;
+    auto7ED5900D_saved_option   = libARRA_gv_selectedTransmissionOption;
+    libARRA_gf_CreateTransmissionChainImpl();
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1518", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1519", -1));
+    libARRA_gv_selectedTransmissionOption = auto7ED5900D_saved_option;
+    libARRA_gv_selectedTransmissionOption = auto303197B5_saved_option; 
+    auto38B0993F_saved_option   = libARRA_gv_selectedTransmissionOption;
+    libARRA_gf_CreateTransmissionGroupImpl("HarvestersWave1Finished");
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1627", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1628", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1629", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1630", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1631", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1632", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1633", -1));
+    libARRA_gv_selectedTransmissionOption = auto38B0993F_saved_option; 
+    auto634346AE_saved_option   = libARRA_gv_selectedTransmissionOption;
+    libARRA_gf_CreateTransmissionGroupImpl("HarvestersWave2Finished");
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1634", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1635", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1636", -1));
+    libARRA_gv_selectedTransmissionOption = auto634346AE_saved_option; 
+    auto3607650A_saved_option   = libARRA_gv_selectedTransmissionOption;
+    libARRA_gf_CreateTransmissionGroupImpl("HarvestersWave3Finished");
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1637", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1638", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1639", -1));
+    libARRA_gv_selectedTransmissionOption = auto3607650A_saved_option; 
+    auto65B29D1A_saved_option   = libARRA_gv_selectedTransmissionOption;
+    libARRA_gf_CreateTransmissionGroupImpl("HarvestersWave4Finished");
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1640", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1642", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1641", -1));
+    libARRA_gv_selectedTransmissionOption = auto65B29D1A_saved_option; 
+    auto60351868_saved_option   = libARRA_gv_selectedTransmissionOption;
+    libARRA_gf_CreateTransmissionGroupImpl("HarvestersWave5Finished");
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1645", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1646", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1647", -1));
+    libARRA_gv_selectedTransmissionOption = auto60351868_saved_option; 
+    auto0DC0F548_saved_option   = libARRA_gv_selectedTransmissionOption;
+    libARRA_gf_CreateTransmissionGroupImpl("Defeat");
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1643", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1644", -1));
+    libARRA_gv_selectedTransmissionOption = auto0DC0F548_saved_option; 
+    autoF67C780F_saved_option   = libARRA_gv_selectedTransmissionOption;
+    libARRA_gf_CreateTransmissionGroupImpl("Geysers1");
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1520", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1521", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1522", -1));
+    libARRA_gv_selectedTransmissionOption = autoF67C780F_saved_option; 
+    autoE222463C_saved_option   = libARRA_gv_selectedTransmissionOption;
+    libARRA_gf_CreateTransmissionGroupImpl("Geysers2");
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1523", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1524", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1525", -1));
+    libARRA_gv_selectedTransmissionOption = autoE222463C_saved_option; 
+    auto6D7E1E43_saved_option   = libARRA_gv_selectedTransmissionOption;
+    libARRA_gf_CreateTransmissionGroupImpl("Geysers3");
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1526", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1527", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1528", -1));
+    libARRA_gv_selectedTransmissionOption = auto6D7E1E43_saved_option; 
+    autoBFF1EE04_saved_option   = libARRA_gv_selectedTransmissionOption;
+    libARRA_gf_CreateTransmissionGroupImpl("Geysers4");
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1529", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1530", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1531", -1));
+    libARRA_gv_selectedTransmissionOption = autoBFF1EE04_saved_option; 
+    autoE4A5A972_saved_option   = libARRA_gv_selectedTransmissionOption;
+    libARRA_gf_CreateTransmissionGroupImpl("Geysers5");
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1532", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1533", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1534", -1));
+    libARRA_gv_selectedTransmissionOption = autoE4A5A972_saved_option; 
+    autoE20FB59E_saved_option   = libARRA_gv_selectedTransmissionOption;
+    libARRA_gf_CreateTransmissionGroupImpl("BotsDepartFirst");
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1535", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1536", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1537", -1));
+    libARRA_gv_selectedTransmissionOption = autoE20FB59E_saved_option; 
+    auto4C0126DD_saved_option   = libARRA_gv_selectedTransmissionOption;
+    libARRA_gf_CreateTransmissionGroupImpl("BotsDepartRepeat");
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1538", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1539", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1540", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1541", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1542", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1543", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1544", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1545", -1));
+    libARRA_gv_selectedTransmissionOption = auto4C0126DD_saved_option; 
+    autoDABE8719_saved_option   = libARRA_gv_selectedTransmissionOption;
+    libARRA_gf_CreateTransmissionGroupImpl("BotsHarvestFirst");
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1546", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1547", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1548", -1));
+    libARRA_gv_selectedTransmissionOption = autoDABE8719_saved_option; 
+    auto7F1DD6B1_saved_option   = libARRA_gv_selectedTransmissionOption;
+    libARRA_gf_CreateTransmissionGroupImpl("BotsHarvestRepeat");
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1549", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1550", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1551", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1552", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1553", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1554", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1555", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1556", -1));
+    libARRA_gv_selectedTransmissionOption = auto7F1DD6B1_saved_option; 
+    auto6AC065BB_saved_option   = libARRA_gv_selectedTransmissionOption;
+    libARRA_gf_CreateTransmissionGroupImpl("BotsReturnFirst");
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1557", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1558", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1559", -1));
+    libARRA_gv_selectedTransmissionOption = auto6AC065BB_saved_option; 
+    auto3DCA79B1_saved_option   = libARRA_gv_selectedTransmissionOption;
+    libARRA_gf_CreateTransmissionGroupImpl("BotsReturnRepeat");
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1560", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1561", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1562", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1563", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1564", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1565", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1566", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1567", -1));
+    libARRA_gv_selectedTransmissionOption = auto3DCA79B1_saved_option; 
+    auto81F15632_saved_option   = libARRA_gv_selectedTransmissionOption;
+    libARRA_gf_CreateTransmissionGroupImpl("BotDestroyedEarly");
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1608", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1611", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1612", -1));
+    libARRA_gv_selectedTransmissionOption = auto81F15632_saved_option; 
+    auto7FF699C4_saved_option   = libARRA_gv_selectedTransmissionOption;
+    libARRA_gf_CreateTransmissionGroupImpl("BotDestroyedLate");
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1618", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1619", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1620", -1));
+    libARRA_gv_selectedTransmissionOption = auto7FF699C4_saved_option; 
+    auto56D19A60_saved_option   = libARRA_gv_selectedTransmissionOption;
+    libARRA_gf_CreateTransmissionGroupImpl("BotDestroyedLastWarning");
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1624", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1625", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1626", -1));
+    libARRA_gv_selectedTransmissionOption = auto56D19A60_saved_option; 
+}
+
+void libMISS_gf_BelshirEscortConfig (fixed lp_delay, string lp_spawns, point lp_harvesterSpawnPoint) {
+    // Variable Declarations
+    int lv_nPCPlayer;
+    int lv_player;
+    point lv_point;
+    unit lv_unit;
+    unitgroup lv_units;
+
+    // Automatic Variable Declarations
+    int auto670E11FA_size;
+    int auto670E11FA_i;
+
+    // Variable Initialization
+    lv_nPCPlayer = libARRA_gf_IntegerForTask2(libARRA_gv_task, "NPC-ALLY");
+    lv_player = libARRA_gf_IntegerForTask(libARRA_gv_taskGlobal, "NPC-NEUTRAL");
+    lv_units = UnitGroupEmpty();
+
+    // Implementation
+    libMISS_gf_BEVO();
+    libARRA_gf_StorePointForTask(libARRA_gv_task, "BE-HARVESTER-SPAWN", PointFromName("BE-Spawn"));
+    auto670E11FA_size = libARRA_gf_ListSize( lp_spawns);
+    for (auto670E11FA_i = 1; auto670E11FA_i <= auto670E11FA_size; auto670E11FA_i += 1 ) {
+        lv_point = libARRA_gf_ListPointGet(lp_spawns, auto670E11FA_i );
+        UnitCreate(1, "TerrazineNodeOff", c_unitCreateIgnorePlacement, lv_player, lv_point, PointGetFacing(lv_point));
+        lv_unit = UnitLastCreated();
+        UnitSetState(lv_unit, c_unitStateSelectable, false);
+        libMLIB_gf_SetUnitInfoTextCampaign(lv_unit, null, StringToText(""), null);
+        UnitGroupAdd(lv_units, lv_unit);
+        ;
+    }
+    libARRA_gf_StoreUnitGroupForTask(libARRA_gv_task, "BE-Nodes", lv_units);
+    libARRA_gf_StoreIntegerForTask(libARRA_gv_task, "BE-ESCORT-LIFE", libMLIB_gf_DifficultyValueInt3(libARRA_gf_IntegerForTask2(libARRA_gv_task, "Difficulty"), 1500, 1500, 1250, 1000));
+    CatalogFieldValueSet(c_gameCatalogBehavior, "DefensiveMatrixTerranzineHarvester", "Modification.VitalMaxArray[" + IntToString(1) + "]", lv_nPCPlayer, FixedToString(500.0, c_fixedPrecisionAny));
+    CatalogFieldValueSet(c_gameCatalogBehavior, "DefensiveMatrixTerranzineHarvester", "Duration", lv_nPCPlayer, FixedToString(10.0, c_fixedPrecisionAny));
+    libARRA_gf_StoreTriggerForTask(libARRA_gv_task, "Attack", libMISS_gt_BEEnemyReinforcements);
+    libARRA_gf_StoreTriggerForTask(libARRA_gv_task, "Harass", libMISS_gt_BEEnemyHarass);
+    libARRA_gf_StoreIntegerForTask(libARRA_gv_task, "Harvesters", 0);
+    libARRA_gf_StoreIntegerForTask(libARRA_gv_task, "Waves", 0);
+    libARRA_gf_StoreUnitGroupForTask(libARRA_gv_task, "Harvesters", UnitGroupEmpty());
+    libARRA_gf_StoreIntegerForTask(libARRA_gv_task, "Goal", 0);
+    libARRA_gf_Taskon(libARRA_gv_task, "Progress", libMISS_gt_BEEscortProgressHarvestersWaveFinished);
+    libARRA_gf_Taskon(libARRA_gv_task, "Complete", libMISS_gt_BEEscortCompletedLastHarvesterWaveFinished);
+    libARRA_gf_TaskObjective(libARRA_gv_task, "AC_BelshirEscort_Primary01", true);
+    libARRA_gf_Taskon(libARRA_gv_task, "Start", libMISS_gt_BEEscortStart);
+    libARRA_gf_RunMissionVictorySequence6(libARRA_gv_task, lp_delay, libARRA_gt_TaskStart);
+}
+
+void libMISS_gf_ProtectBotsTask (int lp_limit) {
+    // Automatic Variable Declarations
+    int auto5AFCC846_saved_task;
+    int auto5AFCC846_saved_parent;
+
+    // Implementation
+    auto5AFCC846_saved_task   = libARRA_gv_task;
+    auto5AFCC846_saved_parent = libARRA_gv_parent;
+    libARRA_gv_parent = libARRA_gv_task;
+    libARRA_gf_CreateTask("be-guard");
+    libARRA_gf_TaskonTask(libARRA_gv_parent, libARRA_gv_task, "Fail", libARRA_gt_TaskFail);
+    libARRA_gf_TaskonTask(libARRA_gv_task, libARRA_gv_parent, "Complete", libARRA_gt_TaskComplete);
+    libARRA_gf_StoreIntegerForTask(libARRA_gv_task, "Goal", lp_limit);
+    libARRA_gf_StoreIntegerForTask(libARRA_gv_task, "Progress", 0);
+    libARRA_gf_Taskon(libARRA_gv_task, "Progress", libMISS_gt_BEPrimaryBotDestroyedWarning);
+    libARRA_gf_Taskon(libARRA_gv_task, "Complete", libMISS_gt_BEPrimaryBotDestroyedDefeat);
+    libARRA_gf_TaskObjective(libARRA_gv_task, "AC_BelshirEscort_Primary02", true);
+    libARRA_gf_TrackerCreate(libARRA_gf_UnitGroupStoredForTask(libARRA_gv_parent, "Harvesters"), "Bots-Total");
+    libARRA_gf_TaskonTracker(libARRA_gv_task, libARRA_gv_tracker, "Damage", libMISS_gt_BEScoreCalculateHarvesterDamage);
+    libARRA_gf_TaskonTracker(libARRA_gv_task, libARRA_gv_tracker, "Dead", libMISS_gt_BEPrimaryBotCounterIncrement);
+    libARRA_gf_StoreRealForTask(libARRA_gv_task, "ScoreScreenHarvesterDamage", 0.0);
+    libARRA_gf_StoreRealForTask(libARRA_gv_task, "ScoreScreenHarvesterSummaryLife", 0.0);
+    libARRA_gf_TaskonTask(libARRA_gv_task, libARRA_gv_parent, "Start", libARRA_gt_TaskStart);
+    libARRA_gv_task   = auto5AFCC846_saved_task;
+    libARRA_gv_parent = auto5AFCC846_saved_parent;
+}
+
+void libMISS_gf_BEHybridsVO () {
+    // Automatic Variable Declarations
+    int auto7702A8A8_saved_option;
+    int autoB3734D86_saved_option;
+
+    // Implementation
+    auto7702A8A8_saved_option   = libARRA_gv_selectedTransmissionOption;
+    libARRA_gf_CreateTransmissionGroupImpl("VoidThrasher");
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1587", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1588", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1589", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1590", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1591", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1592", -1));
+    libARRA_gv_selectedTransmissionOption = auto7702A8A8_saved_option; 
+    autoB3734D86_saved_option   = libARRA_gv_selectedTransmissionOption;
+    libARRA_gf_CreateTransmissionGroupImpl("Hybrids");
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1593", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1594", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1595", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1596", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1597", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1598", -1));
+    libARRA_gv_selectedTransmissionOption = autoB3734D86_saved_option; 
+}
+
+void libMISS_gf_ProtectTerrazineTankTask (point lp_point) {
+    // Variable Declarations
+    unit lv_terrazineCollection;
+    int lv_player;
+
+    // Automatic Variable Declarations
+    int autoCA344795_saved_task;
+    int autoCA344795_saved_parent;
+
+    // Variable Initialization
+    lv_player = libARRA_gf_IntegerForTask2(libARRA_gv_task, "NPC-ALLY");
+
+    // Implementation
+    autoCA344795_saved_task   = libARRA_gv_task;
+    autoCA344795_saved_parent = libARRA_gv_parent;
+    libARRA_gv_parent = libARRA_gv_task;
+    libARRA_gf_CreateTask("be-tank");
+    UnitCreate(1, "ScienceFacility", c_unitCreateIgnorePlacement, lv_player, lp_point, PointGetFacing(lp_point));
+    lv_terrazineCollection = UnitLastCreated();
+    libMLIB_gf_SetUnitInfoTextCampaign(lv_terrazineCollection, null, StringToText(""), null);
+    UnitSetState(lv_terrazineCollection, c_unitStateTargetable, false);
+    UnitSetState(lv_terrazineCollection, c_unitStateInvulnerable, true);
+    UnitSetState(lv_terrazineCollection, c_unitStateSelectable, false);
+    libARRA_gf_StoreUnitForTask(libARRA_gv_task, "BE-Tank", lv_terrazineCollection);
+    libARRA_gf_TaskonTask(libARRA_gv_task, libARRA_gv_parent, "Complete", libARRA_gt_TaskComplete);
+    libARRA_gf_TaskonTask(libARRA_gv_parent, libARRA_gv_task, "Fail", libARRA_gt_TaskFail);
+    libARRA_gf_TrackerCreateUnit(libARRA_gf_UnitForTask2(libARRA_gv_task, "BE-Tank"), "Tank");
+    libARRA_gf_TaskonTracker(libARRA_gv_task, libARRA_gv_tracker, "Dead", libMISS_gt_BETankDestroyedDefeat);
+    libARRA_gf_TaskStart(libARRA_gv_task);
+    libARRA_gv_task   = autoCA344795_saved_task;
+    libARRA_gv_parent = autoCA344795_saved_parent;
+}
+
+void libMISS_gf_WaveConfig (fixed lp_delayMin) {
+    // Automatic Variable Declarations
+    // Implementation
+    libARRA_gf_StoreIntegerForTask(libARRA_gv_parent, "Goal", (libARRA_gf_IntegerForTask(libARRA_gv_parent, "Goal") + 1));
+    libARRA_gf_StoreIntegerForTask(libARRA_gv_task, "Harvesters", 0);
+    libARRA_gf_StoreUnitGroupForTask(libARRA_gv_task, "Harvesters", UnitGroupEmpty());
+    libMLIB_gf_TaskSetPriorityTargets(libARRA_gv_task, libARRA_gf_UnitGroupStoredForTask(libARRA_gv_task, "Harvesters"), libMLIB_ge_Priority_HIGH);
+    libARRA_gf_Taskon(libARRA_gv_task, "Complete", libMISS_gt_BEWaveEnded);
+    libARRA_gf_RunMissionVictorySequence6(libARRA_gv_task, (lp_delayMin * 60.0), libARRA_gt_TaskStart);
+    libARRA_gf_TaskonTask(libARRA_gv_parent, libARRA_gv_task, "End", libARRA_gt_TaskIncreaseProgress);
+    libARRA_gf_Taskon(libARRA_gv_task, "Start", libMISS_gt_BEWaveStartGeysersActivates);
+}
+
+void libMISS_gf_Harvester (int lp_park, int lp_node) {
+    // Automatic Variable Declarations
+    int autoEB50FA65_saved_task;
+    int autoEB50FA65_saved_parent;
+
+    // Implementation
+    autoEB50FA65_saved_task   = libARRA_gv_task;
+    autoEB50FA65_saved_parent = libARRA_gv_parent;
+    libARRA_gv_parent = libARRA_gv_task;
+    libARRA_gf_CreateTask("be-harvester");
+    libARRA_gf_TaskIncreaseGoal(libARRA_gv_parent);
+    libARRA_gf_StoreUnitForTask(libARRA_gv_task, "Node", UnitGroupUnit(libARRA_gf_UnitGroupStoredForTask2(libARRA_gv_task, "BE-Nodes"), lp_node));
+    libARRA_gf_StorePointForTask(libARRA_gv_task, "Park", PointFromName(("BE-Park " + IntToString(lp_park))));
+    libARRA_gf_StoreIntegerForTask(libARRA_gv_task, "Route", lp_node);
+    libARRA_gf_StoreIntegerForTask(libARRA_gv_task, "Stage", 0);
+    libARRA_gf_Taskon(libARRA_gv_task, "Start", libMISS_gt_BEHarvesterController);
+    libARRA_gf_TaskonTask(libARRA_gv_task, libARRA_gv_parent, "Bots", libARRA_gt_TaskStart);
+    libARRA_gf_TaskonTask(libARRA_gv_parent, libARRA_gv_task, "Complete", libARRA_gt_TaskIncreaseProgress);
+    libARRA_gf_TaskonTask(libARRA_gv_parent, libARRA_gv_task, "Fail", libARRA_gt_TaskIncreaseFail);
+    libARRA_gv_task   = autoEB50FA65_saved_task;
+    libARRA_gv_parent = autoEB50FA65_saved_parent;
+}
+
+void libMISS_gf_WhalesConfig (string lp_spawns) {
+    // Variable Declarations
+    int lv_player;
+    fixed lv_life;
+    point lv_point;
+    unit lv_unit;
+    unitgroup lv_units;
+
+    // Automatic Variable Declarations
+    int auto9A73F5FE_size;
+    int auto9A73F5FE_i;
+
+    // Variable Initialization
+    lv_player = libARRA_gf_IntegerForTask2(libARRA_gv_task, libARRA_gv_nPCENEMY);
+    lv_life = libARRA_gf_IntegerForTask2(libARRA_gv_task, "BE-PRISON-LIFE");
+    lv_units = UnitGroupEmpty();
+
+    // Implementation
+    auto9A73F5FE_size = libARRA_gf_ListSize( lp_spawns);
+    for (auto9A73F5FE_i = 1; auto9A73F5FE_i <= auto9A73F5FE_size; auto9A73F5FE_i += 1 ) {
+        lv_point = libARRA_gf_ListPointGet(lp_spawns, auto9A73F5FE_i );
+        TerrainShowRegion(RegionRect((PointGetX(lv_point) - 2.0), (PointGetY(lv_point) - 2.0), (PointGetX(lv_point) + 2.0), (PointGetY(lv_point) + 2.0)), false);
+        libNtve_gf_CreateUnitsWithDefaultFacing(1, "Blocker4x4", 0, libMLIB_gv_vU_PLAYER_NEUTRAL, lv_point);
+        UnitCreate(1, "COOPTerrazineTank", 0, lv_player, lv_point, PointGetFacing(lv_point));
+        lv_unit = UnitLastCreated();
+        libMLIB_gf_SetUnitInfoTextCampaign(lv_unit, null, StringToText(""), null);
+        UnitSetPropertyFixed(lv_unit, c_unitPropLifeMax, lv_life);
+        UnitSetPropertyFixed(lv_unit, c_unitPropLifePercent, 100.0);
+        UnitGroupAdd(lv_units, lv_unit);
+        ;
+    }
+    libARRA_gf_StoreUnitGroupForTask(libARRA_gv_task, "BE-Whales", lv_units);
+    libMISS_gf_BEWhalesVO();
+    libARRA_gf_StoreIntegerForTask(libARRA_gv_task, "BE-PRISON-LIFE", libMLIB_gf_DifficultyValueInt3(libARRA_gf_IntegerForTask2(libARRA_gv_task, "Difficulty"), 4000, 4000, 6000, 8000));
+    libARRA_gf_StoreIntegerForTask(libARRA_gv_task, "Whales", 0);
+}
+
+void libMISS_gf_BEWhalesVO () {
+    // Automatic Variable Declarations
+    int auto609A5888_saved_option;
+    int auto93B5F7FF_saved_option;
+    int auto07FB75AC_saved_option;
+    int auto45507D06_saved_option;
+    int auto2A4F1235_saved_option;
+    int auto6627FDC5_saved_option;
+
+    // Implementation
+    auto609A5888_saved_option   = libARRA_gv_selectedTransmissionOption;
+    libARRA_gf_CreateTransmissionGroupImpl("WhaleFirst");
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1648", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1649", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1650", -1));
+    libARRA_gv_selectedTransmissionOption = auto609A5888_saved_option; 
+    auto93B5F7FF_saved_option   = libARRA_gv_selectedTransmissionOption;
+    libARRA_gf_CreateTransmissionGroupImpl("WhaleRepeat");
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1651", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1652", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1653", -1));
+    libARRA_gv_selectedTransmissionOption = auto93B5F7FF_saved_option; 
+    auto07FB75AC_saved_option   = libARRA_gv_selectedTransmissionOption;
+    libARRA_gf_CreateTransmissionGroupImpl("WhaleWarningFirst");
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1654", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1655", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1656", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1657", -1));
+    libARRA_gv_selectedTransmissionOption = auto07FB75AC_saved_option; 
+    auto45507D06_saved_option   = libARRA_gv_selectedTransmissionOption;
+    libARRA_gf_CreateTransmissionGroupImpl("WhaleWarningLastWarning");
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1658", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1659", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1660", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1661", -1));
+    libARRA_gv_selectedTransmissionOption = auto45507D06_saved_option; 
+    auto2A4F1235_saved_option   = libARRA_gv_selectedTransmissionOption;
+    libARRA_gf_CreateTransmissionGroupImpl("WhaleSaved");
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1666", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1667", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1668", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1669", -1));
+    libARRA_gv_selectedTransmissionOption = auto2A4F1235_saved_option; 
+    auto6627FDC5_saved_option   = libARRA_gv_selectedTransmissionOption;
+    libARRA_gf_CreateTransmissionGroupImpl("WhaleDead");
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1662", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1663", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1664", -1));
+    libARRA_gf_CreateTransmissionSound(SoundLink("acObj_BelshirScientist_1665", -1));
+    libARRA_gv_selectedTransmissionOption = auto6627FDC5_saved_option; 
+}
+
+void libMISS_gf_Whale (int lp_prisonIndex, fixed lp_delayMinutes) {
+    // Variable Declarations
+    unit lv_unit;
+    int lv_player;
+
+    // Automatic Variable Declarations
+    int autoA84B412D_saved_task;
+    int autoA84B412D_saved_parent;
+
+    // Variable Initialization
+    lv_unit = UnitGroupUnit(libARRA_gf_UnitGroupStoredForTask2(libARRA_gv_task, "BE-Whales"), lp_prisonIndex);
+    lv_player = libARRA_gf_IntegerForTask2(libARRA_gv_task, libARRA_gv_nPCENEMY);
+
+    // Implementation
+    autoA84B412D_saved_task   = libARRA_gv_task;
+    autoA84B412D_saved_parent = libARRA_gv_parent;
+    libARRA_gv_parent = libARRA_gv_task;
+    libARRA_gf_CreateTask("be-whale");
+    libARRA_gf_StoreUnitForTask(libARRA_gv_task, "Prison", lv_unit);
+    libARRA_gf_TaskEmergency(libARRA_gv_task, RegionCircle(UnitGetPosition(lv_unit), 18.0), libARRA_gt_TaskStart);
+    libARRA_gf_RunMissionVictorySequence6(libARRA_gv_task, (lp_delayMinutes * 60.0), libARRA_gt_TaskStart);
+    libARRA_gf_Taskon(libARRA_gv_task, "Start", libMISS_gt_BWStart);
+    libARRA_gv_task   = autoA84B412D_saved_task;
+    libARRA_gv_parent = autoA84B412D_saved_parent;
+}
+
+// Triggers
+//--------------------------------------------------------------------------------------------------
+// Trigger: COOP Init
+//--------------------------------------------------------------------------------------------------
+bool libMISS_gt_COOPInit_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    PlayerSetCommander(1, "Terran");
+    PlayerSetCommander(2, "Protoss");
+    PlayerSetCommander(3, "Zerg");
+    PlayerSetCommander(4, "Terran");
+    PlayerSetCommander(6, "Zerg");
+    PlayerSetCommander(7, "Terran");
+    PlayerGroupAdd(libMLIB_gv_teamPlayersAllied, 1);
+    PlayerGroupAdd(libMLIB_gv_teamPlayersAllied, 2);
+    PlayerGroupAdd(libMLIB_gv_teamPlayersAmon, 3);
+    PlayerGroupAdd(libMLIB_gv_teamPlayersAmon, 4);
+    libMLIB_gf_BasicInitialization();
+    libMLIB_gf_CU_EnemyBriefInit("Zerg-Combined");
+    libMLIB_gf_CU_EnemyBriefShowHide(true);
+    libMLIB_gf_RemoveOptionalUnits();
+    libMLIB_gf_ReplaceFactionUnits();
+    libMLIB_gf_SetStartingPointsAndCreateStartingUnits();
+    libMLIB_gf_PlayersandAllienceSettings();
+    TriggerEnable(libMLIB_gt_DefeatBaseDead, true);
+    TriggerExecute(libMLIB_gt_IntroZoomIn, true, false);
+    TriggerExecute(libMLIB_gt_InitialExploration, true, false);
+    GameSetSpeedValue(c_gameSpeedFaster);
+    libMLIB_gf_InitCoopTasks();
+    SoundtrackStop(PlayerGroupAll(), c_soundtrackCategoryAmbience, true);
+    SoundtrackPlay(PlayerGroupAll(), c_soundtrackCategoryAmbience, "Ambience_AC_BelShir", c_soundtrackCueAny, c_soundtrackIndexAny, false);
+    GameTimeOfDayTimeValueSet(RandomInt(0, 24), 0, 0);
+    TriggerExecute(libMISS_gt_BelshirEscort, true, false);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void libMISS_gt_COOPInit_Init () {
+    libMISS_gt_COOPInit = TriggerCreate("libMISS_gt_COOPInit_Func");
+    TriggerAddEventMapInit(libMISS_gt_COOPInit);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Belshir Escort
+//--------------------------------------------------------------------------------------------------
+bool libMISS_gt_BelshirEscort_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    int lv_allowLowestVitalityHarass2;
+    int lv_sPEC2;
+
+    // Automatic Variable Declarations
+    int auto71C669FF_saved_task;
+    int auto71C669FF_saved_parent;
+    int auto17BAABFB_saved_task;
+    int auto17BAABFB_saved_parent;
+    int autoB1AB9EF2_saved_task;
+    int autoB1AB9EF2_saved_parent;
+    int autoFABDB179_saved_task;
+    int autoFABDB179_saved_parent;
+    int auto47BEE526_saved_task;
+    int auto47BEE526_saved_parent;
+    int auto519223D0_saved_task;
+    int auto519223D0_saved_parent;
+    int auto5F955A2C_saved_task;
+    int auto5F955A2C_saved_parent;
+
+    // Variable Initialization
+    lv_allowLowestVitalityHarass2 = libMLIB_gf_DifficultyValueInt3(libMLIB_gv_selectedDifficulty, 0, 0, 1, 1);
+    lv_sPEC2 = libARRA_gf_IIF9(lv_allowLowestVitalityHarass2, libMLIB_gv_lOWEST_VITALITY, libMLIB_gv_rANDOM_OBJECTIVE);
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    libARRA_gf_StoreIntegerForTask(libARRA_gv_task, "Difficulty", libMLIB_gv_selectedDifficulty);
+    libMLIB_gf_TaskAttackWaves(libARRA_gv_task, 2.0, "1-9");
+    auto71C669FF_saved_task   = libARRA_gv_task;
+    auto71C669FF_saved_parent = libARRA_gv_parent;
+    libARRA_gv_parent = libARRA_gv_task;
+    libARRA_gf_CreateTask("Belshir Escort");
+    libMISS_gf_BelshirEscortConfig(7.0, libARRA_gf_Points("BE-Node"), PointFromName("BE-Spawn"));
+    libMISS_gf_ProtectTerrazineTankTask(PointFromName("BE-Tank"));
+    libMISS_gf_ProtectBotsTask(libMLIB_gf_DifficultyValueInt3(libMLIB_gv_selectedDifficulty, 5, 4, 3, 2));
+    auto17BAABFB_saved_task   = libARRA_gv_task;
+    auto17BAABFB_saved_parent = libARRA_gv_parent;
+    libARRA_gv_parent = libARRA_gv_task;
+    libARRA_gf_CreateTask("Wave-1");
+    libMISS_gf_WaveConfig(3.5);
+    libMISS_gf_Harvester(1, 1);
+    libMLIB_gf_Harass(1, 18.0, 1, 1, "11-12");
+    libMLIB_gf_Harass(1, 43.0, 1, 1, "11-12");
+    libARRA_gv_task   = auto17BAABFB_saved_task;
+    libARRA_gv_parent = auto17BAABFB_saved_parent;
+    autoB1AB9EF2_saved_task   = libARRA_gv_task;
+    autoB1AB9EF2_saved_parent = libARRA_gv_parent;
+    libARRA_gv_parent = libARRA_gv_task;
+    libARRA_gf_CreateTask("Wave-2");
+    libMISS_gf_WaveConfig(6.75);
+    libMISS_gf_Harvester(3, 3);
+    libMISS_gf_Harvester(2, 2);
+    libMLIB_gf_Harass(1, 15.0, 3, 2, "21-23");
+    libMLIB_gf_Harass(2, 35.0, 3, 2, "21-23");
+    libMLIB_gf_Harass(1, 55.0, 1, 1, "24-27");
+    libMLIB_gf_Harass(2, 75.0, 4, 4, "21-23");
+    libARRA_gv_task   = autoB1AB9EF2_saved_task;
+    libARRA_gv_parent = autoB1AB9EF2_saved_parent;
+    autoFABDB179_saved_task   = libARRA_gv_task;
+    autoFABDB179_saved_parent = libARRA_gv_parent;
+    libARRA_gv_parent = libARRA_gv_task;
+    libARRA_gf_CreateTask("Wave-3");
+    libMISS_gf_WaveConfig(11.0);
+    libMISS_gf_Harvester(3, 5);
+    libMISS_gf_Harvester(2, 4);
+    libMLIB_gf_Harass(1, 15.0, 4, 3, "31-33");
+    libMLIB_gf_Harass(2, 35.0, 4, 3, "31-33");
+    libMLIB_gf_Harass(3, 55.0, 4, 3, "33-36");
+    libMLIB_gf_Harass(1, 75.0, 4, 4, "33-36");
+    libMLIB_gf_Harass(2, 95.0, 4, 4, "33-36");
+    libMLIB_gf_Harass(3, 115.0, 4, 4, "37");
+    libARRA_gv_task   = autoFABDB179_saved_task;
+    libARRA_gv_parent = autoFABDB179_saved_parent;
+    auto47BEE526_saved_task   = libARRA_gv_task;
+    auto47BEE526_saved_parent = libARRA_gv_parent;
+    libARRA_gv_parent = libARRA_gv_task;
+    libARRA_gf_CreateTask("Wave-4");
+    libMISS_gf_WaveConfig(17.5);
+    libMISS_gf_Harvester(1, 7);
+    libMISS_gf_Harvester(2, 6);
+    libMISS_gf_Harvester(3, 8);
+    libMLIB_gf_Harass(1, 15.0, 4, 1, "41-45");
+    libMLIB_gf_Harass(2, 45.0, 4, 4, "41-45");
+    libMLIB_gf_Harass(3, 75.0, 4, 4, "41-45");
+    libMLIB_gf_Harass(1, 75.0, 4, 4, "46-47");
+    libMLIB_gf_Harass(2, 105.0, 4, 4, "41-45");
+    libMLIB_gf_Harass(3, 105.0, 4, 4, "41-45");
+    libARRA_gv_task   = auto47BEE526_saved_task;
+    libARRA_gv_parent = auto47BEE526_saved_parent;
+    auto519223D0_saved_task   = libARRA_gv_task;
+    auto519223D0_saved_parent = libARRA_gv_parent;
+    libARRA_gv_parent = libARRA_gv_task;
+    libARRA_gf_CreateTask("Wave-5");
+    libMISS_gf_WaveConfig(23.65);
+    libMISS_gf_Harvester(3, 10);
+    libMISS_gf_Harvester(1, 11);
+    libMISS_gf_Harvester(2, 9);
+    libMLIB_gf_Harass(1, 15.0, 5, 5, "51-53");
+    libMLIB_gf_Harass(2, 30.0, 5, 5, "53-55");
+    libMLIB_gf_Harass(3, 45.0, 5, 5, "57");
+    libMLIB_gf_Harass(lv_sPEC2, 60.0, 6, 6, "51-57");
+    libMLIB_gf_Harass(1, 90.0, 6, 6, "51-53");
+    libMLIB_gf_Harass(lv_sPEC2, 120.0, 6, 6, "51-57");
+    libMLIB_gf_Harass(2, 150.0, 7, 7, "53-55");
+    libMLIB_gf_Harass(lv_sPEC2, 180.0, 7, 7, "51-57");
+    libMLIB_gf_Harass(3, 200.0, 7, 7, "57");
+    libARRA_gv_task   = auto519223D0_saved_task;
+    libARRA_gv_parent = auto519223D0_saved_parent;
+    libARRA_gv_task   = auto71C669FF_saved_task;
+    libARRA_gv_parent = auto71C669FF_saved_parent;
+    auto5F955A2C_saved_task   = libARRA_gv_task;
+    auto5F955A2C_saved_parent = libARRA_gv_parent;
+    libARRA_gv_parent = libARRA_gv_task;
+    libARRA_gf_CreateTask("Whales");
+    libMISS_gf_WhalesConfig(libARRA_gf_Points("BE-Whale"));
+    libMISS_gf_Whale(1, 11.3);
+    libMISS_gf_Whale(2, 23.15);
+    libARRA_gv_task   = auto5F955A2C_saved_task;
+    libARRA_gv_parent = auto5F955A2C_saved_parent;
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void libMISS_gt_BelshirEscort_Init () {
+    libMISS_gt_BelshirEscort = TriggerCreate("libMISS_gt_BelshirEscort_Func");
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: BE EnemyHarass
+//--------------------------------------------------------------------------------------------------
+bool libMISS_gt_BEEnemyHarass_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    libMLIB_gf_TaskPlayTransmission(libARRA_gv_task, "EnemyHarass");
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void libMISS_gt_BEEnemyHarass_Init () {
+    libMISS_gt_BEEnemyHarass = TriggerCreate("libMISS_gt_BEEnemyHarass_Func");
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: BE EnemyReinforcements
+//--------------------------------------------------------------------------------------------------
+bool libMISS_gt_BEEnemyReinforcements_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    libMLIB_gf_TaskPlayTransmission(libARRA_gv_task, "EnemyReinforcements");
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void libMISS_gt_BEEnemyReinforcements_Init () {
+    libMISS_gt_BEEnemyReinforcements = TriggerCreate("libMISS_gt_BEEnemyReinforcements_Func");
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: BE Escort Start
+//--------------------------------------------------------------------------------------------------
+bool libMISS_gt_BEEscortStart_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    int auto88A23EDA_saved_task;
+    int auto88A23EDA_saved_parent;
+    int auto88A23EDA_saved_listener;
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    libMLIB_gf_RevealAreaforPlayerGroup(RegionCircle(libARRA_gf_PointStoredForTask2(libARRA_gv_task, "BE-HARVESTER-SPAWN"), 5.0), PlayerGroupAll());
+    auto88A23EDA_saved_task   = libARRA_gv_task;
+    auto88A23EDA_saved_parent = libARRA_gv_parent;
+    auto88A23EDA_saved_listener = libARRA_gv_listener;
+    Wait(2.0, c_timeReal ); //Async
+    libARRA_gv_task   = auto88A23EDA_saved_task;
+    libARRA_gv_parent = auto88A23EDA_saved_parent;
+    libARRA_gv_listener = auto88A23EDA_saved_listener;
+    if(libARRA_gf_TaskActive(libARRA_gv_task) == false){return true;}
+    libMLIB_gf_TaskPlayTransmission(libARRA_gv_task, "BelshirScientist");
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void libMISS_gt_BEEscortStart_Init () {
+    libMISS_gt_BEEscortStart = TriggerCreate("libMISS_gt_BEEscortStart_Func");
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: BE Escort Progress - Harvesters Wave Finished
+//--------------------------------------------------------------------------------------------------
+bool libMISS_gt_BEEscortProgressHarvestersWaveFinished_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    int autoF32064B9_val;
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    autoF32064B9_val = libARRA_gf_IntegerForTask(libARRA_gv_task, "Progress");
+    if (autoF32064B9_val == 1) {
+        libMLIB_gf_TaskPlayTransmission(libARRA_gv_task, "HarvestersWave1Finished");
+    }
+    else if (autoF32064B9_val == 2) {
+        libMLIB_gf_TaskPlayTransmission(libARRA_gv_task, "HarvestersWave2Finished");
+    }
+    else if (autoF32064B9_val == 3) {
+        libMLIB_gf_TaskPlayTransmission(libARRA_gv_task, "HarvestersWave3Finished");
+    }
+    else if (autoF32064B9_val == 4) {
+        libMLIB_gf_TaskPlayTransmission(libARRA_gv_task, "HarvestersWave4Finished");
+    }
+    else if (autoF32064B9_val == 5) {
+    }
+    else {
+    }
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void libMISS_gt_BEEscortProgressHarvestersWaveFinished_Init () {
+    libMISS_gt_BEEscortProgressHarvestersWaveFinished = TriggerCreate("libMISS_gt_BEEscortProgressHarvestersWaveFinished_Func");
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: BE Escort Completed - Last Harvester Wave Finished
+//--------------------------------------------------------------------------------------------------
+bool libMISS_gt_BEEscortCompletedLastHarvesterWaveFinished_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    fixed lv_harvestersLiveAverage;
+    int lv_botScoreFinal;
+    point lv_spawnPoint;
+
+    // Automatic Variable Declarations
+    playergroup autoE256A5D0_g;
+    int autoE256A5D0_var;
+
+    // Variable Initialization
+    lv_harvestersLiveAverage = (libARRA_gf_RealForTask(libARRA_gv_task, "ScoreScreenHarvesterSummaryLife") / libARRA_gf_IntegerForTask(libARRA_gv_task, "Harvesters"));
+    lv_botScoreFinal = CeilingI((75000.0 * (lv_harvestersLiveAverage / 100.0)));
+    lv_spawnPoint = libARRA_gf_PointStoredForTask2(libARRA_gv_task, "BE-HARVESTER-SPAWN");
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    libARRA_gf_TaskComplete(libARRA_gv_task);
+    autoE256A5D0_g = libARRA_gf_GetTeamPlayers(libARRA_gf_IntegerForTask2(libARRA_gv_task, "Team"));
+    autoE256A5D0_var = -1;
+    while (true) {
+        autoE256A5D0_var = PlayerGroupNextPlayer(autoE256A5D0_g, autoE256A5D0_var);
+        if (autoE256A5D0_var < 0) { break; }
+        PlayerScoreValueSetFromFixed(autoE256A5D0_var, "BelshirEscortHarvesterDamage", libARRA_gf_RealForTask(libARRA_gv_task, "ScoreScreenHarvesterDamage"));
+    }
+    libMLIB_gf_BeforeFanfare(c_gameOverVictory);
+    libMLIB_gf_TaskPlayTransmission(libARRA_gv_task, "HarvestersWave5Finished");
+    libARRA_gf_DisplayCampaignMessage(libMLIB_gf_HumanPlayers(), libARRA_ge_CampaignMessageType_MissionVictory, StringToText(""), libARRA_ge_CampaignMessageFormatNotFormat_FormatMessage);
+    libMLIB_gf_MoveCameraForAllPlayers(lv_spawnPoint, 2.0);
+    ;
+    libMLIB_gf_AfterFanfare(c_gameOverVictory);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void libMISS_gt_BEEscortCompletedLastHarvesterWaveFinished_Init () {
+    libMISS_gt_BEEscortCompletedLastHarvesterWaveFinished = TriggerCreate("libMISS_gt_BEEscortCompletedLastHarvesterWaveFinished_Func");
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: BE Score Calculate Harvester Damage
+//--------------------------------------------------------------------------------------------------
+bool libMISS_gt_BEScoreCalculateHarvesterDamage_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    libARRA_gf_StoreRealForTask(libARRA_gv_task, "ScoreScreenHarvesterDamage", (libARRA_gf_RealForTask(libARRA_gv_task, "ScoreScreenHarvesterDamage") + EventUnitDamageAmount()));
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void libMISS_gt_BEScoreCalculateHarvesterDamage_Init () {
+    libMISS_gt_BEScoreCalculateHarvesterDamage = TriggerCreate("libMISS_gt_BEScoreCalculateHarvesterDamage_Func");
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: BE Primary Bot Destroyed Warning
+//--------------------------------------------------------------------------------------------------
+bool libMISS_gt_BEPrimaryBotDestroyedWarning_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void libMISS_gt_BEPrimaryBotDestroyedWarning_Init () {
+    libMISS_gt_BEPrimaryBotDestroyedWarning = TriggerCreate("libMISS_gt_BEPrimaryBotDestroyedWarning_Func");
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: BE Primary Bot Destroyed Defeat
+//--------------------------------------------------------------------------------------------------
+bool libMISS_gt_BEPrimaryBotDestroyedDefeat_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    libARRA_gf_TaskFail(libARRA_gv_task);
+    libMLIB_gf_BeforeFanfare(c_gameOverDefeat);
+    libMLIB_gf_TaskPlayTransmission(libARRA_gv_task, "Defeat");
+    libARRA_gf_DisplayCampaignMessage(libMLIB_gf_HumanPlayers(), libARRA_ge_CampaignMessageType_MissionFailed, StringToText(""), libARRA_ge_CampaignMessageFormatNotFormat_FormatMessage);
+    libMLIB_gf_MoveCameraForAllPlayers(libMLIB_gv_lastEventPoint, 1.5);
+    ;
+    libMLIB_gf_AfterFanfare(c_gameOverDefeat);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void libMISS_gt_BEPrimaryBotDestroyedDefeat_Init () {
+    libMISS_gt_BEPrimaryBotDestroyedDefeat = TriggerCreate("libMISS_gt_BEPrimaryBotDestroyedDefeat_Func");
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: BE Primary Bot Counter Increment
+//--------------------------------------------------------------------------------------------------
+bool libMISS_gt_BEPrimaryBotCounterIncrement_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    libMLIB_gv_lastEventPoint = UnitGetPosition(EventUnit());
+    libARRA_gf_TaskIncreaseProgress(libARRA_gv_task);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void libMISS_gt_BEPrimaryBotCounterIncrement_Init () {
+    libMISS_gt_BEPrimaryBotCounterIncrement = TriggerCreate("libMISS_gt_BEPrimaryBotCounterIncrement_Func");
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: BE Tank Destroyed Defeat
+//--------------------------------------------------------------------------------------------------
+bool libMISS_gt_BETankDestroyedDefeat_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    unit lv_terrazineTank;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_terrazineTank = EventUnit();
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    libMLIB_gv_lastEventPoint = UnitGetPosition(lv_terrazineTank);
+    libARRA_gf_TaskFail(libARRA_gv_task);
+    libMLIB_gf_BeforeFanfare(c_gameOverDefeat);
+    libMLIB_gf_TaskPlayTransmission(libARRA_gv_task, "Defeat");
+    libARRA_gf_DisplayCampaignMessage(libMLIB_gf_HumanPlayers(), libARRA_ge_CampaignMessageType_MissionFailed, StringToText(""), libARRA_ge_CampaignMessageFormatNotFormat_FormatMessage);
+    libMLIB_gf_MoveCameraForAllPlayers(libMLIB_gv_lastEventPoint, 1.5);
+    ;
+    libMLIB_gf_AfterFanfare(c_gameOverDefeat);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void libMISS_gt_BETankDestroyedDefeat_Init () {
+    libMISS_gt_BETankDestroyedDefeat = TriggerCreate("libMISS_gt_BETankDestroyedDefeat_Func");
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: BE Wave Start Geysers Activates
+//--------------------------------------------------------------------------------------------------
+bool libMISS_gt_BEWaveStartGeysersActivates_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    int autoF42804C3_saved_task;
+    int autoF42804C3_saved_parent;
+    int autoF42804C3_saved_listener;
+    int autoF09C3EC7_saved_task;
+    int autoF09C3EC7_saved_parent;
+    int autoF09C3EC7_saved_listener;
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    libARRA_gf_StoreIntegerForTask(libARRA_gf_IntegerForTask(libARRA_gv_task, "Parent"), "Waves", (libARRA_gf_IntegerForTask(libARRA_gf_IntegerForTask(libARRA_gv_task, "Parent"), "Waves") + 1));
+    libMLIB_gf_TaskPlayTransmission(libARRA_gv_task, ("Geysers" + IntToString(libARRA_gf_IntegerForTask(libARRA_gf_IntegerForTask(libARRA_gv_task, "Parent"), "Waves"))));
+    autoF42804C3_saved_task   = libARRA_gv_task;
+    autoF42804C3_saved_parent = libARRA_gv_parent;
+    autoF42804C3_saved_listener = libARRA_gv_listener;
+    Wait(20.0, c_timeReal ); //Async
+    libARRA_gv_task   = autoF42804C3_saved_task;
+    libARRA_gv_parent = autoF42804C3_saved_parent;
+    libARRA_gv_listener = autoF42804C3_saved_listener;
+    if(libARRA_gf_TaskActive(libARRA_gv_task) == false){return true;}
+    libARRA_gf_Taskemit(libARRA_gv_task, "Bots", "");
+    autoF09C3EC7_saved_task   = libARRA_gv_task;
+    autoF09C3EC7_saved_parent = libARRA_gv_parent;
+    autoF09C3EC7_saved_listener = libARRA_gv_listener;
+    Wait(40.0, c_timeReal ); //Async
+    libARRA_gv_task   = autoF09C3EC7_saved_task;
+    libARRA_gv_parent = autoF09C3EC7_saved_parent;
+    libARRA_gv_listener = autoF09C3EC7_saved_listener;
+    if(libARRA_gf_TaskActive(libARRA_gv_task) == false){return true;}
+    libARRA_gf_Taskemit(libARRA_gv_task, "Harass", "");
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void libMISS_gt_BEWaveStartGeysersActivates_Init () {
+    libMISS_gt_BEWaveStartGeysersActivates = TriggerCreate("libMISS_gt_BEWaveStartGeysersActivates_Func");
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: BE Wave Ended
+//--------------------------------------------------------------------------------------------------
+bool libMISS_gt_BEWaveEnded_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Conditions
+    if (testConds) {
+        if (!(((libARRA_gf_IntegerForTask(libARRA_gv_task, "Progress") + libARRA_gf_IntegerForTask(libARRA_gv_task, "Fails")) == libARRA_gf_IntegerForTask(libARRA_gv_task, "Goal")))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    if ((libARRA_gf_IntegerForTask(libARRA_gv_task, "Progress") > 0)) {
+    }
+
+    libARRA_gf_TaskComplete(libARRA_gv_task);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void libMISS_gt_BEWaveEnded_Init () {
+    libMISS_gt_BEWaveEnded = TriggerCreate("libMISS_gt_BEWaveEnded_Func");
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: BE Harvester Controller
+//--------------------------------------------------------------------------------------------------
+bool libMISS_gt_BEHarvesterController_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    int lv_waveTask;
+    int lv_escortTask;
+    int lv_order;
+    unit lv_bot;
+    int lv_ping;
+    unit lv_node;
+    bool lv_isFirst;
+    int lv_waitInside;
+    int lv_waitParking;
+    fixed lv_waitCollecting;
+    fixed lv_waitBack;
+    point lv_spawn;
+    point lv_park;
+    fixed lv_life;
+    unitgroup lv_waveBots;
+    unitgroup lv_escortBots;
+    int lv_nPCPlayer;
+    int lv_route;
+    string lv_routePath;
+
+    // Automatic Variable Declarations
+    int auto0AAED915_saved_task;
+    int auto0AAED915_saved_parent;
+    int auto3CD8E2C1_saved_task;
+    int auto3CD8E2C1_saved_parent;
+    int auto3CD8E2C1_saved_listener;
+    int autoB034DD66_saved_task;
+    int autoB034DD66_saved_parent;
+    int autoC7863055_saved_task;
+    int autoC7863055_saved_parent;
+    int autoC7863055_saved_listener;
+    int auto17E742C6_saved;
+    int auto17E742C6_l;
+    int auto17E742C6_a;
+    int auto17E742C6_b;
+    int auto17E742C6_s;
+    int auto17E742C6_i;
+    int autoFEA984A2_saved;
+    int auto18D1E547_saved_task;
+    int auto18D1E547_saved_parent;
+    int auto94A157BB_saved_task;
+    int auto94A157BB_saved_parent;
+    int auto94A157BB_saved_listener;
+    int auto13AAD0A8_saved_task;
+    int auto13AAD0A8_saved_parent;
+    int auto900E8935_saved;
+    int auto900E8935_l;
+    int auto900E8935_a;
+    int auto900E8935_b;
+    int auto900E8935_s;
+    int auto900E8935_i;
+    int autoCF3C1AD5_saved;
+    int auto928E5774_saved_task;
+    int auto928E5774_saved_parent;
+    int auto9B6FC1E2_saved_task;
+    int auto9B6FC1E2_saved_parent;
+    int auto9B6FC1E2_saved_listener;
+
+    // Variable Initialization
+    lv_waveTask = libARRA_gf_IntegerForTask(libARRA_gv_task, "Parent");
+    lv_escortTask = libARRA_gf_IntegerForTask(lv_waveTask, "Parent");
+    lv_order = libARRA_gf_IntegerForTask(lv_waveTask, "Harvesters");
+    lv_ping = c_invalidPingId;
+    lv_node = libARRA_gf_UnitForTask(libARRA_gv_task, "Node");
+    lv_isFirst = !(libARRA_gf_IIF13(libARRA_gf_IntegerForTask(lv_escortTask, "Harvesters")));
+    lv_waitInside = 40;
+    lv_waitParking = 20;
+    lv_waitCollecting = 60.0;
+    lv_waitBack = 1.0;
+    lv_spawn = libARRA_gf_PointStoredForTask2(libARRA_gv_task, "BE-HARVESTER-SPAWN");
+    lv_park = libARRA_gf_PointStoredForTask(libARRA_gv_task, "Park");
+    lv_life = libARRA_gf_IntegerForTask2(libARRA_gv_task, "BE-ESCORT-LIFE");
+    lv_waveBots = libARRA_gf_UnitGroupStoredForTask(lv_waveTask, "Harvesters");
+    lv_escortBots = libARRA_gf_UnitGroupStoredForTask(lv_escortTask, "Harvesters");
+    lv_nPCPlayer = libARRA_gf_IntegerForTask2(libARRA_gv_task, "NPC-ALLY");
+    lv_route = libARRA_gf_IntegerForTask(libARRA_gv_task, "Route");
+    lv_routePath = ("BE-Path " + IntToString(lv_route));
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    libARRA_gf_StoreIntegerForTask(lv_waveTask, "Harvesters", (libARRA_gf_IntegerForTask(lv_waveTask, "Harvesters") + 1));
+    libARRA_gf_StoreIntegerForTask(lv_escortTask, "Harvesters", (libARRA_gf_IntegerForTask(lv_escortTask, "Harvesters") + 1));
+    auto0AAED915_saved_task   = libARRA_gv_task;
+    auto0AAED915_saved_parent = libARRA_gv_parent;
+    libARRA_gf_SetTriggeringTask(libARRA_gv_task);
+    UnitIssueOrder(lv_node, Order(AbilityCommand("TerrazineNode", 0)), c_orderQueueReplace);
+    libMLIB_gf_TaskCreateRevealersCoop(libARRA_gv_task, PlayerGroupAll(), RegionCircle(UnitGetPosition(lv_node), 5.0));
+    libMLIB_gf_CreatePingCoop(PlayerGroupAll(), "PingAlert", UnitGetPosition(lv_node), ColorWithAlpha(0.00, 100.00, 0.00, 0.00), lv_waitInside);
+    PingSetRotation(PingLastCreated(), 270.0);
+    PingSetTooltip(PingLastCreated(), StringToText(""));
+    ;
+    libARRA_gv_task   = auto0AAED915_saved_task;
+    libARRA_gv_parent = auto0AAED915_saved_parent;
+    auto3CD8E2C1_saved_task   = libARRA_gv_task;
+    auto3CD8E2C1_saved_parent = libARRA_gv_parent;
+    auto3CD8E2C1_saved_listener = libARRA_gv_listener;
+    Wait((lv_waitInside + (5.0 * lv_order)), c_timeReal ); //Async
+    libARRA_gv_task   = auto3CD8E2C1_saved_task;
+    libARRA_gv_parent = auto3CD8E2C1_saved_parent;
+    libARRA_gv_listener = auto3CD8E2C1_saved_listener;
+    if(libARRA_gf_TaskActive(libARRA_gv_task) == false){return true;}
+    autoB034DD66_saved_task   = libARRA_gv_task;
+    autoB034DD66_saved_parent = libARRA_gv_parent;
+    libARRA_gf_SetTriggeringTask(libARRA_gv_task);
+    UnitCreate(1, "TerrazineHarvester", 0, lv_nPCPlayer, lv_spawn, 134.96);
+    lv_bot = UnitLastCreated();
+    UnitGroupAdd(lv_waveBots, lv_bot);
+    UnitGroupAdd(lv_escortBots, lv_bot);
+    UnitStatusBarOverride(lv_bot, c_unitStatusGroupAll);
+    UnitSetPropertyFixed(lv_bot, c_unitPropLifeMax, lv_life);
+    UnitSetPropertyFixed(lv_bot, c_unitPropLifePercent, 100.0);
+    UnitSetState(lv_bot, c_unitStateTargetable, false);
+    UnitSetState(lv_bot, c_unitStateStoppable, false);
+    libMLIB_gf_SetUnitInfoTextCampaign(lv_bot, null, StringToText(""), null);
+    libMLIB_gf_CreatePingCoop(PlayerGroupAll(), "PingObjective", UnitGetPosition(lv_bot), ColorWithAlpha(0.00, 100.00, 0.00, 0.00), 0.0);
+    lv_ping = PingLastCreated();
+    PingSetTooltip(lv_ping, StringToText(""));
+    PingSetUnit(lv_ping, lv_bot);
+    libARRA_gf_StorePingForTask(libARRA_gv_task, "Target", PingLastCreated());
+    libARRA_gf_StoreUnitForTask(libARRA_gv_task, "Bot", lv_bot);
+    UnitGroupAdd(libARRA_gf_UnitGroupStoredForTask(libARRA_gv_task, "Harvesters"), lv_bot);
+    libMLIB_gf_TaskSetPriorityTarget(libARRA_gv_task, lv_bot, libMLIB_ge_Priority_MEDIUM);
+    libARRA_gf_TrackerCreateUnit(lv_bot, "Bot");
+    libARRA_gf_TaskonTracker(libARRA_gv_task, libARRA_gv_tracker, "Damage", libMISS_gt_BEHarvesterUnderAttack);
+    libARRA_gf_TaskonTracker(libARRA_gv_task, libARRA_gv_tracker, "Dead", libMISS_gt_BEHarvesterOnDestroy);
+    ;
+    libARRA_gv_task   = autoB034DD66_saved_task;
+    libARRA_gv_parent = autoB034DD66_saved_parent;
+    libARRA_gf_StoreIntegerForTask(libARRA_gv_task, "Stage", 1);
+    UnitIssueOrder(lv_bot, OrderTargetingPoint(AbilityCommand("move", 0), lv_park), c_orderQueueReplace);
+    UnitIssueOrder(lv_bot, Order(AbilityCommand("move", 2)), c_orderQueueAddToEnd);
+    autoC7863055_saved_task   = libARRA_gv_task;
+    autoC7863055_saved_parent = libARRA_gv_parent;
+    autoC7863055_saved_listener = libARRA_gv_listener;
+    Wait(lv_waitParking, c_timeReal ); //Async
+    libARRA_gv_task   = autoC7863055_saved_task;
+    libARRA_gv_parent = autoC7863055_saved_parent;
+    libARRA_gv_listener = autoC7863055_saved_listener;
+    if(libARRA_gf_TaskActive(libARRA_gv_task) == false){return true;}
+    libARRA_gf_StoreIntegerForTask(libARRA_gv_task, "Stage", 2);
+    libMLIB_gf_TaskPlayTransmission(libARRA_gv_task, libARRA_gf_IIF(lv_isFirst, "BotsDepartFirst", "BotsDepartRepeat"));
+    auto17E742C6_saved = libARRA_gv_task;
+    auto17E742C6_l = 0;
+    while ((PointFromName((lv_routePath + "-" + IntToString((auto17E742C6_l + 1)))) != null)) {
+        auto17E742C6_l += 1;
+    }
+    if ((auto17E742C6_l != 0)) {
+        if ((false == false)) {
+            auto17E742C6_a = 1;
+            auto17E742C6_b = auto17E742C6_l+1;
+            auto17E742C6_s = 1;
+        }
+        else {
+            auto17E742C6_a = auto17E742C6_l;
+            auto17E742C6_b = 0;
+            auto17E742C6_s = -1;
+        }
+        auto17E742C6_i = auto17E742C6_a;
+        do{
+            libARRA_gv_pickedPoint = PointFromName(lv_routePath + "-" + IntToString(auto17E742C6_i));
+            libARRA_gv_pickedUnits = libNtve_gf_ConvertUnitToUnitGroup(lv_bot);
+            libARRA_gv_pickedPrecision = 1.0;
+            libARRA_gf_TaskRun(libARRA_gv_task,libARRA_gt_SendUnitsToPoint,true); // async
+            libARRA_gf_SetTriggeringTask(auto17E742C6_saved);
+            if(libARRA_gf_TaskActive(libARRA_gv_task) == false){return true;}
+            auto17E742C6_i += auto17E742C6_s;
+        }
+        while(auto17E742C6_i != auto17E742C6_b);
+    }
+    autoFEA984A2_saved = libARRA_gv_task;
+    libARRA_gv_pickedPoint = PointWithOffsetPolar(UnitGetPosition(lv_node), 3.8, UnitGetFacing(lv_node));
+    libARRA_gv_pickedUnits = libNtve_gf_ConvertUnitToUnitGroup(lv_bot);
+    libARRA_gv_pickedPrecision = 0.5;
+    libARRA_gf_TaskRun(libARRA_gv_task,libARRA_gt_SendUnitsToPoint,true); // async
+    libARRA_gf_SetTriggeringTask(autoFEA984A2_saved);
+    if(libARRA_gf_TaskActive(libARRA_gv_task) == false){return true;}
+    libARRA_gf_StoreIntegerForTask(libARRA_gv_task, "Stage", 3);
+    auto18D1E547_saved_task   = libARRA_gv_task;
+    auto18D1E547_saved_parent = libARRA_gv_parent;
+    libARRA_gf_SetTriggeringTask(libARRA_gv_task);
+    libMLIB_gf_TaskPlayTransmission(libARRA_gv_task, libARRA_gf_IIF(lv_isFirst, "BotsHarvestFirst", "BotsHarvestRepeat"));
+    UnitAbilityEnable(lv_bot, "attack", false);
+    UnitIssueOrder(lv_bot, Order(AbilityCommand("move", 2)), c_orderQueueReplace);
+    UnitIssueOrder(lv_bot, OrderTargetingUnit(AbilityCommand("TerrazineHarvesterExtract", 0), lv_node), c_orderQueueAddToEnd);
+    UnitAbilityEnable(lv_bot, "attack", true);
+    UnitBehaviorAdd(lv_bot, "ProgressBar", lv_bot, 1);
+    UnitBehaviorSetDuration(lv_bot, "ProgressBar", lv_waitCollecting);
+    libNtve_gf_PlayAnimation(libNtve_gf_MainActorofUnit(lv_node), c_animNameDefault, "Stand Angry", c_animFlagPlayForever, c_animTimeDefault);
+    UnitAbilityEnable(lv_bot, "move", false);
+    ;
+    libARRA_gv_task   = auto18D1E547_saved_task;
+    libARRA_gv_parent = auto18D1E547_saved_parent;
+    auto94A157BB_saved_task   = libARRA_gv_task;
+    auto94A157BB_saved_parent = libARRA_gv_parent;
+    auto94A157BB_saved_listener = libARRA_gv_listener;
+    Wait(lv_waitCollecting, c_timeReal ); //Async
+    libARRA_gv_task   = auto94A157BB_saved_task;
+    libARRA_gv_parent = auto94A157BB_saved_parent;
+    libARRA_gv_listener = auto94A157BB_saved_listener;
+    if(libARRA_gf_TaskActive(libARRA_gv_task) == false){return true;}
+    libARRA_gf_StoreIntegerForTask(libARRA_gv_task, "Stage", 4);
+    auto13AAD0A8_saved_task   = libARRA_gv_task;
+    auto13AAD0A8_saved_parent = libARRA_gv_parent;
+    libARRA_gf_SetTriggeringTask(libARRA_gv_task);
+    libNtve_gf_PlayAnimation(libNtve_gf_MainActorofUnit(lv_node), c_animNameDefault, "Stand Default", c_animFlagPlayForever, c_animTimeDefault);
+    UnitIssueOrder(lv_node, Order(AbilityCommand("TerrazineNodeOff", 0)), c_orderQueueReplace);
+    libMLIB_gf_TaskDestroyRevealersCoop(libARRA_gv_task);
+    UnitAbilityEnable(lv_bot, "move", true);
+    ;
+    libARRA_gv_task   = auto13AAD0A8_saved_task;
+    libARRA_gv_parent = auto13AAD0A8_saved_parent;
+    libMLIB_gf_TaskPlayTransmission(libARRA_gv_task, libARRA_gf_IIF(lv_isFirst, "BotsReturnFirst", "BotsReturnFirst"));
+    auto900E8935_saved = libARRA_gv_task;
+    auto900E8935_l = 0;
+    while ((PointFromName((lv_routePath + "-" + IntToString((auto900E8935_l + 1)))) != null)) {
+        auto900E8935_l += 1;
+    }
+    if ((auto900E8935_l != 0)) {
+        if ((true == false)) {
+            auto900E8935_a = 1;
+            auto900E8935_b = auto900E8935_l+1;
+            auto900E8935_s = 1;
+        }
+        else {
+            auto900E8935_a = auto900E8935_l;
+            auto900E8935_b = 0;
+            auto900E8935_s = -1;
+        }
+        auto900E8935_i = auto900E8935_a;
+        do{
+            libARRA_gv_pickedPoint = PointFromName(lv_routePath + "-" + IntToString(auto900E8935_i));
+            libARRA_gv_pickedUnits = libNtve_gf_ConvertUnitToUnitGroup(lv_bot);
+            libARRA_gv_pickedPrecision = 1.0;
+            libARRA_gf_TaskRun(libARRA_gv_task,libARRA_gt_SendUnitsToPoint,true); // async
+            libARRA_gf_SetTriggeringTask(auto900E8935_saved);
+            if(libARRA_gf_TaskActive(libARRA_gv_task) == false){return true;}
+            auto900E8935_i += auto900E8935_s;
+        }
+        while(auto900E8935_i != auto900E8935_b);
+    }
+    autoCF3C1AD5_saved = libARRA_gv_task;
+    libARRA_gv_pickedPoint = lv_spawn;
+    libARRA_gv_pickedUnits = libNtve_gf_ConvertUnitToUnitGroup(lv_bot);
+    libARRA_gv_pickedPrecision = 0.5;
+    libARRA_gf_TaskRun(libARRA_gv_task,libARRA_gt_SendUnitsToPoint,true); // async
+    libARRA_gf_SetTriggeringTask(autoCF3C1AD5_saved);
+    if(libARRA_gf_TaskActive(libARRA_gv_task) == false){return true;}
+    libARRA_gf_StoreIntegerForTask(libARRA_gv_task, "Stage", 5);
+    auto928E5774_saved_task   = libARRA_gv_task;
+    auto928E5774_saved_parent = libARRA_gv_parent;
+    libARRA_gf_SetTriggeringTask(libARRA_gv_task);
+    auto9B6FC1E2_saved_task   = libARRA_gv_task;
+    auto9B6FC1E2_saved_parent = libARRA_gv_parent;
+    auto9B6FC1E2_saved_listener = libARRA_gv_listener;
+    Wait(lv_waitBack, c_timeReal ); //Async
+    libARRA_gv_task   = auto9B6FC1E2_saved_task;
+    libARRA_gv_parent = auto9B6FC1E2_saved_parent;
+    libARRA_gv_listener = auto9B6FC1E2_saved_listener;
+    if(libARRA_gf_TaskActive(libARRA_gv_task) == false){return true;}
+    libARRA_gf_StoreRealForTask(lv_escortTask, "ScoreScreenHarvesterSummaryLife", (libARRA_gf_RealForTask(lv_escortTask, "ScoreScreenHarvesterSummaryLife") + UnitGetPropertyFixed(lv_bot, c_unitPropLifePercent, c_unitPropCurrent)));
+    UnitRemove(lv_bot);
+    libARRA_gf_TaskComplete(libARRA_gv_task);
+    ;
+    libARRA_gv_task   = auto928E5774_saved_task;
+    libARRA_gv_parent = auto928E5774_saved_parent;
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void libMISS_gt_BEHarvesterController_Init () {
+    libMISS_gt_BEHarvesterController = TriggerCreate("libMISS_gt_BEHarvesterController_Func");
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: BE Harvester - Under Attack
+//--------------------------------------------------------------------------------------------------
+bool libMISS_gt_BEHarvesterUnderAttack_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    unit lv_bot;
+
+    // Automatic Variable Declarations
+    int auto1037767E_saved_task;
+    int auto1037767E_saved_parent;
+    int auto1037767E_saved_listener;
+    int autoA3E75E35_saved_task;
+    int autoA3E75E35_saved_parent;
+    int autoA3E75E35_saved_listener;
+
+    // Variable Initialization
+    lv_bot = EventUnit();
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    libARRA_gf_ListenerOff(libARRA_gv_listener);
+    libMLIB_gf_ShowHidePingCoop(libARRA_gf_PingStoredForTask(libARRA_gv_task, "Target"), false);
+    libMLIB_gf_CreatePingCoop(PlayerGroupAll(), "PingAlert", UnitGetPosition(lv_bot), ColorWithAlpha(100.00, 0.00, 0.00, 0.00), 0.0);
+    PingSetUnit(PingLastCreated(), lv_bot);
+    libARRA_gf_StorePingForTask(libARRA_gv_task, "Alert", PingLastCreated());
+    auto1037767E_saved_task     = libARRA_gv_task;
+    auto1037767E_saved_parent   = libARRA_gv_parent;
+    auto1037767E_saved_listener = libARRA_gv_listener;
+    do {
+        if(libARRA_gf_TaskActive(libARRA_gv_task) == false){return true;}
+        libARRA_gf_SetTriggeringTask(libARRA_gv_task);
+        libMLIB_gf_TaskPlayTransmission(libARRA_gv_task, "UnderAttack");
+        autoA3E75E35_saved_task   = libARRA_gv_task;
+        autoA3E75E35_saved_parent = libARRA_gv_parent;
+        autoA3E75E35_saved_listener = libARRA_gv_listener;
+        Wait(2.0, c_timeReal ); //Async
+        libARRA_gv_task   = autoA3E75E35_saved_task;
+        libARRA_gv_parent = autoA3E75E35_saved_parent;
+        libARRA_gv_listener = autoA3E75E35_saved_listener;
+        if(libARRA_gf_TaskActive(libARRA_gv_task) == false){return true;}
+        Wait(0.25, c_timeReal); //Async
+    }
+    while (((AIGetTime() - AILastAttack(lv_bot)) < 5.0));
+    libARRA_gv_task   = auto1037767E_saved_task;
+    libARRA_gv_parent = auto1037767E_saved_parent;
+    libARRA_gv_listener = auto1037767E_saved_listener;
+    if(libARRA_gf_TaskActive(libARRA_gv_task) == false){return true;}
+    libMLIB_gf_DestroyPingCoop(libARRA_gf_PingStoredForTask(libARRA_gv_task, "Alert"));
+    libMLIB_gf_ShowHidePingCoop(libARRA_gf_PingStoredForTask(libARRA_gv_task, "Target"), true);
+    libARRA_gf_ListenerOn(libARRA_gv_listener);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void libMISS_gt_BEHarvesterUnderAttack_Init () {
+    libMISS_gt_BEHarvesterUnderAttack = TriggerCreate("libMISS_gt_BEHarvesterUnderAttack_Func");
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: BE Harvester - On Destroy
+//--------------------------------------------------------------------------------------------------
+bool libMISS_gt_BEHarvesterOnDestroy_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    unit lv_terrazineNode;
+
+    // Automatic Variable Declarations
+    int auto9B3EC1B5_saved_task;
+    int auto9B3EC1B5_saved_parent;
+    int auto9B3EC1B5_saved_listener;
+
+    // Variable Initialization
+    lv_terrazineNode = libARRA_gf_UnitForTask(libARRA_gv_task, "Node");
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    libARRA_gf_TaskFail(libARRA_gv_task);
+    if (((libARRA_gf_IntegerForTask(libARRA_gv_parent, "Goal") - libARRA_gf_IntegerForTask(libARRA_gv_parent, "Progress")) > 0)) {
+        if (((libARRA_gf_IntegerForTask(libARRA_gv_parent, "Goal") - libARRA_gf_IntegerForTask(libARRA_gv_parent, "Progress")) > 1)) {
+            if ((libARRA_gf_IntegerForTask(libARRA_gv_task, "Stage") < 3)) {
+                libMLIB_gf_TaskPlayTransmission(libARRA_gv_task, "BotDestroyedEarly");
+            }
+            else {
+                libMLIB_gf_TaskPlayTransmission(libARRA_gv_task, "BotDestroyedLate");
+            }
+        }
+        else {
+            libMLIB_gf_TaskPlayTransmission(libARRA_gv_task, "BotDestroyedLastWarning");
+        }
+    }
+    auto9B3EC1B5_saved_task   = libARRA_gv_task;
+    auto9B3EC1B5_saved_parent = libARRA_gv_parent;
+    auto9B3EC1B5_saved_listener = libARRA_gv_listener;
+    Wait(3.0, c_timeReal ); //Async
+    libARRA_gv_task   = auto9B3EC1B5_saved_task;
+    libARRA_gv_parent = auto9B3EC1B5_saved_parent;
+    libARRA_gv_listener = auto9B3EC1B5_saved_listener;
+    if(libARRA_gf_TaskActive(libARRA_gv_task) == false){return true;}
+    UnitIssueOrder(lv_terrazineNode, Order(AbilityCommand("TerrazineNodeOff", 0)), c_orderQueueReplace);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void libMISS_gt_BEHarvesterOnDestroy_Init () {
+    libMISS_gt_BEHarvesterOnDestroy = TriggerCreate("libMISS_gt_BEHarvesterOnDestroy_Func");
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: BW Start
+//--------------------------------------------------------------------------------------------------
+bool libMISS_gt_BWStart_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    unit lv_whale;
+    bool lv_isFirst;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_whale = libARRA_gf_UnitForTask(libARRA_gv_task, "Prison");
+    lv_isFirst = !(libARRA_gf_IIF13(libARRA_gf_IntegerForTask(libARRA_gv_parent, "Whales")));
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    libARRA_gf_StoreIntegerForTask(libARRA_gv_parent, "Whales", (libARRA_gf_IntegerForTask(libARRA_gv_parent, "Whales") + 1));
+    libARRA_gf_TaskRun(libARRA_gv_task, libMISS_gt_BWStartVO, false);
+    libNtve_gf_SendActorMessageToUnit(lv_whale, "Signal WorkStart");
+    libMLIB_gf_CreateObjectivePingAC(libMLIB_ge_ObjectivePingType_Secondary, UnitGetPosition(lv_whale), StringToText(""));
+    libARRA_gf_StorePingForTask(libARRA_gv_task, "Target", PingLastCreated());
+    libARRA_gf_TaskObjective(libARRA_gv_task, "AC_BelshirEscort_Bonus01", false);
+    libARRA_gf_TrackerCreateUnit(lv_whale, "Whale");
+    libARRA_gf_TaskonTracker(libARRA_gv_task, libARRA_gv_tracker, "Damage", libMISS_gt_BWPrisonAttacked);
+    libARRA_gf_TaskonTracker(libARRA_gv_task, libARRA_gv_tracker, "Dead", libMISS_gt_BWPrisonDestroyedComplete);
+    libMLIB_gf_TaskSetPriorityTarget(libARRA_gv_task, lv_whale, libMLIB_ge_Priority_LOW);
+    libARRA_gf_RunMissionVictorySequence7(libARRA_gv_task, (4.0 * 60.0), libMISS_gt_BWTimerExpiredFail);
+    libARRA_gf_RunMissionVictorySequence4(libARRA_gv_task, 1.0, libMISS_gt_BWUpdate);
+    libARRA_gf_StoreIntegerForTask(libARRA_gv_task, "Stage", 1);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void libMISS_gt_BWStart_Init () {
+    libMISS_gt_BWStart = TriggerCreate("libMISS_gt_BWStart_Func");
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: BW Start VO
+//--------------------------------------------------------------------------------------------------
+bool libMISS_gt_BWStartVO_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    bool lv_isFirst;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_isFirst = !(libARRA_gf_IIF13(libARRA_gf_IntegerForTask(libARRA_gv_parent, "Whales")));
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    libMLIB_gf_TaskPlayTransmission(libARRA_gv_task, libARRA_gf_IIF(lv_isFirst, "WhaleFirst", "WhaleRepeat"));
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void libMISS_gt_BWStartVO_Init () {
+    libMISS_gt_BWStartVO = TriggerCreate("libMISS_gt_BWStartVO_Func");
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: BW Update
+//--------------------------------------------------------------------------------------------------
+bool libMISS_gt_BWUpdate_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    timer lv_timer;
+    int lv_stage;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_timer = libARRA_gf_TimerStoredForTask(libARRA_gv_task, "Expire");
+    lv_stage = libARRA_gf_IntegerForTask(libARRA_gv_task, "Stage");
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    if ((lv_stage == 1) && (TimerGetRemaining(lv_timer) <= 150.0)) {
+        libMLIB_gf_TaskPlayTransmission(libARRA_gv_task, "WhaleWarningFirst");
+        libARRA_gf_StoreIntegerForTask(libARRA_gv_task, "Stage", 2);
+    }
+
+    if ((lv_stage == 2) && (TimerGetRemaining(lv_timer) <= 60.0)) {
+        libMLIB_gf_TaskPlayTransmission(libARRA_gv_task, "WhaleWarningLastWarning");
+        libARRA_gf_StoreIntegerForTask(libARRA_gv_task, "Stage", 3);
+    }
+
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void libMISS_gt_BWUpdate_Init () {
+    libMISS_gt_BWUpdate = TriggerCreate("libMISS_gt_BWUpdate_Func");
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: BW Timer Expired (Fail)
+//--------------------------------------------------------------------------------------------------
+bool libMISS_gt_BWTimerExpiredFail_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    unit lv_whale;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_whale = libARRA_gf_UnitForTask(libARRA_gv_task, "Prison");
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    libMLIB_gf_TaskPlayTransmission(libARRA_gv_task, "WhaleDead");
+    VisRevealerCreate(1, RegionCircle(UnitGetPosition(lv_whale), 3.0));
+    UnitCreateEffectUnit(lv_whale, "COOPTerrazineTankTimeoutDeath", lv_whale);
+    libARRA_gf_TaskFail(libARRA_gv_task);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void libMISS_gt_BWTimerExpiredFail_Init () {
+    libMISS_gt_BWTimerExpiredFail = TriggerCreate("libMISS_gt_BWTimerExpiredFail_Func");
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: BW Prison Attacked
+//--------------------------------------------------------------------------------------------------
+bool libMISS_gt_BWPrisonAttacked_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    int lv_tracker;
+    timer lv_timer;
+    unit lv_whale;
+
+    // Automatic Variable Declarations
+    int auto6B34A797_saved_task;
+    int auto6B34A797_saved_parent;
+    int auto6B34A797_saved_listener;
+    int auto551D8D72_saved_task;
+    int auto551D8D72_saved_parent;
+    int auto551D8D72_saved_listener;
+
+    // Variable Initialization
+    lv_timer = libARRA_gf_TimerStoredForTask(libARRA_gv_task, "Expire");
+    lv_whale = libARRA_gf_UnitForTask(libARRA_gv_task, "Prison");
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    libARRA_gf_ListenerOff(libARRA_gv_listener);
+    TimerPause(lv_timer, true);
+    auto6B34A797_saved_task   = libARRA_gv_task;
+    auto6B34A797_saved_parent = libARRA_gv_parent;
+    auto6B34A797_saved_listener = libARRA_gv_listener;
+    Wait(3.0, c_timeReal ); //Async
+    libARRA_gv_task   = auto6B34A797_saved_task;
+    libARRA_gv_parent = auto6B34A797_saved_parent;
+    libARRA_gv_listener = auto6B34A797_saved_listener;
+    if(libARRA_gf_TaskActive(libARRA_gv_task) == false){return true;}
+    auto551D8D72_saved_task     = libARRA_gv_task;
+    auto551D8D72_saved_parent   = libARRA_gv_parent;
+    auto551D8D72_saved_listener = libARRA_gv_listener;
+    do {
+        if(libARRA_gf_TaskActive(libARRA_gv_task) == false){return true;}
+        libARRA_gf_SetTriggeringTask(libARRA_gv_task);
+        Wait(0.25, c_timeReal); //Async
+    }
+    while (((AIGetTime() - AILastAttack(lv_whale)) < 3.0));
+    libARRA_gv_task   = auto551D8D72_saved_task;
+    libARRA_gv_parent = auto551D8D72_saved_parent;
+    libARRA_gv_listener = auto551D8D72_saved_listener;
+    if(libARRA_gf_TaskActive(libARRA_gv_task) == false){return true;}
+    TimerPause(lv_timer, false);
+    libARRA_gf_ListenerOn(libARRA_gv_listener);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void libMISS_gt_BWPrisonAttacked_Init () {
+    libMISS_gt_BWPrisonAttacked = TriggerCreate("libMISS_gt_BWPrisonAttacked_Func");
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: BW Prison Destroyed (Complete)
+//--------------------------------------------------------------------------------------------------
+bool libMISS_gt_BWPrisonDestroyedComplete_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    unit lv_whale;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_whale = libARRA_gf_UnitForTask(libARRA_gv_task, "Prison");
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    libMLIB_gf_TaskPlayTransmission(libARRA_gv_task, "WhaleSaved");
+    VisRevealerCreate(1, RegionCircle(UnitGetPosition(lv_whale), 3.0));
+    libARRA_gf_TaskComplete(libARRA_gv_task);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void libMISS_gt_BWPrisonDestroyedComplete_Init () {
+    libMISS_gt_BWPrisonDestroyedComplete = TriggerCreate("libMISS_gt_BWPrisonDestroyedComplete_Func");
+}
+
+void libMISS_InitTriggers () {
+    libMISS_gt_COOPInit_Init();
+    libMISS_gt_BelshirEscort_Init();
+    libMISS_gt_BEEnemyHarass_Init();
+    libMISS_gt_BEEnemyReinforcements_Init();
+    libMISS_gt_BEEscortStart_Init();
+    libMISS_gt_BEEscortProgressHarvestersWaveFinished_Init();
+    libMISS_gt_BEEscortCompletedLastHarvesterWaveFinished_Init();
+    libMISS_gt_BEScoreCalculateHarvesterDamage_Init();
+    libMISS_gt_BEPrimaryBotDestroyedWarning_Init();
+    libMISS_gt_BEPrimaryBotDestroyedDefeat_Init();
+    libMISS_gt_BEPrimaryBotCounterIncrement_Init();
+    libMISS_gt_BETankDestroyedDefeat_Init();
+    libMISS_gt_BEWaveStartGeysersActivates_Init();
+    libMISS_gt_BEWaveEnded_Init();
+    libMISS_gt_BEHarvesterController_Init();
+    libMISS_gt_BEHarvesterUnderAttack_Init();
+    libMISS_gt_BEHarvesterOnDestroy_Init();
+    libMISS_gt_BWStart_Init();
+    libMISS_gt_BWStartVO_Init();
+    libMISS_gt_BWUpdate_Init();
+    libMISS_gt_BWTimerExpiredFail_Init();
+    libMISS_gt_BWPrisonAttacked_Init();
+    libMISS_gt_BWPrisonDestroyedComplete_Init();
+}
+
+//--------------------------------------------------------------------------------------------------
+// Library Initialization
+//--------------------------------------------------------------------------------------------------
+bool libMISS_InitLib_completed = false;
+
+void libMISS_InitLib () {
+    if (libMISS_InitLib_completed) {
+        return;
+    }
+
+    libMISS_InitLib_completed = true;
+
+    libMISS_InitLibraries();
+    libMISS_InitTriggers();
+}
+
+include "LibMLIB"
+

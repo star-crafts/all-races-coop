@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CSound id="AmonHybridReaverBirth" parent="Build">
+        <EditorCategories value="Race:Protoss"/>
+        <AssetArray File="Assets\Sounds\Protoss\HighTemplar\HighTemplar_ArchonBirth0.wav"/>
+        <Volume value="-2.000000,-2.000000"/>
+    </CSound>
+    <CSound id="HybridReaverBirth3" parent="Build">
+        <EditorCategories value="Race:Protoss"/>
+        <AssetArray File="Assets\Sounds\Protoss\HighTemplar\HighTemplar_ArchonBirth0.wav"/>
+        <Volume value="-2.000000,-2.000000"/>
+    </CSound>
+    <CSound id="AmonHybridReaverPissed" parent="ProtossAck">
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Archon\Archon_Pissed00.ogg"/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Archon\Archon_Pissed01.ogg"/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Archon\Archon_Pissed02.ogg"/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Archon\Archon_Pissed03.ogg"/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Archon\Archon_Pissed04.ogg"/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Archon\Archon_Pissed05.ogg"/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Archon\Archon_Pissed06.ogg"/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Archon\Archon_Pissed07.ogg"/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Archon\Archon_Pissed08.ogg"/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Archon\Archon_Pissed09.ogg"/>
+        <Flags index="Download" value="0"/>
+        <Select value="Sequential"/>
+        <Volume value="-2.000000,-2.000000"/>
+    </CSound>
+    <CSound id="HybridReaverPissed3" parent="ProtossAck">
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Archon\Archon_Pissed00.ogg"/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Archon\Archon_Pissed01.ogg"/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Archon\Archon_Pissed02.ogg"/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Archon\Archon_Pissed03.ogg"/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Archon\Archon_Pissed04.ogg"/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Archon\Archon_Pissed05.ogg"/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Archon\Archon_Pissed06.ogg"/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Archon\Archon_Pissed07.ogg"/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Archon\Archon_Pissed08.ogg"/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Archon\Archon_Pissed09.ogg"/>
+        <Flags index="Download" value="0"/>
+        <Select value="Sequential"/>
+        <Volume value="-2.000000,-2.000000"/>
+    </CSound>
+    <CSound id="AmonHybridReaverReady" parent="Ready">
+        <EditorCategories value="Race:Protoss"/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Archon\Archon_Ready00.ogg"/>
+        <Volume value="-2.000000,-2.000000"/>
+    </CSound>
+    <CSound id="HybridReaverReady3" parent="Ready">
+        <EditorCategories value="Race:Protoss"/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Archon\Archon_Ready00.ogg"/>
+        <Volume value="-2.000000,-2.000000"/>
+    </CSound>
+    <CSound id="AmonHybridReaverWhat" parent="ProtossAck">
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Archon\Archon_What00.ogg"/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Archon\Archon_What01.ogg"/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Archon\Archon_What02.ogg"/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Archon\Archon_What03.ogg"/>
+        <Volume value="-2.000000,-2.000000"/>
+    </CSound>
+    <CSound id="HybridReaverWhat3" parent="ProtossAck">
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Archon\Archon_What00.ogg"/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Archon\Archon_What01.ogg"/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Archon\Archon_What02.ogg"/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Archon\Archon_What03.ogg"/>
+        <Volume value="-2.000000,-2.000000"/>
+    </CSound>
+    <CSound id="AmonHybridReaverYes" parent="ProtossAck">
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Archon\Archon_Yes00.ogg"/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Archon\Archon_Yes01.ogg"/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Archon\Archon_Yes02.ogg"/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Archon\Archon_Yes03.ogg"/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Archon\Archon_Yes04.ogg"/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Archon\Archon_Yes05.ogg"/>
+        <Volume value="-2.000000,-2.000000"/>
+    </CSound>
+    <CSound id="HybridReaverYes3" parent="ProtossAck">
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Archon\Archon_Yes00.ogg"/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Archon\Archon_Yes01.ogg"/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Archon\Archon_Yes02.ogg"/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Archon\Archon_Yes03.ogg"/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Archon\Archon_Yes04.ogg"/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Archon\Archon_Yes05.ogg"/>
+        <Volume value="-2.000000,-2.000000"/>
+    </CSound>
+    <CSound id="AmonHybridDestroyerBirth" parent="Build">
+        <EditorCategories value="Race:Zerg"/>
+        <AssetArray File="Assets\Sounds\Protoss\HighTemplar\HighTemplar_ArchonBirth0.wav"/>
+        <Flags index="Purgable" value="1"/>
+        <Category value="Build"/>
+        <Mode value="3DWorld"/>
+        <SustainFade/>
+        <SustainFade Time="500" Volume="-96.000000"/>
+        <Volume value="-2.000000,-2.000000"/>
+    </CSound>
+    <CSound id="HybridDestroyerBirth3" parent="Build">
+        <EditorCategories value="Race:Protoss"/>
+        <AssetArray File="Assets\Sounds\Protoss\HighTemplar\HighTemplar_ArchonBirth0.wav"/>
+        <Volume value="-2.000000,-2.000000"/>
+    </CSound>
+    <CSound id="AmonHybridDestroyerPissed" parent="ProtossAck">
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Archon\Archon_Pissed00.ogg"/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Archon\Archon_Pissed01.ogg"/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Archon\Archon_Pissed02.ogg"/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Archon\Archon_Pissed03.ogg"/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Archon\Archon_Pissed04.ogg"/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Archon\Archon_Pissed05.ogg"/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Archon\Archon_Pissed06.ogg"/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Archon\Archon_Pissed07.ogg"/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Archon\Archon_Pissed08.ogg"/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Archon\Archon_Pissed09.ogg"/>
+        <Flags index="Download" value="0"/>
+        <Select value="Sequential"/>
+        <Volume value="-2.000000,-2.000000"/>
+    </CSound>
+    <CSound id="HybridDestroyerPissed3" parent="ProtossAck">
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Archon\Archon_Pissed00.ogg"/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Archon\Archon_Pissed01.ogg"/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Archon\Archon_Pissed02.ogg"/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Archon\Archon_Pissed03.ogg"/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Archon\Archon_Pissed04.ogg"/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Archon\Archon_Pissed05.ogg"/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Archon\Archon_Pissed06.ogg"/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Archon\Archon_Pissed07.ogg"/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Archon\Archon_Pissed08.ogg"/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Archon\Archon_Pissed09.ogg"/>
+        <Flags index="Download" value="0"/>
+        <Select value="Sequential"/>
+        <Volume value="-2.000000,-2.000000"/>
+    </CSound>
+    <CSound id="AmonHybridDestroyerReady" parent="Ready">
+        <EditorCategories value="Race:Protoss"/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Archon\Archon_Ready00.ogg"/>
+        <Volume value="-2.000000,-2.000000"/>
+    </CSound>
+    <CSound id="HybridDestroyerReady3" parent="Ready">
+        <EditorCategories value="Race:Protoss"/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Archon\Archon_Ready00.ogg"/>
+        <Volume value="-2.000000,-2.000000"/>
+    </CSound>
+    <CSound id="AmonHybridDestroyerWhat" parent="ProtossAck">
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Archon\Archon_What00.ogg"/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Archon\Archon_What01.ogg"/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Archon\Archon_What02.ogg"/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Archon\Archon_What03.ogg"/>
+        <Volume value="-2.000000,-2.000000"/>
+    </CSound>
+    <CSound id="HybridDestroyerWhat3" parent="ProtossAck">
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Archon\Archon_What00.ogg"/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Archon\Archon_What01.ogg"/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Archon\Archon_What02.ogg"/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Archon\Archon_What03.ogg"/>
+        <Volume value="-2.000000,-2.000000"/>
+    </CSound>
+    <CSound id="AmonHybridDestroyerYes" parent="ProtossAck">
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Archon\Archon_Yes00.ogg"/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Archon\Archon_Yes01.ogg"/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Archon\Archon_Yes02.ogg"/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Archon\Archon_Yes03.ogg"/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Archon\Archon_Yes04.ogg"/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Archon\Archon_Yes05.ogg"/>
+        <Volume value="-2.000000,-2.000000"/>
+    </CSound>
+    <CSound id="HybridDestroyerYes3" parent="ProtossAck">
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Archon\Archon_Yes00.ogg"/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Archon\Archon_Yes01.ogg"/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Archon\Archon_Yes02.ogg"/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Archon\Archon_Yes03.ogg"/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Archon\Archon_Yes04.ogg"/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Archon\Archon_Yes05.ogg"/>
+        <Volume value="-2.000000,-2.000000"/>
+    </CSound>
+    <CSound id="AmonHybridDestroyerAttackImpact" parent="Combat">
+        <EditorCategories value="Race:Zerg"/>
+        <AssetArray File="Assets\Sounds\Protoss\Interceptor\Interceptor_AttackImpact0.wav"/>
+        <AssetArray File="Assets\Sounds\Protoss\Interceptor\Interceptor_AttackImpact1.wav"/>
+        <AssetArray File="Assets\Sounds\Protoss\Interceptor\Interceptor_AttackImpact2.wav"/>
+        <AssetArray File="Assets\Sounds\Protoss\Interceptor\Interceptor_AttackImpact3.wav"/>
+        <DupeDestroyCount value="10"/>
+        <Pitch value="0.000000,6.000000"/>
+        <Volume value="-3.000000,-2.000000"/>
+    </CSound>
+    <CSound id="AmonHybridDestroyerAttackLaunch" parent="Combat">
+        <EditorCategories value="Race:Zerg"/>
+        <AssetArray File="Assets\Sounds\Protoss\Interceptor\Interceptor_AttackLaunch0.wav"/>
+        <AssetArray File="Assets\Sounds\Protoss\Interceptor\Interceptor_AttackLaunch1.wav"/>
+        <AssetArray File="Assets\Sounds\Protoss\Interceptor\Interceptor_AttackLaunch2.wav"/>
+        <DupeDestroyCount value="10"/>
+        <Pitch value="-1.000000,0.000000"/>
+        <Volume value="-4.000000,-3.000000"/>
+    </CSound>
+    <CSound id="AmonHybridDestroyer_Attack" parent="ProtossAck">
+        <EditorCategories value="Race:Zerg"/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Archon\Archon_Attack00.ogg"/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Archon\Archon_Attack01.ogg"/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Archon\Archon_Attack02.ogg"/>
+        <Volume value="-2.000000,-2.000000"/>
+    </CSound>
+    <CSound id="AmonHybridBehemothAoEStunImpact" parent="Spell">
+        <EditorCategories value="Race:Zerg"/>
+        <AssetArray File="Assets\Sounds\Zerg\Corruptor\Corruptor_AttackImpact0.wav"/>
+        <AssetArray File="Assets\Sounds\Zerg\Corruptor\Corruptor_AttackImpact1.wav"/>
+        <AssetArray File="Assets\Sounds\Zerg\Corruptor\Corruptor_AttackImpact2.wav"/>
+        <AssetArray File="Assets\Sounds\Zerg\Corruptor\Corruptor_AttackImpact3.wav"/>
+        <Category value="Combat"/>
+        <DupeDestroyCount value="6"/>
+        <Pitch value="-1.000000,1.000000"/>
+        <Volume value="-4.000000,-3.000000"/>
+    </CSound>
+    <CSound id="AmonHybridBehemoth_Attack_vox" parent="Combat">
+        <EditorCategories value="Race:Zerg"/>
+        <AssetArray File="Assets\Sounds\Hybrid_Zerg_Vox00.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Hybrid_Zerg_Vox08.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Hybrid_Zerg_Vox10.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\HybridBehemoth_Cast00.wav" Volume="3.000000,3.000000" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\HybridBehemoth_Cast01.wav" Volume="3.000000,3.000000" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\AmonHybridBehemoth_Cast0.wav" Volume="3.000000,3.000000" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\HybridBehemoth_Cast03.wav" Volume="3.000000,3.000000" FacialGroup=""/>
+        <Flags index="Purgable" value="0"/>
+        <Category value="Spell"/>
+        <Pitch value="-2.000000,2.000000"/>
+        <ReverbBalance Room="-10000"/>
+        <Volume value="0.000000,2.000000"/>
+    </CSound>
+    <CSound id="AmonHybridBehemoth_ConsumeDNAImpact" parent="Spell">
+        <EditorCategories value="Race:Zerg"/>
+        <AssetArray File="Assets\Sounds\Terran\Tosh\Tosh_ConsumptionImpact0.wav"/>
+    </CSound>
+    <CSound id="AmonHybridNemesisWeaponEnd" parent="Combat">
+        <EditorCategories value="Race:Protoss"/>
+        <AssetArray File="Assets\Sounds\HybridNemesis_Beam_End_01.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\AmonHybridNemesis_Beam_End_0.wav" FacialGroup=""/>
+        <Pitch value="-6.000000,-4.000000"/>
+        <SustainFade index="1" Time="1000"/>
+        <Volume value="-1.000000,1.000000"/>
+    </CSound>
+    <CSound id="AmonHybridNemesisWeaponLoop" parent="Combat">
+        <EditorCategories value="Race:Protoss"/>
+        <AssetArray File="Assets\Sounds\HybridNemesis_Beam_Loop_01.wav" LoopCount="-1" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\AmonHybridNemesis_Beam_Loop_0.wav" LoopCount="-1" FacialGroup=""/>
+        <Pitch value="-2.000000,-1.000000"/>
+        <SustainFade index="1" Time="1000"/>
+        <Volume value="-12.000000,-12.000000"/>
+    </CSound>
+    <CSound id="AmonHybridNemesisWeaponStart" parent="Combat">
+        <EditorCategories value="Race:Protoss"/>
+        <AssetArray File="Assets\Sounds\HybridNemesis_Beam_Start_01.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\AmonHybridNemesis_Beam_Start_0.wav" FacialGroup=""/>
+        <Pitch value="-3.000000,-1.000000"/>
+        <SustainFade index="1" Time="1000" Volume="-47.079998"/>
+        <Volume value="3.000000,3.000000"/>
+    </CSound>
+    <CSound id="AmonHybridNemesisWeapon_Vx_01" parent="Combat">
+        <EditorCategories value="Race:Protoss"/>
+        <AssetArray File="Assets\Sounds\HybridNemesis_Vx_Utter_01.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\AmonHybridNemesis_Vx_Utter_0.wav" FacialGroup=""/>
+        <Chance value="30"/>
+        <Pitch value="-4.000000,-1.000000"/>
+        <Volume value="-3.000000,0.000000"/>
+    </CSound>
+    <CSound id="AmonHybridNemesisWeapon_Vx_02" parent="Combat">
+        <EditorCategories value="Race:Protoss"/>
+        <AssetArray File="Assets\Sounds\HybridNemesis_Vx_Utter_04.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\HybridNemesis_Vx_Utter_03.wav" FacialGroup=""/>
+        <Chance value="50"/>
+        <Pitch value="-3.000000,-1.000000"/>
+        <Volume value="-3.000000,0.000000"/>
+    </CSound>
+    <CSound id="AmonHybridBehemoth_Death" parent="DeathVoice">
+        <EditorCategories value="Race:Zerg"/>
+        <AssetArray File="Assets\Sounds\HybridBehemoth_Death00.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\HybridBehemoth_Death01.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\AmonHybridBehemoth_Death0.wav" FacialGroup=""/>
+        <Flags index="Download" value="1"/>
+        <Flags index="Ignorable" value="0"/>
+        <Chance value="100"/>
+        <ReverbBalance Room="-10000"/>
+        <Volume value="3.000000,6.000000"/>
+        <VolumeRolloffPoints Distance="14.902508"/>
+        <VolumeRolloffPoints Distance="35.515320" Volume="-96.000000"/>
+    </CSound>
+    <CSound id="HybridBehemoth_Death3" parent="DeathVoice">
+        <EditorCategories value="Race:Zerg"/>
+        <AssetArray File="Assets\Sounds\HybridBehemoth_Death00.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\HybridBehemoth_Death01.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\AmonHybridBehemoth_Death0.wav" FacialGroup=""/>
+        <Flags index="Download" value="1"/>
+        <Flags index="Ignorable" value="0"/>
+        <Chance value="100"/>
+        <ReverbBalance Room="-10000"/>
+        <Volume value="3.000000,6.000000"/>
+        <VolumeRolloffPoints Distance="14.902508"/>
+        <VolumeRolloffPoints Distance="35.515320" Volume="-96.000000"/>
+    </CSound>
+    <CSound id="AmonHybridBehemoth_Roar" parent="Spell">
+        <EditorCategories value="Race:Zerg"/>
+        <AssetArray File="Assets\Sounds\Hybrid_Zerg_Victory1.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\AmonHybrid_Zerg_Victory.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Hybrid_Zerg_Victory3.wav" Pitch="3.000000,3.000000" FacialGroup=""/>
+        <Flags index="Purgable" value="0"/>
+        <ReverbBalance Room="-10000"/>
+        <Volume value="2.000000,4.000000"/>
+        <VolumeRolloffPoints Distance="11.838440"/>
+        <VolumeRolloffPoints Distance="26.880224" Volume="-96.000000"/>
+    </CSound>
+    <CSound id="AmonHybrid_DeathFX" parent="Combat">
+        <EditorCategories value="Race:Protoss"/>
+        <AssetArray File="Assets\Sounds\Protoss\SharedEffects\DeathFX\Protoss_DeathFX0.wav"/>
+        <AssetArray File="Assets\Sounds\Protoss\SharedEffects\DeathFX\Protoss_DeathFX1.wav"/>
+        <AssetArray File="Assets\Sounds\Protoss\SharedEffects\DeathFX\Protoss_DeathFX2.wav"/>
+        <DupeDestroyCount value="4"/>
+        <Pitch value="-1.000000,1.000000"/>
+        <Volume value="-3.000000,-3.000000"/>
+    </CSound>
+    <CSound id="AmonHybrid_GravitonPrisonEnd" parent="Spell">
+        <EditorCategories value="Race:Protoss"/>
+        <AssetArray File="Assets\Sounds\Protoss\Phoenix\Phoenix_AntiGravEnd0.wav"/>
+        <Pitch value="-3.000000,-2.000000"/>
+    </CSound>
+    <CSound id="AmonHybrid_GravitonPrisonLoop" parent="Spell">
+        <EditorCategories value="Race:Protoss"/>
+        <AssetArray File="Assets\Sounds\Protoss\Phoenix\Phoenix_AntiGravLoop0.wav"/>
+        <LoopCount value="-1"/>
+    </CSound>
+    <CSound id="AmonHybrid_GravitonPrisonStart" parent="Spell">
+        <EditorCategories value="Race:Protoss"/>
+        <AssetArray File="Assets\Sounds\Protoss\Phoenix\Phoenix_AntiGravStart0.wav"/>
+    </CSound>
+    <CSound id="AmonHybrid_Nemesis_Death_Vanish" parent="Death">
+        <EditorCategories value="Race:Protoss"/>
+        <AssetArray File="Assets\Sounds\HighTemplar_Taldarim_Death_03.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\HighTemplar_Taldarim_Death_04.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\HighTemplar_Taldarim_Death_05.wav" FacialGroup=""/>
+        <Pitch value="-1.000000,1.000000"/>
+        <Volume value="2.000000,4.000000"/>
+    </CSound>
+    <CSound id="AmonHybrid_Protoss_Death" parent="Death">
+        <EditorCategories value="Race:Protoss"/>
+        <AssetArray File="Assets\Sounds\HybridDestroyer_death00.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\HybridDestroyer_death01.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\AmonHybridDestroyer_death0.wav" FacialGroup=""/>
+        <Pitch value="-1.000000,1.000000"/>
+        <Volume value="2.000000,4.000000"/>
+    </CSound>
+    <CSound id="AmonHybrid_Zerg_Death" parent="DeathVoice">
+        <EditorCategories value="Race:Zerg"/>
+        <AssetArray File="Assets\Sounds\HybridBehemoth_Death00.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\HybridBehemoth_Death01.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\AmonHybridBehemoth_Death0.wav" FacialGroup=""/>
+        <Flags index="Download" value="1"/>
+        <Flags index="Ignorable" value="0"/>
+        <Chance value="100"/>
+        <ReverbBalance Room="-10000"/>
+        <Volume value="2.000000,4.000000"/>
+        <VolumeRolloffPoints Distance="14.902508"/>
+        <VolumeRolloffPoints Distance="30.000000" Volume="-96.000000"/>
+    </CSound>
+    <CSound id="Obelisk_ArgusLinkImpact2" parent="Spell">
+        <EditorCategories value="Race:Protoss"/>
+        <AssetArray File="Assets\Sounds\Protoss\Obelisk\Obelisk_ArgusLinkImpact0.wav"/>
+    </CSound>
+    <CSound id="Obelisk_ArgusLinkLaunch2" parent="Spell">
+        <EditorCategories value="Race:Protoss"/>
+        <AssetArray File="Assets\Sounds\Protoss\Obelisk\Obelisk_ArgusLinkLaunch0.wav"/>
+        <Volume value="-3.000000,-3.000000"/>
+    </CSound>
+    <CSound id="QueenWhat2" parent="Voice">
+        <EditorCategories value="Race:Zerg"/>
+        <AssetArray File="Assets\Sounds\Zerg\Queen\Queen_What0.ogg"/>
+        <AssetArray File="Assets\Sounds\Zerg\Queen\Queen_What1.ogg"/>
+        <AssetArray File="Assets\Sounds\Zerg\Queen\Queen_What2.ogg"/>
+        <AssetArray File="Assets\Sounds\Zerg\Queen\Queen_What3.ogg"/>
+        <AssetArray File="Assets\Sounds\Zerg\Queen\Queen_What4.ogg"/>
+        <AssetArray File="Assets\Sounds\Zerg\Queen\Queen_What5.ogg"/>
+        <AssetArray File="Assets\Sounds\Zerg\Queen\Queen_What6.ogg"/>
+        <AssetArray File="Assets\Sounds\Zerg\Queen\Queen_What7.ogg"/>
+        <Pitch value="-1.000000,1.000000"/>
+        <Volume value="-2.000000,-2.000000"/>
+    </CSound>
+    <CSound id="QueenYes2" parent="Voice">
+        <EditorCategories value="Race:Zerg"/>
+        <AssetArray File="Assets\Sounds\Zerg\Queen\Queen_Yes0.ogg"/>
+        <AssetArray File="Assets\Sounds\Zerg\Queen\Queen_Yes1.ogg"/>
+        <AssetArray File="Assets\Sounds\Zerg\Queen\Queen_Yes2.ogg"/>
+        <AssetArray File="Assets\Sounds\Zerg\Queen\Queen_Yes3.ogg"/>
+        <AssetArray File="Assets\Sounds\Zerg\Queen\Queen_Yes4.ogg"/>
+        <AssetArray File="Assets\Sounds\Zerg\Queen\Queen_Yes5.ogg"/>
+        <AssetArray File="Assets\Sounds\Zerg\Queen\Queen_Yes6.ogg"/>
+        <AssetArray File="Assets\Sounds\Zerg\Queen\Queen_Yes7.ogg"/>
+        <AssetArray File="Assets\Sounds\Zerg\Queen\Queen_Yes8.ogg"/>
+        <Pitch value="-1.000000,1.000000"/>
+        <Volume value="-2.000000,-2.000000"/>
+    </CSound>
+    <CSound id="Queen_Pissed2" parent="Pissed">
+        <EditorCategories value="Race:Zerg"/>
+        <AssetArray File="Assets\Sounds\Zerg\Queen\Queen_Attack0.ogg"/>
+        <Pitch value="-1.000000,1.000000"/>
+        <Volume value="-2.000000,-2.000000"/>
+    </CSound>
+</Catalog>

@@ -1,0 +1,243 @@
+<catalog>
+
+    <CUser id="CoopAILevelUpgrades">
+        <Fields>
+            <Id value="Upgrade"/>
+            <Type value="Upgrade"/>
+            <Count value="3"/>
+            <EditorColumn value="10"/>
+        </Fields>
+        <Fields>
+            <Id value="Faction"/>
+            <Type value="User"/>
+            <UserType value="Factions"/>
+            <EditorColumn value="1"/>
+        </Fields>
+        <Instances Id="[Default]"/>
+        <Instances Id="Terran Infantry Weapons">
+            <Upgrade Upgrade="TerranInfantryWeaponsLevel1">
+                <Field Id="Upgrade"/>
+            </Upgrade>
+            <Upgrade Upgrade="TerranInfantryWeaponsLevel2">
+                <Field Id="Upgrade" Index="1"/>
+            </Upgrade>
+            <Upgrade Upgrade="TerranInfantryWeaponsLevel3">
+                <Field Id="Upgrade" Index="2"/>
+            </Upgrade>
+            <User Type="Factions" Instance="Terran">
+                <Field Id="Faction"/>
+            </User>
+        </Instances>
+        <Instances Id="Terran Infantry Armor">
+            <Upgrade Upgrade="TerranInfantryArmorsLevel1">
+                <Field Id="Upgrade"/>
+            </Upgrade>
+            <Upgrade Upgrade="TerranInfantryArmorsLevel2">
+                <Field Id="Upgrade" Index="1"/>
+            </Upgrade>
+            <Upgrade Upgrade="TerranInfantryArmorsLevel3">
+                <Field Id="Upgrade" Index="2"/>
+            </Upgrade>
+            <User Type="Factions" Instance="Terran">
+                <Field Id="Faction"/>
+            </User>
+        </Instances>
+        <Instances Id="Terran Ship Plating">
+            <Upgrade Upgrade="TerranShipArmorsLevel1">
+                <Field Id="Upgrade"/>
+            </Upgrade>
+            <Upgrade Upgrade="TerranShipArmorsLevel2">
+                <Field Id="Upgrade" Index="1"/>
+            </Upgrade>
+            <Upgrade Upgrade="TerranShipArmorsLevel3">
+                <Field Id="Upgrade" Index="2"/>
+            </Upgrade>
+            <User Type="Factions" Instance="Terran">
+                <Field Id="Faction"/>
+            </User>
+        </Instances>
+        <Instances Id="Terran Ship Weapons">
+            <Upgrade Upgrade="TerranShipWeaponsLevel1">
+                <Field Id="Upgrade"/>
+            </Upgrade>
+            <Upgrade Upgrade="TerranShipWeaponsLevel2">
+                <Field Id="Upgrade" Index="1"/>
+            </Upgrade>
+            <Upgrade Upgrade="TerranShipWeaponsLevel3">
+                <Field Id="Upgrade" Index="2"/>
+            </Upgrade>
+            <User Type="Factions" Instance="Terran">
+                <Field Id="Faction"/>
+            </User>
+        </Instances>
+        <Instances Id="Terran Vehicle Plating">
+            <Upgrade Upgrade="TerranVehicleArmorsLevel1">
+                <Field Id="Upgrade"/>
+            </Upgrade>
+            <Upgrade Upgrade="TerranVehicleArmorsLevel2">
+                <Field Id="Upgrade" Index="1"/>
+            </Upgrade>
+            <Upgrade Upgrade="TerranVehicleArmorsLevel3">
+                <Field Id="Upgrade" Index="2"/>
+            </Upgrade>
+            <User Type="Factions" Instance="Terran">
+                <Field Id="Faction"/>
+            </User>
+        </Instances>
+        <Instances Id="Terran Vehicle Weapons">
+            <Upgrade Upgrade="TerranVehicleWeaponsLevel1">
+                <Field Id="Upgrade"/>
+            </Upgrade>
+            <Upgrade Upgrade="TerranVehicleWeaponsLevel2">
+                <Field Id="Upgrade" Index="1"/>
+            </Upgrade>
+            <Upgrade Upgrade="TerranVehicleWeaponsLevel3">
+                <Field Id="Upgrade" Index="2"/>
+            </Upgrade>
+            <User Type="Factions" Instance="Terran">
+                <Field Id="Faction"/>
+            </User>
+        </Instances>
+        <Instances Id="Protoss Shields">
+            <Upgrade Upgrade="ProtossShieldsLevel1">
+                <Field Id="Upgrade"/>
+            </Upgrade>
+            <Upgrade Upgrade="ProtossShieldsLevel2">
+                <Field Id="Upgrade" Index="1"/>
+            </Upgrade>
+            <Upgrade Upgrade="ProtossShieldsLevel3">
+                <Field Id="Upgrade" Index="2"/>
+            </Upgrade>
+            <User Type="Factions" Instance="Protoss">
+                <Field Id="Faction"/>
+            </User>
+        </Instances>
+        <Instances Id="Protoss Ground Armor">
+            <Upgrade Upgrade="ProtossGroundArmorsLevel1">
+                <Field Id="Upgrade"/>
+            </Upgrade>
+            <Upgrade Upgrade="ProtossGroundArmorsLevel2">
+                <Field Id="Upgrade" Index="1"/>
+            </Upgrade>
+            <Upgrade Upgrade="ProtossGroundArmorsLevel3">
+                <Field Id="Upgrade" Index="2"/>
+            </Upgrade>
+            <User Type="Factions" Instance="Protoss">
+                <Field Id="Faction"/>
+            </User>
+        </Instances>
+        <Instances Id="Protoss Ground Weapons">
+            <Upgrade Upgrade="ProtossGroundWeaponsLevel1">
+                <Field Id="Upgrade"/>
+            </Upgrade>
+            <Upgrade Upgrade="ProtossGroundWeaponsLevel2">
+                <Field Id="Upgrade" Index="1"/>
+            </Upgrade>
+            <Upgrade Upgrade="ProtossGroundWeaponsLevel3">
+                <Field Id="Upgrade" Index="2"/>
+            </Upgrade>
+            <User Type="Factions" Instance="Protoss">
+                <Field Id="Faction"/>
+            </User>
+        </Instances>
+        <Instances Id="Protoss Air Armor">
+            <Upgrade Upgrade="ProtossAirArmorsLevel1">
+                <Field Id="Upgrade"/>
+            </Upgrade>
+            <Upgrade Upgrade="ProtossAirArmorsLevel2">
+                <Field Id="Upgrade" Index="1"/>
+            </Upgrade>
+            <Upgrade Upgrade="ProtossAirArmorsLevel3">
+                <Field Id="Upgrade" Index="2"/>
+            </Upgrade>
+            <User Type="Factions" Instance="Protoss">
+                <Field Id="Faction"/>
+            </User>
+        </Instances>
+        <Instances Id="Protoss Air Weapons">
+            <Upgrade Upgrade="ProtossAirWeaponsLevel1">
+                <Field Id="Upgrade"/>
+            </Upgrade>
+            <Upgrade Upgrade="ProtossAirWeaponsLevel2">
+                <Field Id="Upgrade" Index="1"/>
+            </Upgrade>
+            <Upgrade Upgrade="ProtossAirWeaponsLevel3">
+                <Field Id="Upgrade" Index="2"/>
+            </Upgrade>
+            <User Type="Factions" Instance="Protoss">
+                <Field Id="Faction"/>
+            </User>
+        </Instances>
+        <Instances Id="Zerg Melee Attacks">
+            <Upgrade Upgrade="ZergMeleeWeaponsLevel1">
+                <Field Id="Upgrade"/>
+            </Upgrade>
+            <Upgrade Upgrade="ZergMeleeWeaponsLevel2">
+                <Field Id="Upgrade" Index="1"/>
+            </Upgrade>
+            <Upgrade Upgrade="ZergMeleeWeaponsLevel3">
+                <Field Id="Upgrade" Index="2"/>
+            </Upgrade>
+            <User Type="Factions" Instance="Zerg">
+                <Field Id="Faction"/>
+            </User>
+        </Instances>
+        <Instances Id="Zerg Missile Attacks">
+            <Upgrade Upgrade="ZergMissileWeaponsLevel1">
+                <Field Id="Upgrade"/>
+            </Upgrade>
+            <Upgrade Upgrade="ZergMissileWeaponsLevel2">
+                <Field Id="Upgrade" Index="1"/>
+            </Upgrade>
+            <Upgrade Upgrade="ZergMissileWeaponsLevel3">
+                <Field Id="Upgrade" Index="2"/>
+            </Upgrade>
+            <User Type="Factions" Instance="Zerg">
+                <Field Id="Faction"/>
+            </User>
+        </Instances>
+        <Instances Id="Zerg Ground Carapace">
+            <Upgrade Upgrade="ZergGroundArmorsLevel1">
+                <Field Id="Upgrade"/>
+            </Upgrade>
+            <Upgrade Upgrade="ZergGroundArmorsLevel2">
+                <Field Id="Upgrade" Index="1"/>
+            </Upgrade>
+            <Upgrade Upgrade="ZergGroundArmorsLevel3">
+                <Field Id="Upgrade" Index="2"/>
+            </Upgrade>
+            <User Type="Factions" Instance="Zerg">
+                <Field Id="Faction"/>
+            </User>
+        </Instances>
+        <Instances Id="Zerg Flyer Carapace">
+            <Upgrade Upgrade="ZergFlyerArmorsLevel1">
+                <Field Id="Upgrade"/>
+            </Upgrade>
+            <Upgrade Upgrade="ZergFlyerArmorsLevel2">
+                <Field Id="Upgrade" Index="1"/>
+            </Upgrade>
+            <Upgrade Upgrade="ZergFlyerArmorsLevel3">
+                <Field Id="Upgrade" Index="2"/>
+            </Upgrade>
+            <User Type="Factions" Instance="Zerg">
+                <Field Id="Faction"/>
+            </User>
+        </Instances>
+        <Instances Id="Zerg Flyer Attacks">
+            <Upgrade Upgrade="ZergFlyerWeaponsLevel1">
+                <Field Id="Upgrade"/>
+            </Upgrade>
+            <Upgrade Upgrade="ZergFlyerWeaponsLevel2">
+                <Field Id="Upgrade" Index="1"/>
+            </Upgrade>
+            <Upgrade Upgrade="ZergFlyerWeaponsLevel3">
+                <Field Id="Upgrade" Index="2"/>
+            </Upgrade>
+            <User Type="Factions" Instance="Zerg">
+                <Field Id="Faction"/>
+            </User>
+        </Instances>
+
+    </CUser>
+</catalog>

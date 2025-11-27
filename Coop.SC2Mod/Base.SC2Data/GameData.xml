@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Includes>
+    <Catalog path="UserData/Commanders.xml"/>
+    <Catalog path="UserData/Compositions.xml"/>
+    <Catalog path="UserData/Enemies.xml"/>
+    <Catalog path="UserData/Factions.xml"/>
+    <Catalog path="UserData/Heroes.xml"/>
+    <Catalog path="UserData/LevelUpgrades.xml"/>
+    <Catalog path="UserData/Maps.xml"/>
+    <Catalog path="UserData/Mastery.xml"/>
+    <Catalog path="UserData/Replacement.xml"/>
+    <Catalog path="UserData/Scores.xml"/>
+    <Catalog path="UserData/Skins.xml"/>
+    <Catalog path="UserData/Tech.xml"/>
+    <Catalog path="UserData/UnitSounds.xml"/>
+    <Catalog path="UserData/Upgrades.xml"/>
+    <Catalog path="UserData/Waves.xml"/>
+    <Catalog path="Extra.xml"/>
+    <Catalog path="harvester.xml"/>
+    <Catalog path="DummyData.xml"/>
+    <Catalog path="droppods.xml"/>
+    <Catalog path="HybridsData/AbilData.xml"/>
+    <Catalog path="HybridsData/ActorData.xml"/>
+    <Catalog path="HybridsData/BehaviorData.xml"/>
+    <Catalog path="HybridsData/ButtonData.xml"/>
+    <Catalog path="HybridsData/EffectData.xml"/>
+    <Catalog path="HybridsData/ModelData.xml"/>
+    <Catalog path="HybridsData/MoverData.xml"/>
+    <Catalog path="HybridsData/RaceData.xml"/>
+    <Catalog path="HybridsData/SoundData.xml"/>
+    <Catalog path="HybridsData/UnitData.xml"/>
+    <Catalog path="HybridsData/WeaponData.xml"/>
+</Includes>

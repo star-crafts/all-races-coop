@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DocInfo>
+    <Dependencies>
+        <Value>bnet:[ARC] Triggers v2/0.0/315738,file:Mods\all-races-coop\[ARC] Triggers v2.SC2Mod</Value>
+        <Value>bnet:[ARM] Umojan Faction/0.0/214196,file:Mods\all-races-mods\factions\Umojan2023.SC2Mod</Value>
+        <Value>bnet:[AR2] Synoid/0.0/231109,file:Mods\all-races-mods\factions\Synoid.SC2Mod</Value>
+        <Value>bnet:GATC Tal'Darim/0.0/331283,file:Mods\all-races-mods\factions\TalDarim.SC2Mod</Value>
+        <Value>bnet:[ARX] NOD Data/0.0/462770,file:Mods\all-races-mods\factions-exo\TiberiumWars.SC2Mod</Value>
+    </Dependencies>
+</DocInfo>

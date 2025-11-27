@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Catalog>
+<CCommander id="Dehaka">
+  <UserReference value="PlayerCommanders;ZergDehaka"/>
+  <ProductId value="0"/>
+</CCommander>
+<CCommander id="Mengsk">
+  <ConsoleSkin value="ConsoleTerran_Imperial"/>
+  <UserReference value="PlayerCommanders;TerranMengsk"/>
+  <ProductId value="0"/>
+</CCommander>
+<CCommander id="Nova">
+  <UserReference value="PlayerCommanders;TerranNova"/>
+  <ProductId value="0"/>
+</CCommander>
+<CCommander id="Stetmann">
+  <UserReference value="PlayerCommanders;ZergStetmann"/>
+  <ProductId value="0"/>
+</CCommander>
+<CCommander id="Tychus">
+  <UserReference value="PlayerCommanders;TerranTychus"/>
+</CCommander>
+<CCommander id="Zeratul">
+  <UserReference value="PlayerCommanders;ProtossZeratul"/>
+</CCommander>
+<CCommander id="NHbr">
+  <Race value="NHbr"/>
+  <ConsoleSkin value="ConsoleProtoss_Ihanrii"/>
+</CCommander>
+<CCommander id="UED">
+  <AttributeId value="UED"/>
+  <Race value="UED"/>
+  <ConsoleSkin value="ConsoleUED"/>
+  <Color value="255,255,255,0"/>
+</CCommander>
+<CCommander id="DragonCommander"/>
+<CCommander id="TalonCommander"/>
+
+</Catalog>

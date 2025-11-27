@@ -1,0 +1,5214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CUser id="EnemyFactionsList">
+        <Fields>
+            <Id value="Factions"/>
+            <Type value="User"/>
+            <UserType value="Factions"/>
+            <EditorColumn value="10"/>
+        </Fields>
+        <Fields>
+            <Id value="Category"/>
+            <Type value="String"/>
+            <Count value="2"/>
+            <EditorColumn value="5"/>
+        </Fields>
+        <Fields Id="Name" Type="Text" EditorColumn="1"/>
+        <Instances Id="[Default]"/>
+        <Instances Id="Random">
+            <String String="Standard">
+                <Field Id="Category"/>
+            </String>
+            <String String="Custom">
+                <Field Id="Category" Index="1"/>
+            </String>
+            <Text Text="UserData/EnemyFactionsList/Random_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="Standard">
+            <String String="Standard">
+                <Field Id="Category"/>
+            </String>
+            <Text Text="UserData/EnemyFactionsList/Standard_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="Terran">
+            <Text Text="UserData/EnemyFactionsList/Terran_Name">
+                <Field Id="Name"/>
+            </Text>
+            <User Type="Factions" Instance="Terran">
+                <Field Id="Factions"/>
+            </User>
+        </Instances>
+        <Instances Id="Protoss">
+            <Text Text="UserData/EnemyFactionsList/Protoss_Name">
+                <Field Id="Name"/>
+            </Text>
+            <User Type="Factions" Instance="Protoss">
+                <Field Id="Factions"/>
+            </User>
+        </Instances>
+        <Instances Id="Zerg">
+            <Text Text="UserData/EnemyFactionsList/Zerg_Name">
+                <Field Id="Name"/>
+            </Text>
+            <User Type="Factions" Instance="Zerg">
+                <Field Id="Factions"/>
+            </User>
+        </Instances>
+    </CUser>
+    <CUser id="MissionPlayers">
+        <Fields>
+            <Id value="Role"/>
+            <Type value="User"/>
+            <UserType value="MissionRoles"/>
+            <EditorColumn value="1"/>
+        </Fields>
+        <Instances Id="[Default]">
+            <User Type="MissionRoles" Instance="Neutral NPC">
+                <Field Id="Role"/>
+            </User>
+        </Instances>
+        <Instances Id="1">
+            <User Type="MissionRoles" Instance="Ally Player">
+                <Field Id="Role"/>
+            </User>
+        </Instances>
+        <Instances Id="2">
+            <User Type="MissionRoles" Instance="Ally Player">
+                <Field Id="Role"/>
+            </User>
+        </Instances>
+        <Instances Id="3">
+            <User Type="MissionRoles" Instance="Ally Player">
+                <Field Id="Role"/>
+            </User>
+        </Instances>
+        <Instances Id="4">
+            <User Type="MissionRoles" Instance="Ally Player">
+                <Field Id="Role"/>
+            </User>
+        </Instances>
+        <Instances Id="5">
+            <User Type="MissionRoles" Instance="Ally Player">
+                <Field Id="Role"/>
+            </User>
+        </Instances>
+        <Instances Id="6">
+            <User Type="MissionRoles" Instance="Amon Player">
+                <Field Id="Role"/>
+            </User>
+        </Instances>
+        <Instances Id="7">
+            <User Type="MissionRoles" Instance="Amon Player">
+                <Field Id="Role"/>
+            </User>
+        </Instances>
+        <Instances Id="8">
+            <User Type="MissionRoles" Instance="Amon Player">
+                <Field Id="Role"/>
+            </User>
+        </Instances>
+        <Instances Id="9">
+            <User Type="MissionRoles" Instance="Amon Player">
+                <Field Id="Role"/>
+            </User>
+        </Instances>
+        <Instances Id="10">
+            <User Type="MissionRoles" Instance="Amon Player">
+                <Field Id="Role"/>
+            </User>
+        </Instances>
+        <Instances Id="11">
+            <User Type="MissionRoles" Instance="Ally NPC">
+                <Field Id="Role"/>
+            </User>
+        </Instances>
+        <Instances Id="12">
+            <User Type="MissionRoles" Instance="Amon NPC">
+                <Field Id="Role"/>
+            </User>
+        </Instances>
+        <Instances Id="13">
+            <User Type="MissionRoles" Instance="Bonus NPC">
+                <Field Id="Role"/>
+            </User>
+        </Instances>
+        <Instances Id="14">
+            <User Type="MissionRoles" Instance="Neutral NPC">
+                <Field Id="Role"/>
+            </User>
+        </Instances>
+        <Instances Id="15">
+            <User Type="MissionRoles" Instance="Hostile NPC">
+                <Field Id="Role"/>
+            </User>
+        </Instances>
+    </CUser>
+    <CUser id="MissionActors">
+        <Fields Id="Actor" Type="Actor" EditorColumn="1"/>
+        <Fields Id="Variation" Type="Int" EditorColumn="2"/>
+        <Fields Id="Scale" Type="Fixed" EditorColumn="3"/>
+        <Instances Id="[Default]">
+            <Actor Actor="NONE">
+                <Field Id="Actor"/>
+            </Actor>
+            <Fixed Fixed="1">
+                <Field Id="Scale"/>
+            </Fixed>
+            <Int Int="1">
+                <Field Id="Variation"/>
+            </Int>
+        </Instances>
+        <Instances Id="TerranTownHallSplat">
+            <Actor Actor="Shadow_Tarmac_Splat">
+                <Field Id="Actor"/>
+            </Actor>
+            <Fixed Fixed="0.95">
+                <Field Id="Scale"/>
+            </Fixed>
+            <Int Int="6">
+                <Field Id="Variation"/>
+            </Int>
+        </Instances>
+        <Instances Id="TerranHeroSplat"/>
+        <Instances Id="TerranRefinerySplat">
+            <Actor Actor="Korhal_TarmacSplat">
+                <Field Id="Actor"/>
+            </Actor>
+            <Int Int="2">
+                <Field Id="Variation"/>
+            </Int>
+        </Instances>
+    </CUser>
+    <CUser id="MissionRoles">
+        <Instances Id="[Default]"/>
+        <Instances Id="Ally Player"/>
+        <Instances Id="Ally NPC"/>
+        <Instances Id="Amon Player"/>
+        <Instances Id="Amon NPC"/>
+        <Instances Id="Bonus NPC"/>
+        <Instances Id="Hostile NPC"/>
+        <Instances Id="Neutral NPC"/>
+    </CUser>
+    <CUser id="MissionSettings">
+        <Fields>
+            <Id value="Map"/>
+            <Type value="GameLink"/>
+            <GameLinkType value="Map"/>
+            <EditorColumn value="1"/>
+        </Fields>
+        <Fields>
+            <Id value="GameSoundtrack"/>
+            <Type value="GameLink"/>
+            <GameLinkType value="Soundtrack"/>
+            <EditorColumn value="21"/>
+        </Fields>
+        <Fields Id="Time" Type="String" EditorColumn="5"/>
+        <Fields Id="BriefingSoundtrack" Type="GameLink" GameLinkType="Soundtrack"/>
+        <Fields Id="ExpansionBlockerTownHall" Type="Unit" EditorColumn="8"/>
+        <Fields Id="ExpansionBlockerRefinery" Type="Unit" EditorColumn="7"/>
+        <Fields>
+            <Id value="AllyTownHallActor"/>
+            <Type value="User"/>
+            <UserType value="MissionActors"/>
+            <EditorColumn value="11"/>
+        </Fields>
+        <Fields>
+            <Id value="AllyRefineryActor"/>
+            <Type value="User"/>
+            <UserType value="MissionActors"/>
+            <EditorColumn value="11"/>
+        </Fields>
+        <Fields>
+            <Id value="AllyHeroActor"/>
+            <Type value="User"/>
+            <UserType value="MissionActors"/>
+            <EditorColumn value="11"/>
+        </Fields>
+        <Fields Id="ResourcesRadius" Type="Fixed" EditorColumn="14"/>
+        <Fields Id="SafetyRadius" Type="Fixed" EditorColumn="16"/>
+        <Fields Id="ClearResources" Type="Int"/>
+        <Fields Id="ResorucesMinerals" Type="Int"/>
+        <Fields Id="ResourcesVespene" Type="Int"/>
+        <Fields Id="ExpansionBlockerMinerals" Type="Unit" EditorColumn="9"/>
+        <Fields Id="AmonHeroDuration" Type="Fixed" EditorColumn="12"/>
+        <Instances Id="[Default]">
+            <Fixed Fixed="13">
+                <Field Id="SafetyRadius"/>
+            </Fixed>
+            <Fixed Fixed="15">
+                <Field Id="ResourcesRadius"/>
+            </Fixed>
+            <Int Int="1">
+                <Field Id="ClearResources"/>
+            </Int>
+            <Int Int="7">
+                <Field Id="ResorucesMinerals"/>
+            </Int>
+            <Int Int="2">
+                <Field Id="ResourcesVespene"/>
+            </Int>
+            <String String="08:00:00">
+                <Field Id="Time"/>
+            </String>
+            <Unit Unit="NONE">
+                <Field Id="ExpansionBlockerRefinery"/>
+            </Unit>
+            <Unit Unit="NONE">
+                <Field Id="ExpansionBlockerTownHall"/>
+            </Unit>
+            <Unit Unit="NONE">
+                <Field Id="ExpansionBlockerMinerals"/>
+            </Unit>
+            <User Type="MissionActors" Instance="[Default]">
+                <Field Id="AllyHeroActor"/>
+            </User>
+        </Instances>
+        <Instances Id="CurrentMission">
+            <Fixed Fixed="10">
+                <Field Id="ResourcesRadius"/>
+            </Fixed>
+            <Fixed Fixed="150">
+                <Field Id="AmonHeroDuration"/>
+            </Fixed>
+        </Instances>
+        <Instances Id="IceWorld">
+            <Unit Unit="DestructibleIce4x4">
+                <Field Id="ExpansionBlockerRefinery"/>
+            </Unit>
+            <Unit Unit="DestructibleIce6x6">
+                <Field Id="ExpansionBlockerTownHall"/>
+            </Unit>
+            <User Type="MissionActors" Instance="[Default]">
+                <Field Id="AllyRefineryActor"/>
+            </User>
+        </Instances>
+        <Instances Id="AshWorld">
+            <Unit Unit="DestructibleRock4x4">
+                <Field Id="ExpansionBlockerRefinery"/>
+            </Unit>
+            <Unit Unit="DestructibleRock6x6">
+                <Field Id="ExpansionBlockerTownHall"/>
+            </Unit>
+            <User Type="MissionActors" Instance="[Default]">
+                <Field Id="AllyRefineryActor"/>
+            </User>
+        </Instances>
+        <Instances Id="CityWorld">
+            <Unit Unit="DestructibleDebris4x4">
+                <Field Id="ExpansionBlockerRefinery"/>
+            </Unit>
+            <Unit Unit="DestructibleDebris6x6">
+                <Field Id="ExpansionBlockerTownHall"/>
+            </Unit>
+            <User Type="MissionActors" Instance="[Default]">
+                <Field Id="AllyRefineryActor"/>
+            </User>
+            <User Type="MissionActors" Instance="[Default]">
+                <Field Id="AllyTownHallActor"/>
+            </User>
+        </Instances>
+        <Instances Id="[Override]CurrentMission">
+            <GameLink GameLink="AC_BelshirEscort">
+                <Field Id="Map"/>
+            </GameLink>
+            <Int Int="9">
+                <Field Id="Spawners"/>
+            </Int>
+            <Unit Unit="DestructibleRock6x6">
+                <Field Id="ExpansionBlockerTownHall"/>
+            </Unit>
+            <Unit Unit="DestructibleRock4x4">
+                <Field Id="ExpansionBlockerRefinery"/>
+            </Unit>
+            <User Type="MissionActors" Instance="TerranDefaultHero">
+                <Field Id="AllyHeroActor"/>
+            </User>
+            <User Type="MissionActors" Instance="TerranDefaultRefinery">
+                <Field Id="AllyRefineryActor"/>
+            </User>
+            <User Type="MissionActors" Instance="TerranDefaultTownHall">
+                <Field Id="AllyTownHallActor"/>
+            </User>
+        </Instances>
+    </CUser>
+    <CUser id="MutatorsHeroes">
+        <Fields Id="Unit" Type="Unit" EditorColumn="1"/>
+        <Fields Id="Sound" Type="Sound" EditorColumn="10"/>
+        <Fields Id="Life" Type="Fixed" EditorColumn="3"/>
+        <Fields Id="Shields" Type="Fixed" EditorColumn="4"/>
+        <Fields Id="Energy" Type="Fixed" EditorColumn="3"/>
+        <Fields Id="Detector" Type="Int" EditorColumn="5"/>
+        <Fields Id="AI" Type="String" EditorColumn="10"/>
+        <Fields Id="ReduceWeaponDamage" Type="Int" EditorColumn="8"/>
+        <Fields Id="ReduceAbilityDamage" Type="Int" EditorColumn="8"/>
+        <Fields Id="HeroesBalanceCooldowns" Type="Int" EditorColumn="8"/>
+        <Fields Id="Tier" Type="Int" EditorColumn="1"/>
+        <Fields Id="EnergyRegeneration" Type="Fixed" EditorColumn="7"/>
+        <Instances Id="[Default]">
+            <Fixed Fixed="-1">
+                <Field Id="Life"/>
+            </Fixed>
+            <Fixed Fixed="-1">
+                <Field Id="Energy"/>
+            </Fixed>
+            <Fixed Fixed="-1">
+                <Field Id="Shields"/>
+            </Fixed>
+            <Fixed Fixed="-1">
+                <Field Id="EnergyRegeneration"/>
+            </Fixed>
+            <Int Int="1">
+                <Field Id="Tier"/>
+            </Int>
+            <Int Int="-1">
+                <Field Id="Detector"/>
+            </Int>
+            <Int Int="-1">
+                <Field Id="HeroesBalanceCooldowns"/>
+            </Int>
+            <Int Int="-1">
+                <Field Id="ReduceAbilityDamage"/>
+            </Int>
+            <Int Int="-1">
+                <Field Id="ReduceWeaponDamage"/>
+            </Int>
+        </Instances>
+        <Instances Id="Tychus">
+            <Fixed Fixed="1000">
+                <Field Id="Life"/>
+            </Fixed>
+            <GameLink GameLink="MutatorAmonTychus_BirthDialog">
+                <Field Id="Sound"/>
+            </GameLink>
+            <Int Int="5">
+                <Field Id="ReduceAbilityDamage"/>
+            </Int>
+            <Unit Unit="MutatorAmonTychus">
+                <Field Id="UnitCaster"/>
+            </Unit>
+        </Instances>
+        <Instances Id="MutatorAmonRaynor">
+            <Fixed Fixed="1000">
+                <Field Id="Life"/>
+            </Fixed>
+            <GameLink GameLink="MutatorAmonRaynor_BirthDialog">
+                <Field Id="Sound"/>
+            </GameLink>
+            <Int Int="5">
+                <Field Id="ReduceAbilityDamage"/>
+            </Int>
+            <Unit Unit="MutatorAmonRaynor">
+                <Field Id="UnitCaster"/>
+            </Unit>
+        </Instances>
+        <Instances Id="MutatorAmonDehaka">
+            <Fixed Fixed="1500">
+                <Field Id="Life"/>
+            </Fixed>
+            <GameLink GameLink="MutatorAmonDehaka_BirthDialog">
+                <Field Id="Sound"/>
+            </GameLink>
+            <Int Int="2">
+                <Field Id="Tier"/>
+            </Int>
+            <Int Int="1">
+                <Field Id="HeroesBalanceCooldowns"/>
+            </Int>
+            <Unit Unit="MutatorAmonDehaka">
+                <Field Id="UnitCaster"/>
+            </Unit>
+        </Instances>
+        <Instances Id="MutatorAmonKarax">
+            <Fixed Fixed="750">
+                <Field Id="Life"/>
+            </Fixed>
+            <Fixed Fixed="750">
+                <Field Id="Shields"/>
+            </Fixed>
+            <GameLink GameLink="MutatorAmonKarax_BirthDialog">
+                <Field Id="Sound"/>
+            </GameLink>
+            <Int Int="2">
+                <Field Id="Tier"/>
+            </Int>
+            <Int Int="1">
+                <Field Id="HeroesBalanceCooldowns"/>
+            </Int>
+            <Unit Unit="MutatorAmonKarax">
+                <Field Id="UnitCaster"/>
+            </Unit>
+        </Instances>
+        <Instances Id="MutatorAmonNova">
+            <Fixed Fixed="2250">
+                <Field Id="Life"/>
+            </Fixed>
+            <Fixed Fixed="5">
+                <Field Id="EnergyRegeneration"/>
+            </Fixed>
+            <GameLink GameLink="MutatorAmonNova_BirthDialog">
+                <Field Id="Sound"/>
+            </GameLink>
+            <Int Int="3">
+                <Field Id="Tier"/>
+            </Int>
+            <Int Int="5">
+                <Field Id="ReduceAbilityDamage"/>
+            </Int>
+            <Int Int="3">
+                <Field Id="ReduceWeaponDamage"/>
+            </Int>
+            <Int Int="1">
+                <Field Id="HeroesBalanceCooldowns"/>
+            </Int>
+            <Unit Unit="MutatorAmonNova">
+                <Field Id="UnitCaster"/>
+            </Unit>
+        </Instances>
+        <Instances Id="MutatorAmonZagara">
+            <Fixed Fixed="2250">
+                <Field Id="Life"/>
+            </Fixed>
+            <GameLink GameLink="MutatorAmonZagara_BirthDialog">
+                <Field Id="Sound"/>
+            </GameLink>
+            <Int Int="2">
+                <Field Id="Tier"/>
+            </Int>
+            <Int Int="5">
+                <Field Id="ReduceAbilityDamage"/>
+            </Int>
+            <Int Int="1">
+                <Field Id="HeroesBalanceCooldowns"/>
+            </Int>
+            <Unit Unit="MutatorAmonZagara">
+                <Field Id="UnitCaster"/>
+            </Unit>
+        </Instances>
+        <Instances Id="MutatorAmonArtanis">
+            <Fixed Fixed="2000">
+                <Field Id="Life"/>
+            </Fixed>
+            <Fixed Fixed="2000">
+                <Field Id="Shields"/>
+            </Fixed>
+            <Int Int="3">
+                <Field Id="Tier"/>
+            </Int>
+            <Int Int="1">
+                <Field Id="HeroesBalanceCooldowns"/>
+            </Int>
+            <Int Int="2">
+                <Field Id="ReduceWeaponDamage"/>
+            </Int>
+            <Sound Sound="MutatorAmonArtanis_BirthDialog">
+                <Field Id="Sound"/>
+            </Sound>
+            <Unit Unit="MutatorAmonArtanis">
+                <Field Id="UnitCaster"/>
+            </Unit>
+        </Instances>
+        <Instances Id="MutatorAmonZeratul">
+            <Fixed Fixed="1500">
+                <Field Id="Life"/>
+            </Fixed>
+            <Fixed Fixed="1500">
+                <Field Id="Shields"/>
+            </Fixed>
+            <GameLink GameLink="MutatorAmonZeratul_BirthDialog">
+                <Field Id="Sound"/>
+            </GameLink>
+            <Int Int="3">
+                <Field Id="Tier"/>
+            </Int>
+            <Int Int="1">
+                <Field Id="HeroesBalanceCooldowns"/>
+            </Int>
+            <Int Int="5">
+                <Field Id="ReduceAbilityDamage"/>
+            </Int>
+            <Unit Unit="MutatorAmonZeratul">
+                <Field Id="UnitCaster"/>
+            </Unit>
+        </Instances>
+        <Instances Id="MutatorAmonKerrigan">
+            <Fixed Fixed="3500">
+                <Field Id="Life"/>
+            </Fixed>
+            <Fixed Fixed="1">
+                <Field Id="Energy"/>
+            </Fixed>
+            <Fixed Fixed="5">
+                <Field Id="EnergyRegeneration"/>
+            </Fixed>
+            <GameLink GameLink="MutatorAmonKerrigan_BirthDialog">
+                <Field Id="Sound"/>
+            </GameLink>
+            <Int Int="3">
+                <Field Id="Tier"/>
+            </Int>
+            <Int Int="2">
+                <Field Id="ReduceAbilityDamage"/>
+            </Int>
+            <Int Int="5">
+                <Field Id="ReduceWeaponDamage"/>
+            </Int>
+            <Unit Unit="MutatorAmonKerrigan">
+                <Field Id="UnitCaster"/>
+            </Unit>
+        </Instances>
+        <Instances Id="HyperionVoidCoop">
+            <Fixed Fixed="3000">
+                <Field Id="Life"/>
+            </Fixed>
+            <GameLink GameLink="AmonHeroHyperion">
+                <Field Id="Sound"/>
+            </GameLink>
+            <Int Int="4">
+                <Field Id="Tier"/>
+            </Int>
+            <Int Int="5">
+                <Field Id="ReduceAbilityDamage"/>
+            </Int>
+            <Int Int="1">
+                <Field Id="Detector"/>
+            </Int>
+            <Int Int="5">
+                <Field Id="ReduceWeaponDamage"/>
+            </Int>
+            <Unit Unit="HyperionVoidCoop">
+                <Field Id="UnitCaster"/>
+            </Unit>
+        </Instances>
+        <Instances Id="StukovAleksander">
+            <Fixed Fixed="3000">
+                <Field Id="Life"/>
+            </Fixed>
+            <GameLink GameLink="AmonHeroAleksander">
+                <Field Id="Sound"/>
+            </GameLink>
+            <Int Int="4">
+                <Field Id="Tier"/>
+            </Int>
+            <Int Int="6">
+                <Field Id="ReduceWeaponDamage"/>
+            </Int>
+            <Int Int="5">
+                <Field Id="ReduceAbilityDamage"/>
+            </Int>
+            <Int Int="1">
+                <Field Id="Detector"/>
+            </Int>
+            <Unit Unit="StukovAleksander">
+                <Field Id="UnitCaster"/>
+            </Unit>
+        </Instances>
+        <Instances Id="StukovApocalisk">
+            <GameLink GameLink="AmonHeroApocalisk">
+                <Field Id="Sound"/>
+            </GameLink>
+            <Int Int="3">
+                <Field Id="Tier"/>
+            </Int>
+            <Int Int="5">
+                <Field Id="ReduceAbilityDamage"/>
+            </Int>
+            <Int Int="4">
+                <Field Id="ReduceWeaponDamage"/>
+            </Int>
+            <Int Int="1">
+                <Field Id="Detector"/>
+            </Int>
+            <String String="libACOM_gf_MM_AmonHeroApocalisk_AIThink">
+                <Field Id="AI"/>
+            </String>
+            <Unit Unit="StukovApocalisk">
+                <Field Id="UnitCaster"/>
+            </Unit>
+        </Instances>
+        <Instances Id="TychusOdin">
+            <Fixed Fixed="5000">
+                <Field Id="Life"/>
+            </Fixed>
+            <GameLink GameLink="AmonHeroOdin">
+                <Field Id="Sound"/>
+            </GameLink>
+            <Int Int="4">
+                <Field Id="Tier"/>
+            </Int>
+            <Int Int="5">
+                <Field Id="ReduceAbilityDamage"/>
+            </Int>
+            <Int Int="5">
+                <Field Id="ReduceWeaponDamage"/>
+            </Int>
+            <Int Int="1">
+                <Field Id="Detector"/>
+            </Int>
+            <String String="libACOM_gf_MM_AmonHeroOdin_AIThink">
+                <Field Id="AI"/>
+            </String>
+            <Unit Unit="TychusOdin">
+                <Field Id="UnitCaster"/>
+            </Unit>
+        </Instances>
+        <Instances Id="DehakaMurvar">
+            <Fixed Fixed="2500">
+                <Field Id="Life"/>
+            </Fixed>
+            <GameLink GameLink="AmonHeroMurvar">
+                <Field Id="Sound"/>
+            </GameLink>
+            <Int Int="3">
+                <Field Id="Tier"/>
+            </Int>
+            <Int Int="1">
+                <Field Id="HeroesBalanceCooldowns"/>
+            </Int>
+            <Int Int="1">
+                <Field Id="Detector"/>
+            </Int>
+            <Unit Unit="DehakaMurvar">
+                <Field Id="UnitCaster"/>
+            </Unit>
+        </Instances>
+        <Instances Id="DehakaDakrun">
+            <Fixed Fixed="5000">
+                <Field Id="Life"/>
+            </Fixed>
+            <GameLink GameLink="AmonHeroDakrun">
+                <Field Id="Sound"/>
+            </GameLink>
+            <Int Int="3">
+                <Field Id="Tier"/>
+            </Int>
+            <Int Int="1">
+                <Field Id="HeroesBalanceCooldowns"/>
+            </Int>
+            <Int Int="5">
+                <Field Id="ReduceAbilityDamage"/>
+            </Int>
+            <Int Int="1">
+                <Field Id="Detector"/>
+            </Int>
+            <String String="libACOM_gf_MM_AmonHeroDakrun_AIThink">
+                <Field Id="AI"/>
+            </String>
+            <Unit Unit="DehakaDakrun">
+                <Field Id="UnitCaster"/>
+            </Unit>
+        </Instances>
+        <Instances Id="AlarakCoop">
+            <Fixed Fixed="1000">
+                <Field Id="Life"/>
+            </Fixed>
+            <Fixed Fixed="1000">
+                <Field Id="Shields"/>
+            </Fixed>
+            <GameLink GameLink="AmonHeroAlarak">
+                <Field Id="Sound"/>
+            </GameLink>
+            <Int Int="2">
+                <Field Id="Tier"/>
+            </Int>
+            <Int Int="1">
+                <Field Id="HeroesBalanceCooldowns"/>
+            </Int>
+            <Int Int="1">
+                <Field Id="Detector"/>
+            </Int>
+            <String String="libACOM_gf_MM_AmonHeroAlarak_AIThink">
+                <Field Id="AI"/>
+            </String>
+            <Unit Unit="AlarakCoop">
+                <Field Id="UnitCaster"/>
+            </Unit>
+        </Instances>
+        <Instances Id="FenixCoop">
+            <Fixed Fixed="800">
+                <Field Id="Life"/>
+            </Fixed>
+            <Fixed Fixed="800">
+                <Field Id="Shields"/>
+            </Fixed>
+            <Fixed Fixed="150">
+                <Field Id="Energy"/>
+            </Fixed>
+            <GameLink GameLink="AmonHeroFenix">
+                <Field Id="Sound"/>
+            </GameLink>
+            <Int Int="1">
+                <Field Id="Detector"/>
+            </Int>
+            <String String="libACOM_gf_MM_AmonHeroFenixPraetor_AIThink">
+                <Field Id="AI"/>
+            </String>
+            <Unit Unit="FenixCoop">
+                <Field Id="UnitCaster"/>
+            </Unit>
+        </Instances>
+        <Instances Id="TychusHERC">
+            <Fixed Fixed="2500">
+                <Field Id="Life"/>
+            </Fixed>
+            <GameLink GameLink="AmonHeroCannonball">
+                <Field Id="Sound"/>
+            </GameLink>
+            <Int Int="2">
+                <Field Id="Tier"/>
+            </Int>
+            <Int Int="1">
+                <Field Id="Detector"/>
+            </Int>
+            <String String="libACOM_gf_MM_AmonHeroCannonball_AIThink">
+                <Field Id="AI"/>
+            </String>
+            <Unit Unit="TychusHERC">
+                <Field Id="UnitCaster"/>
+            </Unit>
+        </Instances>
+        <Instances Id="TychusWarhound">
+            <Fixed Fixed="2500">
+                <Field Id="Life"/>
+            </Fixed>
+            <GameLink GameLink="AmonHeroSirius">
+                <Field Id="Sound"/>
+            </GameLink>
+            <Int Int="2">
+                <Field Id="Tier"/>
+            </Int>
+            <Int Int="1">
+                <Field Id="Detector"/>
+            </Int>
+            <String String="libACOM_gf_MM_AmonHeroSirius_AIThink">
+                <Field Id="AI"/>
+            </String>
+            <Unit Unit="TychusWarhound">
+                <Field Id="UnitCaster"/>
+            </Unit>
+        </Instances>
+        <Instances Id="TychusSpectre">
+            <Fixed Fixed="2000">
+                <Field Id="Life"/>
+            </Fixed>
+            <GameLink GameLink="AmonHeroNux">
+                <Field Id="Sound"/>
+            </GameLink>
+            <Int Int="2">
+                <Field Id="Tier"/>
+            </Int>
+            <Int Int="1">
+                <Field Id="Detector"/>
+            </Int>
+            <Int Int="3">
+                <Field Id="ReduceAbilityDamage"/>
+            </Int>
+            <String String="libACOM_gf_MM_AmonHeroNux_AIThink">
+                <Field Id="AI"/>
+            </String>
+            <Unit Unit="TychusSpectre">
+                <Field Id="UnitCaster"/>
+            </Unit>
+        </Instances>
+        <Instances Id="TychusFirebat">
+            <Fixed Fixed="2500">
+                <Field Id="Life"/>
+            </Fixed>
+            <GameLink GameLink="AmonHeroBlaze">
+                <Field Id="Sound"/>
+            </GameLink>
+            <Int Int="2">
+                <Field Id="Tier"/>
+            </Int>
+            <Int Int="1">
+                <Field Id="Detector"/>
+            </Int>
+            <String String="libACOM_gf_MM_AmonHeroBlaze_AIThink">
+                <Field Id="AI"/>
+            </String>
+            <Unit Unit="TychusFirebat">
+                <Field Id="UnitCaster"/>
+            </Unit>
+        </Instances>
+        <Instances Id="TychusReaper">
+            <Fixed Fixed="2000">
+                <Field Id="Life"/>
+            </Fixed>
+            <GameLink GameLink="AmonHeroSam">
+                <Field Id="Sound"/>
+            </GameLink>
+            <Int Int="2">
+                <Field Id="Tier"/>
+            </Int>
+            <Int Int="1">
+                <Field Id="Detector"/>
+            </Int>
+            <String String="libACOM_gf_MM_AmonHeroSam_AIThink">
+                <Field Id="AI"/>
+            </String>
+            <Unit Unit="TychusReaper">
+                <Field Id="UnitCaster"/>
+            </Unit>
+        </Instances>
+        <Instances Id="AvatarofForm">
+            <Fixed Fixed="5000">
+                <Field Id="Life"/>
+            </Fixed>
+            <GameLink GameLink="Zeratul_AC_Construct_Attack_VxFx">
+                <Field Id="Sound"/>
+            </GameLink>
+            <Int>
+                <Field Id="Tier"/>
+            </Int>
+            <Int Int="1">
+                <Field Id="Detector"/>
+            </Int>
+            <Unit Unit="AvatarofForm">
+                <Field Id="UnitCaster"/>
+            </Unit>
+        </Instances>
+        <Instances Id="TychusMedic">
+            <Fixed Fixed="2500">
+                <Field Id="Life"/>
+            </Fixed>
+            <GameLink GameLink="AmonHeroNikara">
+                <Field Id="Sound"/>
+            </GameLink>
+            <Int Int="2">
+                <Field Id="Tier"/>
+            </Int>
+            <Int Int="1">
+                <Field Id="Detector"/>
+            </Int>
+            <String String="libACOM_gf_MM_AmonHeroNikara_AIThink">
+                <Field Id="AI"/>
+            </String>
+            <Unit Unit="TychusMedic">
+                <Field Id="UnitCaster"/>
+            </Unit>
+        </Instances>
+        <Instances Id="DehakaGlevig">
+            <Fixed Fixed="3500">
+                <Field Id="Life"/>
+            </Fixed>
+            <GameLink GameLink="AmonHeroGlevig">
+                <Field Id="Sound"/>
+            </GameLink>
+            <Int Int="2">
+                <Field Id="Tier"/>
+            </Int>
+            <Int Int="1">
+                <Field Id="Detector"/>
+            </Int>
+            <Int Int="5">
+                <Field Id="ReduceAbilityDamage"/>
+            </Int>
+            <String String="libACOM_gf_MM_AmonHeroGlevig_AIThink">
+                <Field Id="AI"/>
+            </String>
+            <Unit Unit="DehakaGlevig">
+                <Field Id="UnitCaster"/>
+            </Unit>
+        </Instances>
+        <Instances Id="SOAMothershipv4">
+            <Fixed Fixed="1500">
+                <Field Id="Life"/>
+            </Fixed>
+            <Fixed Fixed="1500">
+                <Field Id="Shields"/>
+            </Fixed>
+            <GameLink GameLink="AmonHeroMothership">
+                <Field Id="Sound"/>
+            </GameLink>
+            <Int Int="4">
+                <Field Id="Tier"/>
+            </Int>
+            <Int Int="1">
+                <Field Id="Detector"/>
+            </Int>
+            <String String="libACOM_gf_MM_AmonHeroMothership_AIThink">
+                <Field Id="AI"/>
+            </String>
+            <Unit Unit="SOAMothershipv4">
+                <Field Id="UnitCaster"/>
+            </Unit>
+        </Instances>
+        <Instances Id="SuperGaryStetmann">
+            <GameLink GameLink="AmonHeroGary">
+                <Field Id="Sound"/>
+            </GameLink>
+            <Int Int="4">
+                <Field Id="Tier"/>
+            </Int>
+            <String String="libACOM_gf_MM_AmonHeroGary_AIThink">
+                <Field Id="AI"/>
+            </String>
+            <Unit Unit="SuperGaryStetmann">
+                <Field Id="UnitCaster"/>
+            </Unit>
+        </Instances>
+        <Instances Id="FenixArbiter">
+            <Fixed Fixed="200">
+                <Field Id="Energy"/>
+            </Fixed>
+            <Fixed Fixed="500">
+                <Field Id="Life"/>
+            </Fixed>
+            <Fixed Fixed="500">
+                <Field Id="Shields"/>
+            </Fixed>
+            <Int Int="1">
+                <Field Id="Detector"/>
+            </Int>
+            <Int Int="3">
+                <Field Id="Tier"/>
+            </Int>
+            <Sound Sound="AmonHeroFenix">
+                <Field Id="Sound"/>
+            </Sound>
+            <String String="libACOM_gf_MM_AmonHeroFenixArbiter_AIThink">
+                <Field Id="AI"/>
+            </String>
+            <Unit Unit="FenixArbiter">
+                <Field Id="UnitCaster"/>
+            </Unit>
+        </Instances>
+        <Instances Id="FenixDragoon">
+            <Fixed Fixed="100">
+                <Field Id="Energy"/>
+            </Fixed>
+            <Fixed Fixed="800">
+                <Field Id="Life"/>
+            </Fixed>
+            <Fixed Fixed="800">
+                <Field Id="Shields"/>
+            </Fixed>
+            <Int Int="1">
+                <Field Id="Detector"/>
+            </Int>
+            <Int Int="2">
+                <Field Id="Tier"/>
+            </Int>
+            <Sound Sound="AmonHeroFenix">
+                <Field Id="Sound"/>
+            </Sound>
+            <String String="libACOM_gf_MM_AmonHeroFenixDragoon_AIThink">
+                <Field Id="AI"/>
+            </String>
+        </Instances>
+    </CUser>
+    <CUser id="Casters">
+        <Fields>
+            <Id value="Ability"/>
+            <Type value="GameLink"/>
+            <GameLinkType value="Abil"/>
+            <Count value="5"/>
+            <EditorColumn value="2"/>
+        </Fields>
+        <Fields>
+            <Id value="Cooldown"/>
+            <Type value="String"/>
+            <Count value="5"/>
+            <EditorColumn value="4"/>
+        </Fields>
+        <Fields>
+            <Id value="Location"/>
+            <Type value="Int"/>
+            <Count value="5"/>
+            <EditorColumn value="4"/>
+        </Fields>
+        <Fields Id="Button" Type="GameLink" GameLinkType="Button"/>
+        <Fields Id="Available" Type="Int"/>
+        <Fields Id="UnitCaster" Type="Unit" EditorColumn="2"/>
+        <Fields Id="UnitHero" Type="Unit" EditorColumn="2"/>
+        <Fields Id="Charges" Type="Int"/>
+        <Fields Id="Notifications" Type="Int" Count="4"/>
+        <Instances Id="[Default]">
+            <Int Int="1">
+                <Field Id="Notifications"/>
+            </Int>
+            <Int Int="1">
+                <Field Id="Notifications" Index="1"/>
+            </Int>
+            <Int Int="1">
+                <Field Id="Notifications" Index="3"/>
+            </Int>
+            <Int Int="1">
+                <Field Id="Notifications" Index="2"/>
+            </Int>
+        </Instances>
+        <Instances Id="Mengsk">
+            <GameLink GameLink="BunkerDepotMengskDrop">
+                <Field Id="Ability"/>
+            </GameLink>
+            <GameLink GameLink="ArtilleryMengskGlobalExperimentalStrike">
+                <Field Id="Ability" Index="1"/>
+            </GameLink>
+            <GameLink GameLink="MengskZergCalldownLevel1">
+                <Field Id="Ability" Index="2"/>
+            </GameLink>
+            <GameLink GameLink="NuclearAnnihilationMengsk">
+                <Field Id="Ability" Index="3"/>
+            </GameLink>
+            <String String="Abil/ArtilleryMengskExperimentalStrike">
+                <Field Id="Cooldown" Index="1"/>
+            </String>
+            <String String="Abil/MengskZergCooldown">
+                <Field Id="Cooldown" Index="2"/>
+            </String>
+            <String String="Abil/NuclearAnnihilationMengsk">
+                <Field Id="Cooldown" Index="3"/>
+            </String>
+            <String String="Abil/BunkerDepotDropMengsk">
+                <Field Id="Cooldown"/>
+            </String>
+            <Unit Unit="CoopCasterMengsk">
+                <Field Id="UnitCaster"/>
+            </Unit>
+        </Instances>
+        <Instances Id="Vorazun">
+            <GameLink GameLink="SOADarkPylon">
+                <Field Id="Ability"/>
+            </GameLink>
+            <GameLink GameLink="VoidSentryBlackHole">
+                <Field Id="Ability" Index="1"/>
+            </GameLink>
+            <GameLink GameLink="SOAShadowGuardCalldown">
+                <Field Id="Ability" Index="2"/>
+            </GameLink>
+            <GameLink GameLink="SOATimeFreeze">
+                <Field Id="Ability" Index="3"/>
+            </GameLink>
+            <String String="Abil/SOADarkPylon">
+                <Field Id="Cooldown"/>
+            </String>
+            <String String="Abil/SOAShadowGuardCalldown">
+                <Field Id="Cooldown" Index="2"/>
+            </String>
+            <String String="Abil/SOATimeFreeze">
+                <Field Id="Cooldown" Index="3"/>
+            </String>
+            <Unit Unit="SoACasterVorazun">
+                <Field Id="UnitCaster"/>
+            </Unit>
+        </Instances>
+        <Instances Id="Raynor">
+            <GameLink GameLink="VoidCoopSummonHyperion">
+                <Field Id="Ability"/>
+            </GameLink>
+            <GameLink GameLink="BansheeAirstrike">
+                <Field Id="Ability" Index="1"/>
+            </GameLink>
+            <String String="Abil/VoidCoopSummonHyperion">
+                <Field Id="Cooldown"/>
+            </String>
+            <String String="Abil/BansheeAirstrike">
+                <Field Id="Cooldown" Index="1"/>
+            </String>
+            <Unit Unit="CoopCasterRaynor">
+                <Field Id="UnitCaster"/>
+            </Unit>
+        </Instances>
+        <Instances Id="Abathur">
+            <GameLink GameLink="SpawnToxicNest">
+                <Field Id="Ability"/>
+            </GameLink>
+            <GameLink GameLink="AbathurMend">
+                <Field Id="Ability" Index="1"/>
+            </GameLink>
+            <String String="Abil/ToxicNestBuild">
+                <Field Id="Cooldown"/>
+            </String>
+            <String String="Abil/AbathurMend">
+                <Field Id="Cooldown" Index="1"/>
+            </String>
+            <Unit Unit="CoopCasterAbathur">
+                <Field Id="UnitCaster"/>
+            </Unit>
+        </Instances>
+        <Instances Id="Alarak">
+            <GameLink GameLink="AlarakStructureOvercharge">
+                <Field Id="Ability"/>
+            </GameLink>
+            <GameLink GameLink="AlarakACSummonDeathfleetTarget">
+                <Field Id="Ability" Index="1"/>
+            </GameLink>
+            <String String="Abil/AlarakStructureOvercharge">
+                <Field Id="Cooldown"/>
+            </String>
+            <String String="Abil/AlarakACSummonDeathfleetTarget">
+                <Field Id="Cooldown" Index="1"/>
+            </String>
+            <Unit Unit="CoopCasterAlarak">
+                <Field Id="UnitCaster"/>
+            </Unit>
+        </Instances>
+        <Instances Id="Artanis">
+            <GameLink GameLink="SOAPylonPower">
+                <Field Id="Ability"/>
+            </GameLink>
+            <GameLink GameLink="SOAOrbitalStrikeActivate">
+                <Field Id="Ability" Index="1"/>
+            </GameLink>
+            <GameLink GameLink="SoASuperShield">
+                <Field Id="Ability" Index="2"/>
+            </GameLink>
+            <GameLink GameLink="SOAStrafeAttackActivate">
+                <Field Id="Ability" Index="3"/>
+            </GameLink>
+            <String String="Abil/SOAOrbitalStrikeActivate">
+                <Field Id="Cooldown"/>
+            </String>
+            <String String="Abil/SoASuperShield">
+                <Field Id="Cooldown" Index="1"/>
+            </String>
+            <String String="Abil/SOAStrafeAttack">
+                <Field Id="Cooldown" Index="2"/>
+            </String>
+            <Unit Unit="SoACasterArtanis">
+                <Field Id="UnitCaster"/>
+            </Unit>
+        </Instances>
+        <Instances Id="Dehaka">
+            <GameLink GameLink="DehakaNydusDestroyerTopBar">
+                <Field Id="Ability"/>
+            </GameLink>
+            <GameLink GameLink="DehakaGlevigTopBar">
+                <Field Id="Ability" Index="1"/>
+            </GameLink>
+            <GameLink GameLink="DehakaMurvarTopBar">
+                <Field Id="Ability" Index="2"/>
+            </GameLink>
+            <GameLink GameLink="DehakaDakrunTopBar">
+                <Field Id="Ability" Index="3"/>
+            </GameLink>
+            <String String="Abil/DehakaNydusDestroyerTopBar">
+                <Field Id="Cooldown"/>
+            </String>
+            <String String="Abil/DehakaGlevigTopBar">
+                <Field Id="Cooldown" Index="1"/>
+            </String>
+            <String String="Abil/DehakaMurvarTopBar">
+                <Field Id="Cooldown" Index="2"/>
+            </String>
+            <String String="Abil/DehakaDakrunTopBar">
+                <Field Id="Cooldown" Index="3"/>
+            </String>
+            <Unit Unit="CoopCasterDehaka">
+                <Field Id="UnitCaster"/>
+            </Unit>
+        </Instances>
+        <Instances Id="Fenix">
+            <GameLink GameLink="SOASummonFenix">
+                <Field Id="Ability"/>
+            </GameLink>
+            <GameLink GameLink="SOASummonFenixDragoon">
+                <Field Id="Ability" Index="1"/>
+            </GameLink>
+            <GameLink GameLink="SOASummonFenixArbiter">
+                <Field Id="Ability" Index="2"/>
+            </GameLink>
+            <String String="SOASummonFenix">
+                <Field Id="Cooldown"/>
+            </String>
+            <String String="SOASummonFenixDragoon">
+                <Field Id="Cooldown" Index="1"/>
+            </String>
+            <String String="SOASummonFenixArbiter">
+                <Field Id="Cooldown" Index="2"/>
+            </String>
+            <Unit Unit="SoACasterFenix">
+                <Field Id="UnitCaster"/>
+            </Unit>
+        </Instances>
+        <Instances Id="Horner">
+            <GameLink GameLink="HHTrainTopBar">
+                <Field Id="Ability"/>
+            </GameLink>
+            <GameLink GameLink="HHBomberPlatformAreaBombTopBarOrder">
+                <Field Id="Ability" Index="1"/>
+            </GameLink>
+            <GameLink GameLink="HHSummonMercenarySpaceStation">
+                <Field Id="Ability" Index="2"/>
+            </GameLink>
+            <GameLink GameLink="HornerAirFleetActivate">
+                <Field Id="Ability" Index="3"/>
+            </GameLink>
+            <String String="Abil/HHTrainTopBar">
+                <Field Id="Cooldown"/>
+            </String>
+            <String String="Abil/HHBomberPlatformAreaBombTopBarDummyTimer">
+                <Field Id="Cooldown" Index="1"/>
+            </String>
+            <String String="Abil/HornerAirFleetActivate">
+                <Field Id="Cooldown" Index="2"/>
+            </String>
+            <String String="Abil/HHSummonMercenarySpaceStation">
+                <Field Id="Cooldown" Index="3"/>
+            </String>
+            <Unit Unit="CoopCasterHorner">
+                <Field Id="UnitCaster"/>
+            </Unit>
+        </Instances>
+        <Instances Id="Karax">
+            <GameLink GameLink="SOAOrbitalStrikeKarax">
+                <Field Id="Ability"/>
+            </GameLink>
+            <GameLink GameLink="SOAThermalLanceActivate">
+                <Field Id="Ability" Index="1"/>
+            </GameLink>
+            <GameLink GameLink="SOAMapWideChrono">
+                <Field Id="Ability" Index="2"/>
+            </GameLink>
+            <GameLink GameLink="SOAPurifierBeam">
+                <Field Id="Ability" Index="3"/>
+            </GameLink>
+            <String String="Abil/SOAThermalLanceActivate">
+                <Field Id="Cooldown" Index="1"/>
+            </String>
+            <String String="Abil/SOAMapWideChrono">
+                <Field Id="Cooldown" Index="2"/>
+            </String>
+            <String String="Abil/SOAPurifierBeam">
+                <Field Id="Cooldown" Index="3"/>
+            </String>
+            <Unit Unit="SoACasterKarax">
+                <Field Id="UnitCaster"/>
+            </Unit>
+        </Instances>
+        <Instances Id="Kerrigan">
+            <GameLink GameLink="KerriganVoidCoopEconDrop">
+                <Field Id="Ability"/>
+            </GameLink>
+            <GameLink GameLink="KerriganVoidCoopCrushingGripWave">
+                <Field Id="Ability" Index="1"/>
+            </GameLink>
+            <Int Int="2">
+                <Field Id="Location"/>
+            </Int>
+            <Int Int="2">
+                <Field Id="Location" Index="1"/>
+            </Int>
+            <String String="Abil/KerriganVoidCoopEconDrop">
+                <Field Id="Cooldown"/>
+            </String>
+            <String String="Abil/KerriganVoidCoopCrushingGripWave">
+                <Field Id="Cooldown" Index="1"/>
+            </String>
+            <Unit Unit="CoopCasterKerrigan">
+                <Field Id="UnitCaster"/>
+            </Unit>
+            <Unit Unit="K5Kerrigan">
+                <Field Id="UnitHero"/>
+            </Unit>
+        </Instances>
+        <Instances Id="Nova">
+            <GameLink GameLink="NovaDefensiveMatrixDrone">
+                <Field Id="Ability"/>
+            </GameLink>
+            <GameLink GameLink="NovaGriffinTransportLoadUnits">
+                <Field Id="Ability" Index="1"/>
+            </GameLink>
+            <GameLink GameLink="NovaGriffinBombingRunActivate">
+                <Field Id="Ability" Index="2"/>
+            </GameLink>
+            <GameLink GameLink="NovaReviveInstantBuyback">
+                <Field Id="Ability" Index="3"/>
+            </GameLink>
+            <GameLink GameLink="NovaCoopCasterNuke">
+                <Field Id="Ability" Index="4"/>
+            </GameLink>
+            <Int Int="2">
+                <Field Id="Location" Index="4"/>
+            </Int>
+            <String String="Abil/NovaDefensiveMatrixDrone">
+                <Field Id="Cooldown"/>
+            </String>
+            <String String="Abil/NovaGriffinBombingRunActivate">
+                <Field Id="Cooldown" Index="1"/>
+            </String>
+            <String String="Abil/NovaGriffinTransportLoadUnits">
+                <Field Id="Cooldown" Index="2"/>
+            </String>
+            <String String="Abil/NovaReviveInstantBuyback">
+                <Field Id="Cooldown" Index="3"/>
+            </String>
+            <String String="Unit/NovaDecoy">
+                <Field Id="Cooldown" Index="4"/>
+            </String>
+            <Unit Unit="CoopCasterNova">
+                <Field Id="UnitCaster"/>
+            </Unit>
+            <Unit Unit="NovaCoop">
+                <Field Id="UnitHero"/>
+            </Unit>
+        </Instances>
+        <Instances Id="Stukov">
+            <GameLink GameLink="SIStukovPlaceHordeRally">
+                <Field Id="Ability"/>
+            </GameLink>
+            <GameLink GameLink="SIStukovInfestStructureUpgraded">
+                <Field Id="Ability" Index="1"/>
+            </GameLink>
+            <GameLink GameLink="StukovSummonApocalisk">
+                <Field Id="Ability" Index="2"/>
+            </GameLink>
+            <GameLink GameLink="StukovSummonAleksander">
+                <Field Id="Ability" Index="3"/>
+            </GameLink>
+            <String String="Abil/StukovSummonApocalisk">
+                <Field Id="Cooldown" Index="2"/>
+            </String>
+            <String String="Abil/SIStukovInfestStructureUpgraded">
+                <Field Id="Cooldown" Index="1"/>
+            </String>
+            <String String="Abil/StukovSummonAleksander">
+                <Field Id="Cooldown" Index="3"/>
+            </String>
+            <Unit Unit="CoopCasterStukov">
+                <Field Id="UnitCaster"/>
+            </Unit>
+        </Instances>
+        <Instances Id="Swann">
+            <GameLink GameLink="DrakkenLaserDrillAttackIssueOrder">
+                <Field Id="Ability"/>
+            </GameLink>
+            <GameLink GameLink="DrakkenLaserDrillConcentratedBeamIssueOrder">
+                <Field Id="Ability" Index="1"/>
+            </GameLink>
+            <GameLink GameLink="DrakkenLaserDrillPulseCannonIssueOrder">
+                <Field Id="Ability" Index="2"/>
+            </GameLink>
+            <GameLink GameLink="SpecialDelivery">
+                <Field Id="Ability" Index="3"/>
+            </GameLink>
+            <String String="Abil/DrakkenLaserDrillBFG">
+                <Field Id="Cooldown" Index="1"/>
+            </String>
+            <String String="Abil/DrakkenLaserDrillNuke">
+                <Field Id="Cooldown" Index="2"/>
+            </String>
+            <String String="Abil/SpecialDelivery">
+                <Field Id="Cooldown" Index="3"/>
+            </String>
+            <Unit Unit="CoopCasterSwann">
+                <Field Id="UnitCaster"/>
+            </Unit>
+        </Instances>
+        <Instances Id="Tychus">
+            <GameLink GameLink="TychusMedicTransportLoadUnits">
+                <Field Id="Ability"/>
+            </GameLink>
+            <GameLink GameLink="TychusCalldownOdinTargeted">
+                <Field Id="Ability" Index="1"/>
+            </GameLink>
+            <String String="Abil/TychusCalldownOdinTargeted">
+                <Field Id="Cooldown" Index="1"/>
+            </String>
+            <Unit Unit="CoopCasterTychus">
+                <Field Id="UnitCaster"/>
+            </Unit>
+        </Instances>
+        <Instances Id="Zagara">
+            <GameLink GameLink="ZagaraVoidCoopMassFrenzy">
+                <Field Id="Ability"/>
+            </GameLink>
+            <GameLink GameLink="ZagaraVoidCoopMassRoachDrop">
+                <Field Id="Ability" Index="1"/>
+            </GameLink>
+            <Int Int="2">
+                <Field Id="Location"/>
+            </Int>
+            <Int Int="2">
+                <Field Id="Location" Index="1"/>
+            </Int>
+            <String String="ZagaraVoidCoopMassFrenzy">
+                <Field Id="Cooldown"/>
+            </String>
+            <String String="ZagaraVoidCoopInfestedPods">
+                <Field Id="Cooldown" Index="1"/>
+            </String>
+            <Unit Unit="CoopCasterZagara">
+                <Field Id="UnitCaster"/>
+            </Unit>
+            <Unit Unit="ZagaraVoidCoop">
+                <Field Id="UnitHero"/>
+            </Unit>
+        </Instances>
+        <Instances Id="Zeratul">
+            <GameLink GameLink="ZeratulTopBarWarpTrain">
+                <Field Id="Ability"/>
+            </GameLink>
+            <GameLink GameLink="ZeratulTopBarUltimateWarpTrain">
+                <Field Id="Ability" Index="2"/>
+            </GameLink>
+            <String String="Abil/ZeratulTopBarWarpTrain">
+                <Field Id="Cooldown"/>
+            </String>
+            <String String="Abil/ZeratulTopBarUltimateWarpTrain">
+                <Field Id="Cooldown" Index="2"/>
+            </String>
+            <Unit Unit="CoopCasterZeratul">
+                <Field Id="UnitCaster"/>
+            </Unit>
+        </Instances>
+        <Instances Id="Stetmann">
+            <GameLink GameLink="DeployPowerTowerStetmann">
+                <Field Id="Ability"/>
+            </GameLink>
+            <String String="Abil/DeployPowerTowerStetmann">
+                <Field Id="Cooldown"/>
+            </String>
+            <Unit Unit="CoopCasterStetmann">
+                <Field Id="UnitCaster"/>
+            </Unit>
+        </Instances>
+    </CUser>
+    <CUser id="UnitData">
+        <Fields Id="Unit" Type="Unit" EditorColumn="2"/>
+        <Fields Id="WorkersRallyIndex" Type="Int" EditorColumn="3"/>
+        <Instances Id="[Default]"/>
+        <Instances Id="-">
+            <Unit Unit="NONE">
+                <Field Id="Unit"/>
+            </Unit>
+        </Instances>
+    </CUser>
+    <CUser id="CoopAIStock">
+        <Fields Id="Unit" Type="Unit" EditorColumn="1"/>
+        <Fields Id="Stock 1Casual" Type="Int" EditorColumn="2"/>
+        <Fields Id="Stock 2Normal" Type="Int" EditorColumn="3"/>
+        <Fields Id="Stock 3Hard" Type="Int" EditorColumn="4"/>
+        <Fields Id="Stock 4Brutal" Type="Int" EditorColumn="5"/>
+        <Instances Id="[Default]"/>
+        <Instances Id="Orbital Command">
+            <Int Int="1">
+                <Field Id="Stock 1Casual"/>
+            </Int>
+            <Int Int="1">
+                <Field Id="Stock 2Normal"/>
+            </Int>
+            <Int Int="1">
+                <Field Id="Stock 3Hard"/>
+            </Int>
+            <Int Int="2">
+                <Field Id="Stock 4Brutal"/>
+            </Int>
+            <Unit Unit="OrbitalCommand">
+                <Field Id="Unit"/>
+            </Unit>
+        </Instances>
+        <Instances Id="Ghost Academy">
+            <Int Int="1">
+                <Field Id="Stock 2Normal"/>
+            </Int>
+            <Int Int="2">
+                <Field Id="Stock 3Hard"/>
+            </Int>
+            <Int Int="3">
+                <Field Id="Stock 4Brutal"/>
+            </Int>
+            <Unit Unit="GhostAcademy">
+                <Field Id="Unit"/>
+            </Unit>
+        </Instances>
+        <Instances Id="Ghost">
+            <Int Int="1">
+                <Field Id="Stock 2Normal"/>
+            </Int>
+            <Int Int="2">
+                <Field Id="Stock 3Hard"/>
+            </Int>
+            <Int Int="3">
+                <Field Id="Stock 4Brutal"/>
+            </Int>
+            <Unit Unit="Ghost">
+                <Field Id="Unit"/>
+            </Unit>
+        </Instances>
+        <Instances Id="Nuke">
+            <Int Int="1">
+                <Field Id="Stock 2Normal"/>
+            </Int>
+            <Int Int="2">
+                <Field Id="Stock 3Hard"/>
+            </Int>
+            <Int Int="3">
+                <Field Id="Stock 4Brutal"/>
+            </Int>
+            <Unit Unit="Nuke">
+                <Field Id="Unit"/>
+            </Unit>
+        </Instances>
+        <Instances Id="StetmannHatchery">
+            <Int Int="1">
+                <Field Id="WorkersRallyIndex"/>
+            </Int>
+            <Unit Unit="HatcheryStetmann">
+                <Field Id="Unit"/>
+            </Unit>
+        </Instances>
+        <Instances Id="Mengsk CommandCenter">
+            <Int Int="1">
+                <Field Id="WorkersRallyIndex"/>
+            </Int>
+            <Unit Unit="CommandCenterMengsk">
+                <Field Id="Unit"/>
+            </Unit>
+        </Instances>
+        <Instances Id="Hatchery">
+            <Int Int="1">
+                <Field Id="WorkersRallyIndex"/>
+            </Int>
+            <Unit Unit="Hatchery">
+                <Field Id="Unit"/>
+            </Unit>
+        </Instances>
+        <Instances Id="UPLHeadquarters">
+            <Int Int="1">
+                <Field Id="WorkersRallyIndex"/>
+            </Int>
+            <Unit Unit="UPLHeadquarters">
+                <Field Id="Unit"/>
+            </Unit>
+        </Instances>
+    </CUser>
+    <CUser id="HeroReviveSounds">
+        <Fields Id="HeroUnit" Type="Unit" EditorColumn="1"/>
+        <Fields Id="HeroSound" Type="Sound" EditorColumn="3"/>
+        <Fields Id="HeroSoundDelay" Type="Fixed" EditorColumn="4"/>
+        <Fields Id="RequiredUpgrade" Type="Upgrade" EditorColumn="2"/>
+        <Instances Id="[Default]"/>
+        <Instances Id="NovaCoop">
+            <Sound Sound="NovaCommander_Revive">
+                <Field Id="HeroSound"/>
+            </Sound>
+            <Unit Unit="NovaCoop">
+                <Field Id="HeroUnit"/>
+            </Unit>
+        </Instances>
+        <Instances Id="AlarakCoop">
+            <Sound Sound="AlarakCommander_Revive">
+                <Field Id="HeroSound"/>
+            </Sound>
+            <Unit Unit="AlarakCoop">
+                <Field Id="HeroUnit"/>
+            </Unit>
+        </Instances>
+        <Instances Id="K5Kerrigan">
+            <Sound Sound="KerriganX1_Ready_Primal">
+                <Field Id="HeroSound"/>
+            </Sound>
+            <Unit Unit="K5Kerrigan">
+                <Field Id="HeroUnit"/>
+            </Unit>
+        </Instances>
+        <Instances Id="ZagaraVoidCoop">
+            <Sound Sound="ZagaraHero_Ready">
+                <Field Id="HeroSound"/>
+            </Sound>
+            <Unit Unit="ZagaraVoidCoop">
+                <Field Id="HeroUnit"/>
+            </Unit>
+        </Instances>
+        <Instances Id="DehakaCoop3">
+            <Sound Sound="Dehaka_Ready_L">
+                <Field Id="HeroSound"/>
+            </Sound>
+            <Unit Unit="DehakaCoop">
+                <Field Id="HeroUnit"/>
+            </Unit>
+            <Upgrade Upgrade="DehakaCoopStage3">
+                <Field Id="RequiredUpgrade"/>
+            </Upgrade>
+        </Instances>
+        <Instances Id="DehakaCoop2">
+            <Sound Sound="Dehaka_Ready_M">
+                <Field Id="HeroSound"/>
+            </Sound>
+            <Unit Unit="DehakaCoop">
+                <Field Id="HeroUnit"/>
+            </Unit>
+            <Upgrade Upgrade="DehakaCoopStage2">
+                <Field Id="RequiredUpgrade"/>
+            </Upgrade>
+        </Instances>
+        <Instances Id="DehakaCoop1">
+            <Sound Sound="Dehaka_Ready_S">
+                <Field Id="HeroSound"/>
+            </Sound>
+            <Unit Unit="DehakaCoop">
+                <Field Id="HeroUnit"/>
+            </Unit>
+        </Instances>
+        <Instances Id="ZeratulCoop">
+            <Sound Sound="ZeratulCommander_Ready">
+                <Field Id="HeroSound"/>
+            </Sound>
+            <Unit Unit="ZeratulCoop">
+                <Field Id="HeroUnit"/>
+            </Unit>
+        </Instances>
+        <Instances Id="GaryStetmann">
+            <Fixed Fixed="2">
+                <Field Id="HeroSoundDelay"/>
+            </Fixed>
+            <Sound Sound="GaryStetmann_Revive">
+                <Field Id="HeroSound"/>
+            </Sound>
+            <Unit Unit="GaryStetmann">
+                <Field Id="HeroUnit"/>
+            </Unit>
+        </Instances>
+        <Instances Id="SuperGaryStetmann">
+            <Fixed Fixed="2">
+                <Field Id="HeroSoundDelay"/>
+            </Fixed>
+            <Sound Sound="GaryStetmann_Revive">
+                <Field Id="HeroSound"/>
+            </Sound>
+            <Unit Unit="SuperGaryStetmann">
+                <Field Id="HeroUnit"/>
+            </Unit>
+        </Instances>
+    </CUser>
+    <CUser id="SharedUpgrades">
+        <Fields Id="Upgrade" Type="Upgrade" Count="1"/>
+        <Instances Id="[Default]"/>
+        <Instances Id="HeroicShield">
+            <Upgrade Upgrade="SOAHeroicShield">
+                <Field Id="Upgrade"/>
+            </Upgrade>
+        </Instances>
+        <Instances Id="KerriganMalignantCreep">
+            <Upgrade Upgrade="KerriganCreepBonusesCoop">
+                <Field Id="Upgrade"/>
+            </Upgrade>
+        </Instances>
+        <Instances Id="ZagaraMalignantCreep">
+            <Upgrade Upgrade="ZagaraVoidCoopCreepBonuses">
+                <Field Id="Upgrade"/>
+            </Upgrade>
+        </Instances>
+        <Instances Id="KerriganUpgradedResourceDrops">
+            <Upgrade Upgrade="KerriganUpgradedResourceDrops">
+                <Field Id="Upgrade"/>
+            </Upgrade>
+        </Instances>
+        <Instances Id="VorazunRecallOnDeath">
+            <Upgrade Upgrade="SOARecallonDeath">
+                <Field Id="Upgrade"/>
+            </Upgrade>
+        </Instances>
+        <Instances Id="VorazunCloakDamageBoost">
+            <Upgrade Upgrade="VorazunCloakDamageBoost">
+                <Field Id="Upgrade"/>
+            </Upgrade>
+        </Instances>
+        <Instances Id="VorazunCloakShieldRegen">
+            <Upgrade Upgrade="VorazunCloakShieldRegen">
+                <Field Id="Upgrade"/>
+            </Upgrade>
+        </Instances>
+        <Instances Id="VorazunVoidPylonRecall">
+            <Upgrade Upgrade="VoidPylonRecall">
+                <Field Id="Upgrade"/>
+            </Upgrade>
+        </Instances>
+        <Instances Id="VoidCoopGreaterNydusWorm">
+            <Upgrade Upgrade="VoidCoopGreaterNydusWorm">
+                <Field Id="Upgrade"/>
+            </Upgrade>
+        </Instances>
+        <Instances Id="VorazunTimeStopHaste">
+            <Upgrade Upgrade="MasteryVorazunTimeStopHaste">
+                <Field Id="Upgrade"/>
+            </Upgrade>
+        </Instances>
+        <Instances Id="VorazunTimeStopHasteModifyPlayer">
+            <Upgrade Upgrade="MasteryVorazunTimeStopHasteModifyPlayer">
+                <Field Id="Upgrade"/>
+            </Upgrade>
+        </Instances>
+        <Instances Id="SOARepairBeam">
+            <Upgrade Upgrade="SOARepairBeam">
+                <Field Id="Upgrade"/>
+            </Upgrade>
+        </Instances>
+        <Instances Id="KaraxSOAChronoPassive">
+            <Upgrade Upgrade="KaraxSOAChronoPassive">
+                <Field Id="Upgrade"/>
+            </Upgrade>
+        </Instances>
+        <Instances Id="KaraxUnitSpawnBarrier">
+            <Upgrade Upgrade="KaraxUnitSpawnBarrier">
+                <Field Id="Upgrade"/>
+            </Upgrade>
+        </Instances>
+        <Instances Id="Abathur Symbiote">
+            <Upgrade Upgrade="AbathurSymbiote">
+                <Field Id="Upgrade"/>
+            </Upgrade>
+        </Instances>
+        <Instances Id="Abathur Needlespine">
+            <Upgrade Upgrade="SymbioteStabUpgrade">
+                <Field Id="Upgrade"/>
+            </Upgrade>
+        </Instances>
+        <Instances Id="Abathur Network Carapace">
+            <Upgrade Upgrade="AbathurNetworkedCarapace">
+                <Field Id="Upgrade"/>
+            </Upgrade>
+        </Instances>
+        <Instances Id="Abathur Pressurized Glands">
+            <Upgrade Upgrade="AbathurLocustAirAttack">
+                <Field Id="Upgrade"/>
+            </Upgrade>
+        </Instances>
+        <Instances Id="Mastery Artanis Guardian Shell Heal">
+            <Upgrade Upgrade="MasteryArtanisGuardianShellHeal">
+                <Field Id="Upgrade"/>
+            </Upgrade>
+        </Instances>
+        <Instances Id="HHSuperRadar">
+            <Upgrade Upgrade="HHSuperRadar">
+                <Field Id="Upgrade"/>
+            </Upgrade>
+        </Instances>
+        <Instances Id="HHScrapPickup">
+            <Upgrade Upgrade="HHScrapPickup">
+                <Field Id="Upgrade"/>
+            </Upgrade>
+        </Instances>
+        <Instances Id="Mastery Stetmann Stet-zone Bonuses">
+            <Upgrade Upgrade="MasteryStetmannStetzoneBonuses">
+                <Field Id="Upgrade"/>
+            </Upgrade>
+        </Instances>
+        <Instances Id="Stetmann Is Present">
+            <Upgrade Upgrade="StetmannIsPresent">
+                <Field Id="Upgrade"/>
+            </Upgrade>
+        </Instances>
+        <Instances Id="F.A.S.T. Configuration">
+            <Upgrade Upgrade="PowerFieldMovementSpeed">
+                <Field Id="Upgrade"/>
+            </Upgrade>
+        </Instances>
+    </CUser>
+    <CUser id="MasteryUpgrades">
+        <Fields Id="Upgrade" Type="Upgrade" EditorColumn="10"/>
+        <Fields Id="Name" Type="Text" EditorColumn="2"/>
+        <Fields Id="ValueFormat" Type="Text" EditorColumn="11"/>
+        <Fields>
+            <Id value="PointIncrement"/>
+            <Type value="Fixed"/>
+            <Count value="2"/>
+            <EditorColumn value="9"/>
+        </Fields>
+        <Fields Id="Category" Type="Int" EditorColumn="3"/>
+        <Fields>
+            <Id value="Commander"/>
+            <Type value="User"/>
+            <UserType value="Commanders"/>
+            <EditorColumn value="1"/>
+        </Fields>
+        <Fields Id="InternalIndex" Type="Int">
+            <Flags index="Modifiable" value="1"/>
+        </Fields>
+        <Fields Id="TalentData" Type="GameLink" GameLinkType="Talent"/>
+        <Instances Id="[Default]"/>
+    </CUser>
+    <CUser id="Prestiges">
+        <Fields>
+            <Id value="ZZ_UpgradeSupplements"/>
+            <Type value="User"/>
+            <UserType value="PlayerPrestigeUpgradeSupplements"/>
+            <Count value="10"/>
+            <EditorColumn value="22"/>
+        </Fields>
+        <Fields>
+            <Id value="PlayerResponses"/>
+            <Type value="User"/>
+            <UserType value="PlayerResponse"/>
+            <Count value="5"/>
+            <EditorColumn value="12"/>
+        </Fields>
+        <Fields>
+            <Id value="Icon"/>
+            <Type value="GameLink"/>
+            <GameLinkType value="Button"/>
+            <EditorColumn value="11"/>
+        </Fields>
+        <Instances Id="[Default]"/>
+        <Instances Id="Any"/>
+        <Instances Id="Amon"/>
+        <Instances Id="Terran">
+            <GameLink GameLink="ButtonPrestigeCommanderTerran">
+                <Field Id="Icon"/>
+            </GameLink>
+        </Instances>
+        <Instances Id="TerranJunkers">
+            <GameLink GameLink="ButtonPrestigeCommanderTerranJunkers">
+                <Field Id="Icon"/>
+            </GameLink>
+        </Instances>
+        <Instances Id="TerranTyrador">
+            <GameLink GameLink="ButtonPrestigeCommanderTerranTyrador">
+                <Field Id="Icon"/>
+            </GameLink>
+        </Instances>
+        <Instances Id="TerranUmojan">
+            <GameLink GameLink="ButtonPrestigeCommanderTerranUmojan">
+                <Field Id="Icon"/>
+            </GameLink>
+        </Instances>
+        <Instances Id="TerranSpecOps">
+            <GameLink GameLink="ButtonPrestigeCommanderTerranSpecOps">
+                <Field Id="Icon"/>
+            </GameLink>
+        </Instances>
+        <Instances Id="Zerg">
+            <GameLink GameLink="ButtonPrestigeCommanderZerg">
+                <Field Id="Icon"/>
+            </GameLink>
+        </Instances>
+        <Instances Id="ZergSimulant">
+            <GameLink GameLink="ButtonPrestigeCommanderZergSimulant">
+                <Field Id="Icon"/>
+            </GameLink>
+        </Instances>
+        <Instances Id="ZergCerberus">
+            <GameLink GameLink="ButtonPrestigeCommanderZergCerberus">
+                <Field Id="Icon"/>
+            </GameLink>
+        </Instances>
+        <Instances Id="ZergLeviathan">
+            <GameLink GameLink="ButtonPrestigeCommanderZergLeviathan">
+                <Field Id="Icon"/>
+            </GameLink>
+        </Instances>
+        <Instances Id="ZergPrimal">
+            <GameLink GameLink="ButtonPrestigeCommanderZergPrimal">
+                <Field Id="Icon"/>
+            </GameLink>
+        </Instances>
+        <Instances Id="Protoss">
+            <GameLink GameLink="ButtonPrestigeCommanderProtoss">
+                <Field Id="Icon"/>
+            </GameLink>
+        </Instances>
+        <Instances Id="ProtossGolden">
+            <GameLink GameLink="ButtonPrestigeCommanderProtossGolden">
+                <Field Id="Icon"/>
+            </GameLink>
+        </Instances>
+        <Instances Id="ProtossTaldarim">
+            <GameLink GameLink="ButtonPrestigeCommanderProtossTaldarim">
+                <Field Id="Icon"/>
+            </GameLink>
+        </Instances>
+        <Instances Id="ProtossPurifiers">
+            <GameLink GameLink="ButtonPrestigeCommanderProtossPurifiers">
+                <Field Id="Icon"/>
+            </GameLink>
+        </Instances>
+        <Instances Id="ProtossIhanRii">
+            <GameLink GameLink="ButtonPrestigeCommanderProtossIhanRii">
+                <Field Id="Icon"/>
+            </GameLink>
+        </Instances>
+        <Instances Id="ProtossNerazim">
+            <GameLink GameLink="ButtonPrestigeCommanderProtossNerazim">
+                <Field Id="Icon"/>
+            </GameLink>
+        </Instances>
+    </CUser>
+    <CUser id="PlayerPrestigeUpgradeSupplements">
+        <Fields>
+            <Id value="Upgrade"/>
+            <Type value="GameLink"/>
+            <GameLinkType value="Upgrade"/>
+            <EditorColumn value="1"/>
+        </Fields>
+        <Fields>
+            <Id value="Supplement"/>
+            <Type value="GameLink"/>
+            <GameLinkType value="Upgrade"/>
+            <EditorColumn value="2"/>
+        </Fields>
+        <Instances Id="[Default]"/>
+    </CUser>
+    <CUser id="PlayerResponse">
+        <Fields>
+            <Id value="Response"/>
+            <Type value="GameLink"/>
+            <GameLinkType value="PlayerResponse"/>
+            <EditorColumn value="1"/>
+        </Fields>
+        <Fields Id="Self" Type="Int" EditorColumn="2"/>
+        <Fields Id="Ally" Type="Int" EditorColumn="3"/>
+        <Fields Id="MinLvl" Type="Int" EditorColumn="4"/>
+        <Instances Id="[Default]">
+            <Int Int="1">
+                <Field Id="Self"/>
+            </Int>
+        </Instances>
+        <Instances Id="CommanderPrestigeKaraxStructuresUnityBarrier">
+            <GameLink GameLink="CommanderPrestigeKaraxStructuresUnityBarrier">
+                <Field Id="Response"/>
+            </GameLink>
+            <Int Int="15">
+                <Field Id="MinLvl"/>
+            </Int>
+            <Int Int="1">
+                <Field Id="Ally"/>
+            </Int>
+        </Instances>
+        <Instances Id="CommanderPrestigeKaraxStructuresDefensiveChronoBoostTarget">
+            <GameLink GameLink="CommanderPrestigeKaraxStructuresDefensiveChronoBoostTarget">
+                <Field Id="Response"/>
+            </GameLink>
+            <Int Int="1">
+                <Field Id="Ally"/>
+            </Int>
+        </Instances>
+        <Instances Id="CommanderPrestigeFenixDataWebDamageReduction">
+            <GameLink GameLink="CommanderPrestigeFenixDataWebDamageReduction">
+                <Field Id="Response"/>
+            </GameLink>
+        </Instances>
+        <Instances Id="CommanderPrestigeVorazunStasisDamageReduction">
+            <GameLink GameLink="CommanderPrestigeVorazunStasisDamageReduction">
+                <Field Id="Response"/>
+            </GameLink>
+        </Instances>
+        <Instances Id="CommanderPrestigeStetmannCombatBuff">
+            <GameLink GameLink="CommanderPrestigeStetmannCombatBuff">
+                <Field Id="Response"/>
+            </GameLink>
+        </Instances>
+        <Instances Id="AbathurDeepTunnel1">
+            <GameLink GameLink="AbathurMorphTimeCostReduced">
+                <Field Id="Upgrade"/>
+            </GameLink>
+            <GameLink GameLink="CommanderPrestigeAbathurDeepTunnelLevel12">
+                <Field Id="Supplement"/>
+            </GameLink>
+        </Instances>
+        <Instances Id="AbathurUltimateEvo1">
+            <GameLink GameLink="AbathurBiomassLifeLeech">
+                <Field Id="Upgrade"/>
+            </GameLink>
+            <GameLink GameLink="CommanderPrestigeAbathurUltEvoLevel15">
+                <Field Id="Supplement"/>
+            </GameLink>
+        </Instances>
+        <Instances Id="AlarakDeathFleet1">
+            <GameLink GameLink="MasteryAlarakDeathFleetCDR">
+                <Field Id="Upgrade"/>
+            </GameLink>
+            <GameLink GameLink="CommanderPrestigeAlarakDeathFleetMastery">
+                <Field Id="Supplement"/>
+            </GameLink>
+        </Instances>
+        <Instances Id="FenixSuitSwap1">
+            <GameLink GameLink="MasteryFenixSuitEnergyRegen">
+                <Field Id="Upgrade"/>
+            </GameLink>
+            <GameLink GameLink="CommanderPrestigeFenixSuitSwapMastery">
+                <Field Id="Supplement"/>
+            </GameLink>
+        </Instances>
+        <Instances Id="FenixAvenger1">
+            <GameLink GameLink="MasteryFenixChampionLifeShieldBuff">
+                <Field Id="Upgrade"/>
+            </GameLink>
+            <GameLink GameLink="CommanderPrestigeFenixAvengerMastery">
+                <Field Id="Supplement"/>
+            </GameLink>
+        </Instances>
+        <Instances Id="KaraxStructures1">
+            <GameLink GameLink="SOARepairBeamExtraTarget">
+                <Field Id="Upgrade"/>
+            </GameLink>
+            <GameLink GameLink="CommanderPrestigeKaraxStructuresPerk">
+                <Field Id="Supplement"/>
+            </GameLink>
+        </Instances>
+        <Instances Id="KaraxStructures2">
+            <GameLink GameLink="MasteryKaraxRepairBeamHeal">
+                <Field Id="Upgrade"/>
+            </GameLink>
+            <GameLink GameLink="CommanderPrestigeKaraxStructuresMastery">
+                <Field Id="Supplement"/>
+            </GameLink>
+        </Instances>
+        <Instances Id="KaraxStructures3">
+            <GameLink GameLink="MasteryKaraxChronoBoostSpeed">
+                <Field Id="Upgrade"/>
+            </GameLink>
+            <GameLink GameLink="CommanderPrestigeKaraxStructuresMasteryChronoBoostSpeed">
+                <Field Id="Supplement"/>
+            </GameLink>
+        </Instances>
+        <Instances Id="KerriganAbilities1">
+            <GameLink GameLink="KerriganVoidCoopImprovedLeapingStrike">
+                <Field Id="Upgrade"/>
+            </GameLink>
+            <GameLink GameLink="CommanderPrestigeKerriganAbilitiesPerk">
+                <Field Id="Supplement"/>
+            </GameLink>
+        </Instances>
+        <Instances Id="KerriganAbilities2">
+            <GameLink GameLink="MasteryKerriganPrimarySpeedDamage">
+                <Field Id="Upgrade"/>
+            </GameLink>
+            <GameLink GameLink="CommanderPrestigeKerriganAbilitiesMasteryPrimary">
+                <Field Id="Supplement"/>
+            </GameLink>
+        </Instances>
+        <Instances Id="KerriganAbilities3">
+            <GameLink GameLink="MasteryKerriganImmobilizationWaveDamage">
+                <Field Id="Upgrade"/>
+            </GameLink>
+            <GameLink GameLink="CommanderPrestigeKerriganAbilitiesMasteryImmobilizationWave">
+                <Field Id="Supplement"/>
+            </GameLink>
+        </Instances>
+        <Instances Id="NovaSuperCloak1">
+            <GameLink GameLink="MasteryNovaNukeAndHoloDecoyCooldown">
+                <Field Id="Upgrade"/>
+            </GameLink>
+            <GameLink GameLink="CommanderPrestigeNovaSuperCloakMastery">
+                <Field Id="Supplement"/>
+            </GameLink>
+        </Instances>
+        <Instances Id="VorazunTimeStop1">
+            <GameLink GameLink="MasteryVorazunShadowGuardDuration">
+                <Field Id="Upgrade"/>
+            </GameLink>
+            <GameLink GameLink="CommanderPrestigeVorazunTimeStopMastery">
+                <Field Id="Supplement"/>
+            </GameLink>
+        </Instances>
+        <Instances Id="StukovBanshees1">
+            <GameLink GameLink="MasteryStukovTimedLife">
+                <Field Id="Upgrade"/>
+            </GameLink>
+            <GameLink GameLink="CommanderPrestigeStukovBansheesMastery">
+                <Field Id="Supplement"/>
+            </GameLink>
+        </Instances>
+        <Instances Id="StukovBunkers1">
+            <GameLink GameLink="SIInfestedBunkerUpgraded">
+                <Field Id="Upgrade"/>
+            </GameLink>
+            <GameLink GameLink="CommanderPrestigeStukovBunkersPerk">
+                <Field Id="Supplement"/>
+            </GameLink>
+        </Instances>
+        <Instances Id="SwannTurrets1">
+            <GameLink GameLink="TerranBuildingArmor">
+                <Field Id="Upgrade"/>
+            </GameLink>
+            <GameLink GameLink="CommanderPrestigeSwannTurretsArmor">
+                <Field Id="Supplement"/>
+            </GameLink>
+        </Instances>
+        <Instances Id="SwannTurrets2">
+            <GameLink GameLink="HiSecAutoTracking">
+                <Field Id="Upgrade"/>
+            </GameLink>
+            <GameLink GameLink="CommanderPrestigeSwannTurretsRange">
+                <Field Id="Supplement"/>
+            </GameLink>
+        </Instances>
+        <Instances Id="SwannTurrets3">
+            <GameLink GameLink="SwannTurretIncreasedAttackSpeed">
+                <Field Id="Upgrade"/>
+            </GameLink>
+            <GameLink GameLink="CommanderPrestigeSwannTurretsAttackSpeed">
+                <Field Id="Supplement"/>
+            </GameLink>
+        </Instances>
+        <Instances Id="TychusLoneWolf1">
+            <GameLink GameLink="TychusCoopEquipmentCostUpgrade">
+                <Field Id="Upgrade"/>
+            </GameLink>
+            <GameLink GameLink="CommanderPrestigeTychusLoneWolfPerk">
+                <Field Id="Supplement"/>
+            </GameLink>
+        </Instances>
+        <Instances Id="TychusSquadAbilities1">
+            <GameLink GameLink="MasteryTychusHeroCooldown">
+                <Field Id="Upgrade"/>
+            </GameLink>
+            <GameLink GameLink="CommanderPrestigeTychusSquadAbilitiesMastery">
+                <Field Id="Supplement"/>
+            </GameLink>
+        </Instances>
+        <Instances Id="TychusSquadAbilities2">
+            <GameLink GameLink="MasteryTychusGrenadeCooldown">
+                <Field Id="Upgrade"/>
+            </GameLink>
+            <GameLink GameLink="CommanderPrestigeTychusSquadAbilitiesMasteryGrenadeCooldown">
+                <Field Id="Supplement"/>
+            </GameLink>
+        </Instances>
+        <Instances Id="TychusOdin1">
+            <GameLink GameLink="MasteryTychusOdinCooldown">
+                <Field Id="Upgrade"/>
+            </GameLink>
+            <GameLink GameLink="CommanderPrestigeTychusOdinMastery">
+                <Field Id="Supplement"/>
+            </GameLink>
+        </Instances>
+        <Instances Id="HornerMagMines1">
+            <GameLink GameLink="MasteryHornerMagMineUpgrades">
+                <Field Id="Upgrade"/>
+            </GameLink>
+            <GameLink GameLink="CommanderPrestigeHornerMagMinesMastery">
+                <Field Id="Supplement"/>
+            </GameLink>
+        </Instances>
+        <Instances Id="ZagaraZagara1">
+            <GameLink GameLink="MasteryZagaraHealthAndEnergyRegen">
+                <Field Id="Upgrade"/>
+            </GameLink>
+            <GameLink GameLink="CommanderPrestigeZagaraZagaraMastery">
+                <Field Id="Supplement"/>
+            </GameLink>
+        </Instances>
+        <Instances Id="ArtanisCombatAbilities1">
+            <GameLink GameLink="ImmortalResearchBarrierAdvanced">
+                <Field Id="Upgrade"/>
+            </GameLink>
+            <GameLink GameLink="CommanderPrestigeArtanisCombatAbilitiesImmortalBarrierUpgrade">
+                <Field Id="Supplement"/>
+            </GameLink>
+        </Instances>
+        <Instances Id="ArtanisCombatAbilities2">
+            <GameLink GameLink="MasteryArtanisEnergyRegenCooldown">
+                <Field Id="Upgrade"/>
+            </GameLink>
+            <GameLink GameLink="CommanderPrestigeArtanisCombatAbilitiesMasteryEnergyRegenCooldown">
+                <Field Id="Supplement"/>
+            </GameLink>
+        </Instances>
+        <Instances Id="RaynorBio1">
+            <GameLink GameLink="ShieldWall">
+                <Field Id="Upgrade"/>
+            </GameLink>
+            <GameLink GameLink="CommanderPrestigeRaynorBioMarineUpgrade">
+                <Field Id="Supplement"/>
+            </GameLink>
+        </Instances>
+        <Instances Id="RaynorBio2">
+            <GameLink GameLink="FirebatJuggernautPlating">
+                <Field Id="Upgrade"/>
+            </GameLink>
+            <GameLink GameLink="CommanderPrestigeRaynorBioFirebatUpgrade">
+                <Field Id="Supplement"/>
+            </GameLink>
+        </Instances>
+        <Instances Id="RaynorBio3ArmorLevel1">
+            <GameLink GameLink="RaynorTalentedTerranInfantryArmorLevel1">
+                <Field Id="Upgrade"/>
+            </GameLink>
+            <GameLink GameLink="CommanderPrestigeRaynorBioUpgradeTerranInfantryArmorLevel1">
+                <Field Id="Supplement"/>
+            </GameLink>
+        </Instances>
+        <Instances Id="RaynorBio3ArmorLevel2">
+            <GameLink GameLink="RaynorTalentedTerranInfantryArmorLevel2">
+                <Field Id="Upgrade"/>
+            </GameLink>
+            <GameLink GameLink="CommanderPrestigeRaynorBioUpgradeTerranInfantryArmorLevel2">
+                <Field Id="Supplement"/>
+            </GameLink>
+        </Instances>
+        <Instances Id="RaynorBio3ArmorLevel3">
+            <GameLink GameLink="RaynorTalentedTerranInfantryArmorLevel3">
+                <Field Id="Upgrade"/>
+            </GameLink>
+            <GameLink GameLink="CommanderPrestigeRaynorBioUpgradeTerranInfantryArmorLevel3">
+                <Field Id="Supplement"/>
+            </GameLink>
+        </Instances>
+        <Instances Id="ZeratulTornadoes1">
+            <GameLink GameLink="ZeratulArtifactTier1">
+                <Field Id="Upgrade"/>
+            </GameLink>
+            <GameLink GameLink="CommanderPrestigeZeratulTornadoesShadowCleave1">
+                <Field Id="Supplement"/>
+            </GameLink>
+        </Instances>
+        <Instances Id="ZeratulTornadoes2">
+            <GameLink GameLink="ZeratulArtifactTier2">
+                <Field Id="Upgrade"/>
+            </GameLink>
+            <GameLink GameLink="CommanderPrestigeZeratulTornadoesShadowCleave2">
+                <Field Id="Supplement"/>
+            </GameLink>
+        </Instances>
+        <Instances Id="KerriganCreep1">
+            <GameLink GameLink="K5CreepBonuses">
+                <Field Id="Upgrade"/>
+            </GameLink>
+            <GameLink GameLink="CommanderPrestigeKerriganCreepPerk">
+                <Field Id="Supplement"/>
+            </GameLink>
+        </Instances>
+        <Instances Id="ZagaraMaxSupply1">
+            <GameLink GameLink="ScourgeGasCostReduction">
+                <Field Id="Upgrade"/>
+            </GameLink>
+            <GameLink GameLink="CommanderPrestigeZagaraMaxSupplyScourgeCostUpgrade">
+                <Field Id="Supplement"/>
+            </GameLink>
+        </Instances>
+        <Instances Id="TychusLoneWolf2">
+            <GameLink GameLink="TychusHeroCount">
+                <Field Id="Upgrade"/>
+            </GameLink>
+            <GameLink GameLink="CommanderPrestigeTychusLoneWolfRecruitment">
+                <Field Id="Supplement"/>
+            </GameLink>
+        </Instances>
+        <Instances Id="AlarakDeathFleet2">
+            <GameLink GameLink="AlarakImprovedDeathFleet">
+                <Field Id="Upgrade"/>
+            </GameLink>
+            <GameLink GameLink="CommanderPrestigeAlarakDeathFleetPerk">
+                <Field Id="Supplement"/>
+            </GameLink>
+        </Instances>
+        <Instances Id="MengskRoyalGuard1">
+            <GameLink GameLink="MasteryMengskRoyalGuardExperienceGainRate">
+                <Field Id="Upgrade"/>
+            </GameLink>
+            <GameLink GameLink="CommanderPrestigeMengskRoyalGuardMastery">
+                <Field Id="Supplement"/>
+            </GameLink>
+        </Instances>
+    </CUser>
+    <CUser id="Colors">
+        <Instances Id="[Default]"/>
+        <Instances Id="White"/>
+        <Instances Id="Red"/>
+        <Instances Id="Blue"/>
+        <Instances Id="Teal"/>
+        <Instances Id="Purple"/>
+        <Instances Id="Yellow"/>
+        <Instances Id="Orange"/>
+        <Instances Id="Aquamarine"/>
+        <Instances Id="Lavender"/>
+        <Instances Id="Violet"/>
+        <Instances Id="Tuscary"/>
+        <Instances Id="Rose"/>
+        <Instances Id="Silver"/>
+        <Instances Id="Navy"/>
+        <Instances Id="Sangria"/>
+        <Instances Id="Magenta"/>
+        <Instances Id="Mengsk"/>
+    </CUser>
+    <CUser id="XMM_MutationAbominations">
+        <Fields>
+            <Id value="Mutator"/>
+            <Type value="User"/>
+            <UserType value="Mutators"/>
+            <EditorColumn value="1"/>
+        </Fields>
+        <Fields Id="Points" Type="Int" EditorColumn="2"/>
+        <Instances Id="[Default]">
+            <Int Int="1">
+                <Field Id="Points"/>
+            </Int>
+            <User Type="Mutators" Instance="[Default]">
+                <Field Id="Mutator"/>
+            </User>
+        </Instances>
+        <Instances Id="ConcussiveAttacks">
+            <User Type="Mutators" Instance="ConcussiveAttacks">
+                <Field Id="Mutator"/>
+            </User>
+        </Instances>
+        <Instances Id="EminentDomain">
+            <User Type="Mutators" Instance="StructureSteal">
+                <Field Id="Mutator"/>
+            </User>
+        </Instances>
+        <Instances Id="EvasiveManeuvers">
+            <User Type="Mutators" Instance="SideStep">
+                <Field Id="Mutator"/>
+            </User>
+        </Instances>
+        <Instances Id="LifeLeech">
+            <User Type="Mutators" Instance="LifeLeech">
+                <Field Id="Mutator"/>
+            </User>
+        </Instances>
+        <Instances Id="OrbitalStrike">
+            <User Type="Mutators" Instance="OrbitalStrike">
+                <Field Id="Mutator"/>
+            </User>
+        </Instances>
+        <Instances Id="PhotonOverload">
+            <User Type="Mutators" Instance="PhotonOverload">
+                <Field Id="Mutator"/>
+            </User>
+        </Instances>
+        <Instances Id="Shortsighted">
+            <User Type="Mutators" Instance="ReducedVision">
+                <Field Id="Mutator"/>
+            </User>
+        </Instances>
+        <Instances Id="TemporalField">
+            <User Type="Mutators" Instance="TemporalField">
+                <Field Id="Mutator"/>
+            </User>
+        </Instances>
+        <Instances Id="TimeWarp">
+            <User Type="Mutators" Instance="TimeWarp">
+                <Field Id="Mutator"/>
+            </User>
+        </Instances>
+        <Instances Id="AlienIncubation">
+            <Int Int="2">
+                <Field Id="Points"/>
+            </Int>
+            <User Type="Mutators" Instance="SpawnBroodlings">
+                <Field Id="Mutator"/>
+            </User>
+        </Instances>
+        <Instances Id="Barrier">
+            <Int Int="2">
+                <Field Id="Points"/>
+            </Int>
+            <User Type="Mutators" Instance="Barrier">
+                <Field Id="Mutator"/>
+            </User>
+        </Instances>
+        <Instances Id="Darkness">
+            <Int Int="2">
+                <Field Id="Points"/>
+            </Int>
+            <User Type="Mutators" Instance="BlackFog">
+                <Field Id="Mutator"/>
+            </User>
+        </Instances>
+        <Instances Id="HardenedWill">
+            <Int Int="2">
+                <Field Id="Points"/>
+            </Int>
+            <User Type="Mutators" Instance="HardenedWill">
+                <Field Id="Mutator"/>
+            </User>
+        </Instances>
+        <Instances Id="Inspiration">
+            <Int Int="2">
+                <Field Id="Points"/>
+            </Int>
+            <User Type="Mutators" Instance="Inspiration">
+                <Field Id="Mutator"/>
+            </User>
+        </Instances>
+        <Instances Id="LaserDrill">
+            <Int Int="2">
+                <Field Id="Points"/>
+            </Int>
+            <User Type="Mutators" Instance="LaserDrill">
+                <Field Id="Mutator"/>
+            </User>
+        </Instances>
+        <Instances Id="LongRange">
+            <Int Int="2">
+                <Field Id="Points"/>
+            </Int>
+            <User Type="Mutators" Instance="LongRange">
+                <Field Id="Mutator"/>
+            </User>
+        </Instances>
+        <Instances Id="MineralShields">
+            <Int Int="2">
+                <Field Id="Points"/>
+            </Int>
+            <User Type="Mutators" Instance="Entomb">
+                <Field Id="Mutator"/>
+            </User>
+        </Instances>
+        <Instances Id="MomentOfSilence">
+            <Int Int="2">
+                <Field Id="Points"/>
+            </Int>
+            <User Type="Mutators" Instance="MomentOfSilence">
+                <Field Id="Mutator"/>
+            </User>
+        </Instances>
+        <Instances Id="PurifierBeam">
+            <Int Int="2">
+                <Field Id="Points"/>
+            </Int>
+            <User Type="Mutators" Instance="PurifierBeam">
+                <Field Id="Mutator"/>
+            </User>
+        </Instances>
+        <Instances Id="ScorchedEarth">
+            <Int Int="2">
+                <Field Id="Points"/>
+            </Int>
+            <User Type="Mutators" Instance="FireFight">
+                <Field Id="Mutator"/>
+            </User>
+        </Instances>
+        <Instances Id="SpeedFreaks">
+            <Int Int="2">
+                <Field Id="Points"/>
+            </Int>
+            <User Type="Mutators" Instance="UnitSpeed">
+                <Field Id="Mutator"/>
+            </User>
+        </Instances>
+        <Instances Id="Twister">
+            <Int Int="2">
+                <Field Id="Points"/>
+            </Int>
+            <User Type="Mutators" Instance="Tornadoes">
+                <Field Id="Mutator"/>
+            </User>
+        </Instances>
+        <Instances Id="WalkingInfested">
+            <Int Int="2">
+                <Field Id="Points"/>
+            </Int>
+            <User Type="Mutators" Instance="WalkingInfested">
+                <Field Id="Mutator"/>
+            </User>
+        </Instances>
+        <Instances Id="AggressiveDeployment">
+            <Int Int="3">
+                <Field Id="Points"/>
+            </Int>
+            <User Type="Mutators" Instance="DropPods">
+                <Field Id="Mutator"/>
+            </User>
+        </Instances>
+        <Instances Id="Diffusion">
+            <Int Int="3">
+                <Field Id="Points"/>
+            </Int>
+            <User Type="Mutators" Instance="DamageBounce">
+                <Field Id="Mutator"/>
+            </User>
+        </Instances>
+        <Instances Id="DoubleEdged">
+            <Int Int="3">
+                <Field Id="Points"/>
+            </Int>
+            <User Type="Mutators" Instance="DamageReflect">
+                <Field Id="Mutator"/>
+            </User>
+        </Instances>
+        <Instances Id="FatalAttraction">
+            <Int Int="3">
+                <Field Id="Points"/>
+            </Int>
+            <User Type="Mutators" Instance="DeathPull">
+                <Field Id="Mutator"/>
+            </User>
+        </Instances>
+        <Instances Id="Fear">
+            <Int Int="3">
+                <Field Id="Points"/>
+            </Int>
+            <User Type="Mutators" Instance="Fear">
+                <Field Id="Mutator"/>
+            </User>
+        </Instances>
+        <Instances Id="GoingNuclear">
+            <Int Int="3">
+                <Field Id="Points"/>
+            </Int>
+            <User Type="Mutators" Instance="Nukes">
+                <Field Id="Mutator"/>
+            </User>
+        </Instances>
+        <Instances Id="LavaBurst">
+            <Int Int="3">
+                <Field Id="Points"/>
+            </Int>
+            <User Type="Mutators" Instance="LavaBurst">
+                <Field Id="Mutator"/>
+            </User>
+        </Instances>
+        <Instances Id="MissileCommand">
+            <Int Int="3">
+                <Field Id="Points"/>
+            </Int>
+            <User Type="Mutators" Instance="MissileBarrage">
+                <Field Id="Mutator"/>
+            </User>
+        </Instances>
+        <Instances Id="Outbreak">
+            <Int Int="3">
+                <Field Id="Points"/>
+            </Int>
+            <User Type="Mutators" Instance="InfestedTerranSpawner">
+                <Field Id="Mutator"/>
+            </User>
+        </Instances>
+        <Instances Id="SelfDestruction">
+            <Int Int="3">
+                <Field Id="Points"/>
+            </Int>
+            <User Type="Mutators" Instance="DeathAOE">
+                <Field Id="Mutator"/>
+            </User>
+        </Instances>
+        <Instances Id="WeMoveUnseen">
+            <Int Int="3">
+                <Field Id="Points"/>
+            </Int>
+            <User Type="Mutators" Instance="AllEnemiesCloaked">
+                <Field Id="Mutator"/>
+            </User>
+        </Instances>
+        <Instances Id="Magnificent">
+            <Int Int="4">
+                <Field Id="Points"/>
+            </Int>
+            <User Type="Mutators" Instance="Magnificent">
+                <Field Id="Mutator"/>
+            </User>
+        </Instances>
+        <Instances Id="Blizzard">
+            <Int Int="4">
+                <Field Id="Points"/>
+            </Int>
+            <User Type="Mutators" Instance="Blizzard">
+                <Field Id="Mutator"/>
+            </User>
+        </Instances>
+        <Instances Id="Avenger">
+            <Int Int="5">
+                <Field Id="Points"/>
+            </Int>
+            <User Type="Mutators" Instance="Avenger">
+                <Field Id="Mutator"/>
+            </User>
+        </Instances>
+        <Instances Id="MicroTransactions">
+            <Int Int="5">
+                <Field Id="Points"/>
+            </Int>
+            <User Type="Mutators" Instance="OrderCosts">
+                <Field Id="Mutator"/>
+            </User>
+        </Instances>
+        <Instances Id="MutuallyAssuredDestruction">
+            <Int Int="5">
+                <Field Id="Points"/>
+            </Int>
+            <User Type="Mutators" Instance="HybridNuke">
+                <Field Id="Mutator"/>
+            </User>
+        </Instances>
+        <Instances Id="PowerOverwhelming">
+            <Int Int="5">
+                <Field Id="Points"/>
+            </Int>
+            <User Type="Mutators" Instance="OopsAllCasters">
+                <Field Id="Mutator"/>
+            </User>
+        </Instances>
+        <Instances Id="SlimPickings">
+            <Int Int="5">
+                <Field Id="Points"/>
+            </Int>
+            <User Type="Mutators" Instance="NoResources">
+                <Field Id="Mutator"/>
+            </User>
+        </Instances>
+        <Instances Id="VoidReanimators">
+            <Int Int="5">
+                <Field Id="Points"/>
+            </Int>
+            <User Type="Mutators" Instance="Reanimators">
+                <Field Id="Mutator"/>
+            </User>
+        </Instances>
+        <Instances Id="KillBots">
+            <Int Int="6">
+                <Field Id="Points"/>
+            </Int>
+            <User Type="Mutators" Instance="KillBots">
+                <Field Id="Mutator"/>
+            </User>
+        </Instances>
+        <Instances Id="Minesweeper">
+            <Int Int="6">
+                <Field Id="Points"/>
+            </Int>
+            <User Type="Mutators" Instance="SpiderMines">
+                <Field Id="Mutator"/>
+            </User>
+        </Instances>
+        <Instances Id="BlackDeath">
+            <Int Int="7">
+                <Field Id="Points"/>
+            </Int>
+            <User Type="Mutators" Instance="Plague">
+                <Field Id="Mutator"/>
+            </User>
+        </Instances>
+        <Instances Id="JustDie">
+            <Int Int="7">
+                <Field Id="Points"/>
+            </Int>
+            <User Type="Mutators" Instance="JustDie">
+                <Field Id="Mutator"/>
+            </User>
+        </Instances>
+        <Instances Id="Polarity">
+            <Int Int="7">
+                <Field Id="Points"/>
+            </Int>
+            <User Type="Mutators" Instance="Polarity">
+                <Field Id="Mutator"/>
+            </User>
+        </Instances>
+        <Instances Id="Transmutation">
+            <Int Int="7">
+                <Field Id="Points"/>
+            </Int>
+            <User Type="Mutators" Instance="Evolve">
+                <Field Id="Mutator"/>
+            </User>
+        </Instances>
+        <Instances Id="Propagators">
+            <Int Int="8">
+                <Field Id="Points"/>
+            </Int>
+            <User Type="Mutators" Instance="Propagate">
+                <Field Id="Mutator"/>
+            </User>
+        </Instances>
+        <Instances Id="HeroesFromTheStorm">
+            <Int Int="10">
+                <Field Id="Points"/>
+            </Int>
+            <User Type="Mutators" Instance="HeroesFromTheStorm">
+                <Field Id="Mutator"/>
+            </User>
+        </Instances>
+        <Instances Id="VoidRifts">
+            <Int Int="10">
+                <Field Id="Points"/>
+            </Int>
+            <User Type="Mutators" Instance="VoidRifts">
+                <Field Id="Mutator"/>
+            </User>
+        </Instances>
+        <Instances Id="BoomBots">
+            <Int Int="10">
+                <Field Id="Points"/>
+            </Int>
+            <User Type="Mutators" Instance="BoomBots">
+                <Field Id="Mutator"/>
+            </User>
+        </Instances>
+    </CUser>
+    <CUser id="XMM_MutationDifficultyCountTargets">
+        <Fields Id="MutatorCount" Type="Int" EditorColumn="1"/>
+        <Fields Id="TargetWeight" Type="Fixed" EditorColumn="2"/>
+        <Fields>
+            <Id value="MinDifficulty"/>
+            <Type value="User"/>
+            <UserType value="XMM_MutationDifficultyLevels"/>
+            <EditorColumn value="3"/>
+        </Fields>
+        <Instances Id="[Default]">
+            <User Type="XMM_MutationDifficultyLevels" Instance="Plus1">
+                <Field Id="MinDifficulty"/>
+            </User>
+        </Instances>
+        <Instances Id="2">
+            <Fixed Fixed="48">
+                <Field Id="TargetWeight"/>
+            </Fixed>
+            <Int Int="2">
+                <Field Id="MutatorCount"/>
+            </Int>
+        </Instances>
+        <Instances Id="3">
+            <Fixed Fixed="48">
+                <Field Id="TargetWeight"/>
+            </Fixed>
+            <Int Int="3">
+                <Field Id="MutatorCount"/>
+            </Int>
+        </Instances>
+        <Instances Id="4">
+            <Fixed Fixed="4">
+                <Field Id="TargetWeight"/>
+            </Fixed>
+            <Int Int="4">
+                <Field Id="MutatorCount"/>
+            </Int>
+        </Instances>
+    </CUser>
+    <CUser id="XMM_MutationDifficultyLevels">
+        <Fields Id="Name" Type="Text" EditorColumn="1"/>
+        <Fields Id="PointsMin" Type="Int" EditorColumn="2"/>
+        <Fields Id="PointsMax" Type="Int" EditorColumn="3"/>
+        <Fields Id="MutatorsMin" Type="Int" EditorColumn="4"/>
+        <Fields Id="MutatorsMax" Type="Int" EditorColumn="5"/>
+        <Fields Id="XPModifier" Type="Fixed" EditorColumn="6"/>
+        <Instances Id="[Default]">
+            <Int Int="2">
+                <Field Id="MutatorsMin"/>
+            </Int>
+            <Int Int="4">
+                <Field Id="MutatorsMax"/>
+            </Int>
+            <Int Int="10">
+                <Field Id="PointsMax"/>
+            </Int>
+            <Int Int="8">
+                <Field Id="PointsMin"/>
+            </Int>
+        </Instances>
+        <Instances Id="Plus1">
+            <Fixed Fixed="0.75">
+                <Field Id="XPModifier"/>
+            </Fixed>
+            <Int Int="3">
+                <Field Id="MutatorsMax"/>
+            </Int>
+            <Int Int="6">
+                <Field Id="PointsMax"/>
+            </Int>
+            <Int Int="4">
+                <Field Id="PointsMin"/>
+            </Int>
+            <Text Text="UserData/MutationDifficultyLevels/Plus1_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="Plus2">
+            <Fixed Fixed="1">
+                <Field Id="XPModifier"/>
+            </Fixed>
+            <Int Int="7">
+                <Field Id="PointsMin"/>
+            </Int>
+            <Int Int="8">
+                <Field Id="PointsMax"/>
+            </Int>
+            <Int Int="3">
+                <Field Id="MutatorsMax"/>
+            </Int>
+            <Text Text="UserData/MutationDifficultyLevels/Plus2_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="Plus3">
+            <Fixed Fixed="1.25">
+                <Field Id="XPModifier"/>
+            </Fixed>
+            <Int Int="9">
+                <Field Id="PointsMin"/>
+            </Int>
+            <Int Int="3">
+                <Field Id="MutatorsMax"/>
+            </Int>
+            <Text Text="UserData/MutationDifficultyLevels/Plus3_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="Plus4">
+            <Fixed Fixed="1.5">
+                <Field Id="XPModifier"/>
+            </Fixed>
+            <Int Int="11">
+                <Field Id="PointsMin"/>
+            </Int>
+            <Int Int="12">
+                <Field Id="PointsMax"/>
+            </Int>
+            <Int Int="3">
+                <Field Id="MutatorsMax"/>
+            </Int>
+            <Text Text="UserData/MutationDifficultyLevels/Plus4_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="Plus5">
+            <Fixed Fixed="1.75">
+                <Field Id="XPModifier"/>
+            </Fixed>
+            <Int Int="15">
+                <Field Id="PointsMin"/>
+            </Int>
+            <Int Int="16">
+                <Field Id="PointsMax"/>
+            </Int>
+            <Text Text="UserData/MutationDifficultyLevels/Plus5_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="Plus6">
+            <Fixed Fixed="2">
+                <Field Id="XPModifier"/>
+            </Fixed>
+            <Int Int="19">
+                <Field Id="PointsMin"/>
+            </Int>
+            <Int Int="20">
+                <Field Id="PointsMax"/>
+            </Int>
+            <Text Text="UserData/MutationDifficultyLevels/Plus6_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+    </CUser>
+    <CUser id="XDeprecated_CampaignTips">
+        <Fields>
+            <Id value="Icon"/>
+            <Type value="Image"/>
+            <GameLinkType value="Abil"/>
+            <EditorColumn value="2"/>
+        </Fields>
+        <Fields>
+            <Id value="Name"/>
+            <Type value="Text"/>
+            <GameLinkType value="Abil"/>
+            <EditorColumn value="1"/>
+        </Fields>
+        <Fields>
+            <Id value="Description"/>
+            <Type value="Text"/>
+            <GameLinkType value="Abil"/>
+            <EditorColumn value="3"/>
+        </Fields>
+        <Fields Id="Created" Type="Int" GameLinkType="Abil">
+            <Flags index="Modifiable" value="1"/>
+        </Fields>
+        <Fields>
+            <Id value="Prefix"/>
+            <Type value="Text"/>
+            <EditorColumn value="1"/>
+            <EditorText value="Prefix"/>
+        </Fields>
+        <Fields Id="Display Limit" Type="Int"/>
+        <Instances Id="[Default]"/>
+        <Instances Id="SampleTip">
+            <Image Image="Assets\Textures\btn-unit-zerg-kerrigan.dds" Edge="Top" Attach="Pos_RaynorToTychus">
+                <Field Id="Icon"/>
+            </Image>
+            <Int Int="1">
+                <Field Id="Display Limit"/>
+            </Int>
+            <Text Text="UserData/CampaignTips/SampleTip_Description">
+                <Field Id="Description"/>
+            </Text>
+            <Text Text="UserData/CampaignTips/SampleTip_Name">
+                <Field Id="Name"/>
+            </Text>
+            <Text Text="UserData/CampaignTips/SampleTip_Prefix">
+                <Field Id="Prefix"/>
+            </Text>
+        </Instances>
+        <Instances Id="SwannDefense">
+            <Image Image="Assets\Textures\ui_tipicon_campaign_defend.dds">
+                <Field Id="Icon"/>
+            </Image>
+            <Text Text="UserData/CampaignTips/SwannDefense_Name">
+                <Field Id="Name"/>
+            </Text>
+            <Text Text="UserData/CampaignTips/SwannDefense_Description">
+                <Field Id="Description"/>
+            </Text>
+        </Instances>
+        <Instances Id="SwannOffense">
+            <Image Image="Assets\Textures\ui_tipicon_campaign_attack.dds">
+                <Field Id="Icon"/>
+            </Image>
+            <Text Text="UserData/CampaignTips/SwannOffense_Name">
+                <Field Id="Name"/>
+            </Text>
+            <Text Text="UserData/CampaignTips/SwannOffense_Description">
+                <Field Id="Description"/>
+            </Text>
+        </Instances>
+        <Instances Id="SwannDetection">
+            <Image Image="Assets\Textures\ui_tipicon_evolution_hydralisk-detection.dds">
+                <Field Id="Icon"/>
+            </Image>
+            <Text Text="UserData/CampaignTips/SwannDetection_Description">
+                <Field Id="Description"/>
+            </Text>
+            <Text Text="UserData/CampaignTips/SwannDetection_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="SwannLaserDrill">
+            <Image Image="Assets\Textures\ui_mission_laserdrill_icon.dds">
+                <Field Id="Icon"/>
+            </Image>
+            <Text Text="UserData/CampaignTips/SwannLaserDrill_Name">
+                <Field Id="Name"/>
+            </Text>
+            <Text Text="UserData/CampaignTips/SwannLaserDrill_Description">
+                <Field Id="Description"/>
+            </Text>
+        </Instances>
+        <Instances Id="SwannDelivery">
+            <Image Image="Assets\Textures\ui_heroicons_portrait_swann.dds">
+                <Field Id="Icon"/>
+            </Image>
+            <Text Text="UserData/CampaignTips/SwannDelivery_Name">
+                <Field Id="Name"/>
+            </Text>
+            <Text Text="UserData/CampaignTips/SwannDelivery_Description">
+                <Field Id="Description"/>
+            </Text>
+        </Instances>
+        <Instances Id="RaynorDefense">
+            <Image Image="Assets\Textures\ui_tipicon_campaign_defend.dds">
+                <Field Id="Icon"/>
+            </Image>
+            <Text Text="UserData/CampaignTips/RaynorDefense_Name">
+                <Field Id="Name"/>
+            </Text>
+            <Text Text="UserData/CampaignTips/RaynorDefense_Description">
+                <Field Id="Description"/>
+            </Text>
+        </Instances>
+        <Instances Id="RaynorOffense">
+            <Image Image="Assets\Textures\ui_tipicon_campaign_attack.dds">
+                <Field Id="Icon"/>
+            </Image>
+            <Text Text="UserData/CampaignTips/RaynorOffense_Name">
+                <Field Id="Name"/>
+            </Text>
+            <Text Text="UserData/CampaignTips/RaynorOffense_Description">
+                <Field Id="Description"/>
+            </Text>
+        </Instances>
+        <Instances Id="RaynorDetection">
+            <Image Image="Assets\Textures\ui_tipicon_evolution_hydralisk-detection.dds">
+                <Field Id="Icon"/>
+            </Image>
+            <Text Text="UserData/CampaignTips/RaynorDetection_Name">
+                <Field Id="Name"/>
+            </Text>
+            <Text Text="UserData/CampaignTips/RaynorDetection_Description">
+                <Field Id="Description"/>
+            </Text>
+        </Instances>
+        <Instances Id="RaynorHyperion">
+            <Image Image="Assets\Textures\btn-tips-hyperion.dds">
+                <Field Id="Icon"/>
+            </Image>
+            <Text Text="UserData/CampaignTips/RaynorHyperion_Name">
+                <Field Id="Name"/>
+            </Text>
+            <Text Text="UserData/CampaignTips/RaynorHyperion_Description">
+                <Field Id="Description"/>
+            </Text>
+        </Instances>
+        <Instances Id="RaynorBanshees">
+            <Image Image="Assets\Textures\btn-unit-terran-bansheemercenary.dds">
+                <Field Id="Icon"/>
+            </Image>
+            <Text Text="UserData/CampaignTips/RaynorBanshees_Name">
+                <Field Id="Name"/>
+            </Text>
+            <Text Text="UserData/CampaignTips/RaynorBanshees_Description">
+                <Field Id="Description"/>
+            </Text>
+        </Instances>
+        <Instances Id="KerriganDefense">
+            <Image Image="Assets\Textures\ui_tipicon_campaign_defend.dds">
+                <Field Id="Icon"/>
+            </Image>
+            <Text Text="UserData/CampaignTips/KerriganDefense_Name">
+                <Field Id="Name"/>
+            </Text>
+            <Text Text="UserData/CampaignTips/KerriganDefense_Description">
+                <Field Id="Description"/>
+            </Text>
+        </Instances>
+        <Instances Id="KerriganOffense">
+            <Image Image="Assets\Textures\ui_tipicon_campaign_attack.dds">
+                <Field Id="Icon"/>
+            </Image>
+            <Text Text="UserData/CampaignTips/KerriganOffense_Name">
+                <Field Id="Name"/>
+            </Text>
+            <Text Text="UserData/CampaignTips/KerriganOffense_Description">
+                <Field Id="Description"/>
+            </Text>
+        </Instances>
+        <Instances Id="KerriganDetection">
+            <Image Image="Assets\Textures\ui_tipicon_evolution_hydralisk-detection.dds">
+                <Field Id="Icon"/>
+            </Image>
+            <Text Text="UserData/CampaignTips/KerriganDetection_Name">
+                <Field Id="Name"/>
+            </Text>
+            <Text Text="UserData/CampaignTips/KerriganDetection_Description">
+                <Field Id="Description"/>
+            </Text>
+        </Instances>
+        <Instances Id="KerriganCrushing">
+            <Image Image="Assets\Textures\btn-ability-swarm-kerrigan-crushinggrip.dds">
+                <Field Id="Icon"/>
+            </Image>
+            <Text Text="UserData/CampaignTips/KerriganCrushing_Name">
+                <Field Id="Name"/>
+            </Text>
+            <Text Text="UserData/CampaignTips/KerriganCrushing_Description">
+                <Field Id="Description"/>
+            </Text>
+        </Instances>
+        <Instances Id="KerriganAssimilation">
+            <Image Image="Assets\Textures\btn-tips-resourcecaches.dds">
+                <Field Id="Icon"/>
+            </Image>
+            <Text Text="UserData/CampaignTips/KerriganAssimilation_Name">
+                <Field Id="Name"/>
+            </Text>
+            <Text Text="UserData/CampaignTips/KerriganAssimilation_Description">
+                <Field Id="Description"/>
+            </Text>
+        </Instances>
+        <Instances Id="ZagaraDefense">
+            <Image Image="Assets\Textures\ui_tipicon_campaign_defend.dds">
+                <Field Id="Icon"/>
+            </Image>
+            <Text Text="UserData/CampaignTips/ZagaraDefense_Name">
+                <Field Id="Name"/>
+            </Text>
+            <Text Text="UserData/CampaignTips/ZagaraDefense_Description">
+                <Field Id="Description"/>
+            </Text>
+        </Instances>
+        <Instances Id="ZagaraOffense">
+            <Image Image="Assets\Textures\ui_tipicon_campaign_attack.dds">
+                <Field Id="Icon"/>
+            </Image>
+            <Text Text="UserData/CampaignTips/ZagaraOffense_Name">
+                <Field Id="Name"/>
+            </Text>
+            <Text Text="UserData/CampaignTips/ZagaraOffense_Description">
+                <Field Id="Description"/>
+            </Text>
+        </Instances>
+        <Instances Id="ZagaraDetection">
+            <Image Image="Assets\Textures\ui_tipicon_evolution_hydralisk-detection.dds">
+                <Field Id="Icon"/>
+            </Image>
+            <Text Text="UserData/CampaignTips/ZagaraDetection_Name">
+                <Field Id="Name"/>
+            </Text>
+            <Text Text="UserData/CampaignTips/ZagaraDetection_Description">
+                <Field Id="Description"/>
+            </Text>
+        </Instances>
+        <Instances Id="ZagaraRoachDrop">
+            <Image Image="Assets\Textures\ui-kerriganupgrades-droppods.dds">
+                <Field Id="Icon"/>
+            </Image>
+            <Text Text="UserData/CampaignTips/ZagaraRoachDrop_Name">
+                <Field Id="Name"/>
+            </Text>
+            <Text Text="UserData/CampaignTips/ZagaraRoachDrop_Description">
+                <Field Id="Description"/>
+            </Text>
+        </Instances>
+        <Instances Id="ZagaraFrenzy">
+            <Image Image="Assets\Textures\ui-armyupgrades-zerg-frenzy.dds">
+                <Field Id="Icon"/>
+            </Image>
+            <Text Text="UserData/CampaignTips/ZagaraFrenzy_Name">
+                <Field Id="Name"/>
+            </Text>
+            <Text Text="UserData/CampaignTips/ZagaraFrenzy_Description">
+                <Field Id="Description"/>
+            </Text>
+        </Instances>
+        <Instances Id="ArtanisDefense">
+            <Image Image="Assets\Textures\ui_tipicon_campaign_defend.dds">
+                <Field Id="Icon"/>
+            </Image>
+            <Text Text="UserData/CampaignTips/ArtanisDefense_Name">
+                <Field Id="Name"/>
+            </Text>
+            <Text Text="UserData/CampaignTips/ArtanisDefense_Description">
+                <Field Id="Description"/>
+            </Text>
+        </Instances>
+        <Instances Id="ArtanisOffense">
+            <Image Image="Assets\Textures\ui_tipicon_campaign_attack.dds">
+                <Field Id="Icon"/>
+            </Image>
+            <Text Text="UserData/CampaignTips/ArtanisOffense_Name">
+                <Field Id="Name"/>
+            </Text>
+            <Text Text="UserData/CampaignTips/ArtanisOffense_Description">
+                <Field Id="Description"/>
+            </Text>
+        </Instances>
+        <Instances Id="ArtanisDetection">
+            <Image Image="Assets\Textures\ui_tipicon_evolution_hydralisk-detection.dds">
+                <Field Id="Icon"/>
+            </Image>
+            <Text Text="UserData/CampaignTips/ArtanisDetection_Name">
+                <Field Id="Name"/>
+            </Text>
+            <Text Text="UserData/CampaignTips/ArtanisDetection_Description">
+                <Field Id="Description"/>
+            </Text>
+        </Instances>
+        <Instances Id="ArtanisSoA">
+            <Image Image="Assets\Textures\btn-unit-protoss-frigate.dds">
+                <Field Id="Icon"/>
+            </Image>
+            <Text Text="UserData/CampaignTips/ArtanisSoA_Name">
+                <Field Id="Name"/>
+            </Text>
+            <Text Text="UserData/CampaignTips/ArtanisSoA_Description">
+                <Field Id="Description"/>
+            </Text>
+        </Instances>
+        <Instances Id="ArtanisShields">
+            <Image Image="Assets\Textures\btn-ability-protoss-invulnerabilityshield.dds">
+                <Field Id="Icon"/>
+            </Image>
+            <Text Text="UserData/CampaignTips/ArtanisShields_Name">
+                <Field Id="Name"/>
+            </Text>
+            <Text Text="UserData/CampaignTips/ArtanisShields_Description">
+                <Field Id="Description"/>
+            </Text>
+        </Instances>
+    </CUser>
+    <CUser id="GameSettings">
+        <Fields Id="ExperienceToLevel" Type="Int" Count="15"/>
+        <Fields Id="ExperienceWin" Type="Int"/>
+        <Fields Id="ExperienceDifficultyModifier" Type="Fixed" Count="6"/>
+        <Fields Id="ExperienceBonusObjectiveModifier" Type="Int"/>
+        <Fields Id="ExperienceLossMaxMultiplier" Type="Fixed"/>
+        <Fields Id="HeroReviveTime" Type="Fixed"/>
+        <Instances Id="[Default]"/>
+        <Instances Id="GameValues">
+            <Fixed Fixed="0.5">
+                <Field Id="ExperienceLossMaxMultiplier"/>
+            </Fixed>
+            <Fixed Fixed="60">
+                <Field Id="HeroReviveTime"/>
+            </Fixed>
+            <Int Int="20000">
+                <Field Id="ExperienceToLevel" Index="1"/>
+            </Int>
+            <Int Int="45000">
+                <Field Id="ExperienceToLevel" Index="3"/>
+            </Int>
+            <Int Int="50000">
+                <Field Id="ExperienceToLevel" Index="4"/>
+            </Int>
+            <Int Int="55000">
+                <Field Id="ExperienceToLevel" Index="5"/>
+            </Int>
+            <Int Int="60000">
+                <Field Id="ExperienceToLevel" Index="6"/>
+            </Int>
+            <Int Int="67500">
+                <Field Id="ExperienceToLevel" Index="7"/>
+            </Int>
+            <Int Int="75000">
+                <Field Id="ExperienceToLevel" Index="8"/>
+            </Int>
+            <Int Int="82500">
+                <Field Id="ExperienceToLevel" Index="9"/>
+            </Int>
+            <Int Int="300">
+                <Field Id="ExperienceWin" Index="5"/>
+            </Int>
+            <Int Int="200">
+                <Field Id="ExperienceWin" Index="4"/>
+            </Int>
+            <Int Int="175">
+                <Field Id="ExperienceWin" Index="3"/>
+            </Int>
+            <Int Int="150">
+                <Field Id="ExperienceWin" Index="2"/>
+            </Int>
+            <Int Int="125">
+                <Field Id="ExperienceWin" Index="1"/>
+            </Int>
+            <Int Int="20000">
+                <Field Id="ExperienceWin"/>
+            </Int>
+            <Int Int="90000">
+                <Field Id="ExperienceToLevel" Index="10"/>
+            </Int>
+            <Int Int="100000">
+                <Field Id="ExperienceToLevel" Index="11"/>
+            </Int>
+            <Int Int="120000">
+                <Field Id="ExperienceToLevel" Index="13"/>
+            </Int>
+            <Int Int="130000">
+                <Field Id="ExperienceToLevel" Index="14"/>
+            </Int>
+            <Int Int="40000">
+                <Field Id="ExperienceToLevel" Index="2"/>
+            </Int>
+            <Int Int="110000">
+                <Field Id="ExperienceToLevel" Index="12"/>
+            </Int>
+        </Instances>
+    </CUser>
+    <CUser id="MutatorChallenges">
+        <Fields>
+            <Id value="Mutators"/>
+            <Type value="User"/>
+            <UserType value="Mutators"/>
+            <Count value="3"/>
+            <EditorColumn value="2"/>
+        </Fields>
+        <Fields>
+            <Id value="Map"/>
+            <Type value="GameLink"/>
+            <GameLinkType value="Map"/>
+            <EditorColumn value="2"/>
+        </Fields>
+        <Fields Id="Name" Type="Text" EditorColumn="1"/>
+        <Instances Id="[Default]"/>
+    </CUser>
+    <CUser id="Mutators">
+        <Fields>
+            <Id value="Name"/>
+            <Type value="Text"/>
+            <EditorColumn value="1"/>
+            <EditorText value="Name"/>
+        </Fields>
+        <Fields Id="Description" Type="Text" EditorColumn="6"/>
+        <Fields Id="State" Type="Int">
+            <Flags index="Modifiable" value="1"/>
+        </Fields>
+        <Fields Id="Icon" Type="Image"/>
+        <Fields Id="RandomAllowed" Type="Int" EditorColumn="2"/>
+        <Fields Id="RandomFirstAllowed" Type="Int"/>
+        <Fields Id="CustomAllowed" Type="Int" EditorColumn="3"/>
+        <Fields Id="CustomAllowMultiple" Type="Int"/>
+        <Fields Id="ListOrder" Type="Int" EditorColumn="4"/>
+        <Fields Id="Unfinished" Type="Int" EditorColumn="5"/>
+        <Fields Id="Priority" Type="Int" EditorColumn="2"/>
+        <Fields Id="Active" Type="Int">
+            <Flags index="Modifiable" value="1"/>
+        </Fields>
+        <Fields>
+            <Id value="Players"/>
+            <Type value="Int"/>
+            <Count value="3"/>
+            <EditorColumn value="3"/>
+        </Fields>
+        <Instances Id="[Default]">
+            <Image>
+                <Field Id="Icon"/>
+            </Image>
+            <Int Int="1">
+                <Field Id="RandomFirstAllowed"/>
+            </Int>
+            <Int Int="1">
+                <Field Id="Players"/>
+            </Int>
+            <Int Int="1">
+                <Field Id="Players" Index="1"/>
+            </Int>
+            <Int Int="1">
+                <Field Id="Players" Index="2"/>
+            </Int>
+        </Instances>
+    </CUser>
+    <CUser id="MissionObjective">
+        <Fields Id="Progress" Type="Int" GameLinkType="Abil">
+            <Flags index="Modifiable" value="1"/>
+        </Fields>
+        <Fields Id="Complete" Type="Int" GameLinkType="Abil">
+            <Flags index="Modifiable" value="1"/>
+            <Flags index="ConvState" value="1"/>
+        </Fields>
+        <Fields Id="Available" Type="Int" GameLinkType="Abil">
+            <Flags index="Modifiable" value="1"/>
+            <Flags index="ConvState" value="1"/>
+        </Fields>
+        <Fields Id="RewardText" Type="Text"/>
+        <Fields Id="FormatText" Type="Text" EditorColumn="3"/>
+        <Fields Id="XPMultiplier" Type="Fixed"/>
+        <Fields Id="Required Count" Type="Int">
+            <Flags index="Modifiable" value="1"/>
+        </Fields>
+        <Fields Id="ScoreValueMax" Type="Int"/>
+        <Fields Id="ScoreDurationMax" Type="Fixed"/>
+        <Fields Id="Created" Type="Int"/>
+        <Fields Id="Objective" Type="GameLink" GameLinkType="Objective"/>
+        <Instances Id="[Default]">
+            <Fixed Fixed="1">
+                <Field Id="XPMultiplier"/>
+            </Fixed>
+            <Fixed Fixed="30">
+                <Field Id="ScoreDurationMax"/>
+            </Fixed>
+            <Int Int="-1">
+                <Field Id="Required Count"/>
+            </Int>
+            <Int Int="75000">
+                <Field Id="ScoreValueMax"/>
+            </Int>
+            <Text Text="UserData/MissionObjective/[Default]_FormatText">
+                <Field Id="FormatText"/>
+            </Text>
+        </Instances>
+        <Instances Id="AC_BelshirEscort_Bonus01">
+            <Fixed Fixed="0.5">
+                <Field Id="XPMultiplier"/>
+            </Fixed>
+            <Fixed Fixed="20">
+                <Field Id="ScoreDurationMax"/>
+            </Fixed>
+            <GameLink GameLink="AC_BelshirEscort_Bonus01">
+                <Field Id="Objective"/>
+            </GameLink>
+            <Text Text="UserData/MissionObjective/AC_BelshirEscort_Bonus01_FormatText">
+                <Field Id="FormatText"/>
+            </Text>
+        </Instances>
+        <Instances Id="AC_BelshirEscort_Primary01">
+            <GameLink GameLink="AC_BelshirEscort_Primary01">
+                <Field Id="Objective"/>
+            </GameLink>
+            <Text Text="UserData/MissionObjective/AC_BelshirEscort_Primary01_FormatText">
+                <Field Id="FormatText"/>
+            </Text>
+        </Instances>
+        <Instances Id="AC_BelshirEscort_Primary02">
+            <GameLink GameLink="AC_BelshirEscort_Primary02">
+                <Field Id="Objective"/>
+            </GameLink>
+            <Text Text="UserData/MissionObjective/AC_BelshirEscort_Primary02_FormatText">
+                <Field Id="FormatText"/>
+            </Text>
+        </Instances>
+    </CUser>
+    <CUser id="MissionTransmission">
+        <Fields Id="PlayingNow" Type="Int">
+            <Flags index="Modifiable" value="1"/>
+            <Flags index="ConvState" value="1"/>
+        </Fields>
+        <Fields>
+            <Id value="Name"/>
+            <Type value="Text"/>
+            <EditorColumn value="1"/>
+            <EditorText value="Name"/>
+        </Fields>
+        <Fields>
+            <Id value="Conversation"/>
+            <Type value="GameLink"/>
+            <GameLinkType value="Conversation"/>
+            <EditorColumn value="3"/>
+        </Fields>
+        <Fields>
+            <Id value="Suffix"/>
+            <Type value="Text"/>
+            <EditorColumn value="2"/>
+            <EditorText value="Suffix"/>
+        </Fields>
+        <Fields Id="ResponseChance" Type="Int" EditorColumn="4"/>
+        <Fields Id="Deffered" Type="Int">
+            <Flags index="Modifiable" value="1"/>
+        </Fields>
+        <Instances Id="[Default]">
+            <GameLink GameLink="acObj">
+                <Field Id="Conversation"/>
+            </GameLink>
+            <Int Int="100">
+                <Field Id="ResponseChance"/>
+            </Int>
+        </Instances>
+        <Instances Id="PrimaryObjectiveRevealed">
+            <Text Text="UserData/MissionTransmission/PrimaryObjectiveRevealed_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="PrimaryObjectiveFinalStage">
+            <Text Text="UserData/MissionTransmission/PrimaryObjectiveFinalStage_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="PrimaryObjectiveDestroyed">
+            <Text Text="UserData/MissionTransmission/PrimaryObjectiveDestroyed_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="ForcesEngagedDestroy">
+            <GameLink GameLink="acResponses">
+                <Field Id="Conversation"/>
+            </GameLink>
+            <Text Text="UserData/MissionTransmission/ForcesEngagedDestroy_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="DestroyedReminder">
+            <Text Text="UserData/MissionTransmission/DestroyedReminder_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="ReverseEscortReady">
+            <Text Text="UserData/MissionTransmission/ReverseEscortReady_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="ReverseEscortEscaping">
+            <Text Text="UserData/MissionTransmission/ReverseEscortEscaping_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="ReverseEscortDestroyed">
+            <Text Text="UserData/MissionTransmission/ReverseEscortDestroyed_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="ForcesEngagedEscape">
+            <GameLink GameLink="acResponses">
+                <Field Id="Conversation"/>
+            </GameLink>
+            <Text Text="UserData/MissionTransmission/ForcesEngagedEscape_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="ReverseEscortReminder">
+            <Text Text="UserData/MissionTransmission/ReverseEscortReminder_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="PrimaryObjectiveDefendReady">
+            <Text Text="UserData/MissionTransmission/PrimaryObjectiveDefendReady_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="MainObjectiveDefendDamaged">
+            <Text Text="UserData/MissionTransmission/MainObjectiveDefendDamaged_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="MainObjectiveDefendCritical">
+            <Text Text="UserData/MissionTransmission/MainObjectiveDefendCritical_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="DefendSucces">
+            <Text Text="UserData/MissionTransmission/DefendSucces_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="ForcesEngagedDefend">
+            <GameLink GameLink="acResponses">
+                <Field Id="Conversation"/>
+            </GameLink>
+            <Text Text="UserData/MissionTransmission/ForcesEngagedDefend_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="DefendReminder">
+            <Text Text="UserData/MissionTransmission/DefendReminder_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="CaptureReady">
+            <Text Text="UserData/MissionTransmission/CaptureReady_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="CaptureEnemyCapturing">
+            <Text Text="UserData/MissionTransmission/CaptureEnemyCapturing_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="CaptureStand">
+            <Text Text="UserData/MissionTransmission/CaptureStand_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="CaptureNeedAlly">
+            <Text Text="UserData/MissionTransmission/CaptureNeedAlly_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="CaptureAllyWaiting">
+            <Text Text="UserData/MissionTransmission/CaptureAllyWaiting_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="CaptureControlLost">
+            <Text Text="UserData/MissionTransmission/CaptureControlLost_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="ControlSuccessful">
+            <Text Text="UserData/MissionTransmission/ControlSuccessful_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="CaptureContested">
+            <Text Text="UserData/MissionTransmission/CaptureContested_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="ForcesEngagedControl">
+            <GameLink GameLink="acResponses">
+                <Field Id="Conversation"/>
+            </GameLink>
+            <Text Text="UserData/MissionTransmission/ForcesEngagedControl_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="CaptureReminder">
+            <Text Text="UserData/MissionTransmission/CaptureReminder_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="CaptureObjectReady">
+            <Text Text="UserData/MissionTransmission/CaptureObjectReady_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="CaptureObjectEnemyControl">
+            <Text Text="UserData/MissionTransmission/CaptureObjectEnemyControl_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="CaptureObjectAlliedControl">
+            <Text Text="UserData/MissionTransmission/CaptureObjectAlliedControl_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="CaptureObjectLost">
+            <Text Text="UserData/MissionTransmission/CaptureObjectLost_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="CaptureObjectComplete">
+            <Text Text="UserData/MissionTransmission/CaptureObjectComplete_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="ForcesEngagedCaptureObject">
+            <GameLink GameLink="acResponses">
+                <Field Id="Conversation"/>
+            </GameLink>
+            <Text Text="UserData/MissionTransmission/ForcesEngagedCaptureObject_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="CaptureObjectReminder">
+            <Text Text="UserData/MissionTransmission/CaptureObjectReminder_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="TransportReady">
+            <Text Text="UserData/MissionTransmission/TransportReady_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="TransportUnderAttack">
+            <Text Text="UserData/MissionTransmission/TransportUnderAttack_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="TransportLost">
+            <Text Text="UserData/MissionTransmission/TransportLost_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="TransportReclaim">
+            <Text Text="UserData/MissionTransmission/TransportReclaim_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="TransportAlmostThere">
+            <Text Text="UserData/MissionTransmission/TransportAlmostThere_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="TransportSuccess">
+            <Text Text="UserData/MissionTransmission/TransportSuccess_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="ForcesEngagedTransport">
+            <GameLink GameLink="acResponses">
+                <Field Id="Conversation"/>
+            </GameLink>
+            <Text Text="UserData/MissionTransmission/ForcesEngagedTransport_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="TransportReminder">
+            <Text Text="UserData/MissionTransmission/TransportReminder_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="EscortReady">
+            <Text Text="UserData/MissionTransmission/EscortReady_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="EscortMoving">
+            <Text Text="UserData/MissionTransmission/EscortMoving_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="EscortStopped">
+            <Text Text="UserData/MissionTransmission/EscortStopped_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="MainObjectiveEscortAlmostThere">
+            <Text Text="UserData/MissionTransmission/MainObjectiveEscortAlmostThere_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="EscortUnderAttack">
+            <Text Text="UserData/MissionTransmission/EscortUnderAttack_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="EscortLowHealth">
+            <Text Text="UserData/MissionTransmission/EscortLowHealth_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="EscortSuccessful">
+            <Text Text="UserData/MissionTransmission/EscortSuccessful_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="ForcesEngagedEscort">
+            <GameLink GameLink="acResponses">
+                <Field Id="Conversation"/>
+            </GameLink>
+            <Text Text="UserData/MissionTransmission/ForcesEngagedEscort_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="EscortReminder">
+            <Text Text="UserData/MissionTransmission/EscortReminder_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="PrimaryObjectiveHoldout">
+            <Text Text="UserData/MissionTransmission/PrimaryObjectiveHoldout_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="PrimaryObjectiveAlmostDone">
+            <Text Text="UserData/MissionTransmission/PrimaryObjectiveAlmostDone_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="HoldoutReminder">
+            <Text Text="UserData/MissionTransmission/HoldoutReminder_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="PrimaryObjectiveUpdated">
+            <Text Text="UserData/MissionTransmission/PrimaryObjectiveUpdated_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="MainObjectiveSingle">
+            <Text Text="UserData/MissionTransmission/MainObjectiveSingle_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="MainObjectiveMultiple">
+            <Text Text="UserData/MissionTransmission/MainObjectiveMultiple_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="PrimaryObjectiveVictory">
+            <Text Text="UserData/MissionTransmission/PrimaryObjectiveVictory_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="BonusObjectiveDestroy">
+            <Text Text="UserData/MissionTransmission/BonusObjectiveDestroy_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="BonusObjectiveReverseEscort">
+            <Text Text="UserData/MissionTransmission/BonusObjectiveReverseEscort_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="BonusObjectiveEscaping">
+            <Text Text="UserData/MissionTransmission/BonusObjectiveEscaping_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="BonusObjectiveDefend">
+            <Text Text="UserData/MissionTransmission/BonusObjectiveDefend_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="BonusObjectiveDefendDamaged">
+            <Text Text="UserData/MissionTransmission/BonusObjectiveDefendDamaged_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="BonusObjectiveDefendCritical">
+            <Text Text="UserData/MissionTransmission/BonusObjectiveDefendCritical_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="BonusObjectiveControl">
+            <Text Text="UserData/MissionTransmission/BonusObjectiveControl_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="BonusObjectiveControlUnderAttack">
+            <Text Text="UserData/MissionTransmission/BonusObjectiveControlUnderAttack_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="BonusObjectiveControlLost">
+            <Text Text="UserData/MissionTransmission/BonusObjectiveControlLost_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="BonusObjectiveControlContested">
+            <Text Text="UserData/MissionTransmission/BonusObjectiveControlContested_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="BonusObjectiveCapture">
+            <Text Text="UserData/MissionTransmission/BonusObjectiveCapture_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="BonusObjectiveCaptureEnemy">
+            <Text Text="UserData/MissionTransmission/BonusObjectiveCaptureEnemy_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="BonusObjectiveCaptureAlly">
+            <Text Text="UserData/MissionTransmission/BonusObjectiveCaptureAlly_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="BonusObjectiveTransport">
+            <Text Text="UserData/MissionTransmission/BonusObjectiveTransport_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="BonusObjectiveTransportAttack">
+            <Text Text="UserData/MissionTransmission/BonusObjectiveTransportAttack_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="BonusObjectiveTransportLost">
+            <Text Text="UserData/MissionTransmission/BonusObjectiveTransportLost_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="BonusObjectiveTransportReclaim">
+            <Text Text="UserData/MissionTransmission/BonusObjectiveTransportReclaim_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="BonusObjectiveTransportNear">
+            <Text Text="UserData/MissionTransmission/BonusObjectiveTransportNear_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="BonusObjectiveTug">
+            <Text Text="UserData/MissionTransmission/BonusObjectiveTug_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="BonusObjectiveTugWaiting">
+            <Text Text="UserData/MissionTransmission/BonusObjectiveTugWaiting_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="BonusObjectiveTugFalling">
+            <Text Text="UserData/MissionTransmission/BonusObjectiveTugFalling_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="BonusObjectiveTugNearComplete">
+            <Text Text="UserData/MissionTransmission/BonusObjectiveTugNearComplete_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="BonusObjectiveTugNearLost">
+            <Text Text="UserData/MissionTransmission/BonusObjectiveTugNearLost_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="BonusObjectiveEscort">
+            <Text Text="UserData/MissionTransmission/BonusObjectiveEscort_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="BonusObjectiveEscortMoving">
+            <Text Text="UserData/MissionTransmission/BonusObjectiveEscortMoving_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="BonusObjectiveEscortStop">
+            <Text Text="UserData/MissionTransmission/BonusObjectiveEscortStop_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="BonusObjectiveEscortNear">
+            <Text Text="UserData/MissionTransmission/BonusObjectiveEscortNear_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="BonusObjectiveEscortDamaged">
+            <Text Text="UserData/MissionTransmission/BonusObjectiveEscortDamaged_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="BonusObjectiveEscortCritical">
+            <Text Text="UserData/MissionTransmission/BonusObjectiveEscortCritical_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="BonusObjectiveHoldout">
+            <Text Text="UserData/MissionTransmission/BonusObjectiveHoldout_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="BonusObjectiveHoldoutNear">
+            <Text Text="UserData/MissionTransmission/BonusObjectiveHoldoutNear_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="BonusObjectiveAdditional">
+            <Text Text="UserData/MissionTransmission/BonusObjectiveAdditional_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="BonusObjectiveExpiring">
+            <Text Text="UserData/MissionTransmission/BonusObjectiveExpiring_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="BonusObjectiveLost">
+            <Text Text="UserData/MissionTransmission/BonusObjectiveLost_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="BonusObjectiveUpdated">
+            <Text Text="UserData/MissionTransmission/BonusObjectiveUpdated_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="BonusObjectiveSuccess">
+            <Text Text="UserData/MissionTransmission/BonusObjectiveSuccess_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="AttackWaveGather">
+            <GameLink GameLink="acAttackWave">
+                <Field Id="Conversation"/>
+            </GameLink>
+            <Text Text="UserData/MissionTransmission/AttackWaveGather_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="AttackWave">
+            <GameLink GameLink="acAttackWave">
+                <Field Id="Conversation"/>
+            </GameLink>
+            <Text Text="UserData/MissionTransmission/AttackWave_Name">
+                <Field Id="Name"/>
+            </Text>
+            <Text Text="UserData/MissionTransmission/AttackWave_Suffix">
+                <Field Id="Suffix"/>
+            </Text>
+        </Instances>
+        <Instances Id="BaseUnderAttackCombined">
+            <GameLink GameLink="acAttackWave">
+                <Field Id="Conversation"/>
+            </GameLink>
+            <Text Text="UserData/MissionTransmission/BaseUnderAttackCombined_Name">
+                <Field Id="Name"/>
+            </Text>
+            <Text Text="UserData/MissionTransmission/BaseUnderAttackCombined_Suffix">
+                <Field Id="Suffix"/>
+            </Text>
+        </Instances>
+        <Instances Id="BaseUnderAttackSeparate">
+            <GameLink GameLink="acAttackWave">
+                <Field Id="Conversation"/>
+            </GameLink>
+            <Text Text="UserData/MissionTransmission/BaseUnderAttackSeparate_Name">
+                <Field Id="Name"/>
+            </Text>
+            <Text Text="UserData/MissionTransmission/BaseUnderAttackSeparate_Suffix">
+                <Field Id="Suffix"/>
+            </Text>
+        </Instances>
+        <Instances Id="HybridDetected">
+            <Text Text="UserData/MissionTransmission/HybridDetected_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="VoidThrasherAppears">
+            <Int Int="100">
+                <Field Id="ResponseChance"/>
+            </Int>
+            <Text Text="UserData/MissionTransmission/VoidThrasherAppears_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="VoidThrasherMultiple">
+            <Text Text="UserData/MissionTransmission/VoidThrasherMultiple_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="VoidThrasherAttacking">
+            <Text Text="UserData/MissionTransmission/VoidThrasherAttacking_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="VoidThrasherDeath">
+            <Text Text="UserData/MissionTransmission/VoidThrasherDeath_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="EnemyWarningWarpIn">
+            <Text Text="UserData/MissionTransmission/EnemyWarningWarpIn_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="EnemyWarningDropPods">
+            <Text Text="UserData/MissionTransmission/EnemyWarningDropPods_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="Enemy Warning - Nydus Worm">
+            <Text Text="UserData/MissionTransmission/Enemy Warning - Nydus Worm_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="Victory">
+            <GameLink GameLink="acVictory">
+                <Field Id="Conversation"/>
+            </GameLink>
+            <Text Text="UserData/MissionTransmission/Victory_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="CloakedUnitsSpotted">
+            <GameLink GameLink="acAttackWave">
+                <Field Id="Conversation"/>
+            </GameLink>
+            <Text Text="UserData/MissionTransmission/CloakedUnitsSpotted_Name">
+                <Field Id="Name"/>
+            </Text>
+            <Text Text="UserData/MissionTransmission/CloakedUnitsSpotted_Suffix">
+                <Field Id="Suffix"/>
+            </Text>
+        </Instances>
+        <Instances Id="Intro1BE">
+            <Text Text="UserData/MissionTransmission/Intro1BE_Name">
+                <Field Id="Name"/>
+            </Text>
+            <Text Text="UserData/MissionTransmission/Intro1BE_Suffix">
+                <Field Id="Suffix"/>
+            </Text>
+        </Instances>
+        <Instances Id="Intro2BE">
+            <Text Text="UserData/MissionTransmission/Intro2BE_Name">
+                <Field Id="Name"/>
+            </Text>
+            <Text Text="UserData/MissionTransmission/Intro2BE_Suffix">
+                <Field Id="Suffix"/>
+            </Text>
+        </Instances>
+        <Instances Id="Intro3BE">
+            <Text Text="UserData/MissionTransmission/Intro3BE_Name">
+                <Field Id="Name"/>
+            </Text>
+            <Text Text="UserData/MissionTransmission/Intro3BE_Suffix">
+                <Field Id="Suffix"/>
+            </Text>
+        </Instances>
+        <Instances Id="Geyser1BE">
+            <Text Text="UserData/MissionTransmission/Geyser1BE_Suffix">
+                <Field Id="Suffix"/>
+            </Text>
+            <Text Text="UserData/MissionTransmission/Geyser1BE_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="Geyser2BE">
+            <Text Text="UserData/MissionTransmission/Geyser2BE_Name">
+                <Field Id="Name"/>
+            </Text>
+            <Text Text="UserData/MissionTransmission/Geyser2BE_Suffix">
+                <Field Id="Suffix"/>
+            </Text>
+        </Instances>
+        <Instances Id="Geyser3BE">
+            <Text Text="UserData/MissionTransmission/Geyser3BE_Name">
+                <Field Id="Name"/>
+            </Text>
+            <Text Text="UserData/MissionTransmission/Geyser3BE_Suffix">
+                <Field Id="Suffix"/>
+            </Text>
+        </Instances>
+        <Instances Id="Geyser4BE">
+            <Text Text="UserData/MissionTransmission/Geyser4BE_Name">
+                <Field Id="Name"/>
+            </Text>
+            <Text Text="UserData/MissionTransmission/Geyser4BE_Suffix">
+                <Field Id="Suffix"/>
+            </Text>
+        </Instances>
+        <Instances Id="Geyser5BE">
+            <Text Text="UserData/MissionTransmission/Geyser5BE_Name">
+                <Field Id="Name"/>
+            </Text>
+            <Text Text="UserData/MissionTransmission/Geyser5BE_Suffix">
+                <Field Id="Suffix"/>
+            </Text>
+        </Instances>
+        <Instances Id="BotDepartFirstBE">
+            <Text Text="UserData/MissionTransmission/BotDepartFirstBE_Name">
+                <Field Id="Name"/>
+            </Text>
+            <Text Text="UserData/MissionTransmission/BotDepartFirstBE_Suffix">
+                <Field Id="Suffix"/>
+            </Text>
+        </Instances>
+        <Instances Id="BotDepartRepeatBE">
+            <Text Text="UserData/MissionTransmission/BotDepartRepeatBE_Name">
+                <Field Id="Name"/>
+            </Text>
+            <Text Text="UserData/MissionTransmission/BotDepartRepeatBE_Suffix">
+                <Field Id="Suffix"/>
+            </Text>
+        </Instances>
+        <Instances Id="BotHarvestFirstBE">
+            <Text Text="UserData/MissionTransmission/BotHarvestFirstBE_Name">
+                <Field Id="Name"/>
+            </Text>
+            <Text Text="UserData/MissionTransmission/BotHarvestFirstBE_Suffix">
+                <Field Id="Suffix"/>
+            </Text>
+        </Instances>
+        <Instances Id="BotHarvestRepeatBE">
+            <Text Text="UserData/MissionTransmission/BotHarvestRepeatBE_Name">
+                <Field Id="Name"/>
+            </Text>
+            <Text Text="UserData/MissionTransmission/BotHarvestRepeatBE_Suffix">
+                <Field Id="Suffix"/>
+            </Text>
+        </Instances>
+        <Instances Id="BotReturnFirstBE">
+            <Text Text="UserData/MissionTransmission/BotReturnFirstBE_Suffix">
+                <Field Id="Suffix"/>
+            </Text>
+            <Text Text="UserData/MissionTransmission/BotReturnFirstBE_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="BotReturnRepeatBE">
+            <Text Text="UserData/MissionTransmission/BotReturnRepeatBE_Name">
+                <Field Id="Name"/>
+            </Text>
+            <Text Text="UserData/MissionTransmission/BotReturnRepeatBE_Suffix">
+                <Field Id="Suffix"/>
+            </Text>
+        </Instances>
+        <Instances Id="BotEnemyInboundBE">
+            <Text Text="UserData/MissionTransmission/BotEnemyInboundBE_Name">
+                <Field Id="Name"/>
+            </Text>
+            <Text Text="UserData/MissionTransmission/BotEnemyInboundBE_Suffix">
+                <Field Id="Suffix"/>
+            </Text>
+        </Instances>
+        <Instances Id="BotWarpProtossBE">
+            <Text Text="UserData/MissionTransmission/BotWarpProtossBE_Name">
+                <Field Id="Name"/>
+            </Text>
+            <Text Text="UserData/MissionTransmission/BotWarpProtossBE_Suffix">
+                <Field Id="Suffix"/>
+            </Text>
+        </Instances>
+        <Instances Id="BotDropTerranBE">
+            <Text Text="UserData/MissionTransmission/BotDropTerranBE_Suffix">
+                <Field Id="Suffix"/>
+            </Text>
+            <Text Text="UserData/MissionTransmission/BotDropTerranBE_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="BotDropZergBE">
+            <Text Text="UserData/MissionTransmission/BotDropZergBE_Name">
+                <Field Id="Name"/>
+            </Text>
+            <Text Text="UserData/MissionTransmission/BotDropZergBE_Suffix">
+                <Field Id="Suffix"/>
+            </Text>
+        </Instances>
+        <Instances Id="VoidThrasherFirstBE">
+            <Text Text="UserData/MissionTransmission/VoidThrasherFirstBE_Name">
+                <Field Id="Name"/>
+            </Text>
+            <Text Text="UserData/MissionTransmission/VoidThrasherFirstBE_Suffix">
+                <Field Id="Suffix"/>
+            </Text>
+        </Instances>
+        <Instances Id="VoidThrasherRepeatBE">
+            <Text Text="UserData/MissionTransmission/VoidThrasherRepeatBE_Name">
+                <Field Id="Name"/>
+            </Text>
+            <Text Text="UserData/MissionTransmission/VoidThrasherRepeatBE_Suffix">
+                <Field Id="Suffix"/>
+            </Text>
+        </Instances>
+        <Instances Id="HybridFirstBE">
+            <Text Text="UserData/MissionTransmission/HybridFirstBE_Name">
+                <Field Id="Name"/>
+            </Text>
+            <Text Text="UserData/MissionTransmission/HybridFirstBE_Suffix">
+                <Field Id="Suffix"/>
+            </Text>
+        </Instances>
+        <Instances Id="HybridRepeatBE">
+            <Text Text="UserData/MissionTransmission/HybridRepeatBE_Name">
+                <Field Id="Name"/>
+            </Text>
+            <Text Text="UserData/MissionTransmission/HybridRepeatBE_Suffix">
+                <Field Id="Suffix"/>
+            </Text>
+        </Instances>
+        <Instances Id="BotUnderAttackBE">
+            <Text Text="UserData/MissionTransmission/BotUnderAttackBE_Name">
+                <Field Id="Name"/>
+            </Text>
+            <Text Text="UserData/MissionTransmission/BotUnderAttackBE_Suffix">
+                <Field Id="Suffix"/>
+            </Text>
+        </Instances>
+        <Instances Id="BotDestroyEarlyBE">
+            <Text Text="UserData/MissionTransmission/BotDestroyEarlyBE_Name">
+                <Field Id="Name"/>
+            </Text>
+            <Text Text="UserData/MissionTransmission/BotDestroyEarlyBE_Suffix">
+                <Field Id="Suffix"/>
+            </Text>
+        </Instances>
+        <Instances Id="BotDeliveryBE">
+            <Text Text="UserData/MissionTransmission/BotDeliveryBE_Name">
+                <Field Id="Name"/>
+            </Text>
+            <Text Text="UserData/MissionTransmission/BotDeliveryBE_Suffix">
+                <Field Id="Suffix"/>
+            </Text>
+        </Instances>
+        <Instances Id="FailureFirstBE">
+            <Text Text="UserData/MissionTransmission/FailureFirstBE_Name">
+                <Field Id="Name"/>
+            </Text>
+            <Text Text="UserData/MissionTransmission/FailureFirstBE_Suffix">
+                <Field Id="Suffix"/>
+            </Text>
+        </Instances>
+        <Instances Id="FailureSecondBE">
+            <Text Text="UserData/MissionTransmission/FailureSecondBE_Name">
+                <Field Id="Name"/>
+            </Text>
+            <Text Text="UserData/MissionTransmission/FailureSecondBE_Suffix">
+                <Field Id="Suffix"/>
+            </Text>
+        </Instances>
+        <Instances Id="ProgressFirstBE">
+            <Text Text="UserData/MissionTransmission/ProgressFirstBE_Name">
+                <Field Id="Name"/>
+            </Text>
+            <Text Text="UserData/MissionTransmission/ProgressFirstBE_Suffix">
+                <Field Id="Suffix"/>
+            </Text>
+        </Instances>
+        <Instances Id="ProgressSecondBE">
+            <Text Text="UserData/MissionTransmission/ProgressSecondBE_Name">
+                <Field Id="Name"/>
+            </Text>
+            <Text Text="UserData/MissionTransmission/ProgressSecondBE_Suffix">
+                <Field Id="Suffix"/>
+            </Text>
+        </Instances>
+        <Instances Id="ProgressThirdBE">
+            <Text Text="UserData/MissionTransmission/ProgressThirdBE_Name">
+                <Field Id="Name"/>
+            </Text>
+            <Text Text="UserData/MissionTransmission/ProgressThirdBE_Suffix">
+                <Field Id="Suffix"/>
+            </Text>
+        </Instances>
+        <Instances Id="BonusLocatedFirstBE">
+            <Text Text="UserData/MissionTransmission/BonusLocatedFirstBE_Name">
+                <Field Id="Name"/>
+            </Text>
+            <Text Text="UserData/MissionTransmission/BonusLocatedFirstBE_Suffix">
+                <Field Id="Suffix"/>
+            </Text>
+        </Instances>
+        <Instances Id="BonusLocatedRepeatBE">
+            <Text Text="UserData/MissionTransmission/BonusLocatedRepeatBE_Name">
+                <Field Id="Name"/>
+            </Text>
+            <Text Text="UserData/MissionTransmission/BonusLocatedRepeatBE_Suffix">
+                <Field Id="Suffix"/>
+            </Text>
+        </Instances>
+        <Instances Id="BonusExpireFirstBE">
+            <Text Text="UserData/MissionTransmission/BonusExpireFirstBE_Name">
+                <Field Id="Name"/>
+            </Text>
+            <Text Text="UserData/MissionTransmission/BonusExpireFirstBE_Suffix">
+                <Field Id="Suffix"/>
+            </Text>
+        </Instances>
+        <Instances Id="BonusExpireRepeatBE">
+            <Text Text="UserData/MissionTransmission/BonusExpireRepeatBE_Name">
+                <Field Id="Name"/>
+            </Text>
+            <Text Text="UserData/MissionTransmission/BonusExpireRepeatBE_Suffix">
+                <Field Id="Suffix"/>
+            </Text>
+        </Instances>
+        <Instances Id="BonusLostBE">
+            <Text Text="UserData/MissionTransmission/BonusLostBE_Name">
+                <Field Id="Name"/>
+            </Text>
+            <Text Text="UserData/MissionTransmission/BonusLostBE_Suffix">
+                <Field Id="Suffix"/>
+            </Text>
+        </Instances>
+        <Instances Id="BonusCompleteBE">
+            <Text Text="UserData/MissionTransmission/BonusCompleteBE_Name">
+                <Field Id="Name"/>
+            </Text>
+            <Text Text="UserData/MissionTransmission/BonusCompleteBE_Suffix">
+                <Field Id="Suffix"/>
+            </Text>
+        </Instances>
+        <Instances Id="DefeatBE">
+            <Text Text="UserData/MissionTransmission/DefeatBE_Name">
+                <Field Id="Name"/>
+            </Text>
+            <Text Text="UserData/MissionTransmission/DefeatBE_Suffix">
+                <Field Id="Suffix"/>
+            </Text>
+        </Instances>
+        <Instances Id="VictoryBE">
+            <Text Text="UserData/MissionTransmission/VictoryBE_Name">
+                <Field Id="Name"/>
+            </Text>
+            <Text Text="UserData/MissionTransmission/VictoryBE_Suffix">
+                <Field Id="Suffix"/>
+            </Text>
+        </Instances>
+    </CUser>
+    <CUser id="X_GeneralTips">
+        <Fields Id="TipTitle" Type="Text"/>
+        <Fields Id="TipDetails" Type="Text"/>
+        <Fields Id="TipIcon" Type="Image"/>
+        <Instances Id="[Default]"/>
+        <Instances Id="Tip00">
+            <Image Image="Assets\Textures\btn-ability-kerrigan_revive.dds">
+                <Field Id="TipIcon"/>
+            </Image>
+            <Text Text="UserData/GeneralTips/Tip00_TipTitle">
+                <Field Id="TipTitle"/>
+            </Text>
+            <Text Text="UserData/GeneralTips/Tip00_TipDetails">
+                <Field Id="TipDetails"/>
+            </Text>
+        </Instances>
+        <Instances Id="Tip01">
+            <Image Image="Assets\Textures\btn-ability-neutral-ursadonleap.dds">
+                <Field Id="TipIcon"/>
+            </Image>
+            <Text Text="UserData/GeneralTips/Tip01_TipTitle">
+                <Field Id="TipTitle"/>
+            </Text>
+            <Text Text="UserData/GeneralTips/Tip01_TipDetails">
+                <Field Id="TipDetails"/>
+            </Text>
+        </Instances>
+        <Instances Id="Tip02">
+            <Image Image="Assets\Textures\btn-ability-spearofadun-warpinreinforcements.dds">
+                <Field Id="TipIcon"/>
+            </Image>
+            <Text Text="UserData/GeneralTips/Tip02_TipTitle">
+                <Field Id="TipTitle"/>
+            </Text>
+            <Text Text="UserData/GeneralTips/Tip02_TipDetails">
+                <Field Id="TipDetails"/>
+            </Text>
+        </Instances>
+        <Instances Id="Tip03">
+            <Image Image="Assets\Textures\btn-tips-battlereport.dds">
+                <Field Id="TipIcon"/>
+            </Image>
+            <Text Text="UserData/GeneralTips/Tip03_TipTitle">
+                <Field Id="TipTitle"/>
+            </Text>
+            <Text Text="UserData/GeneralTips/Tip03_TipDetails">
+                <Field Id="TipDetails"/>
+            </Text>
+        </Instances>
+        <Instances Id="Tip04">
+            <Image Image="Assets\Textures\btn-upgrade-artanis-healingpsionicstorm.dds">
+                <Field Id="TipIcon"/>
+            </Image>
+            <Text Text="UserData/GeneralTips/Tip04_TipTitle">
+                <Field Id="TipTitle"/>
+            </Text>
+            <Text Text="UserData/GeneralTips/Tip04_TipDetails">
+                <Field Id="TipDetails"/>
+            </Text>
+        </Instances>
+        <Instances Id="Tip05">
+            <Image Image="Assets\Textures\btn-ability-zerg-creepspread.dds">
+                <Field Id="TipIcon"/>
+            </Image>
+            <Text Text="UserData/GeneralTips/Tip05_TipTitle">
+                <Field Id="TipTitle"/>
+            </Text>
+            <Text Text="UserData/GeneralTips/Tip05_TipDetails">
+                <Field Id="TipDetails"/>
+            </Text>
+        </Instances>
+        <Instances Id="Tip06">
+            <Image Image="Assets\Textures\btn-ability-terran-cloak-color.dds">
+                <Field Id="TipIcon"/>
+            </Image>
+            <Text Text="UserData/GeneralTips/Tip06_TipTitle">
+                <Field Id="TipTitle"/>
+            </Text>
+            <Text Text="UserData/GeneralTips/Tip06_TipDetails">
+                <Field Id="TipDetails"/>
+            </Text>
+        </Instances>
+    </CUser>
+    <CUser id="XUT_encomps_CoopEnemyUnits">
+        <Fields Id="Unit" Type="Image" EditorColumn="40"/>
+        <Instances Id="[Default]">
+            <Image>
+                <Field Id="Unit"/>
+            </Image>
+        </Instances>
+        <Instances Id="Adept">
+            <Image Image="Assets\Textures\btn-unit-protoss-adept.dds">
+                <Field Id="Unit"/>
+            </Image>
+        </Instances>
+        <Instances Id="Phoenix">
+            <Image Image="Assets\Textures\btn-unit-protoss-phoenix.dds">
+                <Field Id="Unit"/>
+            </Image>
+        </Instances>
+        <Instances Id="Stalker">
+            <Image Image="Assets\Textures\btn-unit-protoss-stalker.dds">
+                <Field Id="Unit"/>
+            </Image>
+        </Instances>
+        <Instances Id="Oracle">
+            <Image Image="Assets\Textures\btn-unit-protoss-oracle.dds">
+                <Field Id="Unit"/>
+            </Image>
+        </Instances>
+        <Instances Id="Void Ray">
+            <Image Image="Assets\Textures\btn-unit-protoss-warpray.dds">
+                <Field Id="Unit"/>
+            </Image>
+        </Instances>
+        <Instances Id="Tempest">
+            <Image Image="Assets\Textures\btn-unit-protoss-tempest.dds">
+                <Field Id="Unit"/>
+            </Image>
+        </Instances>
+        <Instances Id="Sentry">
+            <Image Image="Assets\Textures\btn-unit-protoss-sentry.dds">
+                <Field Id="Unit"/>
+            </Image>
+        </Instances>
+        <Instances Id="Dark Templar">
+            <Image Image="Assets\Textures\btn-unit-protoss-darktemplar.dds">
+                <Field Id="Unit"/>
+            </Image>
+        </Instances>
+        <Instances Id="Disruptor">
+            <Image Image="Assets\Textures\btn-unit-protoss-disruptor.dds">
+                <Field Id="Unit"/>
+            </Image>
+        </Instances>
+        <Instances Id="Immortal">
+            <Image Image="Assets\Textures\btn-unit-protoss-immortal.dds">
+                <Field Id="Unit"/>
+            </Image>
+        </Instances>
+        <Instances Id="Scout">
+            <Image Image="Assets\Textures\btn-unit-protoss-scout.dds">
+                <Field Id="Unit"/>
+            </Image>
+        </Instances>
+        <Instances Id="Reaver">
+            <Image Image="Assets\Textures\btn-unit-protoss-reaver.dds">
+                <Field Id="Unit"/>
+            </Image>
+        </Instances>
+        <Instances Id="Zealot">
+            <Image Image="Assets\Textures\btn-unit-protoss-zealot.dds">
+                <Field Id="Unit"/>
+            </Image>
+        </Instances>
+        <Instances Id="High Templar">
+            <Image Image="Assets\Textures\btn-unit-protoss-hightemplar.dds">
+                <Field Id="Unit"/>
+            </Image>
+        </Instances>
+        <Instances Id="Archon">
+            <Image Image="Assets\Textures\btn-unit-protoss-archon.dds">
+                <Field Id="Unit"/>
+            </Image>
+        </Instances>
+        <Instances Id="Colossus">
+            <Image Image="Assets\Textures\btn-unit-protoss-colossus.dds">
+                <Field Id="Unit"/>
+            </Image>
+        </Instances>
+        <Instances Id="Carrier">
+            <Image Image="Assets\Textures\btn-unit-protoss-carrier.dds">
+                <Field Id="Unit"/>
+            </Image>
+        </Instances>
+        <Instances Id="Dragoon">
+            <Image Image="Assets\Textures\btn-unit-protoss-dragoon-void.dds">
+                <Field Id="Unit"/>
+            </Image>
+        </Instances>
+        <Instances Id="Arbiter">
+            <Image Image="Assets\Textures\btn-unit-protoss-arbiter.dds">
+                <Field Id="Unit"/>
+            </Image>
+        </Instances>
+        <Instances Id="Corsair">
+            <Image Image="Assets\Textures\btn-unit-protoss-corsair.dds">
+                <Field Id="Unit"/>
+            </Image>
+        </Instances>
+        <Instances Id="Viking">
+            <Image Image="Assets\Textures\btn-unit-terran-vikingfighter.dds">
+                <Field Id="Unit"/>
+            </Image>
+        </Instances>
+        <Instances Id="Banshee">
+            <Image Image="Assets\Textures\btn-unit-terran-banshee.dds">
+                <Field Id="Unit"/>
+            </Image>
+        </Instances>
+        <Instances Id="Marine">
+            <Image Image="Assets\Textures\btn-unit-terran-marine.dds">
+                <Field Id="Unit"/>
+            </Image>
+        </Instances>
+        <Instances Id="Liberator">
+            <Image Image="Assets\Textures\btn-unit-terran-liberator.dds">
+                <Field Id="Unit"/>
+            </Image>
+        </Instances>
+        <Instances Id="Raven">
+            <Image Image="Assets\Textures\btn-unit-terran-raven.dds">
+                <Field Id="Unit"/>
+            </Image>
+        </Instances>
+        <Instances Id="Battlecruiser">
+            <Image Image="Assets\Textures\btn-unit-terran-battlecruiser.dds">
+                <Field Id="Unit"/>
+            </Image>
+        </Instances>
+        <Instances Id="Reaper">
+            <Image Image="Assets\Textures\btn-unit-terran-reaper.dds">
+                <Field Id="Unit"/>
+            </Image>
+        </Instances>
+        <Instances Id="Marauder">
+            <Image Image="Assets\Textures\btn-unit-terran-marauder.dds">
+                <Field Id="Unit"/>
+            </Image>
+        </Instances>
+        <Instances Id="Cyclone">
+            <Image Image="Assets\Textures\btn-unit-terran-cyclone.dds">
+                <Field Id="Unit"/>
+            </Image>
+        </Instances>
+        <Instances Id="Medic">
+            <Image Image="Assets\Textures\btn-unit-terran-medic.dds">
+                <Field Id="Unit"/>
+            </Image>
+        </Instances>
+        <Instances Id="Firebat">
+            <Image Image="Assets\Textures\btn-unit-terran-firebat.dds">
+                <Field Id="Unit"/>
+            </Image>
+        </Instances>
+        <Instances Id="Ghost">
+            <Image Image="Assets\Textures\btn-unit-terran-ghost.dds">
+                <Field Id="Unit"/>
+            </Image>
+        </Instances>
+        <Instances Id="Siege Tank">
+            <Image Image="Assets\Textures\btn-unit-terran-siegetank.dds">
+                <Field Id="Unit"/>
+            </Image>
+        </Instances>
+        <Instances Id="Medivac">
+            <Image Image="Assets\Textures\btn-unit-terran-medivac.dds">
+                <Field Id="Unit"/>
+            </Image>
+        </Instances>
+        <Instances Id="Science Vessel">
+            <Image Image="Assets\Textures\btn-unit-terran-sciencevessel.dds">
+                <Field Id="Unit"/>
+            </Image>
+        </Instances>
+        <Instances Id="Hellion">
+            <Image Image="Assets\Textures\btn-unit-terran-hellion.dds">
+                <Field Id="Unit"/>
+            </Image>
+        </Instances>
+        <Instances Id="Goliath">
+            <Image Image="Assets\Textures\btn-unit-terran-goliath.dds">
+                <Field Id="Unit"/>
+            </Image>
+        </Instances>
+        <Instances Id="Warhound">
+            <Image Image="Assets\Textures\btn-unit-terran-warhound.dds">
+                <Field Id="Unit"/>
+            </Image>
+        </Instances>
+        <Instances Id="Hellbat">
+            <Image Image="Assets\Textures\btn-unit-terran-hellionbattlemode.dds">
+                <Field Id="Unit"/>
+            </Image>
+        </Instances>
+        <Instances Id="Widow Mine">
+            <Image Image="Assets\Textures\btn-unit-terran-widowmine.dds">
+                <Field Id="Unit"/>
+            </Image>
+        </Instances>
+        <Instances Id="Thor">
+            <Image Image="Assets\Textures\btn-unit-terran-thor.dds">
+                <Field Id="Unit"/>
+            </Image>
+        </Instances>
+        <Instances Id="Vulture">
+            <Image Image="Assets\Textures\btn-unit-terran-vulture.dds">
+                <Field Id="Unit"/>
+            </Image>
+        </Instances>
+        <Instances Id="Wraith">
+            <Image Image="Assets\Textures\btn-unit-terran-wraith.dds">
+                <Field Id="Unit"/>
+            </Image>
+        </Instances>
+        <Instances Id="Zergling">
+            <Image Image="Assets\Textures\btn-unit-zerg-zergling.dds">
+                <Field Id="Unit"/>
+            </Image>
+        </Instances>
+        <Instances Id="Mutalisk">
+            <Image Image="Assets\Textures\btn-unit-zerg-mutalisk.dds">
+                <Field Id="Unit"/>
+            </Image>
+        </Instances>
+        <Instances Id="Baneling">
+            <Image Image="Assets\Textures\btn-unit-zerg-baneling.dds">
+                <Field Id="Unit"/>
+            </Image>
+        </Instances>
+        <Instances Id="Infestor">
+            <Image Image="Assets\Textures\btn-unit-zerg-infestor.dds">
+                <Field Id="Unit"/>
+            </Image>
+        </Instances>
+        <Instances Id="Corruptor">
+            <Image Image="Assets\Textures\btn-unit-zerg-corruptor.dds">
+                <Field Id="Unit"/>
+            </Image>
+        </Instances>
+        <Instances Id="Brood Lord">
+            <Image Image="Assets\Textures\btn-unit-zerg-broodlord.dds">
+                <Field Id="Unit"/>
+            </Image>
+        </Instances>
+        <Instances Id="Aberration">
+            <Image Image="Assets\Textures\btn-unit-zerg-aberration.dds">
+                <Field Id="Unit"/>
+            </Image>
+        </Instances>
+        <Instances Id="Scourge">
+            <Image Image="Assets\Textures\btn-unit-zerg-scourge.dds">
+                <Field Id="Unit"/>
+            </Image>
+        </Instances>
+        <Instances Id="Viper">
+            <Image Image="Assets\Textures\btn-unit-zerg-viper.dds">
+                <Field Id="Unit"/>
+            </Image>
+        </Instances>
+        <Instances Id="Swarm Host">
+            <Image Image="Assets\Textures\btn-unit-zerg-swarmhost.dds">
+                <Field Id="Unit"/>
+            </Image>
+        </Instances>
+        <Instances Id="Roach">
+            <Image Image="Assets\Textures\btn-unit-zerg-roach.dds">
+                <Field Id="Unit"/>
+            </Image>
+        </Instances>
+        <Instances Id="Hydralist">
+            <Image Image="Assets\Textures\btn-unit-zerg-hydralisk.dds">
+                <Field Id="Unit"/>
+            </Image>
+        </Instances>
+        <Instances Id="Ravager">
+            <Image Image="Assets\Textures\btn-unit-zerg-ravager.dds">
+                <Field Id="Unit"/>
+            </Image>
+        </Instances>
+        <Instances Id="Lurker">
+            <Image Image="Assets\Textures\btn-unit-zerg-lurker.dds">
+                <Field Id="Unit"/>
+            </Image>
+        </Instances>
+        <Instances Id="Ultralisk">
+            <Image Image="Assets\Textures\btn-unit-zerg-ultralisk.dds">
+                <Field Id="Unit"/>
+            </Image>
+        </Instances>
+        <Instances Id="Brood Queen">
+            <Image Image="Assets\Textures\btn-unit-zerg-classicqueen.dds">
+                <Field Id="Unit"/>
+            </Image>
+        </Instances>
+        <Instances Id="Guardian">
+            <Image Image="Assets\Textures\btn-unit-zerg-primalguardian.dds">
+                <Field Id="Unit"/>
+            </Image>
+        </Instances>
+        <Instances Id="Devourer">
+            <Image Image="Assets\Textures\btn-unit-zerg-devourerex3.dds">
+                <Field Id="Unit"/>
+            </Image>
+        </Instances>
+    </CUser>
+    <CUser id="XUT_encomps_CoopEnemyUnitsFormation">
+        <Fields>
+            <Id value="Units"/>
+            <Type value="Int"/>
+            <Count value="9"/>
+            <EditorColumn value="9"/>
+        </Fields>
+        <Fields>
+            <Id value="Comp"/>
+            <Type value="User"/>
+            <UserType value="Compositions"/>
+            <EditorColumn value="1"/>
+        </Fields>
+        <Fields Id="Race" Type="Int" EditorColumn="2"/>
+        <Instances Id="[Default]"/>
+        <Instances Id="SkytossTempest">
+            <Int Int="1">
+                <Field Id="Units"/>
+            </Int>
+            <Int Int="2">
+                <Field Id="Units" Index="1"/>
+            </Int>
+            <Int Int="3">
+                <Field Id="Units" Index="2"/>
+            </Int>
+            <Int Int="4">
+                <Field Id="Units" Index="3"/>
+            </Int>
+            <Int Int="5">
+                <Field Id="Units" Index="4"/>
+            </Int>
+            <Int Int="6">
+                <Field Id="Units" Index="5"/>
+            </Int>
+            <Int Int="1">
+                <Field Id="Race"/>
+            </Int>
+            <User Type="Compositions" Instance="Protoss-Standard-Air-Tempest">
+                <Field Id="Comp"/>
+            </User>
+        </Instances>
+        <Instances Id="Techy">
+            <Int Int="1">
+                <Field Id="Units"/>
+            </Int>
+            <Int Int="3">
+                <Field Id="Units" Index="1"/>
+            </Int>
+            <Int Int="7">
+                <Field Id="Units" Index="2"/>
+            </Int>
+            <Int Int="8">
+                <Field Id="Units" Index="3"/>
+            </Int>
+            <Int Int="2">
+                <Field Id="Units" Index="4"/>
+            </Int>
+            <Int Int="9">
+                <Field Id="Units" Index="5"/>
+            </Int>
+            <Int Int="1">
+                <Field Id="Race"/>
+            </Int>
+        </Instances>
+        <Instances Id="RoboReaver">
+            <Int Int="1">
+                <Field Id="Units"/>
+            </Int>
+            <Int Int="7">
+                <Field Id="Units" Index="1"/>
+            </Int>
+            <Int Int="10">
+                <Field Id="Units" Index="2"/>
+            </Int>
+            <Int Int="11">
+                <Field Id="Units" Index="3"/>
+            </Int>
+            <Int Int="9">
+                <Field Id="Units" Index="4"/>
+            </Int>
+            <Int Int="12">
+                <Field Id="Units" Index="5"/>
+            </Int>
+            <Int Int="1">
+                <Field Id="Race"/>
+            </Int>
+        </Instances>
+        <Instances Id="Gateway">
+            <Int Int="13">
+                <Field Id="Units"/>
+            </Int>
+            <Int Int="3">
+                <Field Id="Units" Index="1"/>
+            </Int>
+            <Int Int="14">
+                <Field Id="Units" Index="2"/>
+            </Int>
+            <Int Int="10">
+                <Field Id="Units" Index="3"/>
+            </Int>
+            <Int Int="15">
+                <Field Id="Units" Index="4"/>
+            </Int>
+            <Int Int="16">
+                <Field Id="Units" Index="5"/>
+            </Int>
+            <Int Int="1">
+                <Field Id="Race"/>
+            </Int>
+        </Instances>
+        <Instances Id="SkytossCarrier">
+            <Int Int="13">
+                <Field Id="Units"/>
+            </Int>
+            <Int Int="11">
+                <Field Id="Units" Index="1"/>
+            </Int>
+            <Int Int="3">
+                <Field Id="Units" Index="2"/>
+            </Int>
+            <Int Int="4">
+                <Field Id="Units" Index="3"/>
+            </Int>
+            <Int Int="5">
+                <Field Id="Units" Index="4"/>
+            </Int>
+            <Int Int="17">
+                <Field Id="Units" Index="5"/>
+            </Int>
+            <Int Int="1">
+                <Field Id="Race"/>
+            </Int>
+            <User Type="Compositions" Instance="Protoss-Standard-Air-Carrier">
+                <Field Id="Comp"/>
+            </User>
+        </Instances>
+        <Instances Id="RoboColossus">
+            <Int Int="13">
+                <Field Id="Units"/>
+            </Int>
+            <Int Int="7">
+                <Field Id="Units" Index="1"/>
+            </Int>
+            <Int Int="10">
+                <Field Id="Units" Index="2"/>
+            </Int>
+            <Int Int="11">
+                <Field Id="Units" Index="3"/>
+            </Int>
+            <Int Int="16">
+                <Field Id="Units" Index="4"/>
+            </Int>
+            <Int Int="1">
+                <Field Id="Race"/>
+            </Int>
+        </Instances>
+        <Instances Id="ClassicProtossGround">
+            <Int Int="13">
+                <Field Id="Units"/>
+            </Int>
+            <Int Int="18">
+                <Field Id="Units" Index="1"/>
+            </Int>
+            <Int Int="14">
+                <Field Id="Units" Index="2"/>
+            </Int>
+            <Int Int="12">
+                <Field Id="Units" Index="3"/>
+            </Int>
+            <Int Int="15">
+                <Field Id="Units" Index="4"/>
+            </Int>
+            <Int Int="19">
+                <Field Id="Units" Index="5"/>
+            </Int>
+            <Int Int="1">
+                <Field Id="Race"/>
+            </Int>
+        </Instances>
+        <Instances Id="ClassicProtossAir">
+            <Int Int="13">
+                <Field Id="Units"/>
+            </Int>
+            <Int Int="11">
+                <Field Id="Units" Index="1"/>
+            </Int>
+            <Int Int="20">
+                <Field Id="Units" Index="2"/>
+            </Int>
+            <Int Int="17">
+                <Field Id="Units" Index="3"/>
+            </Int>
+            <Int Int="19">
+                <Field Id="Units" Index="4"/>
+            </Int>
+            <Int Int="1">
+                <Field Id="Race"/>
+            </Int>
+        </Instances>
+        <Instances Id="Skyterran">
+            <Int Int="21">
+                <Field Id="Units"/>
+            </Int>
+            <Int Int="22">
+                <Field Id="Units" Index="1"/>
+            </Int>
+            <Int Int="23">
+                <Field Id="Units" Index="2"/>
+            </Int>
+            <Int Int="24">
+                <Field Id="Units" Index="3"/>
+            </Int>
+            <Int Int="25">
+                <Field Id="Units" Index="4"/>
+            </Int>
+            <Int Int="26">
+                <Field Id="Units" Index="5"/>
+            </Int>
+            <Int Int="2">
+                <Field Id="Race"/>
+            </Int>
+        </Instances>
+        <Instances Id="ShadowTech">
+            <Int Int="27">
+                <Field Id="Units"/>
+            </Int>
+            <Int Int="28">
+                <Field Id="Units" Index="1"/>
+            </Int>
+            <Int Int="24">
+                <Field Id="Units" Index="2"/>
+            </Int>
+            <Int Int="29">
+                <Field Id="Units" Index="3"/>
+            </Int>
+            <Int Int="25">
+                <Field Id="Units" Index="4"/>
+            </Int>
+            <Int Int="26">
+                <Field Id="Units" Index="5"/>
+            </Int>
+            <Int Int="2">
+                <Field Id="Race"/>
+            </Int>
+        </Instances>
+        <Instances Id="BioMechStar">
+            <Int Int="23">
+                <Field Id="Units"/>
+            </Int>
+            <Int Int="30">
+                <Field Id="Units" Index="1"/>
+            </Int>
+            <Int Int="28">
+                <Field Id="Units" Index="2"/>
+            </Int>
+            <Int Int="31">
+                <Field Id="Units" Index="3"/>
+            </Int>
+            <Int Int="32">
+                <Field Id="Units" Index="4"/>
+            </Int>
+            <Int Int="33">
+                <Field Id="Units" Index="5"/>
+            </Int>
+            <Int Int="34">
+                <Field Id="Units" Index="6"/>
+            </Int>
+            <Int Int="35">
+                <Field Id="Units" Index="7"/>
+            </Int>
+            <Int Int="26">
+                <Field Id="Units" Index="8"/>
+            </Int>
+            <Int Int="2">
+                <Field Id="Race"/>
+            </Int>
+        </Instances>
+        <Instances Id="MechStarport">
+            <Int Int="36">
+                <Field Id="Units"/>
+            </Int>
+            <Int Int="37">
+                <Field Id="Units" Index="1"/>
+            </Int>
+            <Int Int="38">
+                <Field Id="Units" Index="2"/>
+            </Int>
+            <Int Int="33">
+                <Field Id="Units" Index="3"/>
+            </Int>
+            <Int Int="39">
+                <Field Id="Units" Index="4"/>
+            </Int>
+            <Int Int="40">
+                <Field Id="Units" Index="5"/>
+            </Int>
+            <Int Int="35">
+                <Field Id="Units" Index="6"/>
+            </Int>
+            <Int Int="41">
+                <Field Id="Units" Index="7"/>
+            </Int>
+            <Int Int="2">
+                <Field Id="Race"/>
+            </Int>
+        </Instances>
+        <Instances Id="ClassicTerranBio">
+            <Int Int="23">
+                <Field Id="Units"/>
+            </Int>
+            <Int Int="30">
+                <Field Id="Units" Index="1"/>
+            </Int>
+            <Int Int="31">
+                <Field Id="Units" Index="2"/>
+            </Int>
+            <Int Int="33">
+                <Field Id="Units" Index="3"/>
+            </Int>
+            <Int Int="32">
+                <Field Id="Units" Index="4"/>
+            </Int>
+            <Int Int="35">
+                <Field Id="Units" Index="5"/>
+            </Int>
+            <Int Int="2">
+                <Field Id="Race"/>
+            </Int>
+        </Instances>
+        <Instances Id="ClassicTerranMech">
+            <Int Int="42">
+                <Field Id="Units"/>
+            </Int>
+            <Int Int="37">
+                <Field Id="Units" Index="1"/>
+            </Int>
+            <Int Int="43">
+                <Field Id="Units" Index="2"/>
+            </Int>
+            <Int Int="33">
+                <Field Id="Units" Index="3"/>
+            </Int>
+            <Int Int="26">
+                <Field Id="Units" Index="4"/>
+            </Int>
+            <Int Int="35">
+                <Field Id="Units" Index="5"/>
+            </Int>
+            <Int Int="2">
+                <Field Id="Race"/>
+            </Int>
+        </Instances>
+        <Instances Id="MutaLing">
+            <Int Int="44">
+                <Field Id="Units"/>
+            </Int>
+            <Int Int="45">
+                <Field Id="Units" Index="1"/>
+            </Int>
+            <Int Int="46">
+                <Field Id="Units" Index="2"/>
+            </Int>
+            <Int Int="47">
+                <Field Id="Units" Index="3"/>
+            </Int>
+            <Int Int="48">
+                <Field Id="Units" Index="4"/>
+            </Int>
+            <Int Int="49">
+                <Field Id="Units" Index="5"/>
+            </Int>
+            <Int Int="3">
+                <Field Id="Race"/>
+            </Int>
+        </Instances>
+        <Instances Id="Swarmy">
+            <Int Int="44">
+                <Field Id="Units"/>
+            </Int>
+            <Int Int="46">
+                <Field Id="Units" Index="1"/>
+            </Int>
+            <Int Int="50">
+                <Field Id="Units" Index="2"/>
+            </Int>
+            <Int Int="51">
+                <Field Id="Units" Index="3"/>
+            </Int>
+            <Int Int="52">
+                <Field Id="Units" Index="4"/>
+            </Int>
+            <Int Int="45">
+                <Field Id="Units" Index="5"/>
+            </Int>
+            <Int Int="53">
+                <Field Id="Units" Index="6"/>
+            </Int>
+            <Int Int="3">
+                <Field Id="Race"/>
+            </Int>
+        </Instances>
+        <Instances Id="Ground">
+            <Int Int="54">
+                <Field Id="Units"/>
+            </Int>
+            <Int Int="44">
+                <Field Id="Units" Index="1"/>
+            </Int>
+            <Int Int="55">
+                <Field Id="Units" Index="2"/>
+            </Int>
+            <Int Int="56">
+                <Field Id="Units" Index="3"/>
+            </Int>
+            <Int Int="57">
+                <Field Id="Units" Index="4"/>
+            </Int>
+            <Int Int="47">
+                <Field Id="Units" Index="5"/>
+            </Int>
+            <Int Int="58">
+                <Field Id="Units" Index="6"/>
+            </Int>
+            <Int Int="3">
+                <Field Id="Race"/>
+            </Int>
+        </Instances>
+        <Instances Id="ClassicZergGround">
+            <Int Int="44">
+                <Field Id="Units"/>
+            </Int>
+            <Int Int="55">
+                <Field Id="Units" Index="1"/>
+            </Int>
+            <Int Int="57">
+                <Field Id="Units" Index="2"/>
+            </Int>
+            <Int Int="59">
+                <Field Id="Units" Index="3"/>
+            </Int>
+            <Int Int="58">
+                <Field Id="Units" Index="4"/>
+            </Int>
+            <Int Int="3">
+                <Field Id="Race"/>
+            </Int>
+            <User Type="Compositions" Instance="Zerg-Standard-Ground-Classic">
+                <Field Id="Comp"/>
+            </User>
+        </Instances>
+        <Instances Id="ClassicZergAir">
+            <Int Int="44">
+                <Field Id="Units"/>
+            </Int>
+            <Int Int="45">
+                <Field Id="Units" Index="1"/>
+            </Int>
+            <Int Int="51">
+                <Field Id="Units" Index="2"/>
+            </Int>
+            <Int Int="59">
+                <Field Id="Units" Index="3"/>
+            </Int>
+            <Int Int="60">
+                <Field Id="Units" Index="4"/>
+            </Int>
+            <Int Int="61">
+                <Field Id="Units" Index="5"/>
+            </Int>
+            <Int Int="3">
+                <Field Id="Race"/>
+            </Int>
+            <User Type="Compositions" Instance="Zerg-Standard-Air-Classic">
+                <Field Id="Comp"/>
+            </User>
+        </Instances>
+    </CUser>
+</Catalog>

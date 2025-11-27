@@ -1,0 +1,163 @@
+include "TriggerLibs/natives"
+
+//--------------------------------------------------------------------------------------------------
+// Library: --MISSIONS
+//--------------------------------------------------------------------------------------------------
+// Preset Declarations
+const int libMIYY_ge_Priority_AVOID = 0;
+const int libMIYY_ge_Priority_LOW = 1;
+const int libMIYY_ge_Priority_MEDIUM = 2;
+const int libMIYY_ge_Priority_HIGH = 3;
+const int libMIYY_ge_Priority_CRITICAL = 4;
+
+// Constants
+const int libMIYY_gv_lOWEST_VITALITY = -2;
+const int libMIYY_gv_rANDOM_OBJECTIVE = -1;
+const int libMIYY_gv_pLAYERS_BASE = 0;
+
+// Variable Declarations
+point libMIYY_gv_amon1Outpost1;
+point libMIYY_gv_amon1Squad1;
+point libMIYY_gv_amon1Squad4LargestAir;
+int libMIYY_gv_wave1;
+int libMIYY_gv_wave2;
+int libMIYY_gv_evil11;
+int libMIYY_gv_evil12;
+point libMIYY_gv_amon1Start;
+point libMIYY_gv_amon1Start2;
+point libMIYY_gv_amon1Start21;
+point libMIYY_gv_amon2Start;
+point libMIYY_gv_amon2Start2;
+point libMIYY_gv_ally1Start;
+point libMIYY_gv_ally1Start1;
+point libMIYY_gv_ally1Expansion;
+point libMIYY_gv_ally1Expansion21;
+point libMIYY_gv_ally2Start;
+point libMIYY_gv_ally2Expansion;
+point libMIYY_gv_ally3Start;
+point libMIYY_gv_ally3Expansion;
+point libMIYY_gv_ally4Start;
+point libMIYY_gv_ally4Expansion;
+point libMIYY_gv_ally5Start;
+point libMIYY_gv_ally5Expansion;
+region libMIYY_gv_amon1Base2;
+region libMIYY_gv_amon2Base2;
+region libMIYY_gv_allyBase2;
+region libMIYY_gv_allyReveal2;
+region libMIYY_gv_ally2Base2;
+region libMIYY_gv_ally2Reveal2;
+region libMIYY_gv_allyClear12;
+region libMIYY_gv_allyClear22;
+region libMIYY_gv_allyClear32;
+region libMIYY_gv_allyClear42;
+region libMIYY_gv_allyClear52;
+region libMIYY_gv_amonClear12;
+region libMIYY_gv_amonClear22;
+int libMIYY_gv_voidIncomeMinerals;
+int libMIYY_gv_voidIncomeVespene;
+playergroup libMIYY_gv_xVU_Enemies;
+playergroup libMIYY_gv_xVU_Allies;
+playergroup libMIYY_gv_xVU_EnemyPlayers;
+playergroup libMIYY_gv_xVU_EnemyAI;
+playergroup libMIYY_gv_xVU_AlliedCommanders;
+playergroup libMIYY_gv_xVU_HumanPlayers;
+playergroup libMIYY_gv_xVU_SlotsPlayers;
+playergroup libMIYY_gv_xVU_SlotsEnemy;
+playergroup libMIYY_gv_xVU_AllyNPC;
+playergroup libMIYY_gv_xVU_BonusNPC;
+playergroup libMIYY_gv_xVU_EnemyNPC;
+playergroup libMIYY_gv_xVU_NeutralNPC;
+playergroup libMIYY_gv_xVU_HostileNPC;
+region libMIYY_gv_cC_NoSpawnRegion;
+region libMIYY_gv_inactiveZone;
+int libMIYY_gv_missionTask;
+int libMIYY_gv_amonTask;
+playergroup libMIYY_gv_tEAM1_PLAYERS;
+playergroup libMIYY_gv_tEAM2_PLAYERS;
+region libMIYY_gv_amon1Base1;
+region libMIYY_gv_amon2Base1;
+region libMIYY_gv_allyBase;
+region libMIYY_gv_allyReveal;
+region libMIYY_gv_ally2Base;
+region libMIYY_gv_ally2Reveal;
+region libMIYY_gv_allyClear1;
+region libMIYY_gv_allyClear2;
+region libMIYY_gv_allyClear3;
+region libMIYY_gv_allyClear4;
+region libMIYY_gv_allyClear5;
+region libMIYY_gv_amonClear1;
+region libMIYY_gv_amonClear2;
+
+// Function Declarations
+void libMIYY_gf_TaskPlayTransmission (int lp_taskIndex, string lp_id);
+void libMIYY_gf_TaskPlayTransmissionOption (int lp_taskIndex, int lp_index);
+void libMIYY_gf_TaskPlayTransmissionGroup (int lp_taskIndex, int lp_index);
+void libMIYY_gf_TaskPlayTransmissionChain (int lp_taskIndex, int lp_index);
+void libMIYY_gf_InitAmon ();
+point libMIYY_gf_GetAllyStartPosition (int lp_player, int lp_index, int lp_mode);
+point libMIYY_gf_GetAllyExpansionPosition (int lp_player, int lp_index, int lp_mode);
+point libMIYY_gf_GetAmonStartPosition (int lp_player, int lp_index, int lp_mode);
+point libMIYY_gf_GetAmonExpansionPosition (int lp_player, int lp_index, int lp_mode);
+point libMIYY_gf_GetAllyHeroPosition (int lp_slot);
+void libMIYY_gf_RevealAreaforPlayerGroup (region lp_visibilityRegion, playergroup lp_player);
+void libMIYY_gf_PreventSpawningInRegion (region lp_region);
+bool libMIYY_gf_CC_SpawnAllowedAtPoint (point lp_spawnPoint);
+region libMIYY_gf_GetExpansionZone ();
+region libMIYY_gf_GetRevealZone (int lp_team);
+region libMIYY_gf_GetIgnoreZone ();
+region libMIYY_gf_GetSafetyZone ();
+region libMIYY_gf_GetSleepZone ();
+void libMIYY_gf_StoreStringForTask (int lp_unit, string lp_index, string lp_actor);
+void libMIYY_gf_InitCoopTasks ();
+void libMIYY_gf_TaskCreateRevealersCoop (int lp_task, playergroup lp_players, region lp_region);
+void libMIYY_gf_TaskDestroyRevealersCoop (int lp_task);
+void libMIYY_gf_TaskAttackWaves (int lp_task, fixed lp_delayMinutes, string lp_routes);
+void libMIYY_gf_TaskAttackWave (int lp_task, unit lp_tARGET, string lp_rOUTES, int lp_sIZE, int lp_tECH, int lp_tYPE);
+unit libMIYY_gf_RandomPriorityTarget ();
+string libMIYY_gf_BestAttackWaveRoute (string lp_spawns);
+void libMIYY_gf_Harass (int lp_target, fixed lp_delay, int lp_size, int lp_tech, string lp_routes);
+void libMIYY_gf_TaskSetPriorityTarget (int lp_task, unit lp_unit, int lp_priority);
+void libMIYY_gf_TaskSetPriorityTargets (int lp_task, unitgroup lp_units, int lp_priority);
+unit libMIYY_gf_TaskGetPriorityTarget (int lp_task, int lp_target);
+void libMIYY_gf_BasicInitialization ();
+string libMIYY_gf_GetCommanderUserDataInstance (string lp_commander);
+void libMIYY_gf_PlayersandAllienceSettings ();
+void libMIYY_gf_SetPlayerGroupAlliance (playergroup lp_players, int lp_alliance);
+void libMIYY_gf_CreateAmonRefineries ();
+void libMIYY_gf_DoodadsReplacement (string lp_race, string lp_raceObjects, region lp_region);
+void libMIYY_gf_CreateExpansionUnitsForPlayer (int lp_player, point lp_location);
+void libMIYY_gf_CreateSplatAtPoint (point lp_location, string lp_actorData);
+void libMIYY_gf_SetStartingPointsAndCreateStartingUnits ();
+void libMIYY_gf_RemoveOptionalUnits ();
+void libMIYY_gf_ReplaceFactionUnits ();
+void libMIYY_gf_DeactivateInactiveZoneBullies ();
+void libMIYY_gf_AddUnitsFromNamedRegionToUnitGroup (string lp_region, unitgroup lp_units);
+void libMIYY_gf_AddNamedRegionToRegion (string lp_regionToAdd, region lp_region);
+unitgroup libMIYY_gf_GetUnitsFromNamedRegion (string lp_region);
+void libMIYY_gf_RemoveUnit (unit lp_unit);
+void libMIYY_gf_RemoveUnitsInUnitGroup (unitgroup lp_unit);
+fixed libMIYY_gf_UnitCreepRadius (string lp_unit);
+int libMIYY_gf_FactionTownHallsCountForPlayer (string lp_faction, int lp_player);
+void libMIYY_gf_RegisterPlayers ();
+void libMIYY_gf_RegisterAvailableFactions ();
+
+// Trigger Declarations
+trigger libMIYY_gt_TaskPlayTransmissionOption;
+trigger libMIYY_gt_VoidIncome;
+trigger libMIYY_gt_VoidIncomeIncrease;
+trigger libMIYY_gt_AmonGameplay;
+trigger libMIYY_gt_AmonChangeOwner;
+trigger libMIYY_gt_PerformanceSleepArea;
+trigger libMIYY_gt_TaskCleanUpCoop;
+trigger libMIYY_gt_AttacksController;
+trigger libMIYY_gt_BaseTargetAttack;
+trigger libMIYY_gt_AttackDefaultVOResponse;
+trigger libMIYY_gt_DefaultMissionWavesTechProgression;
+trigger libMIYY_gt_DefaultMissionWavesSizeProgression;
+trigger libMIYY_gt_PriorityTargetAttack;
+trigger libMIYY_gt_InitialExploration;
+trigger libMIYY_gt_ReplaceDoodads;
+
+// Library Initialization
+void libMIYY_InitVariables ();
+

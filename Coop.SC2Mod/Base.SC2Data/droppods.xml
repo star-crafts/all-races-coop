@@ -1,0 +1,173 @@
+<Catalog>
+    <CSound id="TerranDropPodImpact" parent="Spell">
+        <AssetArray File="Assets\Sounds\Terran\Ghost\Ghost_DropPodImpact0.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\Ghost\Ghost_DropPodImpact1.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\Ghost\Ghost_DropPodImpact2.wav"/>
+        <DupeDestroyCount value="4"/>
+        <OffsetFadeIn Volume="-96"/>
+        <OffsetFadeIn Time="500"/>
+        <OffsetFadeOut Volume="-96"/>
+        <OffsetFadeOut Time="500"/>
+    </CSound>
+    <CActorSound id="TerranDropPodImpact" parent="SoundOneShot"/>
+    <CSound id="ZergDropPod_Drop" parent="Spell">
+        <EditorCategories value="Race:Zerg"/>
+        <AssetArray File="Assets\Sounds\Zerg\ZergDropPod\ZergDropPod_Drop0.wav"/>
+        <AssetArray File="Assets\Sounds\Zerg\ZergDropPod\ZergDropPod_Drop1.wav"/>
+        <AssetArray File="Assets\Sounds\Zerg\ZergDropPod\ZergDropPod_Drop2.wav"/>
+        <Pitch value="-1.000000,0.000000"/>
+        <DupeDestroyCount value="3"/>
+        <Category value="Doodad"/>
+        <DupeMuteCount value="3"/>
+        <Volume value="-4.000000,-1.000000"/>
+    </CSound><CSound id="ZergDropPodImpact" parent="Zerg_ExplosionLarge">
+    <AssetArray index="0" File="Assets\Sounds\Zerg_DropPod_Explode1.wav" Pitch="0.000000,0.000000" FacialGroup=""/>
+    <AssetArray index="1" File="Assets\Sounds\Zerg_DropPod_Explode2.wav" Pitch="0.000000,0.000000" FacialGroup=""/>
+    <AssetArray index="2" File="Assets\Sounds\Zerg_DropPod_Explode0.wav" Pitch="0.000000,0.000000" FacialGroup=""/>
+    <AssetArray index="3" File="Assets\Sounds\Zerg_DropPod_Explode3.wav" Pitch="0.000000,0.000000" FacialGroup=""/>
+    <AssetArray index="4" removed="1"/>
+    <AssetArray index="2" File="Assets\Sounds\Zerg_DropPod_Explode3.wav" Pitch="0.000000,0.000000" FacialGroup=""/>
+    <AssetArray index="3" removed="1"/>
+    <Category value="Death"/>
+    <Pitch value="-1.000000,1.000000"/>
+    <VolumeRolloffPoints Distance="22.144848"/>
+    <VolumeRolloffPoints Distance="38.16156" Volume="-96"/>
+    <DupeDestroyCount value="4"/>
+    <DupeHistoryCount value="3"/>
+    <DupeMuteCount value="3"/>
+    <Volume value="-2.000000,0.000000"/>
+</CSound>
+    <CModel id="ZergDropPod" parent="OneShotSpellFX">
+        <Model value="Assets\Effects\Zerg\ZergDropPod_AC\ZergDropPod_AC.m3"/>
+        <EditorCategories value="Race:Zerg"/>
+        <TechPurchaseCamera value="Star2CameraHigh10"/>
+        <UnitGlossaryCamera value="Star2CameraHigh10"/>
+        <PlanetPanelCamera value="Star2CameraHigh10"/>
+        <Events Anim="Birth,00" Name="Pod Drop Fly In" Type="Sound" Time="1.25" Payload="ZergDropPod_FlyBy"/>
+        <Events Anim="Birth,00" Name="Rock Impact" Type="Sound" Time="2.6" Payload="ZergDropPod_Impact_RockSweet"/>
+        <Events index="0" removed="1"/>
+        <Events index="1" removed="1"/>
+    </CModel>
+    <CActorModel id="ZergDropPodCrashing" parent="ModelAnimationStyleOneShot">
+        <Flags index="SuppressSaveLoad" value="0"/>
+        <On Terms="Effect.ZergDropPodCrashing.Start" Send="Create"/>
+        <!--FogVisibility value="Visible"/-->
+    </CActorModel>
+    <CModel id="ZergDropPodCrashing" parent="OneShotSpellFX">
+        <Model value="Assets\Effects\Zerg\ZergDropPodCrashing\ZergDropPodCrashing.m3"/>
+        <EditorCategories value="Race:Zerg"/>
+        <Events>
+            <Anim value="Birth"/>
+            <Name value="MeatChunk_incoming"/>
+            <Type value="Sound"/>
+            <Time value="0.010000"/>
+            <Payload value="MeatChunk_incoming"/>
+        </Events>
+        <Events>
+            <Anim value="Birth"/>
+            <Name value="MeatChunk_impact"/>
+            <Type value="Sound"/>
+            <Time value="0.900000"/>
+            <Payload value="MeatChunk_impact"/>
+        </Events>
+        <RadiusLoose value="5.000000"/>
+        <Radius value="5.000000"/>
+        <SelectionRadius value="5.000000"/>
+        <ShadowRadius value="0.000000"/>
+    </CModel>
+    <CEffectSet id="ZergDropPodCrashing">
+        <EditorCategories value="Race:Zerg"/>
+        <TargetLocationType value="Point"/>
+    </CEffectSet>
+    <CUnit id="ZergDropPodCreep">
+        <Mob value="Campaign"/>
+        <FlagArray index="Unselectable" value="1"/>
+        <FlagArray index="Untargetable" value="1"/>
+        <FlagArray index="NoDraw" value="1"/>
+        <FlagArray index="Undetectable" value="1"/>
+        <FlagArray index="Unradarable" value="1"/>
+        <FlagArray index="KillCredit" value="0"/>
+        <FlagArray index="Invulnerable" value="1"/>
+        <FlagArray index="NoScore" value="1"/>
+        <Attributes index="Biological" value="1"/>
+        <StationaryTurningRate value="0"/>
+        <TurningRate value="0"/>
+        <BehaviorArray Link="makeCreep2x2"/>
+        <SeparationRadius value="0"/>
+        <MinimapRadius value="0"/>
+        <EditorCategories value="ObjectType:Unit,ObjectFamily:Campaign"/>
+    </CUnit>
+    <CUnit id="ZergDropPod" parent="DESTRUCTIBLE">
+        <Mob value="Campaign"/>
+        <LifeStart value="25"/>
+        <LifeMax value="25"/>
+        <InnerRadius value="0.5"/>
+        <EditorCategories value="ObjectType:Unit,ObjectFamily:Campaign"/>
+        <FlagArray index="Turnable" value="1"/>
+        <FlagArray index="CreateVisible" value="0"/>
+        <FlagArray index="Unselectable" value="1"/>
+        <FlagArray index="Untargetable" value="1"/>
+        <FlagArray index="Undetectable" value="1"/>
+        <FlagArray index="Unradarable" value="1"/>
+        <FlagArray index="Invulnerable" value="1"/>
+        <FlagArray index="NoScore" value="1"/>
+        <LifeArmorName value="Unit/LifeArmorName/ZergGroundArmor"/>
+        <GlossaryPriority value="72"/>
+        <TurningRate value="1.9335"/>
+    </CUnit>
+    <CUnit id="TerranDropPod" parent="DESTRUCTIBLE">
+        <Mob value="Campaign"/>
+        <LifeStart value="25"/>
+        <LifeMax value="25"/>
+        <InnerRadius value="0.5"/>
+        <EditorCategories value="ObjectType:Unit,ObjectFamily:Campaign"/>
+        <FlagArray index="Turnable" value="1"/>
+        <FlagArray index="Unselectable" value="1"/>
+        <FlagArray index="Untargetable" value="1"/>
+        <FlagArray index="Undetectable" value="1"/>
+        <FlagArray index="Unradarable" value="1"/>
+        <FlagArray index="Invulnerable" value="1"/>
+        <FlagArray index="NoScore" value="1"/>
+        <FogVisibility value="Dimmed"/>
+    </CUnit>
+    <CUnit id="ZergDropPodLarge" parent="DESTRUCTIBLE">
+        <Mob value="Campaign"/>
+        <FlagArray index="CreateVisible" value="0"/>
+        <FlagArray index="Unselectable" value="1"/>
+        <FlagArray index="Untargetable" value="1"/>
+        <FlagArray index="Undetectable" value="1"/>
+        <FlagArray index="Unradarable" value="1"/>
+        <FlagArray index="Invulnerable" value="1"/>
+        <FlagArray index="NoScore" value="1"/>
+        <LifeStart value="25"/>
+        <LifeMax value="25"/>
+        <ShieldArmorName value="Unit/ShieldArmorName/ZergWildMutation"/>
+        <LifeArmorName value="Unit/LifeArmorName/ZergGroundArmor"/>
+        <InnerRadius value="0.5"/>
+        <EditorCategories value="ObjectType:Unit,ObjectFamily:Campaign"/>
+        <GlossaryPriority value="72"/>
+    </CUnit>
+    <CActorUnit id="ZergDropPod" parent="GenericUnitStandardNoAutoSoundLinks" unitName="ZergDropPod">
+        <On Terms="UnitBirth.*.Suppressed" Send="$Birth NonLooping 0.000000 0.000000"/>
+        <On Terms="ActorCreation" Send="Create ZergDropPod_Drop"/>
+        <On Terms="ActorCreation" Send="TimerSet 2.600000 DelayDropPod"/>
+        <On Terms="TimerExpired; TimerName DelayDropPod" Send="Create ZergDropPodImpact"/>
+        <On Terms="AnimDone; AnimName Birth" Send="AnimSetCompletion Stand"/>
+        <LifeArmorIcon value="Assets\Textures\btn-upgrade-zerg-flyercarapace-level0.dds"/>
+        <UnitIcon value="Assets\Textures\btn-building-zerg-droppod.dds"/>
+        <WalkAnimMoveSpeed value="0"/>
+        <UnitFlags index="ShowBlobShadow" value="0"/>
+        <StatusBarFlags index="Shields" value="0"/>
+        <StatusBarFlags index="Life" value="0"/>
+        <StatusBarFlags index="Energy" value="0"/>
+        <StatusBarFlags index="Cargo" value="0"/>
+        <StatusBarFlags index="Progress" value="0"/>
+        <StatusBarFlags index="Duration" value="0"/>
+        <GlossaryAnim value="Spell"/>
+    </CActorUnit>
+    <CActorSound id="ZergDropPod_Drop" parent="SoundOneShot"/>
+    <CActorSound id="ZergDropPodImpact" parent="SoundOneShot"/>
+    <CActorUnit id="ZergDropPodCreep" parent="GenericUnitBase" unitName="ZergDropPodCreep">
+        <Model value="CreepTumor"/>
+    </CActorUnit>
+</Catalog>

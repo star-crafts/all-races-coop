@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CWeaponLegacy id="AmonHybridBehemoth">
+        <Options index="Melee" value="1"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level0.dds"/>
+        <DisplayEffect value="AmonHybridBehemothDamage"/>
+        <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="1.2"/>
+        <Marker>
+            <MatchFlags index="Id" value="1"/>
+        </Marker>
+        <Period value="1"/>
+        <DamagePoint value="0.5"/>
+        <Effect value="AmonHybridBehemothSet"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="AmonHybridDestroyer">
+        <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel0.dds"/>
+        <DisplayEffect value="AmonHybridDestroyerShockDamage"/>
+        <TargetFilters value="Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <MinScanRange value="7.5"/>
+        <Range value="7"/>
+        <Cost>
+            <Cooldown Location="Unit"/>
+        </Cost>
+        <Period value="1.694"/>
+        <Effect value="AmonHybridDestroyerLM"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="AmonHybridReaver">
+        <Options index="Melee" value="1"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level0.dds"/>
+        <DisplayEffect value="AmonHybridReaverDamage"/>
+        <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="1.2"/>
+        <Period value="1"/>
+        <DamagePoint value="0.5"/>
+        <Effect value="AmonHybridReaverDamage"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="AmonHybridNemesisWeapon">
+        <EditorCategories value="Race:Protoss"/>
+        <Icon value="Assets\Textures\btn-ability-protoss-oraclepulsarcannonon.dds"/>
+        <DisplayEffect value="AmonHybridNemesisWeaponDamage"/>
+        <TargetFilters value="Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <MinScanRange value="6.5"/>
+        <Range value="6"/>
+        <Period value="1"/>
+        <Effect value="AmonHybridNemesisWeaponPersistent"/>
+        <LegacyOptions index="CanRetargetWhileChanneling" value="1"/>
+    </CWeaponLegacy>
+</Catalog>

@@ -1,0 +1,565 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CUser id="EnemyFactionsList">
+        <Fields>
+            <Id value="Factions"/>
+            <Type value="User"/>
+            <UserType value="Factions"/>
+            <EditorColumn value="10"/>
+        </Fields>
+        <Fields>
+            <Id value="Category"/>
+            <Type value="String"/>
+            <Count value="2"/>
+            <EditorColumn value="5"/>
+        </Fields>
+        <Fields Id="Name" Type="Text" EditorColumn="1"/>
+        <Instances Id="[Default]"/>
+        <Instances Id="Random">
+            <String String="Standard">
+                <Field Id="Category"/>
+            </String>
+            <String String="Custom">
+                <Field Id="Category" Index="1"/>
+            </String>
+            <Text Text="UserData/EnemyFactionsList/Random_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="Standard">
+            <String String="Standard">
+                <Field Id="Category"/>
+            </String>
+            <Text Text="UserData/EnemyFactionsList/Standard_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="Terran">
+            <Text Text="UserData/EnemyFactionsList/Terran_Name">
+                <Field Id="Name"/>
+            </Text>
+            <User Type="Factions" Instance="Terran">
+                <Field Id="Factions"/>
+            </User>
+        </Instances>
+        <Instances Id="Protoss">
+            <Text Text="UserData/EnemyFactionsList/Protoss_Name">
+                <Field Id="Name"/>
+            </Text>
+            <User Type="Factions" Instance="Protoss">
+                <Field Id="Factions"/>
+            </User>
+        </Instances>
+        <Instances Id="Zerg">
+            <Text Text="UserData/EnemyFactionsList/Zerg_Name">
+                <Field Id="Name"/>
+            </Text>
+            <User Type="Factions" Instance="Zerg">
+                <Field Id="Factions"/>
+            </User>
+        </Instances>
+    </CUser>
+    <CUser id="MissionPlayers">
+        <Fields>
+            <Id value="Role"/>
+            <Type value="User"/>
+            <UserType value="MissionRoles"/>
+            <EditorColumn value="1"/>
+        </Fields>
+        <Instances Id="[Default]">
+            <User Type="MissionRoles" Instance="Neutral NPC">
+                <Field Id="Role"/>
+            </User>
+        </Instances>
+        <Instances Id="1">
+            <User Type="MissionRoles" Instance="Ally Player">
+                <Field Id="Role"/>
+            </User>
+        </Instances>
+        <Instances Id="2">
+            <User Type="MissionRoles" Instance="Ally Player">
+                <Field Id="Role"/>
+            </User>
+        </Instances>
+        <Instances Id="3">
+            <User Type="MissionRoles" Instance="Ally Player">
+                <Field Id="Role"/>
+            </User>
+        </Instances>
+        <Instances Id="4">
+            <User Type="MissionRoles" Instance="Ally Player">
+                <Field Id="Role"/>
+            </User>
+        </Instances>
+        <Instances Id="5">
+            <User Type="MissionRoles" Instance="Ally Player">
+                <Field Id="Role"/>
+            </User>
+        </Instances>
+        <Instances Id="6">
+            <User Type="MissionRoles" Instance="Amon Player">
+                <Field Id="Role"/>
+            </User>
+        </Instances>
+        <Instances Id="7">
+            <User Type="MissionRoles" Instance="Amon Player">
+                <Field Id="Role"/>
+            </User>
+        </Instances>
+        <Instances Id="8">
+            <User Type="MissionRoles" Instance="Amon Player">
+                <Field Id="Role"/>
+            </User>
+        </Instances>
+        <Instances Id="9">
+            <User Type="MissionRoles" Instance="Amon Player">
+                <Field Id="Role"/>
+            </User>
+        </Instances>
+        <Instances Id="10">
+            <User Type="MissionRoles" Instance="Amon Player">
+                <Field Id="Role"/>
+            </User>
+        </Instances>
+        <Instances Id="11">
+            <User Type="MissionRoles" Instance="Ally NPC">
+                <Field Id="Role"/>
+            </User>
+        </Instances>
+        <Instances Id="12">
+            <User Type="MissionRoles" Instance="Amon NPC">
+                <Field Id="Role"/>
+            </User>
+        </Instances>
+        <Instances Id="13">
+            <User Type="MissionRoles" Instance="Bonus NPC">
+                <Field Id="Role"/>
+            </User>
+        </Instances>
+        <Instances Id="14">
+            <User Type="MissionRoles" Instance="Neutral NPC">
+                <Field Id="Role"/>
+            </User>
+        </Instances>
+        <Instances Id="15">
+            <User Type="MissionRoles" Instance="Hostile NPC">
+                <Field Id="Role"/>
+            </User>
+        </Instances>
+    </CUser>
+    <CUser id="MissionActors">
+        <Fields Id="Actor" Type="Actor" EditorColumn="1"/>
+        <Fields Id="Variation" Type="Int" EditorColumn="2"/>
+        <Fields Id="Scale" Type="Fixed" EditorColumn="3"/>
+        <Instances Id="[Default]">
+            <Actor Actor="NONE">
+                <Field Id="Actor"/>
+            </Actor>
+            <Fixed Fixed="1">
+                <Field Id="Scale"/>
+            </Fixed>
+            <Int Int="1">
+                <Field Id="Variation"/>
+            </Int>
+        </Instances>
+        <Instances Id="TerranTownHallSplat">
+            <Actor Actor="Shadow_Tarmac_Splat">
+                <Field Id="Actor"/>
+            </Actor>
+            <Fixed Fixed="0.95">
+                <Field Id="Scale"/>
+            </Fixed>
+            <Int Int="6">
+                <Field Id="Variation"/>
+            </Int>
+        </Instances>
+        <Instances Id="TerranHeroSplat"/>
+        <Instances Id="TerranRefinerySplat">
+            <Actor Actor="Korhal_TarmacSplat">
+                <Field Id="Actor"/>
+            </Actor>
+            <Int Int="2">
+                <Field Id="Variation"/>
+            </Int>
+        </Instances>
+    </CUser>
+    <CUser id="MissionRoles">
+        <Instances Id="[Default]"/>
+        <Instances Id="Ally Player"/>
+        <Instances Id="Ally NPC"/>
+        <Instances Id="Amon Player"/>
+        <Instances Id="Amon NPC"/>
+        <Instances Id="Bonus NPC"/>
+        <Instances Id="Hostile NPC"/>
+        <Instances Id="Neutral NPC"/>
+    </CUser>
+    <CUser id="MissionSettings">
+        <Fields>
+            <Id value="Map"/>
+            <Type value="GameLink"/>
+            <GameLinkType value="Map"/>
+            <EditorColumn value="1"/>
+        </Fields>
+        <Fields>
+            <Id value="GameSoundtrack"/>
+            <Type value="GameLink"/>
+            <GameLinkType value="Soundtrack"/>
+            <EditorColumn value="21"/>
+        </Fields>
+        <Fields Id="Time" Type="String" EditorColumn="5"/>
+        <Fields Id="BriefingSoundtrack" Type="GameLink" GameLinkType="Soundtrack"/>
+        <Fields Id="ExpansionBlockerTownHall" Type="Unit" EditorColumn="8"/>
+        <Fields Id="ExpansionBlockerRefinery" Type="Unit" EditorColumn="7"/>
+        <Fields>
+            <Id value="AllyTownHallActor"/>
+            <Type value="User"/>
+            <UserType value="MissionActors"/>
+            <EditorColumn value="11"/>
+        </Fields>
+        <Fields>
+            <Id value="AllyRefineryActor"/>
+            <Type value="User"/>
+            <UserType value="MissionActors"/>
+            <EditorColumn value="11"/>
+        </Fields>
+        <Fields>
+            <Id value="AllyHeroActor"/>
+            <Type value="User"/>
+            <UserType value="MissionActors"/>
+            <EditorColumn value="11"/>
+        </Fields>
+        <Fields Id="ResourcesRadius" Type="Fixed" EditorColumn="14"/>
+        <Fields Id="SafetyRadius" Type="Fixed" EditorColumn="16"/>
+        <Fields Id="ClearResources" Type="Int"/>
+        <Fields Id="ResorucesMinerals" Type="Int"/>
+        <Fields Id="ResourcesVespene" Type="Int"/>
+        <Fields Id="ExpansionBlockerMinerals" Type="Unit" EditorColumn="9"/>
+        <Fields Id="AmonHeroDuration" Type="Fixed" EditorColumn="12"/>
+        <Instances Id="[Default]">
+            <Fixed Fixed="13">
+                <Field Id="SafetyRadius"/>
+            </Fixed>
+            <Fixed Fixed="15">
+                <Field Id="ResourcesRadius"/>
+            </Fixed>
+            <Int Int="1">
+                <Field Id="ClearResources"/>
+            </Int>
+            <Int Int="7">
+                <Field Id="ResorucesMinerals"/>
+            </Int>
+            <Int Int="2">
+                <Field Id="ResourcesVespene"/>
+            </Int>
+            <String String="08:00:00">
+                <Field Id="Time"/>
+            </String>
+            <Unit Unit="NONE">
+                <Field Id="ExpansionBlockerRefinery"/>
+            </Unit>
+            <Unit Unit="NONE">
+                <Field Id="ExpansionBlockerTownHall"/>
+            </Unit>
+            <Unit Unit="NONE">
+                <Field Id="ExpansionBlockerMinerals"/>
+            </Unit>
+            <User Type="MissionActors" Instance="[Default]">
+                <Field Id="AllyHeroActor"/>
+            </User>
+        </Instances>
+        <Instances Id="CurrentMission">
+            <Fixed Fixed="10">
+                <Field Id="ResourcesRadius"/>
+            </Fixed>
+            <Fixed Fixed="150">
+                <Field Id="AmonHeroDuration"/>
+            </Fixed>
+        </Instances>
+        <Instances Id="IceWorld">
+            <Unit Unit="DestructibleIce4x4">
+                <Field Id="ExpansionBlockerRefinery"/>
+            </Unit>
+            <Unit Unit="DestructibleIce6x6">
+                <Field Id="ExpansionBlockerTownHall"/>
+            </Unit>
+            <User Type="MissionActors" Instance="[Default]">
+                <Field Id="AllyRefineryActor"/>
+            </User>
+        </Instances>
+        <Instances Id="AshWorld">
+            <Unit Unit="DestructibleRock4x4">
+                <Field Id="ExpansionBlockerRefinery"/>
+            </Unit>
+            <Unit Unit="DestructibleRock6x6">
+                <Field Id="ExpansionBlockerTownHall"/>
+            </Unit>
+            <User Type="MissionActors" Instance="[Default]">
+                <Field Id="AllyRefineryActor"/>
+            </User>
+        </Instances>
+        <Instances Id="CityWorld">
+            <Unit Unit="DestructibleDebris4x4">
+                <Field Id="ExpansionBlockerRefinery"/>
+            </Unit>
+            <Unit Unit="DestructibleDebris6x6">
+                <Field Id="ExpansionBlockerTownHall"/>
+            </Unit>
+            <User Type="MissionActors" Instance="[Default]">
+                <Field Id="AllyRefineryActor"/>
+            </User>
+            <User Type="MissionActors" Instance="[Default]">
+                <Field Id="AllyTownHallActor"/>
+            </User>
+        </Instances>
+        <Instances Id="[Override]CurrentMission">
+            <GameLink GameLink="AC_BelshirEscort">
+                <Field Id="Map"/>
+            </GameLink>
+            <Int Int="9">
+                <Field Id="Spawners"/>
+            </Int>
+            <Unit Unit="DestructibleRock6x6">
+                <Field Id="ExpansionBlockerTownHall"/>
+            </Unit>
+            <Unit Unit="DestructibleRock4x4">
+                <Field Id="ExpansionBlockerRefinery"/>
+            </Unit>
+            <User Type="MissionActors" Instance="TerranDefaultHero">
+                <Field Id="AllyHeroActor"/>
+            </User>
+            <User Type="MissionActors" Instance="TerranDefaultRefinery">
+                <Field Id="AllyRefineryActor"/>
+            </User>
+            <User Type="MissionActors" Instance="TerranDefaultTownHall">
+                <Field Id="AllyTownHallActor"/>
+            </User>
+        </Instances>
+    </CUser>
+    <CUser id="CoopAIStock">
+        <Fields Id="Unit" Type="Unit" EditorColumn="1"/>
+        <Fields Id="Stock 1Casual" Type="Int" EditorColumn="2"/>
+        <Fields Id="Stock 2Normal" Type="Int" EditorColumn="3"/>
+        <Fields Id="Stock 3Hard" Type="Int" EditorColumn="4"/>
+        <Fields Id="Stock 4Brutal" Type="Int" EditorColumn="5"/>
+        <Instances Id="[Default]"/>
+        <Instances Id="Orbital Command">
+            <Int Int="1">
+                <Field Id="Stock 1Casual"/>
+            </Int>
+            <Int Int="1">
+                <Field Id="Stock 2Normal"/>
+            </Int>
+            <Int Int="1">
+                <Field Id="Stock 3Hard"/>
+            </Int>
+            <Int Int="2">
+                <Field Id="Stock 4Brutal"/>
+            </Int>
+            <Unit Unit="OrbitalCommand">
+                <Field Id="Unit"/>
+            </Unit>
+        </Instances>
+        <Instances Id="Ghost Academy">
+            <Int Int="1">
+                <Field Id="Stock 2Normal"/>
+            </Int>
+            <Int Int="2">
+                <Field Id="Stock 3Hard"/>
+            </Int>
+            <Int Int="3">
+                <Field Id="Stock 4Brutal"/>
+            </Int>
+            <Unit Unit="GhostAcademy">
+                <Field Id="Unit"/>
+            </Unit>
+        </Instances>
+        <Instances Id="Ghost">
+            <Int Int="1">
+                <Field Id="Stock 2Normal"/>
+            </Int>
+            <Int Int="2">
+                <Field Id="Stock 3Hard"/>
+            </Int>
+            <Int Int="3">
+                <Field Id="Stock 4Brutal"/>
+            </Int>
+            <Unit Unit="Ghost">
+                <Field Id="Unit"/>
+            </Unit>
+        </Instances>
+        <Instances Id="Nuke">
+            <Int Int="1">
+                <Field Id="Stock 2Normal"/>
+            </Int>
+            <Int Int="2">
+                <Field Id="Stock 3Hard"/>
+            </Int>
+            <Int Int="3">
+                <Field Id="Stock 4Brutal"/>
+            </Int>
+            <Unit Unit="Nuke">
+                <Field Id="Unit"/>
+            </Unit>
+        </Instances>
+        <Instances Id="StetmannHatchery">
+            <Int Int="1">
+                <Field Id="WorkersRallyIndex"/>
+            </Int>
+            <Unit Unit="HatcheryStetmann">
+                <Field Id="Unit"/>
+            </Unit>
+        </Instances>
+        <Instances Id="Mengsk CommandCenter">
+            <Int Int="1">
+                <Field Id="WorkersRallyIndex"/>
+            </Int>
+            <Unit Unit="CommandCenterMengsk">
+                <Field Id="Unit"/>
+            </Unit>
+        </Instances>
+        <Instances Id="Hatchery">
+            <Int Int="1">
+                <Field Id="WorkersRallyIndex"/>
+            </Int>
+            <Unit Unit="Hatchery">
+                <Field Id="Unit"/>
+            </Unit>
+        </Instances>
+        <Instances Id="UPLHeadquarters">
+            <Int Int="1">
+                <Field Id="WorkersRallyIndex"/>
+            </Int>
+            <Unit Unit="UPLHeadquarters">
+                <Field Id="Unit"/>
+            </Unit>
+        </Instances>
+    </CUser>
+    <CUser id="MasteryUpgrades">
+        <Fields Id="Upgrade" Type="Upgrade" EditorColumn="10"/>
+        <Fields Id="Name" Type="Text" EditorColumn="2"/>
+        <Fields Id="ValueFormat" Type="Text" EditorColumn="11"/>
+        <Fields>
+            <Id value="PointIncrement"/>
+            <Type value="Fixed"/>
+            <Count value="2"/>
+            <EditorColumn value="9"/>
+        </Fields>
+        <Fields Id="Category" Type="Int" EditorColumn="3"/>
+        <Fields>
+            <Id value="Commander"/>
+            <Type value="User"/>
+            <UserType value="Commanders"/>
+            <EditorColumn value="1"/>
+        </Fields>
+        <Fields Id="InternalIndex" Type="Int">
+            <Flags index="Modifiable" value="1"/>
+        </Fields>
+        <Fields Id="TalentData" Type="GameLink" GameLinkType="Talent"/>
+        <Instances Id="[Default]"/>
+    </CUser>
+    <CUser id="Prestiges">
+        <Fields>
+            <Id value="ZZ_UpgradeSupplements"/>
+            <Type value="User"/>
+            <UserType value="PlayerPrestigeUpgradeSupplements"/>
+            <Count value="10"/>
+            <EditorColumn value="22"/>
+        </Fields>
+        <Fields>
+            <Id value="PlayerResponses"/>
+            <Type value="User"/>
+            <UserType value="PlayerResponse"/>
+            <Count value="5"/>
+            <EditorColumn value="12"/>
+        </Fields>
+        <Fields>
+            <Id value="Icon"/>
+            <Type value="GameLink"/>
+            <GameLinkType value="Button"/>
+            <EditorColumn value="11"/>
+        </Fields>
+        <Instances Id="[Default]"/>
+        <Instances Id="Any"/>
+        <Instances Id="Amon"/>
+        <Instances Id="Terran">
+            <GameLink GameLink="ButtonPrestigeCommanderTerran">
+                <Field Id="Icon"/>
+            </GameLink>
+        </Instances>
+        <Instances Id="TerranJunkers">
+            <GameLink GameLink="ButtonPrestigeCommanderTerranJunkers">
+                <Field Id="Icon"/>
+            </GameLink>
+        </Instances>
+        <Instances Id="TerranTyrador">
+            <GameLink GameLink="ButtonPrestigeCommanderTerranTyrador">
+                <Field Id="Icon"/>
+            </GameLink>
+        </Instances>
+        <Instances Id="TerranUmojan">
+            <GameLink GameLink="ButtonPrestigeCommanderTerranUmojan">
+                <Field Id="Icon"/>
+            </GameLink>
+        </Instances>
+        <Instances Id="TerranSpecOps">
+            <GameLink GameLink="ButtonPrestigeCommanderTerranSpecOps">
+                <Field Id="Icon"/>
+            </GameLink>
+        </Instances>
+        <Instances Id="Zerg">
+            <GameLink GameLink="ButtonPrestigeCommanderZerg">
+                <Field Id="Icon"/>
+            </GameLink>
+        </Instances>
+        <Instances Id="ZergSimulant">
+            <GameLink GameLink="ButtonPrestigeCommanderZergSimulant">
+                <Field Id="Icon"/>
+            </GameLink>
+        </Instances>
+        <Instances Id="ZergCerberus">
+            <GameLink GameLink="ButtonPrestigeCommanderZergCerberus">
+                <Field Id="Icon"/>
+            </GameLink>
+        </Instances>
+        <Instances Id="ZergLeviathan">
+            <GameLink GameLink="ButtonPrestigeCommanderZergLeviathan">
+                <Field Id="Icon"/>
+            </GameLink>
+        </Instances>
+        <Instances Id="ZergPrimal">
+            <GameLink GameLink="ButtonPrestigeCommanderZergPrimal">
+                <Field Id="Icon"/>
+            </GameLink>
+        </Instances>
+        <Instances Id="Protoss">
+            <GameLink GameLink="ButtonPrestigeCommanderProtoss">
+                <Field Id="Icon"/>
+            </GameLink>
+        </Instances>
+        <Instances Id="ProtossGolden">
+            <GameLink GameLink="ButtonPrestigeCommanderProtossGolden">
+                <Field Id="Icon"/>
+            </GameLink>
+        </Instances>
+        <Instances Id="ProtossTaldarim">
+            <GameLink GameLink="ButtonPrestigeCommanderProtossTaldarim">
+                <Field Id="Icon"/>
+            </GameLink>
+        </Instances>
+        <Instances Id="ProtossPurifiers">
+            <GameLink GameLink="ButtonPrestigeCommanderProtossPurifiers">
+                <Field Id="Icon"/>
+            </GameLink>
+        </Instances>
+        <Instances Id="ProtossIhanRii">
+            <GameLink GameLink="ButtonPrestigeCommanderProtossIhanRii">
+                <Field Id="Icon"/>
+            </GameLink>
+        </Instances>
+        <Instances Id="ProtossNerazim">
+            <GameLink GameLink="ButtonPrestigeCommanderProtossNerazim">
+                <Field Id="Icon"/>
+            </GameLink>
+        </Instances>
+    </CUser>
+</Catalog>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Desc>
+    <Frame type="Frame" name="GameUI/UIContainer/ConsoleUIContainer" file="GameUI">
+        <Frame type="Frame" name="EnemyBrief" template="Coop_EnemyBrief/EnemyBriefTemplate">
+            <Anchor side="Bottom" relative="$parent/$parent/FullscreenUpperContainer/ObserverPanelMovingContainer/ReplayPanel/BackgroundImage" pos="Min" offset="-15"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-6"/>
+            <PreserveAnchorOffset val="true"/>
+            <Visible val="False"/>
+        </Frame>
+    </Frame>
+
+
+</Desc>

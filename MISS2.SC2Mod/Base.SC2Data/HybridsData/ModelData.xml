@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+
+    <CModel id="AmonHybridBehemoth" parent="Unit" Race="Zerg">
+        <Model value="Assets\Units\Zerg\Hybrid_Zerg_Advanced\Hybrid_Zerg_Advanced.m3"/>
+        <Events>
+            <Anim value="Birth,00"/>
+            <Name value="HybridBehemoth_Birth"/>
+            <Type value="Sound"/>
+            <Time value="0.010000"/>
+            <Payload value="HybridBehemoth_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,00"/>
+            <Name value="HybridSounds"/>
+            <Type value="Sound"/>
+            <Time value="0.100000"/>
+            <Payload value="HybridBehemoth_AttackLaunch"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,00"/>
+            <Name value="HybridSounds"/>
+            <Type value="Sound"/>
+            <Time value="0.200000"/>
+            <Payload value="HybridBehemoth_AttackLaunch"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,00"/>
+            <Name value="HybridSounds"/>
+            <Type value="Sound"/>
+            <Time value="0.390000"/>
+            <Payload value="HybridBehemoth_AttackImpact"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,00"/>
+            <Name value="HybridSounds"/>
+            <Type value="Sound"/>
+            <Time value="0.530000"/>
+            <Payload value="HybridBehemoth_AttackImpact"/>
+        </Events>
+        <Events>
+            <Anim value="Stand,Angry,00"/>
+            <Name value="HybridSounds"/>
+            <Type value="Sound"/>
+            <Time value="0.010000"/>
+            <Payload value="HybridBehemoth_Roar"/>
+        </Events>
+        <Flags index="AutoUnload" value="1"/>
+        <Lighting value="HybridBehemothAdvanced"/>
+        <Occlusion value="Show"/>
+        <PlanetPanelCamera value="Star2CameraHigher14"/>
+        <Radius value="1.000000"/>
+        <ScaleMax value="0.800000,0.800000,0.800000"/>
+        <ScaleMin value="0.800000,0.800000,0.800000"/>
+        <SelectionRadius value="1.250000"/>
+        <ShadowRadius value="1.250000"/>
+        <TechPurchaseCamera value="Star2CameraHigher14"/>
+        <UnitGlossaryCamera value="Star2CameraHigher14"/>
+    </CModel>
+    <CModel id="AmonHybridDestroyer" parent="Unit" Race="Protoss">
+        <Model value="Assets\Units\Protoss\HybridProtoss\HybridProtoss.m3"/>
+        <Flags index="AutoUnload" value="1"/>
+        <Occlusion value="Show"/>
+        <PlanetPanelCamera value="Star2CameraHigher08"/>
+        <Radius value="1.000000"/>
+        <ScaleMax value="0.750000,0.750000,0.750000"/>
+        <ScaleMin value="0.750000,0.750000,0.750000"/>
+        <SelectionRadius value="1.111000"/>
+        <ShadowRadius value="1.111000"/>
+        <TechPurchaseCamera value="Star2CameraHigher08"/>
+        <UnitGlossaryCamera value="Star2CameraHigher08"/>
+    </CModel>
+    <CModel id="AmonHybridNemesis" parent="Unit" Race="Zerg">
+        <Model value="Assets\Units\Protoss\Hybrid_Nemesis\Hybrid_Nemesis.m3"/>
+        <Occlusion value="Show"/>
+        <PlanetPanelCamera value="Star2CameraLow08"/>
+        <Radius value="1.250000"/>
+        <SelectionOffset value="0.000000,0.000000,-0.400000"/>
+        <SelectionRadius value="1.250000"/>
+        <ShadowRadius value="1.250000"/>
+        <SquibTypeDefault value="Flesh"/>
+        <TechPurchaseCamera value="Star2CameraLow08"/>
+        <UnitGlossaryCamera value="Star2CameraLow08"/>
+    </CModel>
+    <CModel id="AmonHybridReaver" parent="Unit" Race="Protoss">
+        <Model value="Assets\Units\Zerg\HybridZerg\HybridZerg.m3"/>
+        <Events>
+            <Anim value="Attack,00"/>
+            <Name value="HybridSounds"/>
+            <Type value="Sound"/>
+            <Time value="0.100000"/>
+            <Payload value="HybridViper_AttackLaunch"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,00"/>
+            <Name value="HybridSounds"/>
+            <Type value="Sound"/>
+            <Time value="0.200000"/>
+            <Payload value="HybridViper_AttackLaunch"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,00"/>
+            <Name value="HybridSounds"/>
+            <Type value="Sound"/>
+            <Time value="0.390000"/>
+            <Payload value="HybridViper_AttackImpact"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,00"/>
+            <Name value="HybridSounds"/>
+            <Type value="Sound"/>
+            <Time value="0.530000"/>
+            <Payload value="HybridViper_AttackImpact"/>
+        </Events>
+        <Flags index="AutoUnload" value="1"/>
+        <Occlusion value="Show"/>
+        <PlanetPanelCamera value="Star2CameraHigher16"/>
+        <Radius value="1.000000"/>
+        <ScaleMax value="0.650000,0.650000,0.650000"/>
+        <ScaleMin value="0.650000,0.650000,0.650000"/>
+        <SelectionRadius value="1.250000"/>
+        <ShadowRadius value="1.250000"/>
+        <TechPurchaseCamera value="Star2CameraHigher16"/>
+        <UnitGlossaryCamera value="Star2CameraHigher16"/>
+    </CModel>
+    <CModel id="AmonConsumeDNAFeedbackWeapon" parent="MissileFX">
+        <Model value="Assets\Effects\Zerg\HybridConsumeMissile\HybridConsumeMissile.m3"/>
+        <EditorCategories value="Race:Protoss"/>
+        <SelectionRadius value="0.333200"/>
+        <ShadowRadius value="0.333200"/>
+    </CModel>
+    <CModel id="AmonHybridDestroyerGravitonPrisonBeam" parent="PersistentSpellFX">
+        <Model value="Assets\Effects\Zerg\HybridGravitronPrisonBeam\HybridGravitronPrisonBeam.m3"/>
+        <EditorCategories value="Race:Protoss"/>
+    </CModel>
+    <CModel id="AmonHybridDestroyerGravitonPrisonEffect" parent="PersistentSpellFX">
+        <Model value="Assets\Effects\Zerg\HybridGravitronPrisonImpact\HybridGravitronPrisonImpact.m3"/>
+        <EditorCategories value="Race:Protoss"/>
+    </CModel>
+    <CModel id="AmonHybridBehemothDeath" parent="UnitDeath" Race="Zerg">
+        <Model value="Assets\Units\Zerg\Hybrid_Zerg_Advanced_Death\Hybrid_Zerg_Advanced_Death.m3"/>
+        <Occlusion value="Show"/>
+    </CModel>
+<!--    <CModel id="AmonHybridBehemothDeath" parent="UnitDeath" Race="Zerg">-->
+<!--        <Model value="Assets\Units\Zerg\HybridZergDeathEx1\HybridZergDeathEx1.m3"/>-->
+<!--        <LowQualityModel value="ZergLargeUnitDeathLow"/>-->
+<!--        <SelectionRadius value="0.625000"/>-->
+<!--        <ShadowRadius value="0.625000"/>-->
+<!--    </CModel>-->
+    <CModel id="AmonHybridBehemothPortrait" parent="Portrait" Race="Zerg">
+        <Model value="Assets\Portraits\Zerg\Hybrid_Zerg_Advanced_Portrait\Hybrid_Zerg_Advanced_Portrait.m3"/>
+        <Image value="Assets\Textures\hybridzergadvancedportrait_static.dds"/>
+        <Lighting value="HybridBehemothAdvanced"/>
+    </CModel>
+<!--    <CModel id="AmonHybridBehemothPortrait" parent="Portrait" Race="Zerg">-->
+<!--        <Model value="Assets\Portraits\Zerg\HybridZergPortrait\HybridZergPortrait.m3"/>-->
+<!--        <Image value="Assets\Textures\HybridZergPortrait_Static.dds"/>-->
+<!--        <Lighting value="HybridBehemothPortrait"/>-->
+<!--    </CModel>-->
+    <CModel id="AmonHybridDestroyerAttackImpact" parent="ImpactFX">
+        <Model value="Assets\Effects\Protoss\HybridEnergyMissileImpact\HybridEnergyMissileImpact.m3"/>
+        <EditorCategories value="Race:Protoss"/>
+        <SelectionRadius value="2.500000"/>
+        <ShadowRadius value="2.500000"/>
+    </CModel>
+    <CModel id="AmonHybridBehemothAoESlime" parent="Unit" Race="Zerg">
+        <Model value="Assets\Effects\Zerg\FungalGrowth\FungalGrowth.m3"/>
+        <Radius value="0.800000"/>
+        <ScaleMax value="0.800000,0.800000,0.800000"/>
+        <ScaleMin value="0.800000,0.800000,0.800000"/>
+        <SelectionOffset value="0.000000,0.000000,-0.750000"/>
+        <SelectionRadius value="1.000000"/>
+        <ShadowRadius value="1.000000"/>
+    </CModel>
+    <CModel id="AmonHybridGeneralPhaseShiftImpact" parent="PersistentSpellFX">
+        <Model value="Assets\Effects\Protoss\StasisTomb\StasisTomb.m3"/>
+        <EditorCategories value="Race:Protoss"/>
+        <ScaleMax value="0.250000,0.250000,0.250000"/>
+        <ScaleMin value="0.250000,0.250000,0.250000"/>
+    </CModel>
+    <CModel id="AmonHybridNemesisDeath" parent="UnitDeath" Race="Zerg">
+        <Model value="Assets\Units\Protoss\Hybrid_Nemesis_Death\Hybrid_Nemesis_Death.m3"/>
+        <LowQualityModel value="ZergLargeUnitDeathLow"/>
+        <Events>
+            <Anim value="Death,00"/>
+            <Name value="HybridNemesisDeathSound"/>
+            <Type value="Actor"/>
+            <Time value="3.017000"/>
+            <Payload value="HybridNemesisDeathSound"/>
+        </Events>
+        <Events>
+            <Anim value="Death,00"/>
+            <Name value="Uni_DeathFXAcid"/>
+            <Type value="Sound"/>
+            <Time value="0.021000"/>
+            <Payload value="Uni_DeathFXAcid"/>
+        </Events>
+        <Events>
+            <Anim value="Death,00"/>
+            <Name value="Uni_DeathFXAcid"/>
+            <Type value="Sound"/>
+            <Time value="3.004000"/>
+            <Payload value="Uni_DeathFXAcid"/>
+        </Events>
+        <Events>
+            <Anim value="Death,00"/>
+            <Name value="Hybrid_Nemesis_DeathScreams"/>
+            <Type value="Sound"/>
+            <Time value="0.011000"/>
+            <Payload value="Hybrid_Nemesis_DeathScreams"/>
+        </Events>
+        <Events>
+            <Anim value="Death,00"/>
+            <Name value="Hybrid_Nemesis_DeathScreams"/>
+            <Type value="Sound"/>
+            <Time value="0.810000"/>
+            <Payload value="Hybrid_Nemesis_DeathScreams"/>
+        </Events>
+        <Events>
+            <Anim value="Death,00"/>
+            <Name value="Hybrid_Nemesis_DeathScreams"/>
+            <Type value="Sound"/>
+            <Time value="1.607000"/>
+            <Payload value="Hybrid_Nemesis_DeathScreams"/>
+        </Events>
+        <Events>
+            <Anim value="Death,00"/>
+            <Name value="Hybrid_Nemesis_DeathScreams"/>
+            <Type value="Sound"/>
+            <Time value="2.389000"/>
+            <Payload value="Hybrid_Nemesis_DeathScreams"/>
+        </Events>
+        <Occlusion value="Show"/>
+    </CModel>
+    <CModel id="AmonHybridNemesisPortrait" parent="Portrait" Race="Zerg">
+        <Model value="Assets\Portraits\Protoss\Hybrid_Nemesis_Portrait\Hybrid_Nemesis_Portrait.m3"/>
+        <Image value="Assets\Textures\hybridnemesisportrait_static.dds"/>
+        <Lighting value="PortraitHybridNemesis"/>
+    </CModel>
+    <CModel id="AmonHybridNemesisWeaponBeam" parent="PersistentSpellFX">
+        <Model value="Assets\Effects\Protoss\HybridEnergizeBeamLarge\HybridEnergizeBeamLarge.m3"/>
+        <EditorCategories value="Race:Protoss"/>
+        <RadiusLoose value="1.000000"/>
+    </CModel>
+    <CModel id="AmonHybridDestroyerDeath" parent="UnitDeath" Race="Protoss">
+        <Model value="Assets\Units\Protoss\HybridProtossDeathEx1\HybridProtossDeathEx1.m3"/>
+        <LowQualityModel value="ProtossLargeUnitDeathLow"/>
+        <SelectionRadius value="0.555400"/>
+        <ShadowRadius value="0.555400"/>
+    </CModel>
+    <CModel id="AmonHybridDestroyerPortrait" parent="Portrait" Race="Protoss">
+        <Model value="Assets\Portraits\Protoss\HybridProtossPortrait\HybridProtossPortrait.m3"/>
+        <Image value="Assets\Textures\HybridProtossPortrait_Static.dds"/>
+        <Lighting value="HybridDestroyerPortrait"/>
+    </CModel>
+    <CModel id="AmonHybridDestroyerWeapon" parent="MissileFX">
+        <Model value="Assets\Effects\Protoss\HybridEnergyMissile\HybridEnergyMissile.m3"/>
+        <EditorCategories value="Race:Protoss"/>
+        <ScaleMax value="1.200000,1.200000,1.200000"/>
+        <ScaleMin value="1.200000,1.200000,1.200000"/>
+        <SelectionRadius value="0.416500"/>
+        <ShadowRadius value="0.416500"/>
+    </CModel>
+</Catalog>

@@ -1,0 +1,42 @@
+include "TriggerLibs/natives"
+
+//--------------------------------------------------------------------------------------------------
+// Library: MISSIONS
+//--------------------------------------------------------------------------------------------------
+// Function Declarations
+void libMISS_gf_BEVO ();
+void libMISS_gf_BelshirEscortConfig (fixed lp_delay, string lp_spawns, point lp_harvesterSpawnPoint);
+void libMISS_gf_ProtectBotsTask (int lp_limit);
+void libMISS_gf_BEHybridsVO ();
+void libMISS_gf_ProtectTerrazineTankTask (point lp_point);
+void libMISS_gf_WaveConfig (fixed lp_delayMin);
+void libMISS_gf_Harvester (int lp_park, int lp_node);
+void libMISS_gf_WhalesConfig (string lp_spawns);
+void libMISS_gf_BEWhalesVO ();
+void libMISS_gf_Whale (int lp_prisonIndex, fixed lp_delayMinutes);
+
+// Trigger Declarations
+trigger libMISS_gt_COOPInit;
+trigger libMISS_gt_BelshirEscort;
+trigger libMISS_gt_BEEnemyHarass;
+trigger libMISS_gt_BEEnemyReinforcements;
+trigger libMISS_gt_BEEscortStart;
+trigger libMISS_gt_BEEscortProgressHarvestersWaveFinished;
+trigger libMISS_gt_BEEscortCompletedLastHarvesterWaveFinished;
+trigger libMISS_gt_BEScoreCalculateHarvesterDamage;
+trigger libMISS_gt_BEPrimaryBotDestroyedWarning;
+trigger libMISS_gt_BEPrimaryBotDestroyedDefeat;
+trigger libMISS_gt_BEPrimaryBotCounterIncrement;
+trigger libMISS_gt_BETankDestroyedDefeat;
+trigger libMISS_gt_BEWaveStartGeysersActivates;
+trigger libMISS_gt_BEWaveEnded;
+trigger libMISS_gt_BEHarvesterController;
+trigger libMISS_gt_BEHarvesterUnderAttack;
+trigger libMISS_gt_BEHarvesterOnDestroy;
+trigger libMISS_gt_BWStart;
+trigger libMISS_gt_BWStartVO;
+trigger libMISS_gt_BWUpdate;
+trigger libMISS_gt_BWTimerExpiredFail;
+trigger libMISS_gt_BWPrisonAttacked;
+trigger libMISS_gt_BWPrisonDestroyedComplete;
+

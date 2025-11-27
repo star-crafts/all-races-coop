@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CRace id="@Amon">
+        <StartingResource index="Minerals" value="50000"/>
+        <StartingResource index="Vespene" value="50000"/>
+    </CRace>
+    <CRace id="@Neutral"/>
+    <CRace id="@AmonAlly"/>
+    <CRace id="@Bonus"/>
+    <CRace id="@Hostile">
+        <RaceIcon value="@UI/RaceIcon/@Neutral"/>
+        <GameMusic value="Music_@NeutralLow"/>
+    </CRace>
+    <CRace id="@Player">
+        <StartingResource index="Minerals" value="50"/>
+    </CRace>
+    <CRace id="@AmonPlayer">
+        <RaceIcon value="@UI/RaceIcon/@Player"/>
+        <GameMusic value="Music_@PlayerLow"/>
+        <StartingResource index="Minerals" value="50"/>
+    </CRace>
+    <CRace id="@PlayerAlly"/>
+</Catalog>

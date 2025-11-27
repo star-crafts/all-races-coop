@@ -1,0 +1,430 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+
+
+    <CActorBeamSimple id="HybridGeneralDominationBeam" parent="BeamSimpleAnimationStyleOneShot">
+        <HostLaunch Subject="_Unit" Scope="Caster" Actor="Find"/>
+        <HostLaunchSiteOps Ops="SOpAttachHead"/>
+        <HostImpact Subject="_Unit" Scope="Target" Actor="Find"/>
+        <HostImpactSiteOps Ops="SOpAttachHead"/>
+        <AutoScaleFactor value="0.600000"/>
+        <On Terms="Effect.AmonHybridGeneralMindControlAB.Start" Send="Create"/>
+    </CActorBeamSimple>
+    <CActorModel id="HybridGeneralDominationImpact" parent="ModelAnimationStyleContinuous">
+        <AutoScaleFactor value="0.600000"/>
+        <Host Subject="_Unit"/>
+        <HostSiteOps Ops="SOpAttachCenter"/>
+        <On Terms="Behavior.AmonHybridGeneralMindControl.On" Send="Create"/>
+    </CActorModel>
+    <CActorSound id="HybridGeneralDominationSound" parent="SoundOneShot">
+        <On Terms="Behavior.AmonHybridGeneralMindControl.On" Send="Create"/>
+    </CActorSound>
+    <!-- HybridGeneralPhaseShift -->
+    <CActorSiteOpLocalOffset id="HybridGeneralPhaseShiftModelOffset">
+        <LocalOffset value="0.000000,0.000000,0.500000"/>
+    </CActorSiteOpLocalOffset>
+    <CActorRange id="HybridGeneralPhaseShiftRange" parent="RangeAbil" abil="HybridGeneralPhaseShift">
+        <Icon value="Assets\Textures\RadarIcon2.dds"/>
+        <IconArcLength value="3.250000"/>
+    </CActorRange>
+    <CActorSimple id="HybridGeneralPhaseShiftTinter">
+        <On Terms="Behavior.AmonHybridGeneralPhaseShift.On" Send="Create"/>
+        <On Terms="ActorCreation" Send="TimerSet 0.330000 DelayCreation"/>
+        <On Terms="TimerExpired; TimerName DelayCreation" Target="::Main" Send="AnimSetPausedAll"/>
+        <On Terms="TimerExpired; TimerName DelayCreation" Target="::Main" Send="SetTintColor 100,100,255 0.125000 OneShot HybridGeneralPhaseShift"/>
+        <On Terms="TimerExpired; TimerName DelayCreation" Target="::Main" Send="SetOpacity 0.500000 0.125000"/>
+        <On Terms="Behavior.AmonHybridGeneralPhaseShift.Off" Target="::Main" Send="SetOpacity 1.000000 0.125000"/>
+        <On Terms="Behavior.AmonHybridGeneralPhaseShift.Off" Target="::Main" Send="ClearTintColor 0.125000 HybridGeneralPhaseShift"/>
+        <On Terms="Behavior.AmonHybridGeneralPhaseShift.Off" Target="::Main" Send="AnimSetPausedAll 0"/>
+        <On Terms="Behavior.AmonHybridGeneralPhaseShift.Off" Send="Destroy"/>
+    </CActorSimple>
+    <CActorModel id="HybridGeneralPhaseShiftImpact" parent="ModelAddition">
+        <On Terms="Behavior.AmonHybridGeneralPhaseShift.On; ValidateUnit PhaseShiftActorTargets" Send="Create"/>
+        <On Terms="Behavior.AmonHybridGeneralPhaseShift.Off" Send="AnimBracketStop BSD"/>
+        <CreepHeightClass value="Small"/>
+        <HostSiteOps Ops="SOpAttachOrigin HybridGeneralPhaseShiftModelOffset"/>
+        <AutoScaleFactor value="1.000000"/>
+        <Inherits index="BaseModelScale" value="0"/>
+        <Inherits index="Scale" value="0"/>
+        <Macros value="GlobalLoopMacro"/>
+    </CActorModel>
+    <CActorSound id="HybridGeneralPhaseShiftLaunchSound" parent="SoundOneShot">
+        <Sound value="Obelisk_ArgusLinkLaunch"/>
+        <On Terms="Effect.AmonHybridGeneralPhaseShift.Start; At Caster" Send="Create"/>
+        <Host Subject="_Selectable"/>
+    </CActorSound>
+    <CActorSound id="HybridGeneralPhaseShiftImpactSound" parent="SoundOneShot">
+        <Sound value="Obelisk_ArgusLinkImpact"/>
+        <On Terms="Effect.AmonHybridGeneralPhaseShift.Start; At Target" Send="Create"/>
+        <Host Subject="_Selectable"/>
+    </CActorSound>
+
+
+
+
+
+
+    <CActorAction id="AmonAmonConsumeDNAAttack" parent="GenericAttackBase">
+        <On Terms="Effect.ConsumeDNAImpact.Start; FromEffectTreeDescendant" Send="ActionImpact"/>
+        <On Terms="Effect.ConsumeDNAImpact.Stop; FromEffectTreeDescendant" Send="ActionImpactPhysics"/>
+        <On Terms="Effect.AmonConsumeDNAFeedbackLM.Start; At Caster" Send="Create"/>
+        <LaunchAttachQuery Methods="Center"/>
+        <Missile value="AmonConsumeDNAAttackMissile"/>
+        <ImpactSiteOps Ops="SOpAttachHarness"/>
+        <ImpactAttachQuery Methods="Center"/>
+        <ShieldFlashType value="Full"/>
+        <ForceCommencementFrom value="ConsumeDNAFeedbackLM"/>
+    </CActorAction>
+    <CActorMissile id="AmonConsumeDNAAttackMissile" parent="GenericAttackMissile" unitName="AmonConsumeDNAFeedbackWeapon"/>
+    <CActorBeamSimple id="AmonHybridDestroyerGravitonPrisonBeam" parent="BeamSimpleAnimationStyleContinuous">
+        <On Terms="Effect.AmonGravitonPrisonCreatePersistent.Start; At Target" Send="Create"/>
+        <On Terms="Effect.GravitonPrisonRaise.Start" Send="TimerSet 3.000000 DelayDestroy"/>
+        <On Terms="TimerExpired; TimerName DelayDestroy" Send="Destroy"/>
+        <HostLaunch Subject="::global.GravitonPrisonLaunch"/>
+        <HostImpact Subject="::global.GravitonPrisonImpact"/>
+    </CActorBeamSimple>
+    <CActorSite id="AmonHybridDestroyerGravitonPrisonBeamImpactSite" parent="SiteCenter">
+        <On Terms="Effect.AmonGravitonPrisonCreatePersistent.Start; At Target" Send="Create"/>
+        <On Terms="ActorCreation" Send="RefSet ::global.GravitonPrisonImpact ::Self"/>
+        <On Terms="Effect.GravitonPrisonRaise.Start" Send="TimerSet 3.000000 DelayDestroy"/>
+        <On Terms="TimerExpired; TimerName DelayDestroy" Send="Destroy"/>
+    </CActorSite>
+    <CActorSite id="AmonHybridDestroyerGravitonPrisonBeamLaunchSite" parent="SiteCenter">
+        <On Terms="Effect.AmonGravitonPrisonCreatePersistent.Start; At Caster" Send="Create"/>
+        <On Terms="ActorCreation" Send="RefSet ::global.GravitonPrisonLaunch ::Self"/>
+        <On Terms="Effect.GravitonPrisonRaise.Start" Send="TimerSet 3.000000 DelayDestroy"/>
+        <On Terms="TimerExpired; TimerName DelayDestroy" Send="Destroy"/>
+        <HostSiteOps Ops="SOpAttachWeapon"/>
+    </CActorSite>
+    <CActorModel id="AmonHybridDestroyerGravitonPrisonEffect" parent="ModelAnimationStyleContinuous">
+        <On Terms="Effect.AmonGravitonPrisonCreatePersistent.Start; At Target" Send="Create"/>
+        <On Terms="Effect.GravitonPrisonLower.Start" Send="AnimBracketStop BSD"/>
+        <Host Subject="_Selectable"/>
+        <HostSiteOps Ops="SOpAttachCenter"/>
+    </CActorModel>
+    <CActorSiteRocker id="AmonHybridDestroyerGravitonPrisonRocker">
+        <Macros value="MultiActorGravitonMacro"/>
+        <On Terms="Behavior.AmonHybridDestroyerGravitonPrison.On" Send="Create"/>
+        <On Terms="ActorCreation" Target="::Main" Send="RefSetFromMsg ::Host ::Sender"/>
+        <On Terms="Effect.GravitonPrisonLower.Start" Send="Transition Out 1.000000"/>
+        <On Terms="Effect.GravitonPrisonLower.Start" Send="TimerSet 1.000000 DelayDestroy"/>
+        <On Terms="TimerExpired; TimerName DelayDestroy" Send="Destroy"/>
+        <Elevation value="0.200000,0.100000"/>
+        <ElevationPeriod value="2.500000,1.000000"/>
+        <Pitch value="17.9956,7.998"/>
+        <PitchPeriod value="3.500000,10.000000"/>
+        <Roll value="11.997,5.9985"/>
+        <RollPeriod value="2.500000,1.000000"/>
+    </CActorSiteRocker>
+    <CActorUnit id="AmonHybridBehemoth" parent="GenericUnitStandard" unitName="AmonHybridBehemoth">
+        <Aliases value="_UnitHuge"/>
+        <On Terms="Abil.ConsumeDNA.SourceCastStart" Send="$Spell,00"/>
+        <On Terms="Abil.AmonHybridBehemothAoEStun.SourceCastStart" Send="AnimPlay Spell Stand,Work"/>
+        <On Terms="Signal.*.Birth" Send="$Birth 0 0.000000"/>
+        <AnimBlendTime value="0.200000"/>
+        <BuildModel value="HybridBehemothBirth"/>
+        <DeathArray index="Normal" ModelLink="AmonHybridBehemothDeath" SoundLink="AmonHybridBehemoth_Death"/>
+        <PortraitModel value="AmonHybridBehemothPortrait"/>
+        <BarOffset value="200"/>
+        <BarWidth value="150"/>
+        <GroupIcon>
+            <Image value="Assets\Textures\wireframe-zerg-hybridbehemoth.dds"/>
+        </GroupIcon>
+        <GroupSoundArray index="Birth" value="AmonHybridDestroyerBirth"/>
+        <GroupSoundArray index="Ready" value="AmonHybridDestroyerReady"/>
+        <GroupSoundArray index="Help" value="HybridDestroyerHelp"/>
+        <GroupSoundArray index="What" value="AmonHybridDestroyerWhat"/>
+        <GroupSoundArray index="Yes" value="AmonHybridDestroyerYes"/>
+        <GroupSoundArray index="Attack" value="AmonHybridDestroyerYes"/>
+        <GroupSoundArray index="Pissed" value="AmonHybridDestroyerPissed"/>
+        <LifeArmorIcon value="Assets\Textures\btn-upgrade-zerg-groundcarapace-level0.dds"/>
+        <SoundArray index="Birth" value=""/>
+        <SoundArray index="Ready" value="AmonHybridDestroyerReady"/>
+        <SoundArray index="Help" value="HybridDestroyerHelp"/>
+        <SoundArray index="What" value="AmonHybridDestroyerWhat"/>
+        <SoundArray index="Yes" value="AmonHybridDestroyerYes"/>
+        <SoundArray index="Attack" value="AmonHybridDestroyerYes"/>
+        <SoundArray index="Pissed" value="AmonHybridDestroyerPissed"/>
+        <SoundArray index="Movement" value="HybridDestroyerMovement"/>
+        <SoundArray index="Turning" value="HybridDestroyerTurning"/>
+        <SoundArray index="Board" value="HybridDestroyerBoard"/>
+        <SoundArray index="Click" value="HybridDestroyerClick"/>
+        <SoundArray index="ClickError" value="HybridDestroyerClickError"/>
+        <SoundArray index="Highlight" value="HybridDestroyerHighlight"/>
+        <UnitIcon value="Assets\Textures\tip_hybridbehemoth.dds"/>
+        <UnitKillRank Text="UnitKillRank/H05SHybrid"/>
+        <Wireframe>
+            <Image value="Assets\Textures\wireframe-zerg-hybridbehemoth.dds"/>
+        </Wireframe>
+    </CActorUnit>
+    <CActorAction id="AmonHybridBehemothAttack" parent="GenericAttack" effectAttack="AmonHybridBehemothDamage"/>
+    <CActorUnit id="AmonHybridDestroyer" parent="GenericUnitBase" unitName="AmonHybridDestroyer">
+        <Aliases value="_UnitLarge"/>
+        <On Terms="WeaponStart.*.AttackStart" Send="AnimBracketStart Attack Spell"/>
+        <On Terms="WeaponStop.*.AttackStop" Send="AnimBracketStop Attack"/>
+        <On Terms="Behavior.AmonHybridSingularity.On" Send="ModelSwap HybridDestroyerBlackDeath"/>
+        <On Terms="Behavior.AmonHybridSingularity.On" Send="$Birth"/>
+        <AnimBlendTime value="0.200000"/>
+        <DeathArray index="Normal" ModelLink="AmonHybridDestroyerDeath" SoundLink="AmonHybrid_Protoss_Death" VoiceLink="AmonHybrid_DeathFX"/>
+        <PortraitModel value="AmonHybridDestroyerPortrait"/>
+        <BarOffset value="120"/>
+        <BarWidth value="66"/>
+        <GroupIcon>
+            <Image value="Assets\Textures\Wireframe-Hybrid-Destroyer.dds"/>
+        </GroupIcon>
+        <GroupSoundArray index="Birth" value="AmonHybridReaverBirth"/>
+        <GroupSoundArray index="Ready" value="AmonHybridReaverReady"/>
+        <GroupSoundArray index="Help" value="HybridReaverHelp"/>
+        <GroupSoundArray index="What" value="AmonHybridReaverWhat"/>
+        <GroupSoundArray index="Yes" value="AmonHybridReaverYes"/>
+        <GroupSoundArray index="Attack" value="AmonHybridReaverYes"/>
+        <GroupSoundArray index="Pissed" value="AmonHybridReaverPissed"/>
+        <HighlightTooltip value="Unit/Name/AmonHybridDestroyerestroyer"/>
+        <LifeArmorIcon value="Assets\Textures\btn-upgrade-protoss-groundarmorlevel1.dds"/>
+        <SoundArray index="Help" value="HybridDestroyerHelp"/>
+        <SoundArray index="Attack" value="AmonHybridDestroyer_Attack"/>
+        <SoundArray index="Movement" value="HybridDestroyerMovement"/>
+        <SoundArray index="Turning" value="HybridDestroyerTurning"/>
+        <SoundArray index="Board" value="HybridDestroyerBoard"/>
+        <SoundArray index="Click" value="HybridDestroyerClick"/>
+        <SoundArray index="ClickError" value="HybridDestroyerClickError"/>
+        <SoundArray index="Highlight" value="HybridDestroyerHighlight"/>
+        <UnitIcon value="Assets\Textures\BTN-Unit-xelnaga-destroyer.dds"/>
+        <UnitKillRank Text="UnitKillRank/Z02Hybrid"/>
+        <Wireframe>
+            <Image value="Assets\Textures\Wireframe-Hybrid-Destroyer.dds"/>
+        </Wireframe>
+        <WireframeShield>
+            <Image value="Assets\Textures\Wireframe-Hybrid-Destroyer-Shield01.dds"/>
+            <Image value="Assets\Textures\Wireframe-Hybrid-Destroyer-Shield02.dds"/>
+            <Image value="Assets\Textures\Wireframe-Hybrid-Destroyer-Shield03.dds"/>
+        </WireframeShield>
+    </CActorUnit>
+    <CActorAction id="AmonHybridDestroyerAttack" parent="GenericAttack" effectImpact="AmonHybridDestroyerShockDamage" effectLaunch="AmonHybridDestroyerLM">
+        <LaunchAssets Sound="AmonHybridDestroyerAttackLaunch"/>
+        <Missile value="AmonHybridDestroyerAttackMissile"/>
+        <ImpactMap index="None" Model="AmonHybridDestroyerAttackImpact" Sound="AmonHybridDestroyerAttackImpact"/>
+    </CActorAction>
+    <CActorMissile id="AmonHybridDestroyerAttackMissile" parent="GenericAttackMissile" unitName="AmonHybridDestroyerWeapon"/>
+    <CActorSimple id="AmonHybridDestroyerFlail">
+        <EditorCategories value=""/>
+        <Supporter Subject="_Selectable"/>
+        <On Terms="Behavior.AmonHybridDestroyerGravitonPrison.On" Send="Create"/>
+        <On Terms="ActorCreation" Target="_Unit" Send="AnimPlay Flail Flail PlayForever"/>
+        <On Terms="Behavior.AmonHybridDestroyerGravitonPrison.Off" Target="_Unit" Send="AnimClear Flail"/>
+    </CActorSimple>
+    <CActorUnit id="AmonHybridReaver" parent="GenericUnitStandard" unitName="AmonHybridReaver">
+        <Aliases value="_UnitHuge"/>
+        <On Terms="Behavior.AmonHybridSingularity.On" Send="ModelSwap HybridBehemothBlackDeath"/>
+        <On Terms="Behavior.AmonHybridSingularity.On" Send="$Birth"/>
+        <On Terms="Behavior.AmonHybridBehemoth_WarpIn.On" Send="SetOpacity"/>
+        <On Terms="Behavior.AmonHybridBehemoth_WarpIn.Off" Send="SetOpacity 1.000000"/>
+        <AnimBlendTime value="0.200000"/>
+        <DeathArray index="Normal" ModelLink="AmonHybridBehemothDeath" SoundLink="HybridBehemoth_Death3"/>
+        <DeathCustoms index="4" ModelLink="Invisible" Name="Vortex"/>
+        <DeathActorSound value="Hybrid_Dominator_Void_Death"/>
+        <PortraitModel value="AmonHybridBehemothPortrait"/>
+        <BarOffset value="120"/>
+        <BarWidth value="66"/>
+        <GroupIcon>
+            <Image value="Assets\Textures\Wireframe-Hybrid-Viper.dds"/>
+        </GroupIcon>
+        <GroupSoundArray index="Birth" value="HybridReaverBirth3"/>
+        <GroupSoundArray index="Ready" value="HybridReaverReady3"/>
+        <GroupSoundArray index="Help" value="HybridReaverHelp"/>
+        <GroupSoundArray index="What" value="HybridReaverWhat3"/>
+        <GroupSoundArray index="Yes" value="HybridReaverYes3"/>
+        <GroupSoundArray index="Attack" value="HybridReaverYes3"/>
+        <GroupSoundArray index="Pissed" value="HybridReaverPissed3"/>
+        <HighlightTooltip value="Unit/Name/HybridReaver"/>
+        <LifeArmorIcon value="Assets\Textures\btn-upgrade-zerg-groundcarapace-level0.dds"/>
+        <SoundArray index="Birth" value="HybridDestroyerBirth3"/>
+        <SoundArray index="Ready" value="HybridDestroyerReady3"/>
+        <SoundArray index="Help" value="HybridDestroyerHelp"/>
+        <SoundArray index="What" value="HybridDestroyerWhat3"/>
+        <SoundArray index="Yes" value="HybridDestroyerYes3"/>
+        <SoundArray index="Attack" value="HybridDestroyerYes3"/>
+        <SoundArray index="Pissed" value="HybridDestroyerPissed3"/>
+        <SoundArray index="Movement" value="HybridDestroyerMovement"/>
+        <SoundArray index="Turning" value="HybridDestroyerTurning"/>
+        <SoundArray index="Board" value="HybridDestroyerBoard"/>
+        <SoundArray index="Click" value="HybridDestroyerClick"/>
+        <SoundArray index="ClickError" value="HybridDestroyerClickError"/>
+        <SoundArray index="Highlight" value="HybridDestroyerHighlight"/>
+        <UnitIcon value="Assets\Textures\BTN-Unit-xelnaga-viper.dds"/>
+        <UnitKillRank Text="UnitKillRank/H05SHybrid"/>
+        <Wireframe>
+            <Image value="Assets\Textures\Wireframe-Hybrid-Viper.dds"/>
+        </Wireframe>
+    </CActorUnit>
+    <CActorSound id="AmonHybridBehemothAoEStunImpact" parent="SoundOneShot">
+        <On Terms="Behavior.AmonSlimed.On" Send="Create"/>
+    </CActorSound>
+    <CActorSound id="AmonHybridBehemoth_ConsumeDNAImpact" parent="SoundOneShot">
+        <On Terms="Effect.AmonConsumeDNACP.Start" Send="Create"/>
+    </CActorSound>
+    <CActorModel id="AmonHybridGeneralPhaseShiftImpact" parent="ModelAddition">
+        <Macros value="GlobalLoopMacro"/>
+        <Inherits index="BaseModelScale" value="0"/>
+        <Inherits index="Scale" value="0"/>
+        <On Terms="Behavior.AmonPhaseShift.On; ValidateUnit PhaseShiftActorTargets" Send="Create"/>
+        <On Terms="Behavior.AmonPhaseShift.Off" Send="AnimBracketStop BSD"/>
+        <HostSiteOps Ops="SOpAttachOrigin HybridGeneralPhaseShiftModelOffset"/>
+        <AutoScaleFactor value="1.000000"/>
+        <CreepHeightClass value="Small"/>
+    </CActorModel>
+    <CActorSound id="AmonHybridGeneralPhaseShiftImpactSound" parent="SoundOneShot">
+        <On Terms="Effect.AmonPhaseShift.Start; At Target" Send="Create"/>
+        <Host Subject="_Selectable"/>
+        <Sound value="Obelisk_ArgusLinkImpact2"/>
+    </CActorSound>
+    <CActorSound id="AmonHybridGeneralPhaseShiftLaunchSound" parent="SoundOneShot">
+        <On Terms="Effect.AmonPhaseShift.Start; At Caster" Send="Create"/>
+        <Host Subject="_Selectable"/>
+        <Sound value="Obelisk_ArgusLinkLaunch2"/>
+    </CActorSound>
+    <CActorSimple id="AmonHybridGeneralPhaseShiftTinter">
+        <On Terms="Behavior.AmonPhaseShift.On" Send="Create"/>
+        <On Terms="ActorCreation" Send="TimerSet 0.330000 DelayCreation"/>
+        <On Terms="TimerExpired; TimerName DelayCreation" Target="::Main" Send="AnimSetPausedAll"/>
+        <On Terms="TimerExpired; TimerName DelayCreation" Target="::Main" Send="SetTintColor 100,100,255 0.125000 OneShot HybridGeneralPhaseShift"/>
+        <On Terms="TimerExpired; TimerName DelayCreation" Target="::Main" Send="SetOpacity 0.500000 0.125000"/>
+        <On Terms="Behavior.AmonPhaseShift.Off" Target="::Main" Send="SetOpacity 1.000000 0.125000"/>
+        <On Terms="Behavior.AmonPhaseShift.Off" Target="::Main" Send="ClearTintColor 0.125000 HybridGeneralPhaseShift"/>
+        <On Terms="Behavior.AmonPhaseShift.Off" Target="::Main" Send="AnimSetPausedAll 0"/>
+        <On Terms="Behavior.AmonPhaseShift.Off" Send="Destroy"/>
+    </CActorSimple>
+    <CActorUnit id="AmonHybridNemesis" parent="GenericUnitStandard" unitName="AmonHybridNemesis">
+        <Aliases value="_UnitHuge"/>
+        <Remove Terms="WeaponStart.*.AttackStart" Send="AnimBracketStart Attack Attack"/>
+        <On Terms="Abil.AmonHybridNemesisStream.SourceChannelStart" Send="$Spell PlayForever"/>
+        <On Terms="Abil.AmonHybridNemesisStream.SourceChannelStop" Send="AnimClear Spell"/>
+        <On Terms="WeaponStart.*.AttackStart" Send="AnimBracketStart Attack Work,Start Work"/>
+        <EventDataFootprint index="0" Actor="UnitFootprint" Model="QueenFootprint"/>
+        <DeathArray index="Normal" ModelLink="AmonHybridNemesisDeath" SoundLink="" VoiceLink="AmonHybrid_Zerg_Death"/>
+        <DeathCustoms ModelLink="ZergLargeUnitDeathLow" Name="AntiGravZerg"/>
+        <PortraitModel value="AmonHybridNemesisPortrait"/>
+        <WalkAnimMoveSpeed value="1.7031"/>
+        <BarOffset value="75"/>
+        <ErrorArray Error="CantSeeBuildLocation" Sound="Alert_ZergBuildError" GroupSound="Alert_ZergBuildError"/>
+        <ErrorArray Error="CantSeeLandLocation" Sound="Alert_ZergBuildError" GroupSound="Alert_ZergBuildError"/>
+        <ErrorArray Error="CantBuildLocationInvalid" Sound="Alert_ZergBuildError" GroupSound="Alert_ZergBuildError"/>
+        <ErrorArray Error="CantLandLocationInvalid" Sound="Alert_ZergBuildError" GroupSound="Alert_ZergBuildError"/>
+        <GroupIcon>
+            <Image value="Assets\Textures\wireframe-protoss-hybridnemesis.dds"/>
+        </GroupIcon>
+        <GroupSoundArray index="What" value="Queen_GroupWhat"/>
+        <GroupSoundArray index="Yes" value="Queen_GroupYes"/>
+        <GroupSoundArray index="Attack" value="Queen_GroupAttack"/>
+        <GroupSoundArray index="Board" value="Queen_GroupBoard"/>
+        <LifeArmorIcon value="Assets\Textures\btn-upgrade-zerg-ancillaryarmor.dds"/>
+        <MovementHerdNode value="HerdNode_ZergQueens"/>
+        <ShieldArmorIcon value="Assets\Textures\btn-upgrade-protoss-shieldslevel2.dds"/>
+        <SoundArray index="Birth" value="AmonHybridDestroyerBirth"/>
+        <SoundArray index="Ready" value="AmonHybridBehemoth_Roar"/>
+        <SoundArray index="Help" value="QueenHelp"/>
+        <SoundArray index="What" value="QueenWhat2"/>
+        <SoundArray index="Yes" value="QueenYes2"/>
+        <SoundArray index="Attack" value="AmonHybridBehemoth_Attack_vox"/>
+        <SoundArray index="Pissed" value="Queen_Pissed2"/>
+        <SoundArray index="Movement" value="zQueen_moveLoop"/>
+        <SoundArray index="Turning" value="Queen_Turning"/>
+        <SoundArray index="Board" value="Queen_Board"/>
+        <SoundArray index="Click" value="Queen_Click"/>
+        <SoundArray index="ClickError" value="Queen_ClickError"/>
+        <SoundArray index="Highlight" value="Queen_Highlight"/>
+        <UnitFlags index="StandAnimBirthVariation" value="0"/>
+        <UnitKillRank Text="UnitKillRank/H05SHybrid"/>
+        <Wireframe>
+            <Image value="Assets\Textures\wireframe-protoss-hybridnemesis.dds"/>
+        </Wireframe>
+        <WireframeShield>
+            <Image value="Assets\Textures\wireframe-protoss-hybridnemesis-shield01.dds"/>
+            <Image value="Assets\Textures\wireframe-protoss-hybridnemesis-shield02.dds"/>
+            <Image value="Assets\Textures\wireframe-protoss-hybridnemesis-shield03.dds"/>
+        </WireframeShield>
+    </CActorUnit>
+    <CActorSound id="AmonHybridNemesisDeathSound" parent="SoundOneShot">
+        <On Terms="UnitDeath.AmonHybridNemesis; PassChance 25.000000" Send="Create"/>
+        <On Terms="UnitDeath.QueenBurrowed; PassChance 25.000000" Send="Create"/>
+        <Sound value="AmonHybrid_Nemesis_Death_Vanish"/>
+        <Layers Sound="Primal_ZergFlyer_Hit">
+            <Chance value="100"/>
+            <Pitch value="0.000000,0.000000"/>
+            <PlayDelay value="0,0"/>
+            <Volume value="0.000000,0.000000"/>
+        </Layers>
+        <Layers Sound="Hybrid_Nemesis_Death_Missile">
+            <Chance value="100"/>
+            <Pitch value="0.000000,0.000000"/>
+            <PlayDelay value="0,0"/>
+            <Volume value="0.000000,0.000000"/>
+        </Layers>
+    </CActorSound>
+    <CActorAction id="AmonHybridNemesisWeaponAttack" parent="GenericAttackBase">
+        <On Terms="Effect.AmonHybridNemesisWeaponPersistent.Start" Send="Create"/>
+        <On Terms="Effect.AmonHybridNemesisWeaponDamage.Start; FromEffectTreeDescendant" Send="ActionDamage"/>
+        <On Terms="Effect.AmonHybridNemesisWeaponPersistent.Stop" Send="Destroy"/>
+        <LaunchSiteOps Ops="SOpAttachWeapon"/>
+        <Beam value="AmonHybridNemesisWeaponBeam"/>
+        <ImpactSiteOps Ops="SOpAttachHarness SOpAttachVolumeNoVizEnhance SOpForwardLaunchGuide"/>
+        <AcquisitionYawHalfArc value="10.000000"/>
+        <ActionFlags index="AlignedImpactsAndDamages" value="1"/>
+        <ActionFlags index="LaunchForceSite" value="1"/>
+        <Lifetime value="-1.000000"/>
+    </CActorAction>
+    <CActorBeamSimple id="AmonHybridNemesisWeaponBeam" parent="BeamSimpleAnimationStyleContinuous">
+            <On Terms="Effect.AmonHybridNemesisWeaponPersistent.Stop; At Effect" Send="AnimBracketStop BSD"/>
+        <ModelFlags index="AutomateGlobalLoops" value="1"/>
+    </CActorBeamSimple>
+    <CActorSound id="AmonHybridNemesisWeaponLoopSound" parent="SoundContinuous">
+        <On Terms="Effect.AmonHybridNemesisWeaponPersistent.Start; At Caster" Send="Create"/>
+        <On Terms="Effect.AmonHybridNemesisWeaponPersistent.Stop" Send="Destroy"/>
+        <Sound value="AmonHybridNemesisWeaponLoop"/>
+    </CActorSound>
+    <CActorSound id="AmonHybridNemesisWeaponStartSound" parent="SoundOneShot">
+        <On Terms="Effect.AmonHybridNemesisWeaponPersistent.Start; At Target" Send="Create"/>
+        <Sound value="AmonHybridNemesisWeaponStart"/>
+    </CActorSound>
+    <CActorSound id="AmonHybridNemesisWeaponStopSound" parent="SoundOneShot">
+        <On Terms="Effect.AmonHybridNemesisWeaponPersistent.Stop; At Caster" Send="Create"/>
+        <Sound value="AmonHybridNemesisWeaponEnd"/>
+    </CActorSound>
+    <CActorSound id="AmonHybridNemesisWeapon_Vx_01_Sound" parent="SoundOneShot">
+        <On Terms="Effect.AmonHybridNemesisWeaponPersistent.Start; At Caster" Send="Create"/>
+        <Sound value="AmonHybridNemesisWeapon_Vx_01"/>
+    </CActorSound>
+    <CActorSound id="AmonHybridNemesisWeapon_Vx_02_Sound" parent="SoundOneShot">
+        <On Terms="Effect.AmonHybridNemesisWeaponPersistent.Stop; At Caster" Send="Create"/>
+        <Sound value="AmonHybridNemesisWeapon_Vx_02"/>
+    </CActorSound>
+    <CActorSound id="AmonHybrid_GravitonPrisonEnd" parent="SoundOneShot">
+        <On Terms="Behavior.AmonHybridDestroyerGravitonPrison.Off" Send="Create"/>
+        <On Terms="Behavior.ZHybridGravitonPrison.Off" Send="Create"/>
+        <On Terms="Behavior.AmonHybridDominatorVoidGravitonPrison.Off" Send="Create"/>
+    </CActorSound>
+    <CActorSound id="AmonHybrid_GravitonPrisonLoop" parent="SoundContinuous">
+        <On Terms="Behavior.AmonHybridDestroyerGravitonPrison.On" Send="Create"/>
+        <On Terms="Behavior.AmonHybridDestroyerGravitonPrison.Off" Send="Destroy"/>
+        <On Terms="Behavior.ZHybridGravitonPrison.On" Send="Create"/>
+        <On Terms="Behavior.ZHybridGravitonPrison.Off" Send="Destroy"/>
+        <On Terms="Behavior.AmonHybridDominatorVoidGravitonPrison.On" Send="Create"/>
+        <On Terms="Behavior.AmonHybridDominatorVoidGravitonPrison.Off" Send="Destroy"/>
+    </CActorSound>
+    <CActorSound id="AmonHybrid_GravitonPrisonStart" parent="SoundOneShot">
+        <On Terms="Behavior.AmonHybridDestroyerGravitonPrison.On" Send="Create"/>
+        <On Terms="Behavior.ZHybridGravitonPrison.On" Send="Create"/>
+        <On Terms="Behavior.AmonHybridDominatorVoidGravitonPrison.On" Send="Create"/>
+    </CActorSound>
+    <CActorModel id="AmonSlimed" parent="ModelAdditionStatic">
+        <Inherits index="BaseModelScale" value="0"/>
+        <Inherits index="Scale" value="0"/>
+        <On Terms="Behavior.AmonSlimed.On" Send="Create"/>
+        <On Terms="Behavior.AmonSlimed.Off" Send="$Death"/>
+        <On Terms="AnimDone; AnimName Death" Send="Destroy"/>
+        <Host Subject="_Unit"/>
+        <HostSiteOps Ops="SOpAttachCenter"/>
+        <Model value="AmonHybridBehemothAoESlime"/>
+        <AutoScaleFactor value="2.000000"/>
+    </CActorModel>
+</Catalog>

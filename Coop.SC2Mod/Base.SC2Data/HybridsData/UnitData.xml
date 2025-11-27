@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CUnit id="AmonConsumeDNAFeedbackWeapon" parent="MISSILE">
+        <Race value="Amon"/>
+        <Mover value="AmonConsumeDNAFeedback"/>
+        <EditorCategories value="ObjectType:Projectile,ObjectFamily:Melee"/>
+    </CUnit>
+    <CUnit id="AmonHybridBehemoth">
+        <DeathRevealRadius value="3"/>
+        <Race value="Amon"/>
+        <Mob value="Campaign"/>
+        <FlagArray index="UseLineOfSight" value="1"/>
+        <PlaneArray index="Ground" value="1"/>
+        <Collide index="Ground" value="1"/>
+        <Collide index="Small" value="1"/>
+        <Attributes index="Armored" value="1"/>
+        <Attributes index="Biological" value="1"/>
+        <Attributes index="Massive" value="1"/>
+        <Attributes index="Heroic" value="1"/>
+        <LifeStart value="2000"/>
+        <LifeMax value="2000"/>
+        <LifeArmor value="2"/>
+        <LifeRegenRate value="0.25"/>
+        <LifeArmorName value="Unit/LifeArmorName/HybridReaverrmor"/>
+        <ShieldArmorName value="Unit/ShieldArmorName/HybridShields"/>
+        <Speed value="2.8125"/>
+        <Acceleration value="6.25"/>
+        <LateralAcceleration value="46"/>
+        <Sight value="9"/>
+        <Food value="-8"/>
+        <CostResource index="Minerals" value="1500"/>
+        <AttackTargetPriority value="20"/>
+        <AbilArray Link="stop"/>
+        <AbilArray Link="attack"/>
+        <AbilArray Link="move"/>
+        <AbilArray Link="AmonConsumeDNA"/>
+        <AbilArray Link="AmonHybridBehemothAoEStun"/>
+        <BehaviorArray Link="Detector11"/>
+        <BehaviorArray Link="AmonHybridUnitDummy"/>
+        <WeaponArray Link="AmonHybridBehemoth"/>
+        <CardLayouts>
+            <LayoutButtons Face="Move" Type="AbilCmd" AbilCmd="move,Move" Row="0" Column="0"/>
+            <LayoutButtons Face="Stop" Type="AbilCmd" AbilCmd="stop,Stop" Row="0" Column="1"/>
+            <LayoutButtons Face="MoveHoldPosition" Type="AbilCmd" AbilCmd="move,HoldPos" Row="0" Column="2"/>
+            <LayoutButtons Face="Attack" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="4"/>
+            <LayoutButtons Face="MovePatrol" Type="AbilCmd" AbilCmd="move,Patrol" Row="0" Column="3"/>
+            <LayoutButtons Face="AmonConsumeDNA" Type="AbilCmd" AbilCmd="AmonConsumeDNA,0" Row="2" Column="0"/>
+            <LayoutButtons Face="AmonHybridBehemothAoEStun" Type="AbilCmd" AbilCmd="AmonHybridBehemothAoEStun,0" Row="2" Column="1"/>
+            <LayoutButtons Face="Detector" Type="Passive" Row="2" Column="3"/>
+        </CardLayouts>
+        <Radius value="0.9375"/>
+        <InnerRadius value="0.8125"/>
+        <CargoSize value="4"/>
+        <SubgroupPriority value="15"/>
+        <EditorCategories value="ObjectType:Unit,ObjectFamily:Melee"/>
+        <TacticalAI value="HybridBehemoth"/>
+        <TacticalAIThink value="AIThinkHybridBehemoth"/>
+        <GlossaryCategory value="Unit/Category/HybridUnits"/>
+        <GlossaryPriority value="390"/>
+    </CUnit>
+    <CUnit id="AmonHybridDestroyer">
+        <DeathRevealRadius value="3"/>
+        <Race value="Amon"/>
+        <Mob value="Campaign"/>
+        <FlagArray index="UseLineOfSight" value="1"/>
+        <FlagArray index="ArmySelect" value="1"/>
+        <PlaneArray index="Ground" value="1"/>
+        <Collide index="Ground" value="1"/>
+        <Collide index="ForceField" value="1"/>
+        <Collide index="Small" value="1"/>
+        <Attributes index="Armored" value="1"/>
+        <Attributes index="Biological" value="1"/>
+        <Attributes index="Heroic" value="1"/>
+        <LifeStart value="500"/>
+        <LifeMax value="500"/>
+        <LifeArmor value="1"/>
+        <LifeRegenRate value="0.2734"/>
+        <LifeArmorName value="Unit/LifeArmorName/HybridReaverrmor"/>
+        <ShieldsStart value="100"/>
+        <ShieldsMax value="100"/>
+        <ShieldRegenDelay value="10"/>
+        <ShieldRegenRate value="2"/>
+        <ShieldArmorName value="Unit/ShieldArmorName/HybridShields"/>
+        <Speed value="2.8125"/>
+        <Acceleration value="6.25"/>
+        <LateralAcceleration value="46"/>
+        <Sight value="9"/>
+        <Food value="-8"/>
+        <CostResource index="Minerals" value="600"/>
+        <AttackTargetPriority value="20"/>
+        <AbilArray Link="stop"/>
+        <AbilArray Link="attack"/>
+        <AbilArray Link="move"/>
+        <AbilArray Link="AmonHybridDestroyerGravitonPrison"/>
+        <BehaviorArray Link="HybridUnitDummy"/>
+        <WeaponArray Link="AmonHybridDestroyer"/>
+        <CardLayouts>
+            <LayoutButtons Face="Move" Type="AbilCmd" AbilCmd="move,Move" Row="0" Column="0"/>
+            <LayoutButtons Face="Stop" Type="AbilCmd" AbilCmd="stop,Stop" Row="0" Column="1"/>
+            <LayoutButtons Face="MoveHoldPosition" Type="AbilCmd" AbilCmd="move,HoldPos" Row="0" Column="2"/>
+            <LayoutButtons Face="Attack" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="4"/>
+            <LayoutButtons Face="MovePatrol" Type="AbilCmd" AbilCmd="move,Patrol" Row="0" Column="3"/>
+            <LayoutButtons Face="AmonHybridDestroyerGravitonPrison" Type="AbilCmd" AbilCmd="AmonHybridDestroyerGravitonPrison,0" Row="2" Column="0"/>
+        </CardLayouts>
+        <Radius value="0.8125"/>
+        <InnerRadius value="0.75"/>
+        <CargoSize value="4"/>
+        <SubgroupPriority value="15"/>
+        <EditorCategories value="ObjectType:Unit,ObjectFamily:Melee"/>
+        <TacticalAI value="HybridDestroyer"/>
+        <TacticalAIThink value="AIThinkHybridDestroyer"/>
+        <GlossaryCategory value="Unit/Category/HybridUnits"/>
+        <GlossaryPriority value="100"/>
+    </CUnit>
+    <CUnit id="AmonHybridNemesis">
+        <DeathRevealRadius value="3"/>
+        <Race value="Amon"/>
+        <FlagArray index="ArmySelect" value="1"/>
+        <PlaneArray index="Air" value="1"/>
+        <Collide index="Flying" value="1"/>
+        <Attributes index="Armored" value="1"/>
+        <Attributes index="Biological" value="1"/>
+        <Attributes index="Heroic" value="1"/>
+        <LifeStart value="600"/>
+        <LifeMax value="600"/>
+        <LifeRegenRate value="0.2734"/>
+        <LifeArmorName value="Unit/LifeArmorName/HybridReaverrmor"/>
+        <ShieldsStart value="300"/>
+        <ShieldsMax value="300"/>
+        <ShieldRegenDelay value="10"/>
+        <ShieldRegenRate value="2"/>
+        <ShieldArmorName value="Unit/ShieldArmorName/AmonHybridNemesisShields"/>
+        <Mover value="Fly"/>
+        <Speed value="2.7968"/>
+        <SpeedMultiplierCreep value="1.2221"/>
+        <Acceleration value="1.0625"/>
+        <LateralAcceleration value="46"/>
+        <StationaryTurningRate value="360"/>
+        <TurningRate value="360"/>
+        <Sight value="9"/>
+        <Height value="4"/>
+        <VisionHeight value="4"/>
+        <Food value="-8"/>
+        <CostCategory value="Army"/>
+        <CostResource index="Minerals" value="600"/>
+        <AttackTargetPriority value="20"/>
+        <AbilArray Link="stop"/>
+        <AbilArray Link="attack"/>
+        <AbilArray Link="move"/>
+        <AbilArray Link="AmonPhaseShift"/>
+        <BehaviorArray Link="HybridUnitDummy"/>
+        <WeaponArray Link="AmonHybridNemesisWeapon"/>
+        <CardLayouts>
+            <LayoutButtons Face="Move" Type="AbilCmd" AbilCmd="move,Move" Row="0" Column="0"/>
+            <LayoutButtons Face="Stop" Type="AbilCmd" AbilCmd="stop,Stop" Row="0" Column="1"/>
+            <LayoutButtons Face="MoveHoldPosition" Type="AbilCmd" AbilCmd="move,HoldPos" Row="0" Column="2"/>
+            <LayoutButtons Face="MovePatrol" Type="AbilCmd" AbilCmd="move,Patrol" Row="0" Column="3"/>
+            <LayoutButtons Face="Attack" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="4"/>
+            <LayoutButtons Face="AmonPhaseShift" Type="AbilCmd" AbilCmd="AmonPhaseShift,0" Row="2" Column="0"/>
+        </CardLayouts>
+        <Radius value="1.25"/>
+        <SeparationRadius value="1.25"/>
+        <InnerRadius value="0.5"/>
+        <CargoSize value="2"/>
+        <ScoreResult value="BuildOrder"/>
+        <SubgroupPriority value="18"/>
+        <MinimapRadius value="1.25"/>
+        <EditorCategories value="ObjectType:Unit,ObjectFamily:Melee"/>
+        <TacticalAIThink value="AIThinkHybridNemesis"/>
+        <AIEvalFactor value="0.55"/>
+        <KillDisplay value="Always"/>
+        <RankDisplay value="Always"/>
+        <Fidget>
+            <ChanceArray index="Anim" value="50"/>
+            <ChanceArray index="Idle" value="50"/>
+        </Fidget>
+        <TauntDuration index="Dance" value="5"/>
+    </CUnit>
+    <CUnit id="AmonHybridReaver">
+        <DeathRevealRadius value="3"/>
+        <Race value="Amon"/>
+        <Mob value="Campaign"/>
+        <FlagArray index="UseLineOfSight" value="1"/>
+        <FlagArray index="ArmySelect" value="1"/>
+        <PlaneArray index="Ground" value="1"/>
+        <Collide index="Ground" value="1"/>
+        <Collide index="ForceField" value="1"/>
+        <Collide index="Small" value="1"/>
+        <Attributes index="Armored" value="1"/>
+        <Attributes index="Biological" value="1"/>
+        <Attributes index="Heroic" value="1"/>
+        <LifeStart value="1000"/>
+        <LifeMax value="1000"/>
+        <LifeArmor value="2"/>
+        <LifeRegenRate value="0.2734"/>
+        <LifeArmorName value="Unit/LifeArmorName/HybridReaverrmor"/>
+        <Speed value="2.8125"/>
+        <Acceleration value="6.25"/>
+        <LateralAcceleration value="46"/>
+        <Sight value="9"/>
+        <Food value="-8"/>
+        <CostResource index="Minerals" value="700"/>
+        <AttackTargetPriority value="20"/>
+        <AbilArray Link="stop"/>
+        <AbilArray Link="attack"/>
+        <AbilArray Link="move"/>
+        <AbilArray Link="AmonConsumeDNA"/>
+        <BehaviorArray Link="HybridUnitDummy"/>
+        <WeaponArray Link="AmonHybridReaver"/>
+        <CardLayouts>
+            <LayoutButtons Face="Move" Type="AbilCmd" AbilCmd="move,Move" Row="0" Column="0"/>
+            <LayoutButtons Face="Stop" Type="AbilCmd" AbilCmd="stop,Stop" Row="0" Column="1"/>
+            <LayoutButtons Face="MoveHoldPosition" Type="AbilCmd" AbilCmd="move,HoldPos" Row="0" Column="2"/>
+            <LayoutButtons Face="Attack" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="4"/>
+            <LayoutButtons Face="MovePatrol" Type="AbilCmd" AbilCmd="move,Patrol" Row="0" Column="3"/>
+            <LayoutButtons Face="AmonConsumeDNA" Type="AbilCmd" AbilCmd="AmonConsumeDNA,0" Row="2" Column="0"/>
+        </CardLayouts>
+        <Radius value="1"/>
+        <SeparationRadius value="1"/>
+        <InnerRadius value="0.75"/>
+        <CargoSize value="4"/>
+        <SubgroupPriority value="15"/>
+        <MinimapRadius value="1"/>
+        <EditorCategories value="ObjectType:Unit,ObjectFamily:Melee"/>
+        <TacticalAI value="HybridE"/>
+        <TacticalAIThink value="AIThinkHybridReaver"/>
+        <GlossaryCategory value="Unit/Category/HybridUnits"/>
+        <GlossaryPriority value="110"/>
+    </CUnit>
+    <CUnit id="AmonHybridDestroyerWeapon" parent="MISSILE">
+        <Race value="Amon"/>
+        <Mover value="MissileDefault"/>
+        <EditorCategories value="ObjectType:Projectile,ObjectFamily:Melee"/>
+    </CUnit>
+</Catalog>
+

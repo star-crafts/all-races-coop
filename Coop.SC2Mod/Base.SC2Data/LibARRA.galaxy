@@ -1,0 +1,4861 @@
+include "TriggerLibs/NativeLib"
+
+include "LibARRA_h"
+
+//--------------------------------------------------------------------------------------------------
+// Library: LIB
+//--------------------------------------------------------------------------------------------------
+// External Library Initialization
+void libARRA_InitLibraries () {
+    libNtve_InitVariables();
+}
+
+// Variable Initialization
+bool libARRA_InitVariables_completed = false;
+
+void libARRA_InitVariables () {
+    int init_i;
+
+    if (libARRA_InitVariables_completed) {
+        return;
+    }
+
+    libARRA_InitVariables_completed = true;
+
+    libARRA_gv_createdLists = "^Lists";
+    libARRA_gv_listTypes = "^ListTypesMap";
+    libARRA_gv_transmissionOptionsTypes = "^TransmissionOptionsTypes";
+    libARRA_gv_transmissionOptionsReferences = "^TransmissionOptionsReferences";
+    libARRA_gv_transmissionOptionsIntervals = "^TransmissionGroupsIntervals";
+    libARRA_gv_transmissionOptionsDisabled = "^TransmissionOptionsDisabled";
+    libARRA_gv_transmissionSounds = "^TransmissionSounds";
+    libARRA_gv_transmissionGroups = "^TransmissionGroups";
+    libARRA_gv_transmissionChains = "^TransmissionChains";
+    libARRA_gv_targetPlayerGroup = PlayerGroupEmpty();
+    for (init_i = 0; init_i <= 15; init_i += 1) {
+        libARRA_gv_teams[init_i] = PlayerGroupEmpty();
+    }
+    libARRA_gv_emittedMessage = "";
+    libARRA_gv_emittedEvent = "";
+    libARRA_gv_pERIODICEVENTS = "PERIODIC EVENTS";
+    libARRA_gv_tIMERTRACKERSLIST = "TRACKED TIMERS";
+    libARRA_gv_pickedUnits = UnitGroupEmpty();
+    libARRA_gv_tRACKERS = "UNIT TRACKERS";
+    libARRA_gv_lOG = "";
+    libARRA_gv_cRequirementAnd = 7;
+    libARRA_gv_cRequirementCountUnit = 24;
+    libARRA_gv_cRequirementCountUpgrade = 25;
+}
+
+// Presets
+// Functions
+void libARRA_gf_DisplayCampaignMessage (playergroup lp_toPlayerGroup, int lp_messageType, text lp_message, int lp_formatOrNot) {
+    // Automatic Variable Declarations
+    int auto1456B20E_val;
+
+    // Implementation
+    if ((lp_formatOrNot == libARRA_ge_CampaignMessageFormatNotFormat_FormatMessage)) {
+        auto1456B20E_val = lp_messageType;
+        if (auto1456B20E_val == libARRA_ge_CampaignMessageType_Hint) {
+            TextExpressionSetToken("Param/Expression/lib_ARRA_CDD7CB26", "A", lp_message);
+            UIDisplayMessage(lp_toPlayerGroup, c_messageAreaSubtitle, TextExpressionAssemble("Param/Expression/lib_ARRA_CDD7CB26"));
+            SoundPlayForPlayer(SoundLink("UI_TerranHint", 0), c_maxPlayers, lp_toPlayerGroup, 100.0, 0.0);
+        }
+        else if (auto1456B20E_val == libARRA_ge_CampaignMessageType_SimpleHint) {
+            UIDisplayMessage(lp_toPlayerGroup, c_messageAreaSubtitle, lp_message);
+            SoundPlayForPlayer(SoundLink("UI_TerranHint", 0), c_maxPlayers, lp_toPlayerGroup, 100.0, 0.0);
+        }
+        else if (auto1456B20E_val == libARRA_ge_CampaignMessageType_Secret) {
+            TextExpressionSetToken("Param/Expression/lib_ARRA_A9886FD0", "A", lp_message);
+            UIDisplayMessage(lp_toPlayerGroup, c_messageAreaSubtitle, TextExpressionAssemble("Param/Expression/lib_ARRA_A9886FD0"));
+            SoundPlayForPlayer(SoundLink("TUISecret", 0), c_maxPlayers, lp_toPlayerGroup, 100.0, 0.0);
+        }
+        else if (auto1456B20E_val == libARRA_ge_CampaignMessageType_NewUnitAcquired) {
+            TextExpressionSetToken("Param/Expression/lib_ARRA_6D071D90", "A", lp_message);
+            UIDisplayMessage(lp_toPlayerGroup, c_messageAreaSubtitle, TextExpressionAssemble("Param/Expression/lib_ARRA_6D071D90"));
+            SoundPlayForPlayer(SoundLink("UI_TerranNewUnitAvailable", 0), c_maxPlayers, lp_toPlayerGroup, 100.0, 0.0);
+        }
+        else if (auto1456B20E_val == libARRA_ge_CampaignMessageType_NewUnitAvailable) {
+            TextExpressionSetToken("Param/Expression/lib_ARRA_2D943A89", "A", lp_message);
+            UIDisplayMessage(lp_toPlayerGroup, c_messageAreaSubtitle, TextExpressionAssemble("Param/Expression/lib_ARRA_2D943A89"));
+            SoundPlayForPlayer(SoundLink("UI_TerranNewUnitAvailable", 0), c_maxPlayers, lp_toPlayerGroup, 100.0, 0.0);
+        }
+        else if (auto1456B20E_val == libARRA_ge_CampaignMessageType_NewTechAvailable) {
+            TextExpressionSetToken("Param/Expression/lib_ARRA_7E4F0938", "A", lp_message);
+            UIDisplayMessage(lp_toPlayerGroup, c_messageAreaSubtitle, TextExpressionAssemble("Param/Expression/lib_ARRA_7E4F0938"));
+            SoundPlayForPlayer(SoundLink("UI_TerranNewTechAvailable", 0), c_maxPlayers, lp_toPlayerGroup, 100.0, 0.0);
+        }
+        else if (auto1456B20E_val == libARRA_ge_CampaignMessageType_NewUnitAvailable2) {
+            TextExpressionSetToken("Param/Expression/lib_ARRA_5C709E2F", "A", lp_message);
+            UIDisplayMessage(lp_toPlayerGroup, c_messageAreaSubtitle, TextExpressionAssemble("Param/Expression/lib_ARRA_5C709E2F"));
+            SoundPlayForPlayer(SoundLink("UI_TerranNewTechAvailable", 0), c_maxPlayers, lp_toPlayerGroup, 100.0, 0.0);
+        }
+        else if (auto1456B20E_val == libARRA_ge_CampaignMessageType_Warning) {
+            TextExpressionSetToken("Param/Expression/lib_ARRA_72874BCA", "A", lp_message);
+            UIDisplayMessage(lp_toPlayerGroup, c_messageAreaSubtitle, TextExpressionAssemble("Param/Expression/lib_ARRA_72874BCA"));
+            SoundPlayForPlayer(SoundLink("UI_ZergWarning", 0), c_maxPlayers, lp_toPlayerGroup, 100.0, 0.0);
+        }
+        else if (auto1456B20E_val == libARRA_ge_CampaignMessageType_MissionFailed) {
+            TextExpressionSetToken("Param/Expression/lib_ARRA_9DC108BB", "A", lp_message);
+            UIDisplayMessage(lp_toPlayerGroup, c_messageAreaSubtitle, TextExpressionAssemble("Param/Expression/lib_ARRA_9DC108BB"));
+            SoundPlayForPlayer(SoundLink("UI_TerranMissionFailed", 1), c_maxPlayers, lp_toPlayerGroup, 100.0, 0.0);
+        }
+        else if (auto1456B20E_val == libARRA_ge_CampaignMessageType_MissionVictory) {
+            TextExpressionSetToken("Param/Expression/lib_ARRA_8CBEFB12", "A", lp_message);
+            UIDisplayMessage(lp_toPlayerGroup, c_messageAreaSubtitle, TextExpressionAssemble("Param/Expression/lib_ARRA_8CBEFB12"));
+            SoundPlayForPlayer(SoundLink("UI_MissionComplete", 3), c_maxPlayers, lp_toPlayerGroup, 100.0, 0.0);
+        }
+        else {
+        }
+    }
+    else {
+        UIDisplayMessage(lp_toPlayerGroup, c_messageAreaSubtitle, lp_message);
+    }
+}
+
+bool libARRA_gf_IIF13 (int lp_condition) {
+    // Automatic Variable Declarations
+    // Implementation
+    if ((lp_condition != 0)) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
+point libARRA_gf_IIF7 (point lp_iF, point lp_eLSE) {
+    // Automatic Variable Declarations
+    // Implementation
+    if ((lp_iF != null)) {
+        return lp_iF;
+    }
+    else {
+        return lp_eLSE;
+    }
+}
+
+region libARRA_gf_IIF11 (region lp_iF, region lp_eLSE) {
+    // Automatic Variable Declarations
+    // Implementation
+    if ((lp_iF != null)) {
+        return lp_iF;
+    }
+    else {
+        return lp_eLSE;
+    }
+}
+
+int libARRA_gf_IIF8 (int lp_iF, int lp_eLSE) {
+    // Automatic Variable Declarations
+    // Implementation
+    if ((lp_iF != 0)) {
+        return lp_iF;
+    }
+    else {
+        return lp_eLSE;
+    }
+}
+
+string libARRA_gf_IIF4 (string lp_iF, string lp_eLSE) {
+    // Automatic Variable Declarations
+    // Implementation
+    if ((lp_iF != null)) {
+        return lp_iF;
+    }
+    else {
+        return lp_eLSE;
+    }
+}
+
+unit libARRA_gf_IIF6 (unit lp_iF, unit lp_eLSE) {
+    // Automatic Variable Declarations
+    // Implementation
+    if ((lp_iF != null)) {
+        return lp_iF;
+    }
+    else {
+        return lp_eLSE;
+    }
+}
+
+string libARRA_gf_IIF5 (string lp_iF, string lp_iF2) {
+    // Automatic Variable Declarations
+    // Implementation
+    if ((lp_iF != null)) {
+        return lp_iF;
+    }
+    else {
+        return lp_iF2;
+    }
+}
+
+int libARRA_gf_IIF2 (bool lp_condition, int lp_iF, int lp_eLSE) {
+    // Automatic Variable Declarations
+    // Implementation
+    if ((lp_condition == true)) {
+        return lp_iF;
+    }
+    else {
+        return lp_eLSE;
+    }
+}
+
+string libARRA_gf_IIF (bool lp_condition, string lp_iF, string lp_eLSE) {
+    // Automatic Variable Declarations
+    // Implementation
+    if ((lp_condition == true)) {
+        return lp_iF;
+    }
+    else {
+        return lp_eLSE;
+    }
+}
+
+string libARRA_gf_IIF3 (bool lp_condition, string lp_iF, string lp_eLSE) {
+    // Automatic Variable Declarations
+    // Implementation
+    if ((lp_condition == true)) {
+        return lp_iF;
+    }
+    else {
+        return lp_eLSE;
+    }
+}
+
+string libARRA_gf_IIF10 (int lp_condition, string lp_iF, string lp_eLSE) {
+    // Automatic Variable Declarations
+    // Implementation
+    if ((lp_condition != 0)) {
+        return lp_iF;
+    }
+    else {
+        return lp_eLSE;
+    }
+}
+
+int libARRA_gf_IIF9 (int lp_condition, int lp_iF, int lp_eLSE) {
+    // Automatic Variable Declarations
+    // Implementation
+    if ((lp_condition != 0)) {
+        return lp_iF;
+    }
+    else {
+        return lp_eLSE;
+    }
+}
+
+string libARRA_gf_ListGetType (string lp_list) {
+    // Automatic Variable Declarations
+    // Implementation
+    if ((libARRA_gf_ListIsExist(lp_list) == true)) {
+        return DataTableGetString(true, ("__ListType__" + lp_list));
+    }
+    else {
+        return "";
+    }
+}
+
+void libARRA_gf_ListSetType (string lp_list, string lp_newType) {
+    // Variable Declarations
+    string lv_previousType;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_previousType = libARRA_gf_ListGetType(lp_list);
+
+    // Implementation
+    libARRA_gf_ListCreateIfNotExists(lp_list);
+    if ((lv_previousType != "") && (lv_previousType != lp_newType)) {
+        libNtve_gf_UIErrorMessage(PlayerGroupAll(), StringExternal("Param/Value/lib_ARRA_A5B5486A"), SoundLink("UI_GenericError", 0));
+    }
+
+    DataTableSetString(true, ("__ListType__" + lp_list), lp_newType);
+}
+
+void libARRA_gf_ListDestroy (string lp_list) {
+    // Automatic Variable Declarations
+    int autoDF55B283_ae;
+    int autoDF55B283_var;
+
+    // Implementation
+    libARRA_gf_ListCreateIfNotExists(lp_list);
+    libARRA_gf_ListClear(lp_list);
+    DataTableValueRemove(true, ("__ListType__" + lp_list));
+    libARRA_gf_ListStringExclude(libARRA_gv_createdLists, lp_list);
+    autoDF55B283_ae = (libARRA_gf_ListSize(lp_list) - 1);
+    autoDF55B283_var = 0;
+    for ( ; autoDF55B283_var <= autoDF55B283_ae; autoDF55B283_var += 1 ) {
+        DataTableValueRemove(true, libARRA_gf_ListGetDatabaseName(lp_list, autoDF55B283_var));
+    }
+}
+
+void libARRA_gf_ListSort (string lp_sortableList, string lp_prriorityList) {
+    // Variable Declarations
+    string lv_aString;
+    int lv_aInt;
+    int lv_i;
+    int lv_j;
+    int lv_n;
+
+    // Automatic Variable Declarations
+    int auto1686E02C_ae;
+    const int auto1686E02C_ai = 1;
+    int autoC9DE3270_ae;
+    const int autoC9DE3270_ai = 1;
+    string auto58781657_val;
+
+    // Variable Initialization
+    lv_aString = "";
+    lv_n = libARRA_gf_ListSize(lp_sortableList);
+
+    // Implementation
+    auto1686E02C_ae = lv_n;
+    lv_i = 1;
+    for ( ; ( (auto1686E02C_ai >= 0 && lv_i <= auto1686E02C_ae) || (auto1686E02C_ai < 0 && lv_i >= auto1686E02C_ae) ) ; lv_i += auto1686E02C_ai ) {
+        autoC9DE3270_ae = (lv_n - lv_i);
+        lv_j = 1;
+        for ( ; ( (autoC9DE3270_ai >= 0 && lv_j <= autoC9DE3270_ae) || (autoC9DE3270_ai < 0 && lv_j >= autoC9DE3270_ae) ) ; lv_j += autoC9DE3270_ai ) {
+            if ((libARRA_gf_ListIntGet(lp_prriorityList, lv_j) > libARRA_gf_ListIntGet(lp_prriorityList, (lv_j + 1)))) {
+                auto58781657_val = libARRA_gf_ListGetType(lp_sortableList);
+                if (auto58781657_val == "int") {
+                    lv_aInt = libARRA_gf_ListIntGet(lp_sortableList, lv_j);
+                    libARRA_gf_ListIntSet(lp_sortableList, lv_j, libARRA_gf_ListIntGet(lp_sortableList, (lv_j + 1)));
+                    libARRA_gf_ListIntSet(lp_sortableList, (lv_j + 1), lv_aInt);
+                }
+                else if (auto58781657_val == "string") {
+                    lv_aString = libARRA_gf_ListStringGet(lp_sortableList, lv_j);
+                    libARRA_gf_ListStringSet(lp_sortableList, lv_j, libARRA_gf_ListStringGet(lp_sortableList, (lv_j + 1)));
+                    libARRA_gf_ListStringSet(lp_sortableList, (lv_j + 1), lv_aString);
+                }
+                else {
+                }
+                lv_aInt = libARRA_gf_ListIntGet(lp_prriorityList, lv_j);
+                libARRA_gf_ListIntSet(lp_prriorityList, lv_j, libARRA_gf_ListIntGet(lp_prriorityList, (lv_j + 1)));
+                libARRA_gf_ListIntSet(lp_prriorityList, (lv_j + 1), lv_aInt);
+            }
+        }
+    }
+}
+
+void libARRA_gf_ListCreate (string lp_list) {
+    // Automatic Variable Declarations
+    // Implementation
+    if ((DataTableValueExists(true, lp_list) == false)) {
+        DataTableSetInt(true, lp_list, 0);
+        libARRA_gf_ListStringInclude(libARRA_gv_createdLists, lp_list);
+    }
+    else {
+        libNtve_gf_UIErrorMessage(PlayerGroupAll(), (StringExternal("Param/Value/lib_ARRA_3F48C1B8") + StringToText(lp_list) + StringExternal("Param/Value/lib_ARRA_3F2D2FDD")), SoundLink("UI_GenericError", 0));
+    }
+}
+
+void libARRA_gf_ListClear (string lp_list) {
+    // Automatic Variable Declarations
+    // Implementation
+    libARRA_gf_ListCreateIfNotExists(lp_list);
+    while ((libARRA_gf_ListSize(lp_list) > 0)) {
+        libARRA_gf_ListPopBack(lp_list);
+    }
+}
+
+void libARRA_gf_ListPopBack (string lp_list) {
+    // Automatic Variable Declarations
+    // Implementation
+    libARRA_gf_ListCreateIfNotExists(lp_list);
+    if ((DataTableGetInt(true, lp_list) > 0)) {
+        DataTableSetInt(true, lp_list, (DataTableGetInt(true, lp_list) - 1));
+        DataTableValueRemove(true, libARRA_gf_ListGetDatabaseName(lp_list, DataTableGetInt(true, lp_list)));
+    }
+    else {
+        libNtve_gf_UIErrorMessage(PlayerGroupAll(), StringExternal("Param/Value/lib_ARRA_78368912"), SoundLink("UI_GenericError", 0));
+    }
+}
+
+int libARRA_gf_ListSize (string lp_list) {
+    // Automatic Variable Declarations
+    // Implementation
+    libARRA_gf_ListCreateIfNotExists(lp_list);
+    return DataTableGetInt(true, lp_list);
+}
+
+bool libARRA_gf_ListIsEmpty (string lp_list) {
+    // Variable Declarations
+    bool lv_result;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+
+    // Implementation
+    libARRA_gf_ListCreateIfNotExists(lp_list);
+    if ((libARRA_gf_ListSize(lp_list) == 0)) {
+        lv_result = true;
+    }
+
+    return lv_result;
+}
+
+string libARRA_gf_ListGetDatabaseName (string lp_arrayName, int lp_index) {
+    // Automatic Variable Declarations
+    // Implementation
+    return (lp_arrayName + "[" + IntToString(lp_index) + "]");
+}
+
+void libARRA_gf_ListCreateIfNotExists (string lp_list) {
+    // Automatic Variable Declarations
+    // Implementation
+    if ((DataTableValueExists(true, lp_list) == false)) {
+        DataTableSetInt(true, lp_list, 0);
+    }
+
+}
+
+bool libARRA_gf_ListIsExist (string lp_list) {
+    // Automatic Variable Declarations
+    // Implementation
+    if ((lp_list == "")) {
+        libNtve_gf_UIErrorMessage(PlayerGroupAll(), StringExternal("Param/Value/lib_ARRA_BB9020B1"), SoundLink("UI_GenericError", 0));
+        return false;
+    }
+    return DataTableValueExists(true, lp_list);
+}
+
+region libARRA_gf_ListRegionGet (string lp_list, int lp_index) {
+    // Automatic Variable Declarations
+    // Implementation
+    libARRA_gf_ListCreateIfNotExists(lp_list);
+    if ((lp_index <= libARRA_gf_ListSize(lp_list)) && (lp_index > 0)) {
+        return DataTableGetRegion(true, libARRA_gf_ListGetDatabaseName(lp_list, (lp_index - 1)));
+    }
+
+    return null;
+}
+
+int libARRA_gf_ListRegionIndexOf (string lp_list, region lp_value) {
+    // Automatic Variable Declarations
+    int auto841BC37F_ae;
+    int auto841BC37F_var;
+
+    // Implementation
+    libARRA_gf_ListCreateIfNotExists(lp_list);
+    if ((libARRA_gf_ListIsEmpty(lp_list) == false)) {
+        auto841BC37F_ae = libARRA_gf_ListSize(lp_list);
+        auto841BC37F_var = 1;
+        for ( ; auto841BC37F_var <= auto841BC37F_ae; auto841BC37F_var += 1 ) {
+            if ((libARRA_gf_ListRegionGet(lp_list, auto841BC37F_var) == lp_value)) {
+                return auto841BC37F_var;
+            }
+
+        }
+    }
+
+    return -1;
+}
+
+bool libARRA_gf_ListRegionIncludes (string lp_list, region lp_value) {
+    // Automatic Variable Declarations
+    // Implementation
+    libARRA_gf_ListCreateIfNotExists(lp_list);
+    if ((libARRA_gf_ListRegionIndexOf(lp_list, lp_value) > 0)) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
+void libARRA_gf_ListRegionPush (string lp_list, region lp_value) {
+    // Automatic Variable Declarations
+    // Implementation
+    libARRA_gf_ListCreateIfNotExists(lp_list);
+    DataTableSetRegion(true, libARRA_gf_ListGetDatabaseName(lp_list, libARRA_gf_ListSize(lp_list)), lp_value);
+    DataTableSetInt(true, lp_list, (DataTableGetInt(true, lp_list) + 1));
+}
+
+void libARRA_gf_ListRegionSet (string lp_list, int lp_index, region lp_value) {
+    // Automatic Variable Declarations
+    // Implementation
+    libARRA_gf_ListCreateIfNotExists(lp_list);
+    while ((lp_index > libARRA_gf_ListSize(lp_list))) {
+        libARRA_gf_ListRegionPush(lp_list, RegionEmpty());
+    }
+    if ((lp_index > 0)) {
+        DataTableSetRegion(true, libARRA_gf_ListGetDatabaseName(lp_list, (lp_index - 1)), lp_value);
+    }
+
+}
+
+void libARRA_gf_ListRegionInclude (string lp_list, region lp_value) {
+    // Automatic Variable Declarations
+    // Implementation
+    libARRA_gf_ListCreateIfNotExists(lp_list);
+    if ((libARRA_gf_ListRegionIncludes(lp_list, lp_value) == false)) {
+        libARRA_gf_ListRegionPush(lp_list, lp_value);
+    }
+
+}
+
+void libARRA_gf_ListRegionInsertAt (string lp_list, int lp_index, region lp_value) {
+    // Variable Declarations
+    int lv_start;
+    int lv_end;
+
+    // Automatic Variable Declarations
+    int autoBABDEF33_ae;
+    int autoBABDEF33_var;
+
+    // Variable Initialization
+
+    // Implementation
+    libARRA_gf_ListCreateIfNotExists(lp_list);
+    if ((lp_index <= libARRA_gf_ListSize(lp_list)) && (lp_index > 0)) {
+        libARRA_gf_ListRegionPush(lp_list, libARRA_gf_ListRegionGet(lp_list, libARRA_gf_ListSize(lp_list)));
+        lv_start = (libARRA_gf_ListSize(lp_list) - 2);
+        lv_end = (lp_index + 1);
+        autoBABDEF33_ae = (lv_start - lv_end);
+        autoBABDEF33_var = 0;
+        for ( ; autoBABDEF33_var <= autoBABDEF33_ae; autoBABDEF33_var += 1 ) {
+            DataTableSetRegion(true, libARRA_gf_ListGetDatabaseName(lp_list, (lv_start - autoBABDEF33_var)), DataTableGetRegion(true, libARRA_gf_ListGetDatabaseName(lp_list, (lv_start - autoBABDEF33_var - 1))));
+        }
+        libARRA_gf_ListRegionSet(lp_list, lp_index, lp_value);
+    }
+
+}
+
+void libARRA_gf_ListRegionRemoveAt (string lp_list, int lp_index) {
+    // Variable Declarations
+    int lv_index;
+
+    // Automatic Variable Declarations
+    int auto58CCAB03_ae;
+    int auto58CCAB03_var;
+
+    // Variable Initialization
+    lv_index = (lp_index - 1);
+
+    // Implementation
+    libARRA_gf_ListCreateIfNotExists(lp_list);
+    if ((lp_index <= libARRA_gf_ListSize(lp_list)) && (lp_index > 0)) {
+        auto58CCAB03_ae = (libARRA_gf_ListSize(lp_list) - 2);
+        auto58CCAB03_var = (lp_index - 1);
+        for ( ; auto58CCAB03_var <= auto58CCAB03_ae; auto58CCAB03_var += 1 ) {
+            DataTableSetRegion(true, libARRA_gf_ListGetDatabaseName(lp_list, auto58CCAB03_var), DataTableGetRegion(true, libARRA_gf_ListGetDatabaseName(lp_list, (auto58CCAB03_var + 1))));
+        }
+        libARRA_gf_ListPopBack(lp_list);
+    }
+    else {
+        libNtve_gf_UIErrorMessage(PlayerGroupAll(), (StringExternal("Param/Value/lib_ARRA_F6ED52AF") + IntToText(lp_index) + StringExternal("Param/Value/lib_ARRA_362FE075") + IntToText(libARRA_gf_ListSize(lp_list))), SoundLink("UI_GenericError", 0));
+    }
+}
+
+void libARRA_gf_ListRegionExclude (string lp_list, region lp_value) {
+    // Variable Declarations
+    int lv_index;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+
+    // Implementation
+    libARRA_gf_ListCreateIfNotExists(lp_list);
+    lv_index = libARRA_gf_ListRegionIndexOf(lp_list, lp_value);
+    while ((lv_index > 0)) {
+        libARRA_gf_ListRegionRemoveAt(lp_list, lv_index);
+        lv_index = libARRA_gf_ListRegionIndexOf(lp_list, lp_value);
+    }
+}
+
+void libARRA_gf_MapRegionSet (string lp_unit, string lp_index, region lp_actor) {
+    // Automatic Variable Declarations
+    // Implementation
+    DataTableSetRegion(true, ("$E" + lp_unit + "_" + lp_index), lp_actor);
+    libARRA_gf_ListStringInclude(("$E" + lp_unit), lp_index);
+}
+
+region libARRA_gf_MapRegionGet (string lp_unit, string lp_index) {
+    // Automatic Variable Declarations
+    // Implementation
+    return DataTableGetRegion(true, ("$E" + lp_unit + "_" + lp_index));
+}
+
+string libARRA_gf_MapRegionIndexes (string lp_unit) {
+    // Automatic Variable Declarations
+    // Implementation
+    return ("$E" + lp_unit);
+}
+
+bool libARRA_gf_MapRegionIncludes (string lp_unit, string lp_index) {
+    // Automatic Variable Declarations
+    // Implementation
+    return libARRA_gf_ListStringIncludes(libARRA_gf_MapRegionIndexes(lp_unit), lp_index);
+}
+
+void libARRA_gf_MapRevealerSet (string lp_unit, string lp_index, revealer lp_actor) {
+    // Automatic Variable Declarations
+    // Implementation
+    DataTableSetRevealer(true, ("$V" + lp_unit + "_" + lp_index), lp_actor);
+    libARRA_gf_ListStringInclude(("$V" + lp_unit), lp_index);
+}
+
+revealer libARRA_gf_MapRevealerGet (string lp_unit, string lp_index) {
+    // Automatic Variable Declarations
+    // Implementation
+    return DataTableGetRevealer(true, ("$V" + lp_unit + "_" + lp_index));
+}
+
+string libARRA_gf_MapRevealerIndexes (string lp_unit) {
+    // Automatic Variable Declarations
+    // Implementation
+    return ("$V" + lp_unit);
+}
+
+bool libARRA_gf_MapRevealerIncludes (string lp_unit, string lp_index) {
+    // Automatic Variable Declarations
+    // Implementation
+    return libARRA_gf_ListStringIncludes(libARRA_gf_MapRevealerIndexes(lp_unit), lp_index);
+}
+
+string libARRA_gf_MapPingIndexes (string lp_unit) {
+    // Automatic Variable Declarations
+    // Implementation
+    return ("$P" + lp_unit);
+}
+
+void libARRA_gf_MapPingSet (string lp_unit, string lp_index, int lp_actor) {
+    // Automatic Variable Declarations
+    // Implementation
+    DataTableSetPing(true, ("$P" + lp_unit + "_" + lp_index), lp_actor);
+    libARRA_gf_ListStringInclude(("$P" + lp_unit), lp_index);
+}
+
+int libARRA_gf_MapPingGet (string lp_unit, string lp_index) {
+    // Automatic Variable Declarations
+    // Implementation
+    return DataTableGetPing(true, ("$P" + lp_unit + "_" + lp_index));
+}
+
+bool libARRA_gf_MapPingIncludes (string lp_unit, string lp_index) {
+    // Automatic Variable Declarations
+    // Implementation
+    return libARRA_gf_ListStringIncludes(libARRA_gf_MapPingIndexes(lp_unit), lp_index);
+}
+
+void libARRA_gf_MapActorSet (string lp_unit, string lp_index, actor lp_actor) {
+    // Automatic Variable Declarations
+    // Implementation
+    DataTableSetActor(true, ("$A" + lp_unit + "_" + lp_index), lp_actor);
+    libARRA_gf_ListStringInclude(("$A" + lp_unit), lp_index);
+}
+
+actor libARRA_gf_MapActorGet (string lp_unit, string lp_index) {
+    // Automatic Variable Declarations
+    // Implementation
+    return DataTableGetActor(true, ("$A" + lp_unit + "_" + lp_index));
+}
+
+string libARRA_gf_MapActorIndexes (string lp_unit) {
+    // Automatic Variable Declarations
+    // Implementation
+    return ("$A" + lp_unit);
+}
+
+bool libARRA_gf_MapActorIncludes (string lp_unit, string lp_index) {
+    // Automatic Variable Declarations
+    // Implementation
+    return libARRA_gf_ListStringIncludes(libARRA_gf_MapActorIndexes(lp_unit), lp_index);
+}
+
+void libARRA_gf_MapUnitSet (string lp_map, string lp_index, unit lp_actor) {
+    // Automatic Variable Declarations
+    // Implementation
+    DataTableSetUnit(true, ("$U" + lp_map + "_" + lp_index), lp_actor);
+    libARRA_gf_ListStringInclude(("$U" + lp_map), lp_index);
+}
+
+unit libARRA_gf_MapUnitGet (string lp_map, string lp_index) {
+    // Automatic Variable Declarations
+    // Implementation
+    return DataTableGetUnit(true, ("$U" + lp_map + "_" + lp_index));
+}
+
+string libARRA_gf_MapUnitIndexes (string lp_unit) {
+    // Automatic Variable Declarations
+    // Implementation
+    return ("$U" + lp_unit);
+}
+
+bool libARRA_gf_MapUnitIncludes (string lp_unit, string lp_index) {
+    // Automatic Variable Declarations
+    // Implementation
+    return libARRA_gf_ListStringIncludes(libARRA_gf_MapUnitIndexes(lp_unit), lp_index);
+}
+
+unitgroup libARRA_gf_ListUnitGroupGet (string lp_list, int lp_index) {
+    // Automatic Variable Declarations
+    // Implementation
+    libARRA_gf_ListCreateIfNotExists(lp_list);
+    if ((lp_index <= libARRA_gf_ListSize(lp_list)) && (lp_index > 0)) {
+        return DataTableGetUnitGroup(true, libARRA_gf_ListGetDatabaseName(lp_list, (lp_index - 1)));
+    }
+    else {
+        libNtve_gf_UIErrorMessage(PlayerGroupAll(), (StringExternal("Param/Value/lib_ARRA_EBEDA1A0") + IntToText(lp_index) + StringExternal("Param/Value/lib_ARRA_8DFFFC28") + IntToText(libARRA_gf_ListSize(lp_list))), SoundLink("UI_GenericError", 0));
+    }
+    return null;
+}
+
+int libARRA_gf_ListUnitGroupIndexOf (string lp_list, unitgroup lp_value) {
+    // Automatic Variable Declarations
+    int autoF53BB4CB_ae;
+    int autoF53BB4CB_var;
+
+    // Implementation
+    libARRA_gf_ListCreateIfNotExists(lp_list);
+    if ((libARRA_gf_ListIsEmpty(lp_list) == false)) {
+        autoF53BB4CB_ae = libARRA_gf_ListSize(lp_list);
+        autoF53BB4CB_var = 1;
+        for ( ; autoF53BB4CB_var <= autoF53BB4CB_ae; autoF53BB4CB_var += 1 ) {
+            if ((libARRA_gf_ListUnitGroupGet(lp_list, autoF53BB4CB_var) == lp_value)) {
+                return autoF53BB4CB_var;
+            }
+
+        }
+    }
+
+    return -1;
+}
+
+bool libARRA_gf_ListUnitGroupIncludes (string lp_list, unitgroup lp_value) {
+    // Automatic Variable Declarations
+    // Implementation
+    libARRA_gf_ListCreateIfNotExists(lp_list);
+    if ((libARRA_gf_ListUnitGroupIndexOf(lp_list, lp_value) > 0)) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
+void libARRA_gf_ListUnitGroupPush (string lp_list, unitgroup lp_value) {
+    // Automatic Variable Declarations
+    // Implementation
+    libARRA_gf_ListCreateIfNotExists(lp_list);
+    DataTableSetUnitGroup(true, libARRA_gf_ListGetDatabaseName(lp_list, libARRA_gf_ListSize(lp_list)), lp_value);
+    DataTableSetInt(true, lp_list, (DataTableGetInt(true, lp_list) + 1));
+}
+
+void libARRA_gf_ListUnitGroupSet (string lp_list, int lp_index, unitgroup lp_value) {
+    // Automatic Variable Declarations
+    // Implementation
+    libARRA_gf_ListCreateIfNotExists(lp_list);
+    while ((lp_index > libARRA_gf_ListSize(lp_list))) {
+        libARRA_gf_ListUnitGroupPush(lp_list, lp_value);
+    }
+    if ((lp_index > 0)) {
+        DataTableSetUnitGroup(true, libARRA_gf_ListGetDatabaseName(lp_list, (lp_index - 1)), lp_value);
+    }
+
+}
+
+void libARRA_gf_ListUnitGroupInclude (string lp_list, unitgroup lp_value) {
+    // Automatic Variable Declarations
+    // Implementation
+    libARRA_gf_ListCreateIfNotExists(lp_list);
+    if ((libARRA_gf_ListUnitGroupIncludes(lp_list, lp_value) == false)) {
+        libARRA_gf_ListUnitGroupPush(lp_list, lp_value);
+    }
+
+}
+
+void libARRA_gf_ListUnitGroupInsertAt (string lp_list, int lp_index, unitgroup lp_value) {
+    // Variable Declarations
+    int lv_start;
+    int lv_end;
+
+    // Automatic Variable Declarations
+    int auto6D1125E9_ae;
+    int auto6D1125E9_var;
+
+    // Variable Initialization
+
+    // Implementation
+    libARRA_gf_ListCreateIfNotExists(lp_list);
+    if ((lp_index <= libARRA_gf_ListSize(lp_list)) && (lp_index > 0)) {
+        libARRA_gf_ListUnitGroupPush(lp_list, libARRA_gf_ListUnitGroupGet(lp_list, libARRA_gf_ListSize(lp_list)));
+        lv_start = (libARRA_gf_ListSize(lp_list) - 2);
+        lv_end = (lp_index + 1);
+        auto6D1125E9_ae = (lv_start - lv_end);
+        auto6D1125E9_var = 0;
+        for ( ; auto6D1125E9_var <= auto6D1125E9_ae; auto6D1125E9_var += 1 ) {
+            DataTableSetUnitGroup(true, libARRA_gf_ListGetDatabaseName(lp_list, (lv_start - auto6D1125E9_var)), DataTableGetUnitGroup(true, libARRA_gf_ListGetDatabaseName(lp_list, (lv_start - auto6D1125E9_var - 1))));
+        }
+        libARRA_gf_ListUnitGroupSet(lp_list, lp_index, lp_value);
+    }
+
+}
+
+void libARRA_gf_ListUnitGroupRemoveAt (string lp_list, int lp_index) {
+    // Variable Declarations
+    int lv_index;
+
+    // Automatic Variable Declarations
+    int auto19C29677_ae;
+    int auto19C29677_var;
+
+    // Variable Initialization
+    lv_index = (lp_index - 1);
+
+    // Implementation
+    libARRA_gf_ListCreateIfNotExists(lp_list);
+    if ((lp_index <= libARRA_gf_ListSize(lp_list)) && (lp_index > 0)) {
+        auto19C29677_ae = (libARRA_gf_ListSize(lp_list) - 2);
+        auto19C29677_var = (lp_index - 1);
+        for ( ; auto19C29677_var <= auto19C29677_ae; auto19C29677_var += 1 ) {
+            DataTableSetUnitGroup(true, libARRA_gf_ListGetDatabaseName(lp_list, auto19C29677_var), DataTableGetUnitGroup(true, libARRA_gf_ListGetDatabaseName(lp_list, (auto19C29677_var + 1))));
+        }
+        libARRA_gf_ListPopBack(lp_list);
+    }
+    else {
+        libNtve_gf_UIErrorMessage(PlayerGroupAll(), (StringExternal("Param/Value/lib_ARRA_D8AFC5D0") + IntToText(lp_index) + StringExternal("Param/Value/lib_ARRA_80ACCCBB") + IntToText(libARRA_gf_ListSize(lp_list))), SoundLink("UI_GenericError", 0));
+    }
+}
+
+void libARRA_gf_ListUnitGroupExclude (string lp_list, unitgroup lp_value) {
+    // Variable Declarations
+    int lv_index;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+
+    // Implementation
+    libARRA_gf_ListCreateIfNotExists(lp_list);
+    lv_index = libARRA_gf_ListUnitGroupIndexOf(lp_list, lp_value);
+    while ((lv_index > 0)) {
+        libARRA_gf_ListUnitGroupRemoveAt(lp_list, lv_index);
+        lv_index = libARRA_gf_ListUnitGroupIndexOf(lp_list, lp_value);
+    }
+}
+
+void libARRA_gf_MapUnitGroupSet (string lp_map, string lp_index, unitgroup lp_actor) {
+    // Automatic Variable Declarations
+    // Implementation
+    DataTableSetUnitGroup(true, ("$G" + lp_map + "_" + lp_index), lp_actor);
+    libARRA_gf_ListStringInclude(("$G" + lp_map), lp_index);
+}
+
+unitgroup libARRA_gf_MapUnitGroupGet (string lp_map, string lp_index) {
+    // Automatic Variable Declarations
+    // Implementation
+    return DataTableGetUnitGroup(true, ("$G" + lp_map + "_" + lp_index));
+}
+
+string libARRA_gf_MapUnitGroupIndexes (string lp_unit) {
+    // Automatic Variable Declarations
+    // Implementation
+    return ("$G" + lp_unit);
+}
+
+bool libARRA_gf_MapUnitGroupIncludes (string lp_unit, string lp_index) {
+    // Automatic Variable Declarations
+    // Implementation
+    return libARRA_gf_ListStringIncludes(libARRA_gf_MapUnitGroupIndexes(lp_unit), lp_index);
+}
+
+void libARRA_gf_MapTimerSet (string lp_map, string lp_index, timer lp_actor) {
+    // Automatic Variable Declarations
+    // Implementation
+    DataTableSetTimer(true, ("$T" + lp_map + "_" + lp_index), lp_actor);
+    libARRA_gf_ListStringInclude(("$T" + lp_map), lp_index);
+}
+
+timer libARRA_gf_MapTimerGet (string lp_map, string lp_index) {
+    // Automatic Variable Declarations
+    // Implementation
+    return DataTableGetTimer(true, ("$T" + lp_map + "_" + lp_index));
+}
+
+string libARRA_gf_MapTimerIndexes (string lp_unit) {
+    // Automatic Variable Declarations
+    // Implementation
+    return ("$T" + lp_unit);
+}
+
+bool libARRA_gf_MapTimerIncludes (string lp_unit, string lp_index) {
+    // Automatic Variable Declarations
+    // Implementation
+    return libARRA_gf_ListStringIncludes(libARRA_gf_MapTimerIndexes(lp_unit), lp_index);
+}
+
+void libARRA_gf_MapTriggerSet (string lp_map, string lp_index, trigger lp_actor) {
+    // Automatic Variable Declarations
+    // Implementation
+    DataTableSetTrigger(true, ("$R" + lp_map + "_" + lp_index), lp_actor);
+    libARRA_gf_ListStringInclude(("$R" + lp_map), lp_index);
+}
+
+trigger libARRA_gf_MapTriggerGet (string lp_map, string lp_index) {
+    // Automatic Variable Declarations
+    // Implementation
+    return DataTableGetTrigger(true, ("$R" + lp_map + "_" + lp_index));
+}
+
+string libARRA_gf_MapTriggerIndexes (string lp_unit) {
+    // Automatic Variable Declarations
+    // Implementation
+    return ("$R" + lp_unit);
+}
+
+bool libARRA_gf_MapTriggerIncludes (string lp_unit, string lp_index) {
+    // Automatic Variable Declarations
+    // Implementation
+    return libARRA_gf_ListStringIncludes(libARRA_gf_MapTriggerIndexes(lp_unit), lp_index);
+}
+
+void libARRA_gf_MapObjectiveSet (string lp_map, string lp_index, int lp_actor) {
+    // Automatic Variable Declarations
+    // Implementation
+    DataTableSetObjective(true, ("$O" + lp_map + "_" + lp_index), lp_actor);
+    libARRA_gf_ListStringInclude(("$O" + lp_map), lp_index);
+}
+
+int libARRA_gf_MapObjectiveGet (string lp_map, string lp_index) {
+    // Automatic Variable Declarations
+    // Implementation
+    return DataTableGetObjective(true, ("$O" + lp_map + "_" + lp_index));
+}
+
+string libARRA_gf_MapObjectiveIndexes (string lp_unit) {
+    // Automatic Variable Declarations
+    // Implementation
+    return ("$O" + lp_unit);
+}
+
+bool libARRA_gf_MapObjectiveIncludes (string lp_unit, string lp_index) {
+    // Automatic Variable Declarations
+    // Implementation
+    return libARRA_gf_ListStringIncludes(libARRA_gf_MapObjectiveIndexes(lp_unit), lp_index);
+}
+
+void libARRA_gf_MapTextSet (string lp_map, string lp_index, text lp_actor) {
+    // Automatic Variable Declarations
+    // Implementation
+    DataTableSetText(true, ("$X" + lp_map + "_" + lp_index), lp_actor);
+    libARRA_gf_ListStringInclude(("$X" + lp_map), lp_index);
+}
+
+text libARRA_gf_MapTextGet (string lp_map, string lp_index) {
+    // Automatic Variable Declarations
+    // Implementation
+    return DataTableGetText(true, ("$X" + lp_map + "_" + lp_index));
+}
+
+string libARRA_gf_MapTextIndexes (string lp_unit) {
+    // Automatic Variable Declarations
+    // Implementation
+    return ("$X" + lp_unit);
+}
+
+bool libARRA_gf_MapTextIncludes (string lp_unit, string lp_index) {
+    // Automatic Variable Declarations
+    // Implementation
+    return libARRA_gf_ListStringIncludes(libARRA_gf_MapTextIndexes(lp_unit), lp_index);
+}
+
+fixed libARRA_gf_ListRealGet (string lp_list, int lp_index) {
+    // Automatic Variable Declarations
+    // Implementation
+    libARRA_gf_ListCreateIfNotExists(lp_list);
+    if ((lp_index <= libARRA_gf_ListSize(lp_list)) && (lp_index > 0)) {
+        return DataTableGetFixed(true, libARRA_gf_ListGetDatabaseName(lp_list, (lp_index - 1)));
+    }
+    else {
+        libNtve_gf_UIErrorMessage(PlayerGroupAll(), (StringExternal("Param/Value/lib_ARRA_73352807") + IntToText(lp_index) + StringExternal("Param/Value/lib_ARRA_F512E428") + IntToText(libARRA_gf_ListSize(lp_list))), SoundLink("UI_GenericError", 0));
+    }
+    return -1;
+}
+
+int libARRA_gf_ListRealIndexOf (string lp_list, fixed lp_value) {
+    // Automatic Variable Declarations
+    int auto485ECF50_ae;
+    int auto485ECF50_var;
+
+    // Implementation
+    libARRA_gf_ListCreateIfNotExists(lp_list);
+    if ((libARRA_gf_ListIsEmpty(lp_list) == false)) {
+        auto485ECF50_ae = libARRA_gf_ListSize(lp_list);
+        auto485ECF50_var = 1;
+        for ( ; auto485ECF50_var <= auto485ECF50_ae; auto485ECF50_var += 1 ) {
+            if ((libARRA_gf_ListRealGet(lp_list, auto485ECF50_var) == lp_value)) {
+                return auto485ECF50_var;
+            }
+
+        }
+    }
+
+    return -1;
+}
+
+bool libARRA_gf_ListRealIncludes (string lp_list, fixed lp_value) {
+    // Automatic Variable Declarations
+    // Implementation
+    libARRA_gf_ListCreateIfNotExists(lp_list);
+    if ((libARRA_gf_ListRealIndexOf(lp_list, lp_value) > 0)) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
+void libARRA_gf_ListRealSet (string lp_list, int lp_index, fixed lp_value) {
+    // Automatic Variable Declarations
+    // Implementation
+    libARRA_gf_ListCreateIfNotExists(lp_list);
+    while ((lp_index > libARRA_gf_ListSize(lp_list))) {
+        libARRA_gf_ListRealPush(lp_list, 0.0);
+    }
+    if ((lp_index > 0)) {
+        DataTableSetFixed(true, libARRA_gf_ListGetDatabaseName(lp_list, (lp_index - 1)), lp_value);
+    }
+    else {
+        libNtve_gf_UIErrorMessage(PlayerGroupAll(), (StringExternal("Param/Value/lib_ARRA_B2F06617") + FixedToText(lp_value, c_fixedPrecisionAny) + StringExternal("Param/Value/lib_ARRA_4BC5A61B") + IntToText(lp_index) + StringExternal("Param/Value/lib_ARRA_0FF48FAB") + IntToText(libARRA_gf_ListSize(lp_list))), SoundLink("UI_GenericError", 0));
+    }
+}
+
+void libARRA_gf_ListRealPush (string lp_list, fixed lp_value) {
+    // Automatic Variable Declarations
+    // Implementation
+    libARRA_gf_ListCreateIfNotExists(lp_list);
+    DataTableSetFixed(true, libARRA_gf_ListGetDatabaseName(lp_list, libARRA_gf_ListSize(lp_list)), lp_value);
+    DataTableSetInt(true, lp_list, (DataTableGetInt(true, lp_list) + 1));
+}
+
+void libARRA_gf_ListRealInclude (string lp_list, fixed lp_value) {
+    // Automatic Variable Declarations
+    // Implementation
+    libARRA_gf_ListCreateIfNotExists(lp_list);
+    if ((libARRA_gf_ListRealIncludes(lp_list, lp_value) == false)) {
+        libARRA_gf_ListRealPush(lp_list, lp_value);
+    }
+
+}
+
+void libARRA_gf_ListRealInsertAt (string lp_list, int lp_index, fixed lp_value) {
+    // Variable Declarations
+    int lv_start;
+    int lv_end;
+
+    // Automatic Variable Declarations
+    int auto69EE7D00_ae;
+    int auto69EE7D00_var;
+
+    // Variable Initialization
+
+    // Implementation
+    libARRA_gf_ListCreateIfNotExists(lp_list);
+    if ((lp_index <= libARRA_gf_ListSize(lp_list)) && (lp_index > 0)) {
+        libARRA_gf_ListRealPush(lp_list, libARRA_gf_ListRealGet(lp_list, libARRA_gf_ListSize(lp_list)));
+        lv_start = (libARRA_gf_ListSize(lp_list) - 2);
+        lv_end = (lp_index + 1);
+        auto69EE7D00_ae = (lv_start - lv_end);
+        auto69EE7D00_var = 0;
+        for ( ; auto69EE7D00_var <= auto69EE7D00_ae; auto69EE7D00_var += 1 ) {
+            DataTableSetFixed(true, libARRA_gf_ListGetDatabaseName(lp_list, (lv_start - auto69EE7D00_var)), DataTableGetInt(true, libARRA_gf_ListGetDatabaseName(lp_list, (lv_start - auto69EE7D00_var - 1))));
+        }
+        libARRA_gf_ListRealSet(lp_list, lp_index, lp_value);
+    }
+    else {
+        libNtve_gf_UIErrorMessage(PlayerGroupAll(), (StringExternal("Param/Value/lib_ARRA_E655C260") + FixedToText(lp_value, c_fixedPrecisionAny) + StringExternal("Param/Value/lib_ARRA_E5C0A96B") + IntToText(lp_index) + StringExternal("Param/Value/lib_ARRA_6084DCD5") + IntToText(libARRA_gf_ListSize(lp_list))), SoundLink("UI_GenericError", 0));
+    }
+}
+
+void libARRA_gf_ListRealRemoveAt (string lp_list, int lp_index) {
+    // Variable Declarations
+    int lv_index;
+
+    // Automatic Variable Declarations
+    int auto52CEFA62_ae;
+    int auto52CEFA62_var;
+
+    // Variable Initialization
+    lv_index = (lp_index - 1);
+
+    // Implementation
+    libARRA_gf_ListCreateIfNotExists(lp_list);
+    if ((lp_index <= libARRA_gf_ListSize(lp_list)) && (lp_index > 0)) {
+        auto52CEFA62_ae = (libARRA_gf_ListSize(lp_list) - 2);
+        auto52CEFA62_var = (lp_index - 1);
+        for ( ; auto52CEFA62_var <= auto52CEFA62_ae; auto52CEFA62_var += 1 ) {
+            DataTableSetFixed(true, libARRA_gf_ListGetDatabaseName(lp_list, auto52CEFA62_var), DataTableGetInt(true, libARRA_gf_ListGetDatabaseName(lp_list, (auto52CEFA62_var + 1))));
+        }
+        libARRA_gf_ListPopBack(lp_list);
+    }
+    else {
+        libNtve_gf_UIErrorMessage(PlayerGroupAll(), (StringExternal("Param/Value/lib_ARRA_3E582092") + IntToText(lp_index) + StringExternal("Param/Value/lib_ARRA_F8D77AE0") + IntToText(libARRA_gf_ListSize(lp_list))), SoundLink("UI_GenericError", 0));
+    }
+}
+
+void libARRA_gf_ListRealExclude (string lp_list, fixed lp_value) {
+    // Variable Declarations
+    int lv_index;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+
+    // Implementation
+    libARRA_gf_ListCreateIfNotExists(lp_list);
+    lv_index = libARRA_gf_ListRealIndexOf(lp_list, lp_value);
+    while ((lv_index > 0)) {
+        libARRA_gf_ListRealRemoveAt(lp_list, lv_index);
+        lv_index = libARRA_gf_ListRealIndexOf(lp_list, lp_value);
+    }
+}
+
+void libARRA_gf_MapRealSet (string lp_map, string lp_index, fixed lp_actor) {
+    // Automatic Variable Declarations
+    // Implementation
+    DataTableSetFixed(true, ("$R" + lp_map + "_" + lp_index), lp_actor);
+    libARRA_gf_ListStringInclude(("$R" + lp_map), lp_index);
+}
+
+fixed libARRA_gf_MapRealGet (string lp_map, string lp_index) {
+    // Automatic Variable Declarations
+    // Implementation
+    return DataTableGetFixed(true, ("$R" + lp_map + "_" + lp_index));
+}
+
+string libARRA_gf_MapRealIndexes (string lp_unit) {
+    // Automatic Variable Declarations
+    // Implementation
+    return ("$R" + lp_unit);
+}
+
+bool libARRA_gf_MapRealIncludes (string lp_unit, string lp_index) {
+    // Automatic Variable Declarations
+    // Implementation
+    return libARRA_gf_ListStringIncludes(libARRA_gf_MapRealIndexes(lp_unit), lp_index);
+}
+
+void libARRA_gf_ListIntCopy (string lp_source, string lp_target) {
+    // Automatic Variable Declarations
+    int auto1A8D5DB0_ae;
+    int auto1A8D5DB0_var;
+
+    // Implementation
+    if ((libARRA_gf_ListSize(lp_source) == 0)) {
+        return ;
+    }
+
+    libARRA_gf_ListClear(lp_target);
+    auto1A8D5DB0_ae = libARRA_gf_ListSize(lp_source);
+    auto1A8D5DB0_var = 1;
+    for ( ; auto1A8D5DB0_var <= auto1A8D5DB0_ae; auto1A8D5DB0_var += 1 ) {
+        libARRA_gf_ListIntPush(lp_target, libARRA_gf_ListIntGet(lp_source, auto1A8D5DB0_var));
+    }
+}
+
+int libARRA_gf_ListIntGet (string lp_list, int lp_index) {
+    // Variable Declarations
+    int lv_returnvalue;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_returnvalue = -1;
+
+    // Implementation
+    libARRA_gf_ListSetType(lp_list, "int");
+    if ((lp_index <= libARRA_gf_ListSize(lp_list)) && (lp_index > 0)) {
+        lv_returnvalue = DataTableGetInt(true, libARRA_gf_ListGetDatabaseName(lp_list, (lp_index - 1)));
+    }
+    else {
+        libNtve_gf_UIErrorMessage(PlayerGroupAll(), (StringExternal("Param/Value/lib_ARRA_4E66DCA4") + IntToText(lp_index) + StringExternal("Param/Value/lib_ARRA_09F3147F") + IntToText(libARRA_gf_ListSize(lp_list))), SoundLink("UI_GenericError", 0));
+    }
+    return lv_returnvalue;
+}
+
+int libARRA_gf_ListIntIndexOf (string lp_list, int lp_value) {
+    // Automatic Variable Declarations
+    int autoE0A8D760_ae;
+    int autoE0A8D760_var;
+
+    // Implementation
+    libARRA_gf_ListSetType(lp_list, "int");
+    if ((libARRA_gf_ListIsEmpty(lp_list) == false)) {
+        autoE0A8D760_ae = libARRA_gf_ListSize(lp_list);
+        autoE0A8D760_var = 1;
+        for ( ; autoE0A8D760_var <= autoE0A8D760_ae; autoE0A8D760_var += 1 ) {
+            if ((libARRA_gf_ListIntGet(lp_list, autoE0A8D760_var) == lp_value)) {
+                return autoE0A8D760_var;
+            }
+
+        }
+    }
+
+    return -1;
+}
+
+bool libARRA_gf_ListIntIncludes (string lp_list, int lp_value) {
+    // Automatic Variable Declarations
+    // Implementation
+    libARRA_gf_ListSetType(lp_list, "int");
+    if ((libARRA_gf_ListIntIndexOf(lp_list, lp_value) > 0)) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
+void libARRA_gf_ListIntSet (string lp_list, int lp_index, int lp_value) {
+    // Automatic Variable Declarations
+    // Implementation
+    libARRA_gf_ListSetType(lp_list, "int");
+    while ((lp_index > libARRA_gf_ListSize(lp_list))) {
+        libARRA_gf_ListIntPush(lp_list, 0);
+    }
+    if ((lp_index > 0)) {
+        DataTableSetInt(true, libARRA_gf_ListGetDatabaseName(lp_list, (lp_index - 1)), lp_value);
+    }
+    else {
+        libNtve_gf_UIErrorMessage(PlayerGroupAll(), (StringExternal("Param/Value/lib_ARRA_0D5C8ADE") + IntToText(lp_value) + StringExternal("Param/Value/lib_ARRA_E96DE815") + IntToText(lp_index) + StringExternal("Param/Value/lib_ARRA_ED2C25F4") + IntToText(libARRA_gf_ListSize(lp_list))), SoundLink("UI_GenericError", 0));
+    }
+}
+
+void libARRA_gf_ListIntPush (string lp_list, int lp_value) {
+    // Automatic Variable Declarations
+    // Implementation
+    libARRA_gf_ListSetType(lp_list, "int");
+    DataTableSetInt(true, libARRA_gf_ListGetDatabaseName(lp_list, libARRA_gf_ListSize(lp_list)), lp_value);
+    DataTableSetInt(true, lp_list, (DataTableGetInt(true, lp_list) + 1));
+}
+
+void libARRA_gf_ListIntInclude (string lp_list, int lp_value) {
+    // Automatic Variable Declarations
+    // Implementation
+    libARRA_gf_ListSetType(lp_list, "int");
+    if ((libARRA_gf_ListIntIncludes(lp_list, lp_value) == false)) {
+        libARRA_gf_ListIntPush(lp_list, lp_value);
+    }
+
+}
+
+void libARRA_gf_ListIntInsertAt (string lp_list, int lp_index, int lp_value) {
+    // Variable Declarations
+    int lv_start;
+    int lv_end;
+
+    // Automatic Variable Declarations
+    int auto712E3838_ae;
+    int auto712E3838_var;
+
+    // Variable Initialization
+
+    // Implementation
+    libARRA_gf_ListSetType(lp_list, "int");
+    if ((lp_index <= libARRA_gf_ListSize(lp_list)) && (lp_index > 0)) {
+        libARRA_gf_ListIntPush(lp_list, libARRA_gf_ListIntGet(lp_list, libARRA_gf_ListSize(lp_list)));
+        lv_start = (libARRA_gf_ListSize(lp_list) - 2);
+        lv_end = (lp_index + 1);
+        auto712E3838_ae = (lv_start - lv_end);
+        auto712E3838_var = 0;
+        for ( ; auto712E3838_var <= auto712E3838_ae; auto712E3838_var += 1 ) {
+            DataTableSetInt(true, libARRA_gf_ListGetDatabaseName(lp_list, (lv_start - auto712E3838_var)), DataTableGetInt(true, libARRA_gf_ListGetDatabaseName(lp_list, (lv_start - auto712E3838_var - 1))));
+        }
+        libARRA_gf_ListIntSet(lp_list, lp_index, lp_value);
+    }
+    else {
+        libNtve_gf_UIErrorMessage(PlayerGroupAll(), (StringExternal("Param/Value/lib_ARRA_ED8C56C7") + IntToText(lp_value) + StringExternal("Param/Value/lib_ARRA_467C97C3") + IntToText(lp_index) + StringExternal("Param/Value/lib_ARRA_6E0A9BA2") + IntToText(libARRA_gf_ListSize(lp_list))), SoundLink("UI_GenericError", 0));
+    }
+}
+
+void libARRA_gf_ListIntRemoveAt (string lp_list, int lp_index) {
+    // Variable Declarations
+    int lv_index;
+
+    // Automatic Variable Declarations
+    int auto477B3C43_ae;
+    int auto477B3C43_var;
+
+    // Variable Initialization
+    lv_index = (lp_index - 1);
+
+    // Implementation
+    libARRA_gf_ListSetType(lp_list, "int");
+    if ((lp_index <= libARRA_gf_ListSize(lp_list)) && (lp_index > 0)) {
+        auto477B3C43_ae = (libARRA_gf_ListSize(lp_list) - 2);
+        auto477B3C43_var = (lp_index - 1);
+        for ( ; auto477B3C43_var <= auto477B3C43_ae; auto477B3C43_var += 1 ) {
+            DataTableSetInt(true, libARRA_gf_ListGetDatabaseName(lp_list, auto477B3C43_var), DataTableGetInt(true, libARRA_gf_ListGetDatabaseName(lp_list, (auto477B3C43_var + 1))));
+        }
+        libARRA_gf_ListPopBack(lp_list);
+    }
+    else {
+        libNtve_gf_UIErrorMessage(PlayerGroupAll(), (StringExternal("Param/Value/lib_ARRA_72875DCA") + IntToText(lp_index) + StringExternal("Param/Value/lib_ARRA_851C0843") + IntToText(libARRA_gf_ListSize(lp_list))), SoundLink("UI_GenericError", 0));
+    }
+}
+
+void libARRA_gf_ListIntExclude (string lp_list, int lp_value) {
+    // Variable Declarations
+    int lv_index;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+
+    // Implementation
+    libARRA_gf_ListSetType(lp_list, "int");
+    lv_index = libARRA_gf_ListIntIndexOf(lp_list, lp_value);
+    while ((lv_index > 0)) {
+        libARRA_gf_ListIntRemoveAt(lp_list, lv_index);
+        lv_index = libARRA_gf_ListIntIndexOf(lp_list, lp_value);
+    }
+}
+
+void libARRA_gf_MapIntSet (string lp_map, string lp_index, int lp_actor) {
+    // Automatic Variable Declarations
+    // Implementation
+    DataTableSetInt(true, (libARRA_gf_MapIntIndexes(lp_map) + "_" + lp_index), lp_actor);
+    libARRA_gf_ListStringInclude(libARRA_gf_MapIntIndexes(lp_map), lp_index);
+}
+
+int libARRA_gf_MapIntGet (string lp_map, string lp_index) {
+    // Automatic Variable Declarations
+    // Implementation
+    return DataTableGetInt(true, (libARRA_gf_MapIntIndexes(lp_map) + "_" + lp_index));
+}
+
+bool libARRA_gf_MapIntIncludes (string lp_unit, string lp_index) {
+    // Automatic Variable Declarations
+    // Implementation
+    return libARRA_gf_ListStringIncludes(libARRA_gf_MapIntIndexes(lp_unit), lp_index);
+}
+
+string libARRA_gf_MapIntIndexes (string lp_unit) {
+    // Automatic Variable Declarations
+    // Implementation
+    return ("$I" + lp_unit);
+}
+
+text libARRA_gf_ListStringtoText (string lp_list) {
+    // Variable Declarations
+    string lv_log_string;
+
+    // Automatic Variable Declarations
+    int autoE7E0862C_ae;
+    int autoE7E0862C_var;
+
+    // Variable Initialization
+    lv_log_string = "";
+
+    // Implementation
+    if ((lp_list == null) && (DataTableValueExists(true, lp_list) == false)) {
+        return StringToText("-");
+    }
+    else {
+        autoE7E0862C_ae = libARRA_gf_ListSize(lp_list);
+        autoE7E0862C_var = 1;
+        for ( ; autoE7E0862C_var <= autoE7E0862C_ae; autoE7E0862C_var += 1 ) {
+            if ((autoE7E0862C_var > 1)) {
+                lv_log_string = (lv_log_string + ",");
+            }
+
+            lv_log_string = (lv_log_string + libARRA_gf_ListStringGet(lp_list, autoE7E0862C_var));
+        }
+        return StringToText(lv_log_string);
+    }
+}
+
+void libARRA_gf_ListStringCopy (string lp_source, string lp_target) {
+    // Automatic Variable Declarations
+    int autoC8B85EA3_ae;
+    int autoC8B85EA3_var;
+
+    // Implementation
+    if ((libARRA_gf_ListSize(lp_source) == 0)) {
+        return ;
+    }
+
+    libARRA_gf_ListClear(lp_target);
+    autoC8B85EA3_ae = libARRA_gf_ListSize(lp_source);
+    autoC8B85EA3_var = 1;
+    for ( ; autoC8B85EA3_var <= autoC8B85EA3_ae; autoC8B85EA3_var += 1 ) {
+        libARRA_gf_ListStringPush(lp_target, libARRA_gf_ListStringGet(lp_source, autoC8B85EA3_var));
+    }
+}
+
+string libARRA_gf_ListStringGet (string lp_list, int lp_index) {
+    // Variable Declarations
+    string lv_returnvalue;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_returnvalue = "";
+
+    // Implementation
+    libARRA_gf_ListSetType(lp_list, "string");
+    if ((lp_index <= libARRA_gf_ListSize(lp_list)) && (lp_index > 0)) {
+        lv_returnvalue = DataTableGetString(true, libARRA_gf_ListGetDatabaseName(lp_list, (lp_index - 1)));
+    }
+    else {
+        TextExpressionSetToken("Param/Expression/lib_ARRA_CAA7D68D", "A", StringToText(lp_list));
+        TextExpressionSetToken("Param/Expression/lib_ARRA_CAA7D68D", "C", IntToText(lp_index));
+        TextExpressionSetToken("Param/Expression/lib_ARRA_CAA7D68D", "B", IntToText(libARRA_gf_ListSize(lp_list)));
+        libNtve_gf_UIErrorMessage(PlayerGroupAll(), TextExpressionAssemble("Param/Expression/lib_ARRA_CAA7D68D"), SoundLink("UI_GenericError", 0));
+    }
+    return lv_returnvalue;
+}
+
+int libARRA_gf_ListStringIndexOf (string lp_list, string lp_value) {
+    // Automatic Variable Declarations
+    int auto3FD63E5F_ae;
+    int auto3FD63E5F_var;
+
+    // Implementation
+    libARRA_gf_ListSetType(lp_list, "string");
+    if ((libARRA_gf_ListIsEmpty(lp_list) == false)) {
+        auto3FD63E5F_ae = libARRA_gf_ListSize(lp_list);
+        auto3FD63E5F_var = 1;
+        for ( ; auto3FD63E5F_var <= auto3FD63E5F_ae; auto3FD63E5F_var += 1 ) {
+            if ((libARRA_gf_ListStringGet(lp_list, auto3FD63E5F_var) == lp_value)) {
+                return auto3FD63E5F_var;
+            }
+
+        }
+    }
+
+    return -1;
+}
+
+bool libARRA_gf_ListStringIncludes (string lp_list, string lp_value) {
+    // Automatic Variable Declarations
+    // Implementation
+    libARRA_gf_ListSetType(lp_list, "string");
+    if ((libARRA_gf_ListStringIndexOf(lp_list, lp_value) > 0)) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
+void libARRA_gf_ListStringSet (string lp_list, int lp_index, string lp_value) {
+    // Automatic Variable Declarations
+    // Implementation
+    libARRA_gf_ListSetType(lp_list, "string");
+    if ((lp_index <= libARRA_gf_ListSize(lp_list)) && (lp_index > 0)) {
+        DataTableSetString(true, libARRA_gf_ListGetDatabaseName(lp_list, (lp_index - 1)), lp_value);
+    }
+    else {
+        libNtve_gf_UIErrorMessage(PlayerGroupAll(), (StringExternal("Param/Value/lib_ARRA_D86EAB1E") + StringToText(lp_value) + StringExternal("Param/Value/lib_ARRA_CC549D16") + IntToText(lp_index) + StringExternal("Param/Value/lib_ARRA_1843B1D2") + IntToText(libARRA_gf_ListSize(lp_list))), SoundLink("UI_GenericError", 0));
+    }
+}
+
+void libARRA_gf_ListStringPush (string lp_list, string lp_addedValue) {
+    // Automatic Variable Declarations
+    // Implementation
+    libARRA_gf_ListSetType(lp_list, "string");
+    DataTableSetString(true, libARRA_gf_ListGetDatabaseName(lp_list, libARRA_gf_ListSize(lp_list)), lp_addedValue);
+    DataTableSetInt(true, lp_list, (DataTableGetInt(true, lp_list) + 1));
+}
+
+void libARRA_gf_ListStringInclude (string lp_list, string lp_addedValue) {
+    // Automatic Variable Declarations
+    // Implementation
+    libARRA_gf_ListSetType(lp_list, "string");
+    if ((libARRA_gf_ListStringIncludes(lp_list, lp_addedValue) == false)) {
+        libARRA_gf_ListStringPush(lp_list, lp_addedValue);
+    }
+
+}
+
+void libARRA_gf_ListStringInsertAt (string lp_list, int lp_index, string lp_value) {
+    // Variable Declarations
+    int lv_start;
+    int lv_end;
+
+    // Automatic Variable Declarations
+    int auto8A1CD68B_ae;
+    int auto8A1CD68B_var;
+
+    // Variable Initialization
+
+    // Implementation
+    libARRA_gf_ListSetType(lp_list, "string");
+    if ((lp_index <= libARRA_gf_ListSize(lp_list)) && (lp_index > 0)) {
+        libARRA_gf_ListStringPush(lp_list, libARRA_gf_ListStringGet(lp_list, libARRA_gf_ListSize(lp_list)));
+        lv_start = (libARRA_gf_ListSize(lp_list) - 2);
+        lv_end = (lp_index + 1);
+        auto8A1CD68B_ae = (lv_start - lv_end);
+        auto8A1CD68B_var = 0;
+        for ( ; auto8A1CD68B_var <= auto8A1CD68B_ae; auto8A1CD68B_var += 1 ) {
+            DataTableSetString(true, libARRA_gf_ListGetDatabaseName(lp_list, (lv_start - auto8A1CD68B_var)), DataTableGetString(true, libARRA_gf_ListGetDatabaseName(lp_list, (lv_start - auto8A1CD68B_var - 1))));
+        }
+        libARRA_gf_ListStringSet(lp_list, lp_index, lp_value);
+    }
+    else {
+        libNtve_gf_UIErrorMessage(PlayerGroupAll(), (StringExternal("Param/Value/lib_ARRA_BB8573E8") + StringToText(lp_value) + StringExternal("Param/Value/lib_ARRA_5780FD89") + IntToText(lp_index) + StringExternal("Param/Value/lib_ARRA_4BFA7B9B") + IntToText(libARRA_gf_ListSize(lp_list))), SoundLink("UI_GenericError", 0));
+    }
+}
+
+void libARRA_gf_ListStringRemoveAt (string lp_list, int lp_index) {
+    // Automatic Variable Declarations
+    int auto1C35D031_ae;
+    int auto1C35D031_var;
+
+    // Implementation
+    libARRA_gf_ListSetType(lp_list, "string");
+    if ((lp_index <= libARRA_gf_ListSize(lp_list)) && (lp_index > 0)) {
+        auto1C35D031_ae = (libARRA_gf_ListSize(lp_list) - 2);
+        auto1C35D031_var = (lp_index - 1);
+        for ( ; auto1C35D031_var <= auto1C35D031_ae; auto1C35D031_var += 1 ) {
+            DataTableSetString(true, libARRA_gf_ListGetDatabaseName(lp_list, auto1C35D031_var), DataTableGetString(true, libARRA_gf_ListGetDatabaseName(lp_list, (auto1C35D031_var + 1))));
+        }
+        libARRA_gf_ListPopBack(lp_list);
+    }
+    else {
+        libNtve_gf_UIErrorMessage(PlayerGroupAll(), (StringExternal("Param/Value/lib_ARRA_6026870B") + IntToText(lp_index) + StringExternal("Param/Value/lib_ARRA_E0736642") + IntToText(libARRA_gf_ListSize(lp_list))), SoundLink("UI_GenericError", 0));
+    }
+}
+
+void libARRA_gf_ListStringExclude (string lp_list, string lp_value) {
+    // Variable Declarations
+    int lv_index;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+
+    // Implementation
+    libARRA_gf_ListSetType(lp_list, "string");
+    lv_index = libARRA_gf_ListStringIndexOf(lp_list, lp_value);
+    while ((lv_index > 0)) {
+        libARRA_gf_ListStringRemoveAt(lp_list, lv_index);
+        lv_index = libARRA_gf_ListStringIndexOf(lp_list, lp_value);
+    }
+}
+
+void libARRA_gf_MapStringSet (string lp_map, string lp_index, string lp_actor) {
+    // Automatic Variable Declarations
+    // Implementation
+    DataTableSetString(true, ("$S" + lp_map + "_" + lp_index), lp_actor);
+    libARRA_gf_ListStringInclude(("$S" + lp_map), lp_index);
+}
+
+void libARRA_gf_MapStringUnset (string lp_map, string lp_index) {
+    // Automatic Variable Declarations
+    // Implementation
+    DataTableValueRemove(true, ("$S" + lp_map + "_" + lp_index));
+    libARRA_gf_ListStringExclude(("$S" + lp_map), lp_index);
+}
+
+string libARRA_gf_MapStringGet (string lp_map, string lp_index) {
+    // Automatic Variable Declarations
+    // Implementation
+    return DataTableGetString(true, ("$S" + lp_map + "_" + lp_index));
+}
+
+string libARRA_gf_MapStringIndexes (string lp_unit) {
+    // Automatic Variable Declarations
+    // Implementation
+    return ("$S" + lp_unit);
+}
+
+bool libARRA_gf_MapStringIncludes (string lp_unit, string lp_index) {
+    // Automatic Variable Declarations
+    // Implementation
+    return libARRA_gf_ListStringIncludes(libARRA_gf_MapStringIndexes(lp_unit), lp_index);
+}
+
+abilcmd libARRA_gf_ListAbilCmdGet (string lp_list, int lp_index) {
+    // Variable Declarations
+    abilcmd lv_returnvalue;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+
+    // Implementation
+    libARRA_gf_ListCreateIfNotExists(lp_list);
+    if ((lp_index <= libARRA_gf_ListSize(lp_list)) && (lp_index > 0)) {
+        lv_returnvalue = DataTableGetAbilCmd(true, libARRA_gf_ListGetDatabaseName(lp_list, (lp_index - 1)));
+    }
+    else {
+        libNtve_gf_UIErrorMessage(PlayerGroupAll(), (StringExternal("Param/Value/lib_ARRA_371E33BA") + IntToText(lp_index) + StringExternal("Param/Value/lib_ARRA_5ECB4179") + IntToText(libARRA_gf_ListSize(lp_list))), SoundLink("UI_GenericError", 0));
+    }
+    return lv_returnvalue;
+}
+
+int libARRA_gf_ListAbilCmdIndexOf (string lp_list, abilcmd lp_value) {
+    // Automatic Variable Declarations
+    int auto58E39CC4_ae;
+    int auto58E39CC4_var;
+
+    // Implementation
+    libARRA_gf_ListCreateIfNotExists(lp_list);
+    if ((libARRA_gf_ListIsEmpty(lp_list) == false)) {
+        auto58E39CC4_ae = libARRA_gf_ListSize(lp_list);
+        auto58E39CC4_var = 1;
+        for ( ; auto58E39CC4_var <= auto58E39CC4_ae; auto58E39CC4_var += 1 ) {
+            if ((libARRA_gf_ListAbilCmdGet(lp_list, auto58E39CC4_var) == lp_value)) {
+                return auto58E39CC4_var;
+            }
+
+        }
+    }
+
+    return -1;
+}
+
+bool libARRA_gf_ListAbilCmdIncludes (string lp_list, abilcmd lp_value) {
+    // Automatic Variable Declarations
+    // Implementation
+    libARRA_gf_ListCreateIfNotExists(lp_list);
+    if ((libARRA_gf_ListAbilCmdIndexOf(lp_list, lp_value) > 0)) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
+void libARRA_gf_ListAbilCmdSet (string lp_list, int lp_index, abilcmd lp_value) {
+    // Automatic Variable Declarations
+    // Implementation
+    libARRA_gf_ListCreateIfNotExists(lp_list);
+    if ((lp_index <= libARRA_gf_ListSize(lp_list)) && (lp_index > 0)) {
+        DataTableSetAbilCmd(true, libARRA_gf_ListGetDatabaseName(lp_list, (lp_index - 1)), lp_value);
+    }
+    else {
+        libNtve_gf_UIErrorMessage(PlayerGroupAll(), (StringExternal("Param/Value/lib_ARRA_939C4604") + StringToText((AbilityCommandGetAbility(lp_value))) + StringExternal("Param/Value/lib_ARRA_94958194") + IntToText(lp_index) + StringExternal("Param/Value/lib_ARRA_4299E4F8") + IntToText(libARRA_gf_ListSize(lp_list))), SoundLink("UI_GenericError", 0));
+    }
+}
+
+void libARRA_gf_ListAbilCmdPush (string lp_list, abilcmd lp_value) {
+    // Automatic Variable Declarations
+    // Implementation
+    libARRA_gf_ListCreateIfNotExists(lp_list);
+    DataTableSetAbilCmd(true, libARRA_gf_ListGetDatabaseName(lp_list, libARRA_gf_ListSize(lp_list)), lp_value);
+    DataTableSetInt(true, lp_list, (DataTableGetInt(true, lp_list) + 1));
+}
+
+void libARRA_gf_ListAbilCmdInclude (string lp_list, abilcmd lp_value) {
+    // Automatic Variable Declarations
+    // Implementation
+    libARRA_gf_ListCreateIfNotExists(lp_list);
+    if ((libARRA_gf_ListAbilCmdIncludes(lp_list, lp_value) == false)) {
+        libARRA_gf_ListAbilCmdPush(lp_list, lp_value);
+    }
+
+}
+
+void libARRA_gf_ListAbilCmdInsertAt (string lp_list, int lp_index, abilcmd lp_value) {
+    // Variable Declarations
+    int lv_start;
+    int lv_end;
+
+    // Automatic Variable Declarations
+    int autoE9F96D46_ae;
+    int autoE9F96D46_var;
+
+    // Variable Initialization
+
+    // Implementation
+    libARRA_gf_ListCreateIfNotExists(lp_list);
+    if ((lp_index <= libARRA_gf_ListSize(lp_list)) && (lp_index > 0)) {
+        libARRA_gf_ListAbilCmdPush(lp_list, libARRA_gf_ListAbilCmdGet(lp_list, libARRA_gf_ListSize(lp_list)));
+        lv_start = (libARRA_gf_ListSize(lp_list) - 2);
+        lv_end = (lp_index + 1);
+        autoE9F96D46_ae = (lv_start - lv_end);
+        autoE9F96D46_var = 0;
+        for ( ; autoE9F96D46_var <= autoE9F96D46_ae; autoE9F96D46_var += 1 ) {
+            DataTableSetAbilCmd(true, libARRA_gf_ListGetDatabaseName(lp_list, (lv_start - autoE9F96D46_var)), DataTableGetAbilCmd(true, libARRA_gf_ListGetDatabaseName(lp_list, (lv_start - autoE9F96D46_var - 1))));
+        }
+        libARRA_gf_ListAbilCmdSet(lp_list, lp_index, lp_value);
+    }
+    else {
+        libNtve_gf_UIErrorMessage(PlayerGroupAll(), (StringExternal("Param/Value/lib_ARRA_2170CCF4") + StringToText((AbilityCommandGetAbility(lp_value))) + StringExternal("Param/Value/lib_ARRA_10B428F6") + IntToText(lp_index) + StringExternal("Param/Value/lib_ARRA_88401337") + IntToText(libARRA_gf_ListSize(lp_list))), SoundLink("UI_GenericError", 0));
+    }
+}
+
+void libARRA_gf_ListAbilCmdRemoveAt (string lp_list, int lp_index) {
+    // Automatic Variable Declarations
+    int auto0D330D5C_ae;
+    int auto0D330D5C_var;
+
+    // Implementation
+    libARRA_gf_ListCreateIfNotExists(lp_list);
+    if ((lp_index <= libARRA_gf_ListSize(lp_list)) && (lp_index > 0)) {
+        auto0D330D5C_ae = (libARRA_gf_ListSize(lp_list) - 2);
+        auto0D330D5C_var = (lp_index - 1);
+        for ( ; auto0D330D5C_var <= auto0D330D5C_ae; auto0D330D5C_var += 1 ) {
+            DataTableSetAbilCmd(true, libARRA_gf_ListGetDatabaseName(lp_list, auto0D330D5C_var), DataTableGetAbilCmd(true, libARRA_gf_ListGetDatabaseName(lp_list, (auto0D330D5C_var + 1))));
+        }
+        libARRA_gf_ListPopBack(lp_list);
+    }
+    else {
+        libNtve_gf_UIErrorMessage(PlayerGroupAll(), (StringExternal("Param/Value/lib_ARRA_760DA2B3") + IntToText(lp_index) + StringExternal("Param/Value/lib_ARRA_40A3062F") + IntToText(libARRA_gf_ListSize(lp_list))), SoundLink("UI_GenericError", 0));
+    }
+}
+
+void libARRA_gf_ListAbilCmdExclude (string lp_list, abilcmd lp_value) {
+    // Variable Declarations
+    int lv_index;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+
+    // Implementation
+    libARRA_gf_ListCreateIfNotExists(lp_list);
+    lv_index = libARRA_gf_ListAbilCmdIndexOf(lp_list, lp_value);
+    while ((lv_index > 0)) {
+        libARRA_gf_ListAbilCmdRemoveAt(lp_list, lv_index);
+        lv_index = libARRA_gf_ListAbilCmdIndexOf(lp_list, lp_value);
+    }
+}
+
+soundlink libARRA_gf_ListSoundLinkGet (string lp_list, int lp_index) {
+    // Variable Declarations
+    soundlink lv_returnvalue;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_returnvalue = SoundLink("EditorDefaultSound", -1);
+
+    // Implementation
+    libARRA_gf_ListCreateIfNotExists(lp_list);
+    if ((lp_index <= libARRA_gf_ListSize(lp_list)) && (lp_index > 0)) {
+        lv_returnvalue = DataTableGetSoundLink(true, libARRA_gf_ListGetDatabaseName(lp_list, (lp_index - 1)));
+    }
+    else {
+        libNtve_gf_UIErrorMessage(PlayerGroupAll(), (StringExternal("Param/Value/lib_ARRA_A585FE9E") + IntToText(lp_index) + StringExternal("Param/Value/lib_ARRA_71396660") + IntToText(libARRA_gf_ListSize(lp_list))), SoundLink("UI_GenericError", 0));
+    }
+    return lv_returnvalue;
+}
+
+int libARRA_gf_ListSoundLinkIndexOf (string lp_list, soundlink lp_value) {
+    // Automatic Variable Declarations
+    int auto8B0CE52F_ae;
+    int auto8B0CE52F_var;
+
+    // Implementation
+    libARRA_gf_ListCreateIfNotExists(lp_list);
+    if ((libARRA_gf_ListIsEmpty(lp_list) == false)) {
+        auto8B0CE52F_ae = libARRA_gf_ListSize(lp_list);
+        auto8B0CE52F_var = 1;
+        for ( ; auto8B0CE52F_var <= auto8B0CE52F_ae; auto8B0CE52F_var += 1 ) {
+            if ((libARRA_gf_ListSoundLinkGet(lp_list, auto8B0CE52F_var) == lp_value)) {
+                return auto8B0CE52F_var;
+            }
+
+        }
+    }
+
+    return -1;
+}
+
+bool libARRA_gf_ListSoundLinkIncludes (string lp_list, soundlink lp_value) {
+    // Automatic Variable Declarations
+    // Implementation
+    libARRA_gf_ListCreateIfNotExists(lp_list);
+    if ((libARRA_gf_ListSoundLinkIndexOf(lp_list, lp_value) > 0)) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
+void libARRA_gf_ListSoundLinkSet (string lp_list, int lp_index, soundlink lp_value) {
+    // Automatic Variable Declarations
+    // Implementation
+    libARRA_gf_ListCreateIfNotExists(lp_list);
+    if ((lp_index <= libARRA_gf_ListSize(lp_list)) && (lp_index > 0)) {
+        DataTableSetSoundLink(true, libARRA_gf_ListGetDatabaseName(lp_list, (lp_index - 1)), lp_value);
+    }
+    else {
+        libNtve_gf_UIErrorMessage(PlayerGroupAll(), (StringExternal("Param/Value/lib_ARRA_36C3BCE5") + SoundSubtitleText(lp_value) + StringExternal("Param/Value/lib_ARRA_896E41A0") + IntToText(lp_index) + StringExternal("Param/Value/lib_ARRA_44E6385E") + IntToText(libARRA_gf_ListSize(lp_list))), SoundLink("UI_GenericError", 0));
+    }
+}
+
+void libARRA_gf_ListSoundLinkPush (string lp_list, soundlink lp_value) {
+    // Automatic Variable Declarations
+    // Implementation
+    libARRA_gf_ListCreateIfNotExists(lp_list);
+    DataTableSetSoundLink(true, libARRA_gf_ListGetDatabaseName(lp_list, libARRA_gf_ListSize(lp_list)), lp_value);
+    DataTableSetInt(true, lp_list, (DataTableGetInt(true, lp_list) + 1));
+}
+
+void libARRA_gf_ListSoundLinkInclude (string lp_list, soundlink lp_value) {
+    // Automatic Variable Declarations
+    // Implementation
+    libARRA_gf_ListCreateIfNotExists(lp_list);
+    if ((libARRA_gf_ListSoundLinkIncludes(lp_list, lp_value) == false)) {
+        libARRA_gf_ListSoundLinkPush(lp_list, lp_value);
+    }
+
+}
+
+void libARRA_gf_ListSoundLinkInsertAt (string lp_list, int lp_index, soundlink lp_value) {
+    // Variable Declarations
+    int lv_start;
+    int lv_end;
+
+    // Automatic Variable Declarations
+    int auto55D8BC78_ae;
+    int auto55D8BC78_var;
+
+    // Variable Initialization
+
+    // Implementation
+    libARRA_gf_ListCreateIfNotExists(lp_list);
+    if ((lp_index <= libARRA_gf_ListSize(lp_list)) && (lp_index > 0)) {
+        libARRA_gf_ListSoundLinkPush(lp_list, libARRA_gf_ListSoundLinkGet(lp_list, libARRA_gf_ListSize(lp_list)));
+        lv_start = (libARRA_gf_ListSize(lp_list) - 2);
+        lv_end = (lp_index + 1);
+        auto55D8BC78_ae = (lv_start - lv_end);
+        auto55D8BC78_var = 0;
+        for ( ; auto55D8BC78_var <= auto55D8BC78_ae; auto55D8BC78_var += 1 ) {
+            DataTableSetSoundLink(true, libARRA_gf_ListGetDatabaseName(lp_list, (lv_start - auto55D8BC78_var)), DataTableGetSoundLink(true, libARRA_gf_ListGetDatabaseName(lp_list, (lv_start - auto55D8BC78_var - 1))));
+        }
+        libARRA_gf_ListSoundLinkSet(lp_list, lp_index, lp_value);
+    }
+    else {
+        libNtve_gf_UIErrorMessage(PlayerGroupAll(), (StringExternal("Param/Value/lib_ARRA_90A3EE4D") + SoundSubtitleText(lp_value) + StringExternal("Param/Value/lib_ARRA_5CE4002B") + IntToText(lp_index) + StringExternal("Param/Value/lib_ARRA_8C6A3635") + IntToText(libARRA_gf_ListSize(lp_list))), SoundLink("UI_GenericError", 0));
+    }
+}
+
+void libARRA_gf_ListSoundLinkRemoveAt (string lp_list, int lp_index) {
+    // Automatic Variable Declarations
+    int auto34A659A5_ae;
+    int auto34A659A5_var;
+
+    // Implementation
+    libARRA_gf_ListCreateIfNotExists(lp_list);
+    if ((lp_index <= libARRA_gf_ListSize(lp_list)) && (lp_index > 0)) {
+        auto34A659A5_ae = (libARRA_gf_ListSize(lp_list) - 2);
+        auto34A659A5_var = (lp_index - 1);
+        for ( ; auto34A659A5_var <= auto34A659A5_ae; auto34A659A5_var += 1 ) {
+            DataTableSetSoundLink(true, libARRA_gf_ListGetDatabaseName(lp_list, auto34A659A5_var), DataTableGetSoundLink(true, libARRA_gf_ListGetDatabaseName(lp_list, (auto34A659A5_var + 1))));
+        }
+        libARRA_gf_ListPopBack(lp_list);
+    }
+    else {
+        libNtve_gf_UIErrorMessage(PlayerGroupAll(), (StringExternal("Param/Value/lib_ARRA_9445FC4A") + IntToText(lp_index) + StringExternal("Param/Value/lib_ARRA_F26E6FDC") + IntToText(libARRA_gf_ListSize(lp_list))), SoundLink("UI_GenericError", 0));
+    }
+}
+
+void libARRA_gf_ListSoundLinkExclude (string lp_list, soundlink lp_value) {
+    // Variable Declarations
+    int lv_index;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+
+    // Implementation
+    libARRA_gf_ListCreateIfNotExists(lp_list);
+    lv_index = libARRA_gf_ListSoundLinkIndexOf(lp_list, lp_value);
+    while ((lv_index > 0)) {
+        libARRA_gf_ListSoundLinkRemoveAt(lp_list, lv_index);
+        lv_index = libARRA_gf_ListSoundLinkIndexOf(lp_list, lp_value);
+    }
+}
+
+void libARRA_gf_MapSoundLinkSet (string lp_map, string lp_index, soundlink lp_actor) {
+    // Automatic Variable Declarations
+    // Implementation
+    DataTableSetSoundLink(true, (libARRA_gf_MapSoundLinkIndexes(lp_map) + "_" + lp_index), lp_actor);
+    libARRA_gf_ListStringInclude(libARRA_gf_MapSoundLinkIndexes(lp_map), lp_index);
+}
+
+soundlink libARRA_gf_MapSoundLinkGet (string lp_map, string lp_index) {
+    // Automatic Variable Declarations
+    // Implementation
+    return DataTableGetSoundLink(true, (libARRA_gf_MapSoundLinkIndexes(lp_map) + "_" + lp_index));
+}
+
+bool libARRA_gf_MapSoundLinkIncludes (string lp_unit, string lp_index) {
+    // Automatic Variable Declarations
+    // Implementation
+    return libARRA_gf_ListStringIncludes(libARRA_gf_MapStringIndexes(lp_unit), lp_index);
+}
+
+string libARRA_gf_MapSoundLinkIndexes (string lp_unit) {
+    // Automatic Variable Declarations
+    // Implementation
+    return ("$I" + lp_unit);
+}
+
+int libARRA_gf_ListDialogGet (string lp_list, int lp_index) {
+    // Variable Declarations
+    int lv_returnvalue;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_returnvalue = c_invalidDialogControlId;
+
+    // Implementation
+    libARRA_gf_ListCreateIfNotExists(lp_list);
+    if ((lp_index <= libARRA_gf_ListSize(lp_list)) && (lp_index > 0)) {
+        lv_returnvalue = libNtve_gf_ValueFromDataTableDialogItem(true, libARRA_gf_ListGetDatabaseName(lp_list, (lp_index - 1)));
+    }
+    else {
+        libNtve_gf_UIErrorMessage(PlayerGroupAll(), (StringExternal("Param/Value/lib_ARRA_CDCF6106") + IntToText(lp_index) + StringExternal("Param/Value/lib_ARRA_29B290D9") + IntToText(libARRA_gf_ListSize(lp_list))), SoundLink("UI_GenericError", 0));
+    }
+    return lv_returnvalue;
+}
+
+int libARRA_gf_ListDialogIndexOf (string lp_list, int lp_value) {
+    // Automatic Variable Declarations
+    int auto8C78C738_ae;
+    int auto8C78C738_var;
+
+    // Implementation
+    libARRA_gf_ListCreateIfNotExists(lp_list);
+    if ((libARRA_gf_ListIsEmpty(lp_list) == false)) {
+        auto8C78C738_ae = libARRA_gf_ListSize(lp_list);
+        auto8C78C738_var = 1;
+        for ( ; auto8C78C738_var <= auto8C78C738_ae; auto8C78C738_var += 1 ) {
+            if ((libARRA_gf_ListDialogGet(lp_list, auto8C78C738_var) == lp_value)) {
+                return auto8C78C738_var;
+            }
+
+        }
+    }
+
+    return -1;
+}
+
+bool libARRA_gf_ListDialogIncludes (string lp_list, int lp_value) {
+    // Automatic Variable Declarations
+    // Implementation
+    libARRA_gf_ListCreateIfNotExists(lp_list);
+    if ((libARRA_gf_ListDialogIndexOf(lp_list, lp_value) > 0)) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
+void libARRA_gf_ListDialogSet (string lp_list, int lp_index, int lp_value) {
+    // Automatic Variable Declarations
+    // Implementation
+    libARRA_gf_ListCreateIfNotExists(lp_list);
+    while ((lp_index > libARRA_gf_ListSize(lp_list))) {
+        libARRA_gf_ListDialogPush(lp_list, lp_value);
+    }
+    if ((lp_index > 0)) {
+        libNtve_gf_SaveDataTableValueDialogItem(true, libARRA_gf_ListGetDatabaseName(lp_list, (lp_index - 1)), lp_value);
+    }
+    else {
+        libNtve_gf_UIErrorMessage(PlayerGroupAll(), (StringExternal("Param/Value/lib_ARRA_994CE8A2") + IntToText(lp_index) + StringExternal("Param/Value/lib_ARRA_3E67E8C7") + IntToText(libARRA_gf_ListSize(lp_list))), SoundLink("UI_GenericError", 0));
+    }
+}
+
+void libARRA_gf_ListDialogPush (string lp_list, int lp_value) {
+    // Automatic Variable Declarations
+    // Implementation
+    libARRA_gf_ListCreateIfNotExists(lp_list);
+    libNtve_gf_SaveDataTableValueDialogItem(true, libARRA_gf_ListGetDatabaseName(lp_list, libARRA_gf_ListSize(lp_list)), lp_value);
+    DataTableSetInt(true, lp_list, (DataTableGetInt(true, lp_list) + 1));
+}
+
+void libARRA_gf_ListDialogInclude (string lp_list, int lp_value) {
+    // Automatic Variable Declarations
+    // Implementation
+    libARRA_gf_ListCreateIfNotExists(lp_list);
+    if ((libARRA_gf_ListDialogIncludes(lp_list, lp_value) == false)) {
+        libARRA_gf_ListDialogPush(lp_list, lp_value);
+    }
+
+}
+
+void libARRA_gf_ListDialogInsertAt (string lp_list, int lp_index, int lp_value) {
+    // Variable Declarations
+    int lv_start;
+    int lv_end;
+
+    // Automatic Variable Declarations
+    int auto1AE64EB7_ae;
+    int auto1AE64EB7_var;
+
+    // Variable Initialization
+
+    // Implementation
+    libARRA_gf_ListCreateIfNotExists(lp_list);
+    if ((lp_index <= libARRA_gf_ListSize(lp_list)) && (lp_index > 0)) {
+        libARRA_gf_ListDialogPush(lp_list, libARRA_gf_ListDialogGet(lp_list, libARRA_gf_ListSize(lp_list)));
+        lv_start = (libARRA_gf_ListSize(lp_list) - 2);
+        lv_end = (lp_index + 1);
+        auto1AE64EB7_ae = (lv_start - lv_end);
+        auto1AE64EB7_var = 0;
+        for ( ; auto1AE64EB7_var <= auto1AE64EB7_ae; auto1AE64EB7_var += 1 ) {
+            libNtve_gf_SaveDataTableValueDialogItem(true, libARRA_gf_ListGetDatabaseName(lp_list, (lv_start - auto1AE64EB7_var)), libNtve_gf_ValueFromDataTableDialogItem(true, libARRA_gf_ListGetDatabaseName(lp_list, (lv_start - auto1AE64EB7_var - 1))));
+        }
+        libARRA_gf_ListDialogSet(lp_list, lp_index, lp_value);
+    }
+    else {
+        libNtve_gf_UIErrorMessage(PlayerGroupAll(), (StringExternal("Param/Value/lib_ARRA_C09D91F7") + IntToText(lp_index) + StringExternal("Param/Value/lib_ARRA_AD0BA877") + IntToText(libARRA_gf_ListSize(lp_list))), SoundLink("UI_GenericError", 0));
+    }
+}
+
+void libARRA_gf_ListDialogRemoveAt (string lp_list, int lp_index) {
+    // Automatic Variable Declarations
+    int autoF0A6DFEE_ae;
+    int autoF0A6DFEE_var;
+
+    // Implementation
+    libARRA_gf_ListCreateIfNotExists(lp_list);
+    if ((lp_index <= libARRA_gf_ListSize(lp_list)) && (lp_index > 0)) {
+        autoF0A6DFEE_ae = (libARRA_gf_ListSize(lp_list) - 2);
+        autoF0A6DFEE_var = (lp_index - 1);
+        for ( ; autoF0A6DFEE_var <= autoF0A6DFEE_ae; autoF0A6DFEE_var += 1 ) {
+            libNtve_gf_SaveDataTableValueDialogItem(true, libARRA_gf_ListGetDatabaseName(lp_list, autoF0A6DFEE_var), libNtve_gf_ValueFromDataTableDialogItem(true, libARRA_gf_ListGetDatabaseName(lp_list, (autoF0A6DFEE_var + 1))));
+        }
+        libARRA_gf_ListPopBack(lp_list);
+    }
+    else {
+        libNtve_gf_UIErrorMessage(PlayerGroupAll(), (StringExternal("Param/Value/lib_ARRA_5947E387") + IntToText(lp_index) + StringExternal("Param/Value/lib_ARRA_BBA11AB4") + IntToText(libARRA_gf_ListSize(lp_list))), SoundLink("UI_GenericError", 0));
+    }
+}
+
+void libARRA_gf_ListDialogExclude (string lp_list, int lp_value) {
+    // Variable Declarations
+    int lv_index;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+
+    // Implementation
+    libARRA_gf_ListCreateIfNotExists(lp_list);
+    lv_index = libARRA_gf_ListDialogIndexOf(lp_list, lp_value);
+    while ((lv_index > 0)) {
+        libARRA_gf_ListDialogRemoveAt(lp_list, lv_index);
+        lv_index = libARRA_gf_ListDialogIndexOf(lp_list, lp_value);
+    }
+}
+
+point libARRA_gf_ListPointGet (string lp_list, int lp_index) {
+    // Variable Declarations
+    point lv_returnvalue;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+
+    // Implementation
+    libARRA_gf_ListCreateIfNotExists(lp_list);
+    if ((lp_index <= libARRA_gf_ListSize(lp_list)) && (lp_index > 0)) {
+        lv_returnvalue = DataTableGetPoint(true, libARRA_gf_ListGetDatabaseName(lp_list, (lp_index - 1)));
+    }
+    else {
+        libNtve_gf_UIErrorMessage(PlayerGroupAll(), (StringExternal("Param/Value/lib_ARRA_1F62FEC0") + IntToText(lp_index) + StringExternal("Param/Value/lib_ARRA_8DE2D371") + IntToText(libARRA_gf_ListSize(lp_list))), SoundLink("UI_GenericError", 0));
+    }
+    return lv_returnvalue;
+}
+
+int libARRA_gf_ListPointIndexOf (string lp_list, point lp_value) {
+    // Automatic Variable Declarations
+    int auto329EA2EE_ae;
+    int auto329EA2EE_var;
+
+    // Implementation
+    libARRA_gf_ListCreateIfNotExists(lp_list);
+    if ((libARRA_gf_ListIsEmpty(lp_list) == false)) {
+        auto329EA2EE_ae = libARRA_gf_ListSize(lp_list);
+        auto329EA2EE_var = 1;
+        for ( ; auto329EA2EE_var <= auto329EA2EE_ae; auto329EA2EE_var += 1 ) {
+            if ((libARRA_gf_ListPointGet(lp_list, auto329EA2EE_var) == lp_value)) {
+                return auto329EA2EE_var;
+            }
+
+        }
+    }
+
+    return -1;
+}
+
+bool libARRA_gf_ListPointIncludes (string lp_list, point lp_value) {
+    // Automatic Variable Declarations
+    // Implementation
+    libARRA_gf_ListCreateIfNotExists(lp_list);
+    if ((libARRA_gf_ListPointIndexOf(lp_list, lp_value) > 0)) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
+void libARRA_gf_ListPointSet (string lp_list, int lp_index, point lp_value) {
+    // Automatic Variable Declarations
+    // Implementation
+    libARRA_gf_ListCreateIfNotExists(lp_list);
+    while ((lp_index > libARRA_gf_ListSize(lp_list))) {
+        libARRA_gf_ListPointPush(lp_list, null);
+    }
+    if ((lp_index > 0)) {
+        DataTableSetPoint(true, libARRA_gf_ListGetDatabaseName(lp_list, (lp_index - 1)), lp_value);
+    }
+    else {
+        libNtve_gf_UIErrorMessage(PlayerGroupAll(), (StringExternal("Param/Value/lib_ARRA_D7A229D0") + IntToText(lp_index) + StringExternal("Param/Value/lib_ARRA_1B574511") + IntToText(libARRA_gf_ListSize(lp_list))), SoundLink("UI_GenericError", 0));
+    }
+}
+
+void libARRA_gf_ListPointPush (string lp_list, point lp_addedValue) {
+    // Automatic Variable Declarations
+    // Implementation
+    libARRA_gf_ListCreateIfNotExists(lp_list);
+    DataTableSetPoint(true, libARRA_gf_ListGetDatabaseName(lp_list, libARRA_gf_ListSize(lp_list)), lp_addedValue);
+    DataTableSetInt(true, lp_list, (DataTableGetInt(true, lp_list) + 1));
+}
+
+void libARRA_gf_ListPointInclude (string lp_list, point lp_value) {
+    // Automatic Variable Declarations
+    // Implementation
+    libARRA_gf_ListCreateIfNotExists(lp_list);
+    if ((libARRA_gf_ListPointIncludes(lp_list, lp_value) == false)) {
+        libARRA_gf_ListPointPush(lp_list, lp_value);
+    }
+
+}
+
+void libARRA_gf_ListPointInsertAt (string lp_list, int lp_index, point lp_value) {
+    // Variable Declarations
+    int lv_start;
+    int lv_end;
+
+    // Automatic Variable Declarations
+    int auto4C40B01B_ae;
+    int auto4C40B01B_var;
+
+    // Variable Initialization
+
+    // Implementation
+    libARRA_gf_ListCreateIfNotExists(lp_list);
+    if ((lp_index <= libARRA_gf_ListSize(lp_list)) && (lp_index > 0)) {
+        libARRA_gf_ListPointPush(lp_list, libARRA_gf_ListPointGet(lp_list, libARRA_gf_ListSize(lp_list)));
+        lv_start = (libARRA_gf_ListSize(lp_list) - 2);
+        lv_end = (lp_index + 1);
+        auto4C40B01B_ae = (lv_start - lv_end);
+        auto4C40B01B_var = 0;
+        for ( ; auto4C40B01B_var <= auto4C40B01B_ae; auto4C40B01B_var += 1 ) {
+            DataTableSetPoint(true, libARRA_gf_ListGetDatabaseName(lp_list, (lv_start - auto4C40B01B_var)), DataTableGetPoint(true, libARRA_gf_ListGetDatabaseName(lp_list, (lv_start - auto4C40B01B_var - 1))));
+        }
+        libARRA_gf_ListPointSet(lp_list, lp_index, lp_value);
+    }
+    else {
+        libNtve_gf_UIErrorMessage(PlayerGroupAll(), (StringExternal("Param/Value/lib_ARRA_5349D4ED") + IntToText(lp_index) + StringExternal("Param/Value/lib_ARRA_669B8E17") + IntToText(libARRA_gf_ListSize(lp_list))), SoundLink("UI_GenericError", 0));
+    }
+}
+
+void libARRA_gf_ListPointRemoveAt (string lp_list, int lp_index) {
+    // Automatic Variable Declarations
+    int auto519727D7_ae;
+    int auto519727D7_var;
+
+    // Implementation
+    libARRA_gf_ListCreateIfNotExists(lp_list);
+    if ((lp_index <= libARRA_gf_ListSize(lp_list)) && (lp_index > 0)) {
+        auto519727D7_ae = (libARRA_gf_ListSize(lp_list) - 2);
+        auto519727D7_var = (lp_index - 1);
+        for ( ; auto519727D7_var <= auto519727D7_ae; auto519727D7_var += 1 ) {
+            DataTableSetPoint(true, libARRA_gf_ListGetDatabaseName(lp_list, auto519727D7_var), DataTableGetPoint(true, libARRA_gf_ListGetDatabaseName(lp_list, (auto519727D7_var + 1))));
+        }
+        libARRA_gf_ListPopBack(lp_list);
+    }
+    else {
+        libNtve_gf_UIErrorMessage(PlayerGroupAll(), (StringExternal("Param/Value/lib_ARRA_7318B37C") + IntToText(lp_index) + StringExternal("Param/Value/lib_ARRA_9A7EA85B") + IntToText(libARRA_gf_ListSize(lp_list))), SoundLink("UI_GenericError", 0));
+    }
+}
+
+void libARRA_gf_ListPointExclude (string lp_list, point lp_value) {
+    // Variable Declarations
+    int lv_index;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+
+    // Implementation
+    libARRA_gf_ListCreateIfNotExists(lp_list);
+    lv_index = libARRA_gf_ListPointIndexOf(lp_list, lp_value);
+    while ((lv_index > 0)) {
+        libARRA_gf_ListPointRemoveAt(lp_list, lv_index);
+        lv_index = libARRA_gf_ListPointIndexOf(lp_list, lp_value);
+    }
+}
+
+void libARRA_gf_MapPointSet (string lp_unit, string lp_index, point lp_actor) {
+    // Automatic Variable Declarations
+    // Implementation
+    DataTableSetPoint(true, ("$N" + lp_unit + "_" + lp_index), lp_actor);
+    libARRA_gf_ListStringInclude(("$N" + lp_unit), lp_index);
+}
+
+point libARRA_gf_MapPointGet (string lp_unit, string lp_index) {
+    // Automatic Variable Declarations
+    // Implementation
+    return DataTableGetPoint(true, ("$N" + lp_unit + "_" + lp_index));
+}
+
+string libARRA_gf_MapPointIndexes (string lp_unit) {
+    // Automatic Variable Declarations
+    // Implementation
+    return ("$N" + lp_unit);
+}
+
+bool libARRA_gf_MapPointIncludes (string lp_unit, string lp_index) {
+    // Automatic Variable Declarations
+    // Implementation
+    return libARRA_gf_ListStringIncludes(libARRA_gf_MapPointIndexes(lp_unit), lp_index);
+}
+
+int libARRA_gf_GetTransmissionById (string lp_id) {
+    // Variable Declarations
+    int lv_pickedTask;
+
+    // Automatic Variable Declarations
+    int auto55CE4831_ae;
+    const int auto55CE4831_ai = 1;
+
+    // Variable Initialization
+
+    // Implementation
+    auto55CE4831_ae = libARRA_gf_ListSize(libARRA_gv_transmissionOptionsTypes);
+    lv_pickedTask = 0;
+    for ( ; ( (auto55CE4831_ai >= 0 && lv_pickedTask <= auto55CE4831_ae) || (auto55CE4831_ai < 0 && lv_pickedTask >= auto55CE4831_ae) ) ; lv_pickedTask += auto55CE4831_ai ) {
+        if ((libARRA_gf_ListIntGet(libARRA_gv_transmissionOptionsTypes, lv_pickedTask) == libARRA_gv_tT_GROUP) && (libARRA_gf_ListStringGet(libARRA_gv_transmissionGroups, libARRA_gf_ListIntGet(libARRA_gv_transmissionOptionsReferences, lv_pickedTask)) == lp_id)) {
+            return lv_pickedTask;
+        }
+    }
+    return -1;
+}
+
+void libARRA_gf_CreateTransmissionGroupImpl (string lp_id) {
+    // Variable Declarations
+    int lv_groupIndex;
+    int lv_transmissionIndex;
+    int lv_reference;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_groupIndex = (libARRA_gf_ListSize(libARRA_gv_transmissionGroups) + 1);
+    lv_transmissionIndex = (libARRA_gf_ListSize(libARRA_gv_transmissionOptionsTypes) + 1);
+
+    // Implementation
+    libARRA_gf_ListStringPush(libARRA_gv_transmissionGroups, lp_id);
+    libARRA_gf_ListRealPush(libARRA_gv_transmissionOptionsIntervals, 0.0);
+    libARRA_gf_ListIntPush(libARRA_gv_transmissionOptionsDisabled, 0);
+    libARRA_gf_ListIntPush(libARRA_gv_transmissionOptionsTypes, libARRA_gv_tT_GROUP);
+    libARRA_gf_ListIntPush(libARRA_gv_transmissionOptionsReferences, lv_groupIndex);
+    libARRA_gf_ListCreate(("^TG_SOUNDS_" + IntToString(lv_groupIndex)));
+    if ((libARRA_gv_selectedTransmissionOption != 0)) {
+        lv_reference = libARRA_gf_ListIntGet(libARRA_gv_transmissionOptionsReferences, libARRA_gv_selectedTransmissionOption);
+        if ((libARRA_gf_ListIntGet(libARRA_gv_transmissionOptionsTypes, lv_reference) == libARRA_gv_tT_GROUP)) {
+            libARRA_gf_ListIntPush(("^TC_SOUNDS_" + IntToString(lv_reference)), lv_transmissionIndex);
+        }
+        else {
+            libARRA_gf_ListIntPush(("^TG_SOUNDS_" + IntToString(lv_reference)), lv_transmissionIndex);
+        }
+    }
+    libARRA_gv_selectedTransmissionOption = libARRA_gf_ListSize(libARRA_gv_transmissionOptionsTypes);
+}
+
+void libARRA_gf_CreateTransmissionChainImpl () {
+    // Variable Declarations
+    int lv_chainIndex;
+    int lv_transmissionIndex;
+    int lv_reference;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_chainIndex = (libARRA_gf_ListSize(libARRA_gv_transmissionChains) + 1);
+    lv_transmissionIndex = (libARRA_gf_ListSize(libARRA_gv_transmissionOptionsTypes) + 1);
+
+    // Implementation
+    libARRA_gf_ListStringPush(libARRA_gv_transmissionChains, ("CHAIN_" + IntToString(lv_chainIndex)));
+    libARRA_gf_ListIntPush(libARRA_gv_transmissionOptionsTypes, libARRA_gv_tT_CHAIN);
+    libARRA_gf_ListIntPush(libARRA_gv_transmissionOptionsReferences, lv_chainIndex);
+    libARRA_gf_ListRealPush(libARRA_gv_transmissionOptionsIntervals, 0.0);
+    libARRA_gf_ListIntPush(libARRA_gv_transmissionOptionsDisabled, 0);
+    libARRA_gf_ListCreate(("^TC_SOUNDS_" + IntToString(lv_chainIndex)));
+    if ((libARRA_gv_selectedTransmissionOption != 0)) {
+        lv_reference = libARRA_gf_ListIntGet(libARRA_gv_transmissionOptionsReferences, libARRA_gv_selectedTransmissionOption);
+        if ((libARRA_gf_ListIntGet(libARRA_gv_transmissionOptionsTypes, libARRA_gv_selectedTransmissionOption) == libARRA_gv_tT_GROUP)) {
+            libARRA_gf_ListIntPush(("^TG_SOUNDS_" + IntToString(lv_reference)), lv_transmissionIndex);
+        }
+        else {
+            libARRA_gf_ListIntPush(("^TC_SOUNDS_" + IntToString(lv_reference)), lv_transmissionIndex);
+        }
+    }
+    libARRA_gv_selectedTransmissionOption = libARRA_gf_ListSize(libARRA_gv_transmissionOptionsTypes);
+}
+
+void libARRA_gf_CreateTransmissionSound (soundlink lp_sound) {
+    // Variable Declarations
+    int lv_soundIndex;
+    int lv_transmissionIndex;
+    int lv_reference;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_soundIndex = (libARRA_gf_ListSize(libARRA_gv_transmissionSounds) + 1);
+    lv_transmissionIndex = (libARRA_gf_ListSize(libARRA_gv_transmissionOptionsTypes) + 1);
+
+    // Implementation
+    libARRA_gf_ListSoundLinkPush(libARRA_gv_transmissionSounds, lp_sound);
+    libARRA_gf_ListIntPush(libARRA_gv_transmissionOptionsTypes, libARRA_gv_tT_SOUND);
+    libARRA_gf_ListIntPush(libARRA_gv_transmissionOptionsReferences, lv_soundIndex);
+    libARRA_gf_ListRealPush(libARRA_gv_transmissionOptionsIntervals, 0.0);
+    libARRA_gf_ListIntPush(libARRA_gv_transmissionOptionsDisabled, 0);
+    if ((libARRA_gv_selectedTransmissionOption != 0)) {
+        lv_reference = libARRA_gf_ListIntGet(libARRA_gv_transmissionOptionsReferences, libARRA_gv_selectedTransmissionOption);
+        if ((libARRA_gf_ListIntGet(libARRA_gv_transmissionOptionsTypes, libARRA_gv_selectedTransmissionOption) == libARRA_gv_tT_CHAIN)) {
+            libARRA_gf_ListIntPush(("^TC_SOUNDS_" + IntToString(lv_reference)), lv_transmissionIndex);
+        }
+        else {
+            libARRA_gf_ListIntPush(("^TG_SOUNDS_" + IntToString(lv_reference)), lv_transmissionIndex);
+        }
+    }
+}
+
+void libARRA_gf_SetTransmissionInterval (int lp_interval) {
+    // Automatic Variable Declarations
+    // Implementation
+    libARRA_gf_ListRealSet(libARRA_gv_transmissionOptionsIntervals, libARRA_gv_selectedTransmissionOption, lp_interval);
+}
+
+void libARRA_gf_PlayTransmission (string lp_id, playergroup lp_players) {
+    // Automatic Variable Declarations
+    // Implementation
+    libARRA_gv_selectedTransmissionOption = libARRA_gf_GetTransmissionById(lp_id);
+    libARRA_gv_targetPlayerGroup = lp_players;
+    TriggerExecute(libARRA_gt_PlayTransmissionOption, true, false);
+}
+
+void libARRA_gf_PlayTransmissionOption (int lp_index, playergroup lp_players) {
+    // Variable Declarations
+    int lv_reference;
+    int lv_interval;
+    soundlink lv_sound;
+
+    // Automatic Variable Declarations
+    int autoD23E0583_val;
+
+    // Variable Initialization
+    lv_reference = libARRA_gf_ListIntGet(libARRA_gv_transmissionOptionsReferences, lp_index);
+    lv_interval = libARRA_gf_ListIntGet(libARRA_gv_transmissionOptionsReferences, lp_index);
+    lv_sound = SoundLink("EditorDefaultSound", -1);
+
+    // Implementation
+    libARRA_gv_selectedTransmissionOption = lp_index;
+    if ((lp_index <= libARRA_gf_ListSize(libARRA_gv_transmissionOptionsTypes))) {
+        if ((libARRA_gf_ListIntGet(libARRA_gv_transmissionOptionsDisabled, lp_index) != 0)) {
+            return ;
+        }
+        if ((libARRA_gf_ListIntGet(libARRA_gv_transmissionOptionsIntervals, lp_index) != 0)) {
+            libARRA_gf_ListIntSet(libARRA_gv_transmissionOptionsDisabled, lp_index, 1);
+            TriggerExecute(libARRA_gt_ApplyTransmissionInterval, true, false);
+        }
+        autoD23E0583_val = libARRA_gf_ListIntGet(libARRA_gv_transmissionOptionsTypes, lp_index);
+        if (autoD23E0583_val == libARRA_gv_tT_CHAIN) {
+            libARRA_gf_PlayTransmissionChain(lv_reference, lp_players);
+        }
+        else if (autoD23E0583_val == libARRA_gv_tT_GROUP) {
+            libARRA_gf_PlayTransmissionGroup(lv_reference, lp_players);
+        }
+        else if (autoD23E0583_val == libARRA_gv_tT_SOUND) {
+            lv_sound = libARRA_gf_ListSoundLinkGet(libARRA_gv_transmissionSounds, lv_reference);
+            libNtve_gf_SetAllSoundChannelVolumes(libNtve_ge_VolumeChannelMode_Speech, PlayerGroupAll(), 2.5);
+            SoundChannelSetVolume(PlayerGroupAll(), c_soundCategoryVoice, 0.0, 0.5);
+            Wait(1.0, c_timeGame);
+            TransmissionSendForPlayerSelect(lp_players, TransmissionSource(), libNtve_gf_CinematicPortrait(libNtve_ge_CinematicPortraitPosition_CenterLeft), (SoundPortraitModel(lv_sound)), "Talk", lv_sound, StringExternal(("Speaker/Name/" + (SoundPortraitModel(lv_sound)))), SoundSubtitleText(lv_sound), 1.0, c_transmissionDurationAdd, true, c_maxPlayers, false);
+            libNtve_gf_SetAllSoundChannelVolumes(libNtve_ge_VolumeChannelMode_Game, PlayerGroupAll(), 1.0);
+            SoundChannelSetVolume(PlayerGroupAll(), c_soundCategoryVoice, 100.0, 0.5);
+        }
+        else {
+        }
+    }
+    else {
+        TextExpressionSetToken("Param/Expression/lib_ARRA_490E3626", "A", StringToText(("Wrong transmission index: " + IntToString(lp_index))));
+        libNtve_gf_UIErrorMessage(PlayerGroupAll(), TextExpressionAssemble("Param/Expression/lib_ARRA_490E3626"), SoundLink("UI_GenericError", 0));
+    }
+}
+
+void libARRA_gf_PlayTransmissionGroup (int lp_index, playergroup lp_players) {
+    // Variable Declarations
+    string lv_options;
+    int lv_transmissionOptionId;
+    int lv_availableOptions;
+    int lv_chosenOption;
+
+    // Automatic Variable Declarations
+    int autoE43FDD3B_ai;
+    int autoE43FDD3B_ae;
+    int auto7054D3B9_ai;
+    int auto7054D3B9_ae;
+    int auto7FEC84EA_ai;
+    int auto7FEC84EA_ae;
+
+    // Variable Initialization
+    lv_options = ("^TG_SOUNDS_" + IntToString(lp_index));
+
+    // Implementation
+    if ((libARRA_gf_ListSize(lv_options) == 0)) {
+        return ;
+    }
+    autoE43FDD3B_ai = 1;
+    autoE43FDD3B_ae = libARRA_gf_ListSize(lv_options);
+    while (autoE43FDD3B_ai <= autoE43FDD3B_ae) {
+        lv_transmissionOptionId = libARRA_gf_ListIntGet(lv_options, autoE43FDD3B_ai);
+        autoE43FDD3B_ai = autoE43FDD3B_ai+1;
+        if ((libARRA_gf_ListIntGet(libARRA_gv_transmissionOptionsDisabled, lv_transmissionOptionId) == 0)) {
+            lv_availableOptions = (lv_availableOptions + 1);
+        }
+    }
+    if ((lv_availableOptions == 0)) {
+        lv_availableOptions = libARRA_gf_ListSize(lv_options);
+        auto7054D3B9_ai = 1;
+        auto7054D3B9_ae = libARRA_gf_ListSize(lv_options);
+        while (auto7054D3B9_ai <= auto7054D3B9_ae) {
+            lv_transmissionOptionId = libARRA_gf_ListIntGet(lv_options, auto7054D3B9_ai);
+            auto7054D3B9_ai = auto7054D3B9_ai+1;
+            libARRA_gf_ListIntSet(libARRA_gv_transmissionOptionsDisabled, lv_transmissionOptionId, 0);
+        }
+    }
+    lv_chosenOption = RandomInt(1, lv_availableOptions);
+    auto7FEC84EA_ai = 1;
+    auto7FEC84EA_ae = libARRA_gf_ListSize(lv_options);
+    while (auto7FEC84EA_ai <= auto7FEC84EA_ae) {
+        lv_transmissionOptionId = libARRA_gf_ListIntGet(lv_options, auto7FEC84EA_ai);
+        auto7FEC84EA_ai = auto7FEC84EA_ai+1;
+        if ((libARRA_gf_ListIntGet(libARRA_gv_transmissionOptionsDisabled, lv_transmissionOptionId) == 0)) {
+            lv_chosenOption = (lv_chosenOption - 1);
+            if ((lv_chosenOption == 0)) {
+                libARRA_gf_PlayTransmissionOption(lv_transmissionOptionId, lp_players);
+                libARRA_gf_ListIntSet(libARRA_gv_transmissionOptionsDisabled, lv_transmissionOptionId, 1);
+            }
+        }
+    }
+}
+
+void libARRA_gf_PlayTransmissionChain (int lp_index, playergroup lp_players) {
+    // Variable Declarations
+    string lv_options;
+    int lv_optionsCount;
+    int lv_reference;
+
+    // Automatic Variable Declarations
+    int autoBC6E3820_ai;
+    int autoBC6E3820_ae;
+
+    // Variable Initialization
+    lv_options = ("^TC_SOUNDS_" + IntToString(lp_index));
+    lv_optionsCount = libARRA_gf_ListSize(("^TC_SOUNDS_" + IntToString(lp_index)));
+
+    // Implementation
+    if ((libARRA_gf_ListSize(lv_options) == 0)) {
+        return ;
+    }
+    autoBC6E3820_ai = 1;
+    autoBC6E3820_ae = libARRA_gf_ListSize(lv_options);
+    while (autoBC6E3820_ai <= autoBC6E3820_ae) {
+        lv_reference = libARRA_gf_ListIntGet(lv_options, autoBC6E3820_ai);
+        autoBC6E3820_ai = autoBC6E3820_ai+1;
+        libARRA_gf_PlayTransmissionOption(lv_reference, lp_players);
+    }
+}
+
+point libARRA_gf_GetPoint (string lp_suffix, int lp_route) {
+    // Variable Declarations
+    string lv_r;
+    string lv_suffixending;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_r = IntToString(lp_route);
+    lv_suffixending = StringSub(lp_suffix, (StringLength(lp_suffix) - 1), StringLength(lp_suffix));
+
+    // Implementation
+    if (((lv_suffixending == "-") || (lv_suffixending == " "))) {
+        return libARRA_gf_IIF7(PointFromName((lp_suffix + lv_r)), libARRA_gf_IIF7(PointFromName((lp_suffix + "0" + lv_r)), null));
+    }
+    else {
+        return libARRA_gf_IIF7(PointFromName((lp_suffix + " " + lv_r)), libARRA_gf_IIF7(PointFromName((lp_suffix + " 0" + lv_r)), libARRA_gf_IIF7(PointFromName((lp_suffix + lv_r)), libARRA_gf_IIF7(PointFromName((lp_suffix + "0" + lv_r)), null))));
+    }
+}
+
+string libARRA_gf_PointsSingle (string lp_suffix, int lp_index1) {
+    // Variable Declarations
+    point lv_point;
+    string lv_listName;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_listName = "";
+
+    // Implementation
+    libARRA_gv_pointsListsCreated += 1;
+    lv_listName = ("*P" + IntToString(libARRA_gv_pointsListsCreated));
+    lv_point = libARRA_gf_GetPoint(lp_suffix, lp_index1);
+    if ((lv_point != null)) {
+        libARRA_gf_ListPointPush(lv_listName, lv_point);
+    }
+
+    return lv_listName;
+}
+
+string libARRA_gf_PointsSinglePoint (point lp_point) {
+    // Variable Declarations
+    string lv_listName;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_listName = "";
+
+    // Implementation
+    libARRA_gv_pointsListsCreated += 1;
+    lv_listName = ("*P" + IntToString(libARRA_gv_pointsListsCreated));
+    if ((lp_point != null)) {
+        libARRA_gf_ListPointPush(lv_listName, lp_point);
+    }
+
+    return lv_listName;
+}
+
+string libARRA_gf_PointsRange (string lp_suffix, int lp_index1, int lp_index2) {
+    // Variable Declarations
+    point lv_point;
+    string lv_listName;
+    int lv_iterator;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_listName = "";
+    lv_iterator = lp_index1;
+
+    // Implementation
+    libARRA_gv_pointsListsCreated += 1;
+    lv_listName = ("*P" + IntToString(libARRA_gv_pointsListsCreated));
+    lv_point = libARRA_gf_GetPoint(lp_suffix, lv_iterator);
+    while ((lv_point != null) && (lv_iterator <= lp_index2)) {
+        libARRA_gf_ListPointPush(lv_listName, lv_point);
+        lv_iterator += 1;
+        lv_point = libARRA_gf_GetPoint(lp_suffix, lv_iterator);
+    }
+    return lv_listName;
+}
+
+string libARRA_gf_PointsAll (string lp_suffix) {
+    // Variable Declarations
+    point lv_point;
+    string lv_listName;
+    int lv_iterator;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_listName = "";
+    lv_iterator = 1;
+
+    // Implementation
+    return libARRA_gf_PointsRange(lp_suffix, 1, 99);
+}
+
+string libARRA_gf_PointsString (string lp_suffix, string lp_spawns) {
+    // Variable Declarations
+    string lv_spawns;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_spawns = lp_spawns;
+
+    // Implementation
+    if ((StringContains(lv_spawns, "-", c_stringAnywhere, c_stringCase) == true)) {
+        lv_spawns = StringReplaceWord(lp_spawns, "-", " ", c_stringReplaceAll, c_stringCase);
+        return libARRA_gf_PointsRange(lp_suffix, StringToInt(StringWord(lv_spawns, 1)), StringToInt(StringWord(lv_spawns, 2)));
+    }
+    else {
+        return libARRA_gf_PointsSingle(lp_suffix, StringToInt(StringWord(lv_spawns, 1)));
+    }
+}
+
+string libARRA_gf_Points (string lp_spawns) {
+    // Variable Declarations
+    string lv_spawns;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_spawns = lp_spawns;
+
+    // Implementation
+    if ((StringContains(lv_spawns, " ", c_stringAnywhere, c_stringCase) == true)) {
+        return libARRA_gf_PointsString(StringWord(lv_spawns, 1), StringWord(lv_spawns, 2));
+    }
+    else {
+        return libARRA_gf_PointsAll(lp_spawns);
+    }
+}
+
+bool libARRA_gf_AnyUnitOfPlayerGroupPlacedInRegion (playergroup lp_playergroup, region lp_region) {
+    // Automatic Variable Declarations
+    playergroup autoE2AFC975_g;
+    int autoE2AFC975_var;
+
+    // Implementation
+    autoE2AFC975_g = lp_playergroup;
+    autoE2AFC975_var = -1;
+    while (true) {
+        autoE2AFC975_var = PlayerGroupNextPlayer(autoE2AFC975_g, autoE2AFC975_var);
+        if (autoE2AFC975_var < 0) { break; }
+        if ((UnitGroupCount(UnitGroup(null, autoE2AFC975_var, lp_region, UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32)) | (1 << (c_targetFilterMapBoss - 32))), 1), c_unitCountAlive) > 0)) {
+            return true;
+        }
+
+    }
+    return false;
+}
+
+bool libARRA_gf_AllUnitsFromUnitGroupPlacedInRegion (unitgroup lp_units, region lp_region) {
+    // Automatic Variable Declarations
+    unitgroup autoA22DE841_g;
+    int autoA22DE841_u;
+    unit autoA22DE841_var;
+
+    // Implementation
+    autoA22DE841_g = lp_units;
+    autoA22DE841_u = UnitGroupCount(autoA22DE841_g, c_unitCountAll);
+    for (;; autoA22DE841_u -= 1) {
+        autoA22DE841_var = UnitGroupUnitFromEnd(autoA22DE841_g, autoA22DE841_u);
+        if (autoA22DE841_var == null) { break; }
+        if ((UnitIsAlive(autoA22DE841_var) == true) && (libNtve_gf_UnitInRegion(autoA22DE841_var, lp_region) == false)) {
+            return false;
+        }
+
+    }
+    return true;
+}
+
+playergroup libARRA_gf_GetTeamPlayers (int lp_team) {
+    // Automatic Variable Declarations
+    // Implementation
+    return libARRA_gv_teams[lp_team];
+}
+
+int libARRA_gf_GetPlayerTeam (int lp_player) {
+    // Variable Declarations
+    playergroup lv_players;
+
+    // Automatic Variable Declarations
+    const int autoD36D9E13_ae = 15;
+    int autoD36D9E13_var;
+
+    // Variable Initialization
+    lv_players = PlayerGroupEmpty();
+
+    // Implementation
+    autoD36D9E13_var = 0;
+    for ( ; autoD36D9E13_var <= autoD36D9E13_ae; autoD36D9E13_var += 1 ) {
+        if ((PlayerGroupHasPlayer(libARRA_gv_teams[autoD36D9E13_var], lp_player) == true)) {
+            return autoD36D9E13_var;
+        }
+
+    }
+    return 16;
+}
+
+string libARRA_gf_GetRoute (string lp_suffix, int lp_routeIndex) {
+    // Variable Declarations
+    point lv_point;
+    string lv_listName;
+    string lv_route;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_route = IntToString(lp_routeIndex);
+
+    // Implementation
+    lv_point = libARRA_gf_IIF7(PointFromName((lp_suffix + " " + lv_route)), PointFromName((lp_suffix + " 0" + lv_route)));
+    if ((lv_point != null)) {
+        lv_listName = libARRA_gf_PointsSinglePoint(lv_point);
+    }
+    else {
+        lv_point = libARRA_gf_IIF7(PointFromName((lp_suffix + " " + lv_route + "-1")), PointFromName((lp_suffix + " " + lv_route + "-01")));
+        if ((lv_point != null)) {
+            lv_listName = libARRA_gf_PointsAll((lp_suffix + " " + lv_route + "-"));
+        }
+        else {
+            lv_point = libARRA_gf_IIF7(PointFromName((lp_suffix + " 0" + lv_route + "-1")), PointFromName((lp_suffix + " 0" + lv_route + "-01")));
+            if ((lv_point != null)) {
+                lv_listName = libARRA_gf_PointsAll((lp_suffix + " 0" + lv_route + "-"));
+            }
+
+        }
+    }
+    return lv_listName;
+}
+
+string libARRA_gf_RoutesSingle (string lp_suffix, int lp_index) {
+    // Variable Declarations
+    string lv_route;
+    string lv_listName;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_route = "";
+    lv_listName = "";
+
+    // Implementation
+    libARRA_gv_routesListsCreated += 1;
+    lv_listName = ("**P" + IntToString(libARRA_gv_routesListsCreated));
+    lv_route = libARRA_gf_GetRoute(lp_suffix, lp_index);
+    if ((lv_route != null)) {
+        libARRA_gf_ListStringPush(lv_listName, lv_route);
+    }
+
+    return lv_listName;
+}
+
+string libARRA_gf_RoutesRange (string lp_suffix, int lp_index1, int lp_index2) {
+    // Variable Declarations
+    string lv_route;
+    string lv_listName;
+    int lv_iterator;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_route = "";
+    lv_listName = "";
+    lv_iterator = lp_index1;
+
+    // Implementation
+    libARRA_gv_routesListsCreated += 1;
+    lv_listName = ("**P" + IntToString(libARRA_gv_routesListsCreated));
+    lv_route = libARRA_gf_GetRoute(lp_suffix, lv_iterator);
+    while ((lv_route != null) && (lv_iterator <= lp_index2)) {
+        libARRA_gf_ListStringPush(lv_listName, lv_route);
+        lv_iterator += 1;
+        lv_route = libARRA_gf_GetRoute(lp_suffix, lv_iterator);
+    }
+    return lv_listName;
+}
+
+string libARRA_gf_RoutesAll (string lp_suffix) {
+    // Variable Declarations
+    string lv_route;
+    point lv_point;
+    string lv_listName;
+    int lv_iterator;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_route = "";
+    lv_listName = "";
+    lv_iterator = 1;
+
+    // Implementation
+    return libARRA_gf_RoutesRange(lp_suffix, 1, 99);
+}
+
+string libARRA_gf_RoutesString (string lp_suffix, string lp_spawns) {
+    // Variable Declarations
+    string lv_spawns;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_spawns = lp_spawns;
+
+    // Implementation
+    if ((StringContains(lv_spawns, "-", c_stringAnywhere, c_stringCase) == true)) {
+        lv_spawns = StringReplaceWord(lp_spawns, "-", " ", c_stringReplaceAll, c_stringCase);
+        return libARRA_gf_RoutesRange(lp_suffix, StringToInt(StringWord(lv_spawns, 1)), StringToInt(StringWord(lv_spawns, 2)));
+    }
+    else {
+        return libARRA_gf_RoutesSingle(lp_suffix, StringToInt(StringWord(lv_spawns, 1)));
+    }
+}
+
+string libARRA_gf_Routes (string lp_spawns) {
+    // Variable Declarations
+    string lv_spawns;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_spawns = lp_spawns;
+
+    // Implementation
+    if ((StringContains(lv_spawns, " ", c_stringAnywhere, c_stringCase) == true) && (StringWord(lp_spawns, 2) != "")) {
+        return libARRA_gf_RoutesString(StringWord(lv_spawns, 1), StringWord(lv_spawns, 2));
+    }
+    else {
+        return libARRA_gf_RoutesAll(StringWord(lv_spawns, 1));
+    }
+}
+
+int libARRA_gf_GetTaskByType (string lp_id) {
+    // Variable Declarations
+    int lv_pickedTask;
+
+    // Automatic Variable Declarations
+    int auto72787720_ae;
+    const int auto72787720_ai = 1;
+
+    // Variable Initialization
+
+    // Implementation
+    auto72787720_ae = libARRA_gv_tasksCreated;
+    lv_pickedTask = 0;
+    for ( ; ( (auto72787720_ai >= 0 && lv_pickedTask <= auto72787720_ae) || (auto72787720_ai < 0 && lv_pickedTask >= auto72787720_ae) ) ; lv_pickedTask += auto72787720_ai ) {
+        if (true) {
+            return lv_pickedTask;
+        }
+    }
+    return -1;
+}
+
+string libARRA_gf_TaskToString (int lp_task) {
+    // Automatic Variable Declarations
+    // Implementation
+    return (libARRA_gf_StringForTask(lp_task, "Type") + "#" + IntToString(lp_task));
+}
+
+void libARRA_gf_SetTriggeringTask (int lp_task) {
+    // Automatic Variable Declarations
+    // Implementation
+    libARRA_gv_task = lp_task;
+    libARRA_gv_parent = libARRA_gf_IntegerForTask(libARRA_gv_task, "Parent");
+}
+
+void libARRA_gf_CreateTask (string lp_id) {
+    // Variable Declarations
+    int lv_task;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+
+    // Implementation
+    libARRA_gv_tasksCreated += 1;
+    lv_task = libARRA_gv_tasksCreated;
+    libARRA_gf_StoreStringForTask(lv_task, "Type", lp_id);
+    libARRA_gf_StoreIntegerForTask(lv_task, "Parent", libARRA_gv_parent);
+    libARRA_gf_StoreIntegerForTask(lv_task, "State", libARRA_gv_stateUndiscovered);
+    libARRA_gf_SetTriggeringTask(lv_task);
+}
+
+void libARRA_gf_TaskFree (int lp_task) {
+    // Variable Declarations
+    string lv_taskCode;
+    string lv_pings;
+    string lv_revealers;
+    string lv_timers;
+    string lv_indexKey;
+
+    // Automatic Variable Declarations
+    int auto61A676AF_ai;
+    int auto61A676AF_ae;
+    int autoE38FC294_ai;
+    int autoE38FC294_ae;
+    int auto285896C2_ai;
+    int auto285896C2_ae;
+
+    // Variable Initialization
+    lv_taskCode = ("TASK_" + IntToString(lp_task));
+    lv_pings = libARRA_gf_MapPingIndexes(lv_taskCode);
+    lv_revealers = libARRA_gf_MapRevealerIndexes(lv_taskCode);
+    lv_timers = libARRA_gf_MapTimerIndexes(lv_taskCode);
+    lv_indexKey = "";
+
+    // Implementation
+    auto61A676AF_ai = 1;
+    auto61A676AF_ae = libARRA_gf_ListSize(lv_revealers);
+    while (auto61A676AF_ai <= auto61A676AF_ae) {
+        lv_indexKey = libARRA_gf_ListStringGet(lv_revealers, auto61A676AF_ai);
+        auto61A676AF_ai = auto61A676AF_ai+1;
+        VisRevealerDestroy(libARRA_gf_RevealerStoredForTask(lp_task, lv_indexKey));
+    }
+    autoE38FC294_ai = 1;
+    autoE38FC294_ae = libARRA_gf_ListSize(lv_pings);
+    while (autoE38FC294_ai <= autoE38FC294_ae) {
+        lv_indexKey = libARRA_gf_ListStringGet(lv_pings, autoE38FC294_ai);
+        autoE38FC294_ai = autoE38FC294_ai+1;
+        PingDestroy(libARRA_gf_PingStoredForTask(lp_task, lv_indexKey));
+    }
+    libARRA_gf_ListClear(lv_revealers);
+    libARRA_gf_ListClear(lv_pings);
+    libARRA_gf_ListClear(libARRA_gf_MapIntIndexes(lv_taskCode));
+    libARRA_gf_ListClear(libARRA_gf_MapRealIndexes(lv_taskCode));
+    libARRA_gf_ListClear(libARRA_gf_MapPointIndexes(lv_taskCode));
+    libARRA_gf_ListClear(libARRA_gf_MapRegionIndexes(lv_taskCode));
+    libARRA_gf_ListClear(libARRA_gf_MapStringIndexes(lv_taskCode));
+    libARRA_gf_ListClear(libARRA_gf_MapUnitIndexes(lv_taskCode));
+    libARRA_gf_ListClear(libARRA_gf_MapUnitGroupIndexes(lv_taskCode));
+    libARRA_gf_ListClear(libARRA_gf_MapTriggerIndexes(lv_taskCode));
+    libARRA_gf_ListClear(libARRA_gf_MapTimerIndexes(lv_taskCode));
+    auto285896C2_ai = 1;
+    auto285896C2_ae = libARRA_gf_ListSize(lv_timers);
+    while (auto285896C2_ai <= auto285896C2_ae) {
+        lv_indexKey = libARRA_gf_ListStringGet(lv_timers, auto285896C2_ai);
+        auto285896C2_ai = auto285896C2_ai+1;
+        libNtve_gf_StopTimer(libARRA_gf_TimerStoredForTask(libARRA_gv_task, lv_indexKey));
+    }
+    libARRA_gf_ListClear(libARRA_gf_MapTextIndexes(lv_taskCode));
+    libARRA_gf_ListClear(libARRA_gf_MapObjectiveIndexes(lv_taskCode));
+    libARRA_gf_ListClear(libARRA_gf_MapActorIndexes(lv_taskCode));
+}
+
+void libARRA_gf_TaskRun (int lp_task, trigger lp_trigger, bool lp_wait) {
+    // Variable Declarations
+    int lv_storedTask;
+    int lv_storedParent;
+    int lv_storedListener;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_storedTask = libARRA_gv_task;
+    lv_storedParent = libARRA_gv_parent;
+    lv_storedListener = libARRA_gv_listener;
+
+    // Implementation
+    if ((libARRA_gf_IntegerForTask(lp_task, "State") != libARRA_gv_stateActive) && (libARRA_gf_IntegerForTask(lp_task, "State") != libARRA_gv_stateUndiscovered)) {
+        return ;
+    }
+
+    libARRA_gf_SetTriggeringTask(lp_task);
+    if ((lp_wait == true)) {
+        TriggerExecute(lp_trigger, true, true);
+    }
+    else {
+        TriggerExecute(lp_trigger, true, false);
+    }
+    libARRA_gv_task = lv_storedTask;
+    libARRA_gv_parent = lv_storedParent;
+    libARRA_gv_listener = lv_storedListener;
+}
+
+void libARRA_gf_TaskIncrementValue (int lp_task, string lp_index) {
+    // Automatic Variable Declarations
+    // Implementation
+    libARRA_gf_StoreIntegerForTask(lp_task, lp_index, (libARRA_gf_IntegerForTask(lp_task, lp_index) + 1));
+}
+
+void libARRA_gf_TaskIncreaseValueInt (int lp_task, string lp_index, int lp_value) {
+    // Automatic Variable Declarations
+    // Implementation
+    libARRA_gf_StoreIntegerForTask(lp_task, lp_index, (libARRA_gf_IntegerForTask(lp_task, lp_index) + lp_value));
+}
+
+void libARRA_gf_TaskIncreaseValueReal (int lp_task, string lp_index, fixed lp_value) {
+    // Automatic Variable Declarations
+    // Implementation
+    libARRA_gf_StoreRealForTask(lp_task, lp_index, (libARRA_gf_RealForTask(lp_task, lp_index) + lp_value));
+}
+
+string libARRA_gf_TaskType (int lp_task) {
+    // Automatic Variable Declarations
+    // Implementation
+    return libARRA_gf_StringForTask(lp_task, "Type");
+}
+
+int libARRA_gf_TaskParent (int lp_task) {
+    // Automatic Variable Declarations
+    // Implementation
+    return libARRA_gf_IntegerForTask(lp_task, "Parent");
+}
+
+int libARRA_gf_TaskTeam (int lp_task) {
+    // Automatic Variable Declarations
+    // Implementation
+    return libARRA_gf_IntegerForTask2(libARRA_gv_task, "Team");
+}
+
+int libARRA_gf_TaskState (int lp_task) {
+    // Automatic Variable Declarations
+    // Implementation
+    return libARRA_gf_IntegerForTask(lp_task, "State");
+}
+
+bool libARRA_gf_TaskActive (int lp_task) {
+    // Automatic Variable Declarations
+    // Implementation
+    if (((libARRA_gf_IntegerForTask(lp_task, "State") == libARRA_gv_stateUndiscovered) || (libARRA_gf_IntegerForTask(lp_task, "State") == libARRA_gv_stateActive))) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
+void libARRA_gf_TaskStart (int lp_task) {
+    // Variable Declarations
+    int lv_task;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_task = lp_task;
+
+    // Implementation
+    if ((libARRA_gf_IntegerForTask(lv_task, "State") != libARRA_gv_stateUndiscovered)) {
+        return ;
+    }
+
+    libARRA_gf_StoreIntegerForTask(lv_task, "State", libARRA_gv_stateActive);
+    libARRA_gf_Taskemit(lv_task, "Start", "");
+    if ((libARRA_gf_ObjectiveStoredForTask(lv_task, "Objective") != c_invalidObjectiveId)) {
+        ObjectiveSetState(libARRA_gf_ObjectiveStoredForTask(lv_task, "Objective"), c_objectiveStateActive);
+        ObjectiveSetName(libARRA_gf_ObjectiveStoredForTask(lv_task, "Objective"), libARRA_gf_TaskObjectiveText(lv_task));
+        ObjectiveShow(libARRA_gf_ObjectiveStoredForTask(lv_task, "Objective"), libARRA_gf_GetTeamPlayers(libARRA_gf_IntegerForTask2(libARRA_gv_task, "Team")), true);
+    }
+
+}
+
+void libARRA_gf_TaskComplete (int lp_task) {
+    // Automatic Variable Declarations
+    // Implementation
+    if ((libARRA_gf_IntegerForTask(lp_task, "State") != libARRA_gv_stateActive)) {
+        return ;
+    }
+
+    libARRA_gf_StoreIntegerForTask(lp_task, "State", libARRA_gv_stateCompleted);
+    libARRA_gf_Taskemit(lp_task, "Complete", "");
+    libARRA_gf_TaskRun(lp_task, libARRA_gf_TriggerStoredForTask2(lp_task, "Complete"), true);
+    libARRA_gf_Taskemit(lp_task, "End", "");
+    libARRA_gf_TaskRun(lp_task, libARRA_gf_TriggerStoredForTask2(lp_task, "End"), true);
+    if ((libARRA_gf_ObjectiveStoredForTask(lp_task, "Objective") != c_invalidObjectiveId)) {
+        ObjectiveSetState(libARRA_gf_ObjectiveStoredForTask(lp_task, "Objective"), c_objectiveStateCompleted);
+        ObjectiveSetName(libARRA_gf_ObjectiveStoredForTask(lp_task, "Objective"), libARRA_gf_TaskObjectiveText(lp_task));
+    }
+
+    Wait(libARRA_gf_RealForTask2(libARRA_gv_task, "ObjectiveDelay"), c_timeReal);
+    libARRA_gf_TaskFree(lp_task);
+}
+
+void libARRA_gf_TaskFail (int lp_task) {
+    // Automatic Variable Declarations
+    // Implementation
+    if ((libARRA_gf_IntegerForTask(lp_task, "State") != libARRA_gv_stateActive)) {
+        return ;
+    }
+
+    libARRA_gf_StoreIntegerForTask(lp_task, "State", libARRA_gv_stateFailed);
+    libARRA_gf_Taskemit(lp_task, "Fail", "");
+    libARRA_gf_TaskRun(lp_task, libARRA_gf_TriggerStoredForTask2(lp_task, "Fail"), true);
+    libARRA_gf_Taskemit(lp_task, "End", "");
+    libARRA_gf_TaskRun(lp_task, libARRA_gf_TriggerStoredForTask2(lp_task, "End"), true);
+    if ((libARRA_gf_ObjectiveStoredForTask(lp_task, "Objective") != c_invalidObjectiveId)) {
+        ObjectiveSetState(libARRA_gf_ObjectiveStoredForTask(lp_task, "Objective"), c_objectiveStateFailed);
+        ObjectiveSetName(libARRA_gf_ObjectiveStoredForTask(lp_task, "Objective"), libARRA_gf_TaskObjectiveText(lp_task));
+    }
+
+    Wait(libARRA_gf_RealForTask2(libARRA_gv_task, "ObjectiveDelay"), c_timeReal);
+    libARRA_gf_TaskFree(lp_task);
+}
+
+void libARRA_gf_TaskIncreaseProgress (int lp_task) {
+    // Variable Declarations
+    int lv_task;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_task = lp_task;
+
+    // Implementation
+    libARRA_gf_StoreIntegerForTask(lv_task, "Progress", (libARRA_gf_IntegerForTask(lv_task, "Progress") + 1));
+    if ((libARRA_gf_IntegerForTask(lv_task, "Progress") >= libARRA_gf_IntegerForTask(lv_task, "Goal"))) {
+        libARRA_gf_TaskComplete(lv_task);
+    }
+    else {
+        libARRA_gf_Taskemit(lv_task, "Progress", "");
+    }
+    libARRA_gf_TaskUpdateObjective(lp_task);
+}
+
+void libARRA_gf_TaskIncreaseFail (int lp_task) {
+    // Variable Declarations
+    int lv_task;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_task = lp_task;
+
+    // Implementation
+    libARRA_gf_StoreIntegerForTask(lv_task, "Fail", (libARRA_gf_IntegerForTask(lv_task, "Fail") + 1));
+    libARRA_gf_TaskUpdateObjective(lp_task);
+}
+
+void libARRA_gf_TaskIncreaseGoal (int lp_task) {
+    // Variable Declarations
+    int lv_task;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_task = lp_task;
+
+    // Implementation
+    libARRA_gf_StoreIntegerForTask(lv_task, "Goal", (libARRA_gf_IntegerForTask(lv_task, "Goal") + 1));
+    libARRA_gf_TaskUpdateObjective(lp_task);
+}
+
+int libARRA_gf_TaskGoal (int lp_task) {
+    // Automatic Variable Declarations
+    // Implementation
+    return libARRA_gf_IntegerForTask(lp_task, "Goal");
+}
+
+int libARRA_gf_TaskProgress (int lp_task) {
+    // Automatic Variable Declarations
+    // Implementation
+    return libARRA_gf_IntegerForTask(lp_task, "Progress");
+}
+
+int libARRA_gf_TaskFails (int lp_task) {
+    // Automatic Variable Declarations
+    // Implementation
+    return libARRA_gf_IntegerForTask(lp_task, "Fails");
+}
+
+void libARRA_gf_TaskUpdateObjective (int lp_task) {
+    // Variable Declarations
+    int lv_objective;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_objective = libARRA_gf_ObjectiveStoredForTask(lp_task, "Objective");
+
+    // Implementation
+    if ((lv_objective != c_invalidObjectiveId)) {
+        ObjectiveSetName(lv_objective, libARRA_gf_TaskObjectiveText(lp_task));
+    }
+
+}
+
+text libARRA_gf_TaskObjectiveText (int lp_objective2) {
+    // Variable Declarations
+    int lv_objectiveProgress;
+    int lv_objectiveGoal;
+    text lv_name;
+    int lv_objectiveType;
+    text lv_bonusText;
+    int lv_bonusModifier;
+    timer lv_expireTimer;
+    fixed lv_timeRemaining;
+    text lv_timeRemainingText;
+    color lv_timeRemainingColor;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_objectiveProgress = libARRA_gf_IntegerForTask(lp_objective2, "Progress");
+    lv_objectiveGoal = libARRA_gf_IntegerForTask(lp_objective2, "Goal");
+    lv_name = libARRA_gf_TextForTask(lp_objective2, "ObjectiveName");
+    lv_objectiveType = libARRA_gf_IntegerForTask(lp_objective2, "ObjectiveType");
+    lv_bonusText = StringToText("");
+    lv_bonusModifier = UserDataGetInt("GameSettings", "GameValues", "ExperienceBonusObjectiveModifier", 1);
+    lv_expireTimer = libARRA_gf_TimerStoredForTask(lp_objective2, "Expire");
+    lv_timeRemainingColor = Color(0,0,0);
+
+    // Implementation
+    if ((libARRA_gf_IntegerForTask(lp_objective2, "State") == libARRA_gv_stateActive)) {
+        lv_name = TextReplaceWord(lv_name, StringExternal("Param/Value/lib_ARRA_102CA277"), IntToText(lv_objectiveProgress), c_stringReplaceAll, c_stringCase);
+        lv_name = TextReplaceWord(lv_name, StringExternal("Param/Value/lib_ARRA_87B9CACE"), IntToText(lv_objectiveGoal), c_stringReplaceAll, c_stringCase);
+        if ((lv_expireTimer != null)) {
+            lv_timeRemaining = TimerGetRemaining(lv_expireTimer);
+            lv_timeRemainingText = TextTimeFormat(StringToText("<mintotal/>:<sec2/>"), FixedToInt(lv_timeRemaining));
+            if ((lv_timeRemaining > 60.0)) {
+                lv_timeRemainingColor = Color(0.00, 100.00, 25.10);
+            }
+            else {
+                lv_timeRemainingColor = Color(100.00, 100.00, 0.00);
+            }
+            TextExpressionSetToken("Param/Expression/lib_ARRA_F69BD9A3", "coloredTime", TextWithColor(lv_timeRemainingText, lv_timeRemainingColor));
+            lv_name = TextReplaceWord(lv_name, StringExternal("Param/Value/lib_ARRA_EB60C632"), TextExpressionAssemble("Param/Expression/lib_ARRA_F69BD9A3"), c_stringReplaceAll, c_stringCase);
+        }
+
+    }
+    else {
+        lv_name = TextReplaceWord(lv_name, StringExternal("Param/Value/lib_ARRA_CB05D303"), StringExternal("Param/Value/lib_ARRA_2DC31FE4"), c_stringReplaceAll, c_stringCase);
+        lv_name = TextReplaceWord(lv_name, StringExternal("Param/Value/lib_ARRA_1709FAB1"), StringExternal("Param/Value/lib_ARRA_645365C7"), c_stringReplaceAll, c_stringCase);
+    }
+    if ((libARRA_gf_IntegerForTask(lp_objective2, "State") == libARRA_gv_stateCompleted)) {
+        TextExpressionSetToken("Param/Expression/lib_ARRA_8D2B47C1", "A", lv_name);
+        lv_name = TextExpressionAssemble("Param/Expression/lib_ARRA_8D2B47C1");
+    }
+
+    if (((lv_bonusText != null) == false) && (lv_objectiveType == 2) && (lv_bonusModifier > 0)) {
+        lv_bonusText = StringExternal("Param/Value/lib_ARRA_10E75E2B");
+    }
+
+    if (((lv_bonusText != null) == true)) {
+        TextExpressionSetToken("Param/Expression/lib_ARRA_21F0E63E", "A", lv_name);
+        TextExpressionSetToken("Param/Expression/lib_ARRA_21F0E63E", "B", lv_bonusText);
+        lv_name = TextExpressionAssemble("Param/Expression/lib_ARRA_21F0E63E");
+    }
+
+    if ((libARRA_gf_IntegerForTask(lp_objective2, "State") == libARRA_gv_stateCompleted)) {
+        TextExpressionSetToken("Param/Expression/lib_ARRA_142C7EA6", "A", lv_name);
+        lv_name = TextExpressionAssemble("Param/Expression/lib_ARRA_142C7EA6");
+    }
+
+    return lv_name;
+}
+
+void libARRA_gf_TaskObjective (int lp_task, string lp_objective, bool lp_objectiveType) {
+    // Variable Declarations
+    text lv_name;
+    string lv_name3;
+    text lv_name2;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_name = StringExternal(CatalogFieldValueGet(c_gameCatalogObjective, lp_objective, "Name", c_playerAny));
+    lv_name3 = CatalogFieldValueGet(c_gameCatalogObjective, lp_objective, "Name", c_playerAny);
+    lv_name2 = StringExternal(CatalogFieldValueGet(c_gameCatalogObjective, lp_objective, "Description", c_playerAny));
+
+    // Implementation
+    if ((StringContains(lv_name3, "(", c_stringAnywhere, c_stringNoCase) == true) && (StringContains(lv_name3, ")", c_stringAnywhere, c_stringNoCase) == true)) {
+        lv_name = TextReplaceWord(lv_name, StringExternal("Param/Value/lib_ARRA_E57CA99A"), StringExternal("Param/Value/lib_ARRA_B0B15CAE"), c_stringReplaceAll, c_stringCase);
+        lv_name = TextReplaceWord(lv_name, StringExternal("Param/Value/lib_ARRA_D886738D"), StringExternal("Param/Value/lib_ARRA_6B8830F9"), c_stringReplaceAll, c_stringCase);
+    }
+
+    ObjectiveCreate(lv_name, lv_name2, c_objectiveStateHidden, lp_objectiveType);
+    libARRA_gf_StoreObjectiveForTask(lp_task, "Objective", ObjectiveLastCreated());
+    if ((lp_objectiveType == true)) {
+        libARRA_gf_StoreIntegerForTask(lp_task, "ObjectiveType", 1);
+    }
+    else {
+        libARRA_gf_StoreIntegerForTask(lp_task, "ObjectiveType", 2);
+    }
+    libARRA_gf_StoreTextForTask(lp_task, "ObjectiveName", lv_name);
+}
+
+void libARRA_gf_ListernerCreate (int lp_subscriber, int lp_observableType, int lp_observable, string lp_event, trigger lp_trigger) {
+    // Variable Declarations
+    string lv_eventString;
+    string lv_eventType;
+
+    // Automatic Variable Declarations
+    int auto706023E7_val;
+
+    // Variable Initialization
+    lv_eventString = "";
+    lv_eventType = "";
+
+    // Implementation
+    auto706023E7_val = lp_observableType;
+    if (auto706023E7_val == libARRA_ge_ListenerType_Task) {
+        lv_eventType = "#";
+    }
+    else if (auto706023E7_val == libARRA_ge_ListenerType_Tracker) {
+        lv_eventType = "&";
+    }
+    else {
+    }
+    lv_eventString = (lv_eventType + IntToString(lp_observable) + "@" + lp_event);
+    libARRA_gv_eventListenersCreated += 1;
+    DataTableSetInt(true, ("@" + IntToString(libARRA_gv_eventListenersCreated) + "O"), lp_observable);
+    DataTableSetInt(true, ("@" + IntToString(libARRA_gv_eventListenersCreated) + "T"), lp_subscriber);
+    DataTableSetTrigger(true, ("@" + IntToString(libARRA_gv_eventListenersCreated) + "R"), lp_trigger);
+    DataTableSetString(true, ("@" + IntToString(libARRA_gv_eventListenersCreated) + "E"), lp_event);
+    DataTableSetString(true, ("@" + IntToString(libARRA_gv_eventListenersCreated) + "Y"), lv_eventType);
+    libARRA_gf_ListIntPush(lv_eventString, libARRA_gv_eventListenersCreated);
+}
+
+void libARRA_gf_ListenerOff (int lp_listener) {
+    // Variable Declarations
+    string lv_eventString;
+    int lv_listener;
+    string lv_event;
+    int lv_task;
+    int lv_observable;
+    string lv_observableType;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_eventString = "";
+    lv_listener = lp_listener;
+    lv_event = DataTableGetString(true, ("@" + IntToString(lp_listener) + "E"));
+    lv_task = DataTableGetInt(true, ("@" + IntToString(lv_listener) + "T"));
+    lv_observable = DataTableGetInt(true, ("@" + IntToString(lv_listener) + "O"));
+    lv_observableType = DataTableGetString(true, ("@" + IntToString(lp_listener) + "Y"));
+
+    // Implementation
+    lv_eventString = (lv_observableType + IntToString(lv_observable) + "@" + lv_event);
+    libARRA_gf_ListIntExclude(lv_eventString, lp_listener);
+}
+
+void libARRA_gf_ListenerOn (int lp_listener) {
+    // Variable Declarations
+    string lv_eventString;
+    int lv_listener;
+    string lv_event;
+    int lv_task;
+    int lv_observable;
+    string lv_observableType;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_eventString = "";
+    lv_listener = lp_listener;
+    lv_event = DataTableGetString(true, ("@" + IntToString(lp_listener) + "E"));
+    lv_task = DataTableGetInt(true, ("@" + IntToString(lp_listener) + "T"));
+    lv_observable = DataTableGetInt(true, ("@" + IntToString(lp_listener) + "O"));
+    lv_observableType = DataTableGetString(true, ("@" + IntToString(lp_listener) + "Y"));
+
+    // Implementation
+    lv_eventString = (lv_observableType + IntToString(lv_observable) + "@" + lv_event);
+    libARRA_gf_ListIntInclude(lv_eventString, lp_listener);
+}
+
+string libARRA_gf_EventListenerstoString (string lp_eventString) {
+    // Variable Declarations
+    string lv_eventString;
+    int lv_listeners;
+    trigger lv_trigger;
+    int lv_listenerID;
+    int lv_task;
+    string lv_debug;
+    string lv_func;
+
+    // Automatic Variable Declarations
+    int auto889FCAF3_ai;
+    int auto889FCAF3_ae;
+
+    // Variable Initialization
+    lv_eventString = lp_eventString;
+    lv_listeners = DataTableGetInt(true, lv_eventString);
+    lv_func = "";
+
+    // Implementation
+    if ((libARRA_gf_ListIsEmpty(lv_eventString) == true)) {
+        lv_debug = (lv_debug + ("-"));
+    }
+    else {
+        auto889FCAF3_ai = 1;
+        auto889FCAF3_ae = libARRA_gf_ListSize(lv_eventString);
+        while (auto889FCAF3_ai <= auto889FCAF3_ae) {
+            lv_listenerID = libARRA_gf_ListIntGet(lv_eventString, auto889FCAF3_ai);
+            auto889FCAF3_ai = auto889FCAF3_ai+1;
+            lv_task = DataTableGetInt(true, ("@" + IntToString(lv_listenerID) + "T"));
+            lv_trigger = DataTableGetTrigger(true, ("@" + IntToString(lv_listenerID) + "R"));
+            lv_func = TriggerGetFunction(lv_trigger);
+            lv_func = StringReplaceWord(lv_func, "gt_", "", 1, c_stringCase);
+            lv_func = StringReplaceWord(lv_func, "_Func", "", 1, c_stringCase);
+            lv_debug = (lv_debug + (" " + libARRA_gf_StringForTask(lv_task, "Type") + "#" + IntToString(lv_listenerID) + "." + lv_func + " "));
+        }
+    }
+    return lv_debug;
+}
+
+string libARRA_gf_GetMessageParameter (string lp_index) {
+    // Variable Declarations
+    int lv_word;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_word = 1;
+
+    // Implementation
+    while ((StringWord(libARRA_gv_emittedMessage, lv_word) != null)) {
+        if ((StringWord(libARRA_gv_emittedMessage, lv_word) == lp_index) && (StringWord(libARRA_gv_emittedMessage, (lv_word + 1)) != null)) {
+            return StringWord(libARRA_gv_emittedMessage, (lv_word + 1));
+        }
+
+        lv_word += 2;
+    }
+    return null;
+}
+
+void libARRA_gf_Trackeremit (int lp_tracker, string lp_event, string lp_message) {
+    // Automatic Variable Declarations
+    // Implementation
+    libARRA_gv_emittedTracker = lp_tracker;
+    libARRA_gf_TaskemitType(lp_tracker, libARRA_ge_ListenerType_Tracker, lp_event, lp_message);
+}
+
+void libARRA_gf_Taskemit (int lp_task, string lp_event, string lp_message) {
+    // Automatic Variable Declarations
+    // Implementation
+    libARRA_gv_emittedTask = lp_task;
+    libARRA_gf_TaskemitType(lp_task, libARRA_ge_ListenerType_Task, lp_event, lp_message);
+}
+
+void libARRA_gf_TaskemitType (int lp_task, int lp_type, string lp_event, string lp_message) {
+    // Variable Declarations
+    string lv_eventString;
+    int lv_listeners;
+    trigger lv_trigger;
+    int lv_listener;
+    int lv_eventTask;
+    string lv_eventType;
+    string lv_instanceName;
+    int lv_storedListener;
+
+    // Automatic Variable Declarations
+    int autoD9970212_val;
+    int auto78C6E46C_ai;
+    int auto78C6E46C_ae;
+
+    // Variable Initialization
+    lv_eventString = "";
+    lv_listeners = DataTableGetInt(true, lv_eventString);
+    lv_trigger = libARRA_gf_MapTriggerGet("@", IntToString(lv_listener));
+    lv_eventType = "";
+    lv_instanceName = "";
+    lv_storedListener = libARRA_gv_listener;
+
+    // Implementation
+    autoD9970212_val = lp_type;
+    if (autoD9970212_val == libARRA_ge_ListenerType_Task) {
+        lv_eventType = "#";
+        lv_instanceName = libARRA_gf_StringForTask(lp_task, "Type");
+    }
+    else if (autoD9970212_val == libARRA_ge_ListenerType_Tracker) {
+        lv_eventType = "&";
+        lv_instanceName = DataTableGetString(true, ("&" + IntToString(lp_task) + "ID"));
+    }
+    else {
+    }
+    lv_eventString = (lv_eventType + IntToString(lp_task) + "@" + lp_event);
+    if ((libARRA_gf_ListIsEmpty(lv_eventString) == true)) {
+        return ;
+    }
+
+    auto78C6E46C_ai = 1;
+    auto78C6E46C_ae = libARRA_gf_ListSize(lv_eventString);
+    while (auto78C6E46C_ai <= auto78C6E46C_ae) {
+        lv_listener = libARRA_gf_ListIntGet(lv_eventString, auto78C6E46C_ai);
+        auto78C6E46C_ai = auto78C6E46C_ai+1;
+        libARRA_gv_listener = lv_listener;
+        libARRA_gv_emittedEvent = lp_event;
+        libARRA_gv_emittedMessage = lp_message;
+        lv_eventTask = DataTableGetInt(true, ("@" + IntToString(lv_listener) + "T"));
+        lv_trigger = DataTableGetTrigger(true, ("@" + IntToString(lv_listener) + "R"));
+        libARRA_gf_TaskRun(lv_eventTask, lv_trigger, false);
+    }
+    libARRA_gv_listener = lv_storedListener;
+}
+
+void libARRA_gf_TaskonTask (int lp_thisTask, int lp_observableTask, string lp_event, trigger lp_trigger) {
+    // Automatic Variable Declarations
+    // Implementation
+    libARRA_gf_ListernerCreate(lp_thisTask, libARRA_ge_ListenerType_Task, lp_observableTask, lp_event, lp_trigger);
+}
+
+void libARRA_gf_TaskonTracker (int lp_thisTask, int lp_observableTracker, string lp_event, trigger lp_trigger) {
+    // Automatic Variable Declarations
+    // Implementation
+    libARRA_gf_ListernerCreate(lp_thisTask, libARRA_ge_ListenerType_Tracker, lp_observableTracker, lp_event, lp_trigger);
+}
+
+void libARRA_gf_Taskon (int lp_thisTask, string lp_event, trigger lp_trigger) {
+    // Automatic Variable Declarations
+    // Implementation
+    libARRA_gf_ListernerCreate(lp_thisTask, libARRA_ge_ListenerType_Task, lp_thisTask, lp_event, lp_trigger);
+}
+
+void libARRA_gf_RunMissionVictorySequence4 (int lp_task, fixed lp_period, trigger lp_trigger) {
+    // Automatic Variable Declarations
+    // Implementation
+    libARRA_gv_periodicEventsCreated += 1;
+    libARRA_gf_ListIntPush(libARRA_gv_pERIODICEVENTS, libARRA_gv_periodicEventsCreated);
+    DataTableSetFixed(true, ("PERIODIC_EVENT_PERIOD_" + IntToString(libARRA_gv_periodicEventsCreated)), lp_period);
+    libARRA_gv_pickedPrecision = lp_period;
+    libARRA_gv_pickedPeridocEventTrigger = lp_trigger;
+    libARRA_gf_TaskRun(lp_task, libARRA_gt_CreatePeridocEvent, false);
+}
+
+void libARRA_gf_RunMissionVictorySequence5 (int lp_periodic) {
+    // Automatic Variable Declarations
+    // Implementation
+    libARRA_gf_ListIntExclude(libARRA_gv_pERIODICEVENTS, lp_periodic);
+    DataTableSetFixed(true, ("PERIODIC_EVENT_PERIOD_" + IntToString(lp_periodic)), 0.0);
+}
+
+int libARRA_gf_TriggeringPeriodic () {
+    // Automatic Variable Declarations
+    // Implementation
+    return libARRA_gv_triggeringPeriodicEvent;
+}
+
+void libARRA_gf_RunMissionVictorySequence6 (int lp_task, fixed lp_delay, trigger lp_trigger) {
+    // Automatic Variable Declarations
+    // Implementation
+    libARRA_gv_taskTimeoutDelay = lp_delay;
+    libARRA_gv_taskTimeoutTrigger = lp_trigger;
+    libARRA_gf_TaskRun(lp_task, libARRA_gt_TaskTimeoutTrigger, false);
+}
+
+trigger auto_libARRA_gf_RunMissionVictorySequence7_Trigger = null;
+int auto_libARRA_gf_RunMissionVictorySequence7_lp_task;
+fixed auto_libARRA_gf_RunMissionVictorySequence7_lp_delay;
+trigger auto_libARRA_gf_RunMissionVictorySequence7_lp_completeTrigger;
+
+void libARRA_gf_RunMissionVictorySequence7 (int lp_task, fixed lp_delay, trigger lp_completeTrigger) {
+    auto_libARRA_gf_RunMissionVictorySequence7_lp_task = lp_task;
+    auto_libARRA_gf_RunMissionVictorySequence7_lp_delay = lp_delay;
+    auto_libARRA_gf_RunMissionVictorySequence7_lp_completeTrigger = lp_completeTrigger;
+
+    if (auto_libARRA_gf_RunMissionVictorySequence7_Trigger == null) {
+        auto_libARRA_gf_RunMissionVictorySequence7_Trigger = TriggerCreate("auto_libARRA_gf_RunMissionVictorySequence7_TriggerFunc");
+    }
+
+    TriggerExecute(auto_libARRA_gf_RunMissionVictorySequence7_Trigger, false, false);
+}
+
+bool auto_libARRA_gf_RunMissionVictorySequence7_TriggerFunc (bool testConds, bool runActions) {
+    int lp_task = auto_libARRA_gf_RunMissionVictorySequence7_lp_task;
+    fixed lp_delay = auto_libARRA_gf_RunMissionVictorySequence7_lp_delay;
+    trigger lp_completeTrigger = auto_libARRA_gf_RunMissionVictorySequence7_lp_completeTrigger;
+
+    // Variable Declarations
+    int lv_task;
+
+    // Automatic Variable Declarations
+    int auto0005B87D_saved_task;
+    int auto0005B87D_saved_parent;
+    int auto0005B87D_saved_listener;
+
+    // Variable Initialization
+    lv_task = lp_task;
+
+    // Implementation
+    libARRA_gf_TaskTimer(lv_task, "Expire", lp_delay, lp_completeTrigger);
+    TimerPause(libARRA_gf_TimerStoredForTask(lv_task, "Expire"), true);
+    libARRA_gf_RunMissionVictorySequence4(lv_task, 1.0, libARRA_gt_UpdateObjective);
+    auto0005B87D_saved_task   = libARRA_gv_task;
+    auto0005B87D_saved_parent = libARRA_gv_parent;
+    auto0005B87D_saved_listener = libARRA_gv_listener;
+    Wait(6.0, c_timeReal ); //Async
+    libARRA_gv_task   = auto0005B87D_saved_task;
+    libARRA_gv_parent = auto0005B87D_saved_parent;
+    libARRA_gv_listener = auto0005B87D_saved_listener;
+    if(libARRA_gf_TaskActive(lv_task) == false){return true;}
+    TimerPause(libARRA_gf_TimerStoredForTask(lv_task, "Expire"), false);
+    return true;
+}
+
+void libARRA_gf_TaskTimer (int lp_task, string lp_index, fixed lp_delay, trigger lp_trigger) {
+    // Variable Declarations
+    timer lv_timer;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_timer = TimerCreate();
+
+    // Implementation
+    TimerStart(lv_timer, lp_delay, false, c_timeReal);
+    libARRA_gv_timerTrackersCreated += 1;
+    libARRA_gf_ListIntPush(libARRA_gv_tIMERTRACKERSLIST, libARRA_gv_timerTrackersCreated);
+    DataTableSetInt(true, ("TIMER_TASK_" + IntToString(libARRA_gv_timerTrackersCreated)), lp_task);
+    DataTableSetTrigger(true, ("TIMER_TRIGGER_" + IntToString(libARRA_gv_timerTrackersCreated)), lp_trigger);
+    DataTableSetTimer(true, ("TIMER_" + IntToString(libARRA_gv_timerTrackersCreated)), lv_timer);
+    libARRA_gf_StoreObjectiveForTask2(libARRA_gv_task, lp_index, TimerLastStarted());
+}
+
+void libARRA_gf_TrackerCreateUnit (unit lp_unit, string lp_id) {
+    // Variable Declarations
+    int lv_tracker;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+
+    // Implementation
+    libARRA_gf_TrackerCreate(libNtve_gf_ConvertUnitToUnitGroup(lp_unit), lp_id);
+}
+
+void libARRA_gf_TrackerCreate (unitgroup lp_units, string lp_id) {
+    // Variable Declarations
+    int lv_tracker;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+
+    // Implementation
+    libARRA_gv_unitTrackersCreated += 1;
+    lv_tracker = libARRA_gv_unitTrackersCreated;
+    libARRA_gf_ListIntPush(libARRA_gv_tRACKERS, lv_tracker);
+    DataTableSetUnitGroup(true, ("&" + IntToString(lv_tracker)), lp_units);
+    DataTableSetString(true, ("&" + IntToString(lv_tracker) + "ID"), lp_id);
+    libARRA_gv_tracker = lv_tracker;
+}
+
+void libARRA_gf_TaskEmergency (int lp_task, region lp_region, trigger lp_trigger) {
+    // Automatic Variable Declarations
+    // Implementation
+    libARRA_gf_StoreRegionForTask(lp_task, "EmergencyStartRegion", lp_region);
+    libARRA_gf_StoreTriggerForTask(lp_task, "EmergencyStartTrigger", lp_trigger);
+    libARRA_gf_RunMissionVictorySequence4(lp_task, 0.125, libARRA_gt_CheckEmergencyStartRegion);
+}
+
+string libARRA_gf_StringForTask (int lp_unit, string lp_index) {
+    // Variable Declarations
+    string lv_map;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_map = ("TASK_" + IntToString(lp_unit));
+
+    // Implementation
+    return libARRA_gf_MapStringGet(lv_map, lp_index);
+}
+
+fixed libARRA_gf_RealForTask (int lp_unit, string lp_index) {
+    // Variable Declarations
+    string lv_map;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_map = ("TASK_" + IntToString(lp_unit));
+
+    // Implementation
+    return libARRA_gf_MapRealGet(lv_map, lp_index);
+}
+
+int libARRA_gf_IntegerForTask (int lp_unit, string lp_index) {
+    // Variable Declarations
+    string lv_map;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_map = ("TASK_" + IntToString(lp_unit));
+
+    // Implementation
+    return libARRA_gf_MapIntGet(lv_map, lp_index);
+}
+
+region libARRA_gf_RegionForTask (int lp_unit, string lp_index) {
+    // Variable Declarations
+    string lv_map;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_map = ("TASK_" + IntToString(lp_unit));
+
+    // Implementation
+    return libARRA_gf_MapRegionGet(lv_map, lp_index);
+}
+
+text libARRA_gf_TextForTask (int lp_unit, string lp_index) {
+    // Variable Declarations
+    string lv_map;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_map = ("TASK_" + IntToString(lp_unit));
+
+    // Implementation
+    return libARRA_gf_MapTextGet(lv_map, lp_index);
+}
+
+unit libARRA_gf_UnitForTask (int lp_unit, string lp_index) {
+    // Variable Declarations
+    string lv_map;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_map = ("TASK_" + IntToString(lp_unit));
+
+    // Implementation
+    return libARRA_gf_MapUnitGet(lv_map, lp_index);
+}
+
+actor libARRA_gf_ActorForTask (int lp_unit, string lp_index) {
+    // Variable Declarations
+    string lv_map;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_map = ("TASK_" + IntToString(lp_unit));
+
+    // Implementation
+    return libARRA_gf_MapActorGet(lv_map, lp_index);
+}
+
+point libARRA_gf_PointStoredForTask (int lp_unit, string lp_index) {
+    // Variable Declarations
+    string lv_map;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_map = ("TASK_" + IntToString(lp_unit));
+
+    // Implementation
+    return libARRA_gf_MapPointGet(lv_map, lp_index);
+}
+
+int libARRA_gf_PingStoredForTask (int lp_unit, string lp_index) {
+    // Variable Declarations
+    string lv_map;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_map = ("TASK_" + IntToString(lp_unit));
+
+    // Implementation
+    return libARRA_gf_MapPingGet(lv_map, lp_index);
+}
+
+revealer libARRA_gf_RevealerStoredForTask (int lp_unit, string lp_index) {
+    // Variable Declarations
+    string lv_map;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_map = ("TASK_" + IntToString(lp_unit));
+
+    // Implementation
+    return libARRA_gf_MapRevealerGet(lv_map, lp_index);
+}
+
+unitgroup libARRA_gf_UnitGroupStoredForTask (int lp_unit, string lp_index) {
+    // Variable Declarations
+    string lv_map;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_map = ("TASK_" + IntToString(lp_unit));
+
+    // Implementation
+    return libARRA_gf_MapUnitGroupGet(lv_map, lp_index);
+}
+
+trigger libARRA_gf_TriggerStoredForTask (int lp_unit, string lp_index) {
+    // Variable Declarations
+    string lv_map;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_map = ("TASK_" + IntToString(lp_unit));
+
+    // Implementation
+    return libARRA_gf_MapTriggerGet(lv_map, lp_index);
+}
+
+int libARRA_gf_ObjectiveStoredForTask (int lp_unit, string lp_index) {
+    // Variable Declarations
+    string lv_map;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_map = ("TASK_" + IntToString(lp_unit));
+
+    // Implementation
+    return libARRA_gf_MapObjectiveGet(lv_map, lp_index);
+}
+
+timer libARRA_gf_TimerStoredForTask (int lp_unit, string lp_index) {
+    // Variable Declarations
+    string lv_map;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_map = ("TASK_" + IntToString(lp_unit));
+
+    // Implementation
+    return libARRA_gf_MapTimerGet(lv_map, lp_index);
+}
+
+string libARRA_gf_StringForTask2 (int lp_unit, string lp_index) {
+    // Variable Declarations
+    string lv_map;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_map = ("TASK_" + IntToString(lp_unit));
+
+    // Implementation
+    if ((libARRA_gf_MapStringIncludes(lv_map, lp_index) == false) && (libARRA_gf_IntegerForTask(lp_unit, "Parent") != 0)) {
+        return libARRA_gf_StringForTask2(libARRA_gf_IntegerForTask(lp_unit, "Parent"), lp_index);
+    }
+    else {
+        return libARRA_gf_MapStringGet(lv_map, lp_index);
+    }
+}
+
+fixed libARRA_gf_RealForTask2 (int lp_unit, string lp_index) {
+    // Variable Declarations
+    string lv_map;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_map = ("TASK_" + IntToString(lp_unit));
+
+    // Implementation
+    if ((libARRA_gf_MapRealIncludes(lv_map, lp_index) == false) && (libARRA_gf_IntegerForTask(lp_unit, "Parent") != 0)) {
+        return libARRA_gf_RealForTask2(libARRA_gf_IntegerForTask(lp_unit, "Parent"), lp_index);
+    }
+    else {
+        return libARRA_gf_MapRealGet(lv_map, lp_index);
+    }
+}
+
+int libARRA_gf_IntegerForTask2 (int lp_unit, string lp_index) {
+    // Variable Declarations
+    string lv_map;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_map = ("TASK_" + IntToString(lp_unit));
+
+    // Implementation
+    if ((libARRA_gf_MapIntIncludes(lv_map, lp_index) == false) && (libARRA_gf_IntegerForTask(lp_unit, "Parent") != 0)) {
+        return libARRA_gf_IntegerForTask2(libARRA_gf_IntegerForTask(lp_unit, "Parent"), lp_index);
+    }
+    else {
+        return libARRA_gf_MapIntGet(lv_map, lp_index);
+    }
+}
+
+region libARRA_gf_RegionForTask2 (int lp_unit, string lp_index) {
+    // Variable Declarations
+    string lv_map;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_map = ("TASK_" + IntToString(lp_unit));
+
+    // Implementation
+    if ((libARRA_gf_MapRegionIncludes(lv_map, lp_index) == false) && (libARRA_gf_IntegerForTask(lp_unit, "Parent") != 0)) {
+        return libARRA_gf_RegionForTask2(libARRA_gf_IntegerForTask(lp_unit, "Parent"), lp_index);
+    }
+    else {
+        return libARRA_gf_MapRegionGet(lv_map, lp_index);
+    }
+}
+
+text libARRA_gf_TextForTask2 (int lp_unit, string lp_index) {
+    // Variable Declarations
+    string lv_map;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_map = ("TASK_" + IntToString(lp_unit));
+
+    // Implementation
+    if ((libARRA_gf_MapTextIncludes(lv_map, lp_index) == false) && (libARRA_gf_IntegerForTask(lp_unit, "Parent") != 0)) {
+        return libARRA_gf_TextForTask2(libARRA_gf_IntegerForTask(lp_unit, "Parent"), lp_index);
+    }
+    else {
+        return libARRA_gf_MapTextGet(lv_map, lp_index);
+    }
+}
+
+unit libARRA_gf_UnitForTask2 (int lp_unit, string lp_index) {
+    // Variable Declarations
+    string lv_map;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_map = ("TASK_" + IntToString(lp_unit));
+
+    // Implementation
+    if ((libARRA_gf_MapUnitIncludes(lv_map, lp_index) == false) && (libARRA_gf_IntegerForTask(lp_unit, "Parent") != 0)) {
+        return libARRA_gf_UnitForTask2(libARRA_gf_IntegerForTask(lp_unit, "Parent"), lp_index);
+    }
+    else {
+        return libARRA_gf_MapUnitGet(lv_map, lp_index);
+    }
+}
+
+actor libARRA_gf_ActorForTask2 (int lp_unit, string lp_index) {
+    // Variable Declarations
+    string lv_map;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_map = ("TASK_" + IntToString(lp_unit));
+
+    // Implementation
+    if ((libARRA_gf_MapActorIncludes(lv_map, lp_index) == false) && (libARRA_gf_IntegerForTask(lp_unit, "Parent") != 0)) {
+        return libARRA_gf_ActorForTask2(libARRA_gf_IntegerForTask(lp_unit, "Parent"), lp_index);
+    }
+    else {
+        return libARRA_gf_MapActorGet(lv_map, lp_index);
+    }
+}
+
+point libARRA_gf_PointStoredForTask2 (int lp_unit, string lp_index) {
+    // Variable Declarations
+    string lv_map;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_map = ("TASK_" + IntToString(lp_unit));
+
+    // Implementation
+    if ((libARRA_gf_MapPointIncludes(lv_map, lp_index) == false) && (libARRA_gf_IntegerForTask(lp_unit, "Parent") != 0)) {
+        return libARRA_gf_PointStoredForTask2(libARRA_gf_IntegerForTask(lp_unit, "Parent"), lp_index);
+    }
+    else {
+        return libARRA_gf_MapPointGet(lv_map, lp_index);
+    }
+}
+
+int libARRA_gf_PingStoredForTask2 (int lp_unit, string lp_index) {
+    // Variable Declarations
+    string lv_map;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_map = ("TASK_" + IntToString(lp_unit));
+
+    // Implementation
+    if ((libARRA_gf_MapPingIncludes(lv_map, lp_index) == false) && (libARRA_gf_IntegerForTask(lp_unit, "Parent") != 0)) {
+        return libARRA_gf_PingStoredForTask2(libARRA_gf_IntegerForTask(lp_unit, "Parent"), lp_index);
+    }
+    else {
+        return libARRA_gf_MapPingGet(lv_map, lp_index);
+    }
+}
+
+revealer libARRA_gf_RevealerStoredForTaskRecoursive (int lp_unit, string lp_index) {
+    // Variable Declarations
+    string lv_map;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_map = ("TASK_" + IntToString(lp_unit));
+
+    // Implementation
+    if ((libARRA_gf_MapRevealerIncludes(lv_map, lp_index) == false) && (libARRA_gf_IntegerForTask(lp_unit, "Parent") != 0)) {
+        return libARRA_gf_RevealerStoredForTaskRecoursive(libARRA_gf_IntegerForTask(lp_unit, "Parent"), lp_index);
+    }
+    else {
+        return libARRA_gf_MapRevealerGet(lv_map, lp_index);
+    }
+}
+
+unitgroup libARRA_gf_UnitGroupStoredForTask2 (int lp_unit, string lp_index) {
+    // Variable Declarations
+    string lv_map;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_map = ("TASK_" + IntToString(lp_unit));
+
+    // Implementation
+    if ((libARRA_gf_MapUnitGroupIncludes(lv_map, lp_index) == false) && (libARRA_gf_IntegerForTask(lp_unit, "Parent") != 0)) {
+        return libARRA_gf_UnitGroupStoredForTask2(libARRA_gf_IntegerForTask(lp_unit, "Parent"), lp_index);
+    }
+    else {
+        return libARRA_gf_MapUnitGroupGet(lv_map, lp_index);
+    }
+}
+
+trigger libARRA_gf_TriggerStoredForTask2 (int lp_unit, string lp_index) {
+    // Variable Declarations
+    string lv_map;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_map = ("TASK_" + IntToString(lp_unit));
+
+    // Implementation
+    if ((libARRA_gf_MapTriggerIncludes(lv_map, lp_index) == false) && (libARRA_gf_IntegerForTask(lp_unit, "Parent") != 0)) {
+        return libARRA_gf_TriggerStoredForTask2(libARRA_gf_IntegerForTask(lp_unit, "Parent"), lp_index);
+    }
+    else {
+        return libARRA_gf_MapTriggerGet(lv_map, lp_index);
+    }
+}
+
+int libARRA_gf_ObjectiveStoredForTask2 (int lp_unit, string lp_index) {
+    // Variable Declarations
+    string lv_map;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_map = ("TASK_" + IntToString(lp_unit));
+
+    // Implementation
+    if ((libARRA_gf_MapObjectiveIncludes(lv_map, lp_index) == false) && (libARRA_gf_IntegerForTask(lp_unit, "Parent") != 0)) {
+        return libARRA_gf_ObjectiveStoredForTask2(libARRA_gf_IntegerForTask(lp_unit, "Parent"), lp_index);
+    }
+    else {
+        return libARRA_gf_MapObjectiveGet(lv_map, lp_index);
+    }
+}
+
+timer libARRA_gf_TimerStoredForTask2 (int lp_unit, string lp_index) {
+    // Variable Declarations
+    string lv_map;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_map = ("TASK_" + IntToString(lp_unit));
+
+    // Implementation
+    if ((libARRA_gf_MapTimerIncludes(lv_map, lp_index) == false) && (libARRA_gf_IntegerForTask(lp_unit, "Parent") != 0)) {
+        return libARRA_gf_TimerStoredForTask2(libARRA_gf_IntegerForTask(lp_unit, "Parent"), lp_index);
+    }
+    else {
+        return libARRA_gf_MapTimerGet(lv_map, lp_index);
+    }
+}
+
+void libARRA_gf_StoreStringForTask (int lp_unit, string lp_index, string lp_actor) {
+    // Automatic Variable Declarations
+    // Implementation
+    libARRA_gf_MapStringSet(("TASK_" + IntToString(lp_unit)), lp_index, lp_actor);
+}
+
+void libARRA_gf_StoreRealForTask (int lp_unit, string lp_index, fixed lp_actor) {
+    // Automatic Variable Declarations
+    // Implementation
+    libARRA_gf_MapRealSet(("TASK_" + IntToString(lp_unit)), lp_index, lp_actor);
+}
+
+void libARRA_gf_StoreIntegerForTask (int lp_unit, string lp_index, int lp_actor) {
+    // Automatic Variable Declarations
+    // Implementation
+    libARRA_gf_MapIntSet(("TASK_" + IntToString(lp_unit)), lp_index, lp_actor);
+}
+
+void libARRA_gf_StoreRegionForTask (int lp_unit, string lp_index, region lp_actor) {
+    // Automatic Variable Declarations
+    // Implementation
+    libARRA_gf_MapRegionSet(("TASK_" + IntToString(lp_unit)), lp_index, lp_actor);
+}
+
+void libARRA_gf_StoreTextForTask (int lp_unit, string lp_index, text lp_actor) {
+    // Automatic Variable Declarations
+    // Implementation
+    libARRA_gf_MapTextSet(("TASK_" + IntToString(lp_unit)), lp_index, lp_actor);
+}
+
+void libARRA_gf_StoreUnitForTask (int lp_task, string lp_index, unit lp_unit) {
+    // Automatic Variable Declarations
+    // Implementation
+    libARRA_gf_MapUnitSet(("TASK_" + IntToString(lp_task)), lp_index, lp_unit);
+}
+
+void libARRA_gf_StoreActorForTask (int lp_unit, string lp_index, actor lp_actor) {
+    // Automatic Variable Declarations
+    // Implementation
+    libARRA_gf_MapActorSet(("TASK_" + IntToString(lp_unit)), lp_index, lp_actor);
+}
+
+void libARRA_gf_StorePointForTask (int lp_unit, string lp_index, point lp_point) {
+    // Automatic Variable Declarations
+    // Implementation
+    libARRA_gf_MapPointSet(("TASK_" + IntToString(lp_unit)), lp_index, lp_point);
+}
+
+void libARRA_gf_StorePingForTask (int lp_unit, string lp_index, int lp_ping) {
+    // Automatic Variable Declarations
+    // Implementation
+    libARRA_gf_MapPingSet(("TASK_" + IntToString(lp_unit)), lp_index, lp_ping);
+}
+
+void libARRA_gf_StoreRevealerForTask (int lp_unit, string lp_index, revealer lp_ping) {
+    // Automatic Variable Declarations
+    // Implementation
+    libARRA_gf_MapRevealerSet(("TASK_" + IntToString(lp_unit)), lp_index, lp_ping);
+}
+
+void libARRA_gf_StoreUnitGroupForTask (int lp_task, string lp_index, unitgroup lp_actor) {
+    // Automatic Variable Declarations
+    // Implementation
+    libARRA_gf_MapUnitGroupSet(("TASK_" + IntToString(lp_task)), lp_index, lp_actor);
+}
+
+void libARRA_gf_StoreTriggerForTask (int lp_task, string lp_index, trigger lp_actor) {
+    // Automatic Variable Declarations
+    // Implementation
+    libARRA_gf_MapTriggerSet(("TASK_" + IntToString(lp_task)), lp_index, lp_actor);
+}
+
+void libARRA_gf_StoreObjectiveForTask (int lp_task, string lp_index, int lp_actor) {
+    // Automatic Variable Declarations
+    // Implementation
+    libARRA_gf_MapObjectiveSet(("TASK_" + IntToString(lp_task)), lp_index, lp_actor);
+}
+
+void libARRA_gf_StoreObjectiveForTask2 (int lp_task, string lp_index, timer lp_timer) {
+    // Automatic Variable Declarations
+    // Implementation
+    libARRA_gf_MapTimerSet(("TASK_" + IntToString(lp_task)), lp_index, lp_timer);
+}
+
+void libARRA_gf_LOGPoint (point lp_value) {
+    // Automatic Variable Declarations
+    // Implementation
+    if ((lp_value == null)) {
+        libARRA_gf_LOGString("-");
+    }
+    else {
+        libARRA_gf_LOGString(libNtve_gf_ConvertPointToString(lp_value));
+    }
+}
+
+void libARRA_gf_LOGString (string lp_value) {
+    // Automatic Variable Declarations
+    // Implementation
+    if ((lp_value == "")) {
+        TriggerDebugOutput(4, StringExternal("Param/Value/lib_ARRA_D815D47D"), true);
+    }
+    else {
+        TriggerDebugOutput(4, StringToText(lp_value), true);
+    }
+    libARRA_gv_lOG = (libARRA_gv_lOG + " " + lp_value);
+}
+
+void libARRA_gf_LOGAbilCmd (abilcmd lp_lOG) {
+    // Automatic Variable Declarations
+    // Implementation
+    libARRA_gf_LOGString(((AbilityCommandGetAbility(lp_lOG)) + "," + IntToString(AbilityCommandGetCommand(lp_lOG))));
+}
+
+void libARRA_gf_LOGInteger (int lp_lOG) {
+    // Automatic Variable Declarations
+    // Implementation
+    libARRA_gf_LOGString(IntToString(lp_lOG));
+}
+
+void libARRA_gf_LOGPlayerGroup (playergroup lp_value) {
+    // Variable Declarations
+    string lv_string;
+
+    // Automatic Variable Declarations
+    playergroup autoDA415594_g;
+    int autoDA415594_var;
+
+    // Variable Initialization
+    lv_string = "";
+
+    // Implementation
+    autoDA415594_g = lp_value;
+    autoDA415594_var = -1;
+    while (true) {
+        autoDA415594_var = PlayerGroupNextPlayer(autoDA415594_g, autoDA415594_var);
+        if (autoDA415594_var < 0) { break; }
+        lv_string = (lv_string + " " + IntToString(autoDA415594_var));
+    }
+    libARRA_gf_LOGString(lv_string);
+}
+
+void libARRA_gf_LOGUpgrade (string lp_lOG) {
+    // Automatic Variable Declarations
+    // Implementation
+    libARRA_gf_LOGString((lp_lOG));
+}
+
+void libARRA_gf_LOGUnit (string lp_lOG) {
+    // Automatic Variable Declarations
+    // Implementation
+    libARRA_gf_LOGString((lp_lOG));
+}
+
+void libARRA_gf_LOGUnitGroup (unitgroup lp_lOG) {
+    // Variable Declarations
+    string lv_string;
+
+    // Automatic Variable Declarations
+    unitgroup autoA0D75262_g;
+    int autoA0D75262_u;
+    unit autoA0D75262_var;
+
+    // Variable Initialization
+    lv_string = "[";
+
+    // Implementation
+    if ((lp_lOG == null)) {
+        libARRA_gf_LOGString("-");
+    }
+    else {
+        autoA0D75262_g = lp_lOG;
+        autoA0D75262_u = UnitGroupCount(autoA0D75262_g, c_unitCountAll);
+        for (;; autoA0D75262_u -= 1) {
+            autoA0D75262_var = UnitGroupUnitFromEnd(autoA0D75262_g, autoA0D75262_u);
+            if (autoA0D75262_var == null) { break; }
+            lv_string = (lv_string + " " + (UnitGetType(autoA0D75262_var)));
+        }
+        lv_string = (lv_string + "]");
+        libARRA_gf_LOGString(lv_string);
+    }
+}
+
+void libARRA_gf_LOGReal (fixed lp_lOG) {
+    // Automatic Variable Declarations
+    // Implementation
+    libARRA_gf_LOGString(FixedToString(lp_lOG, c_fixedPrecisionAny));
+}
+
+void libARRA_gf_LOGTrigger (trigger lp_lOG) {
+    // Automatic Variable Declarations
+    // Implementation
+    libARRA_gf_LOGString(TriggerGetFunction(lp_lOG));
+}
+
+void libARRA_gf_LOGListInt (string lp_list) {
+    // Variable Declarations
+    string lv_log_string;
+
+    // Automatic Variable Declarations
+    int auto575E083B_ae;
+    int auto575E083B_var;
+
+    // Variable Initialization
+    lv_log_string = "[";
+
+    // Implementation
+    if ((DataTableValueExists(true, lp_list) == false)) {
+        libARRA_gf_LOGString("-");
+    }
+    else {
+        auto575E083B_ae = libARRA_gf_ListSize(lp_list);
+        auto575E083B_var = 1;
+        for ( ; auto575E083B_var <= auto575E083B_ae; auto575E083B_var += 1 ) {
+            if ((auto575E083B_var > 1)) {
+                lv_log_string = (lv_log_string + ",");
+            }
+
+            lv_log_string = (lv_log_string + IntToString(libARRA_gf_ListIntGet(lp_list, auto575E083B_var)));
+        }
+        lv_log_string = (lv_log_string + "]");
+        libARRA_gf_LOGString(lv_log_string);
+    }
+}
+
+void libARRA_gf_LOGListString (string lp_list) {
+    // Variable Declarations
+    string lv_log_string;
+
+    // Automatic Variable Declarations
+    int auto63FC1DFA_ae;
+    int auto63FC1DFA_var;
+
+    // Variable Initialization
+    lv_log_string = "[";
+
+    // Implementation
+    if ((lp_list == null) && (DataTableValueExists(true, lp_list) == false)) {
+        libARRA_gf_LOGString("-");
+    }
+    else {
+        auto63FC1DFA_ae = libARRA_gf_ListSize(lp_list);
+        auto63FC1DFA_var = 1;
+        for ( ; auto63FC1DFA_var <= auto63FC1DFA_ae; auto63FC1DFA_var += 1 ) {
+            if ((auto63FC1DFA_var > 1)) {
+                lv_log_string = (lv_log_string + ",");
+            }
+
+            lv_log_string = (lv_log_string + libARRA_gf_ListStringGet(lp_list, auto63FC1DFA_var));
+        }
+        lv_log_string = (lv_log_string + "]");
+        libARRA_gf_LOGString(lv_log_string);
+    }
+}
+
+void libARRA_gf_LOGListAbilCmd (string lp_list) {
+    // Variable Declarations
+    abilcmd lv_abil;
+    string lv_log_string;
+
+    // Automatic Variable Declarations
+    int auto66736740_ae;
+    int auto66736740_var;
+
+    // Variable Initialization
+    lv_log_string = "[";
+
+    // Implementation
+    if ((DataTableValueExists(true, lp_list) == false)) {
+        libARRA_gf_LOGString("-");
+    }
+    else {
+        auto66736740_ae = libARRA_gf_ListSize(lp_list);
+        auto66736740_var = 1;
+        for ( ; auto66736740_var <= auto66736740_ae; auto66736740_var += 1 ) {
+            if ((auto66736740_var > 1)) {
+                lv_log_string = (lv_log_string + ",");
+            }
+
+            lv_abil = libARRA_gf_ListAbilCmdGet(lp_list, auto66736740_var);
+            lv_log_string = (lv_log_string + ((AbilityCommandGetAbility(lv_abil)) + "," + IntToString(AbilityCommandGetCommand(lv_abil))));
+        }
+        lv_log_string = (lv_log_string + "]");
+        libARRA_gf_LOGString(lv_log_string);
+    }
+}
+
+void libARRA_gf_LOGListPoint (string lp_list) {
+    // Variable Declarations
+    point lv_point;
+    string lv_log_string;
+
+    // Automatic Variable Declarations
+    int auto8B6885D3_ae;
+    int auto8B6885D3_var;
+
+    // Variable Initialization
+    lv_log_string = "[";
+
+    // Implementation
+    if ((DataTableValueExists(true, lp_list) == false)) {
+        libARRA_gf_LOGString("-");
+    }
+    else {
+        auto8B6885D3_ae = libARRA_gf_ListSize(lp_list);
+        auto8B6885D3_var = 1;
+        for ( ; auto8B6885D3_var <= auto8B6885D3_ae; auto8B6885D3_var += 1 ) {
+            if ((auto8B6885D3_var > 1)) {
+                lv_log_string = (lv_log_string + ",");
+            }
+
+            lv_point = libARRA_gf_ListPointGet(lp_list, auto8B6885D3_var);
+            lv_log_string = (lv_log_string + libNtve_gf_ConvertPointToString(lv_point));
+        }
+        lv_log_string = (lv_log_string + "]");
+        libARRA_gf_LOGString(lv_log_string);
+    }
+}
+
+void libARRA_gf_LOGTask (int lp_task) {
+    // Variable Declarations
+    string lv_debug;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_debug = (libARRA_gf_StringForTask(lp_task, "Type") + "#" + IntToString(lp_task));
+
+    // Implementation
+    libARRA_gf_LOGString(lv_debug);
+}
+
+// Triggers
+//--------------------------------------------------------------------------------------------------
+// Trigger: ApplyTransmissionInterval
+//--------------------------------------------------------------------------------------------------
+bool libARRA_gt_ApplyTransmissionInterval_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    int lv_transmission;
+    int lv_interval;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_transmission = libARRA_gv_selectedTransmissionOption;
+    lv_interval = libARRA_gf_ListIntGet(libARRA_gv_transmissionGroups, lv_transmission);
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    Wait(lv_interval, c_timeGame);
+    libARRA_gf_ListIntSet(libARRA_gv_transmissionOptionsDisabled, lv_transmission, 0);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void libARRA_gt_ApplyTransmissionInterval_Init () {
+    libARRA_gt_ApplyTransmissionInterval = TriggerCreate("libARRA_gt_ApplyTransmissionInterval_Func");
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: PlayTransmissionOption
+//--------------------------------------------------------------------------------------------------
+bool libARRA_gt_PlayTransmissionOption_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    libARRA_gf_PlayTransmissionOption(libARRA_gv_selectedTransmissionOption, libARRA_gv_targetPlayerGroup);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void libARRA_gt_PlayTransmissionOption_Init () {
+    libARRA_gt_PlayTransmissionOption = TriggerCreate("libARRA_gt_PlayTransmissionOption_Func");
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Task.Fail
+//--------------------------------------------------------------------------------------------------
+bool libARRA_gt_TaskFail_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    libARRA_gf_TaskFail(libARRA_gv_task);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void libARRA_gt_TaskFail_Init () {
+    libARRA_gt_TaskFail = TriggerCreate("libARRA_gt_TaskFail_Func");
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Task.Complete
+//--------------------------------------------------------------------------------------------------
+bool libARRA_gt_TaskComplete_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    libARRA_gf_TaskComplete(libARRA_gv_task);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void libARRA_gt_TaskComplete_Init () {
+    libARRA_gt_TaskComplete = TriggerCreate("libARRA_gt_TaskComplete_Func");
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Task.Start
+//--------------------------------------------------------------------------------------------------
+bool libARRA_gt_TaskStart_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    libARRA_gf_TaskStart(libARRA_gv_task);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void libARRA_gt_TaskStart_Init () {
+    libARRA_gt_TaskStart = TriggerCreate("libARRA_gt_TaskStart_Func");
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Task.IncreaseProgress
+//--------------------------------------------------------------------------------------------------
+bool libARRA_gt_TaskIncreaseProgress_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    libARRA_gf_TaskIncreaseProgress(libARRA_gv_task);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void libARRA_gt_TaskIncreaseProgress_Init () {
+    libARRA_gt_TaskIncreaseProgress = TriggerCreate("libARRA_gt_TaskIncreaseProgress_Func");
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Task.IncreaseFail
+//--------------------------------------------------------------------------------------------------
+bool libARRA_gt_TaskIncreaseFail_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    libARRA_gf_TaskIncreaseFail(libARRA_gv_task);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void libARRA_gt_TaskIncreaseFail_Init () {
+    libARRA_gt_TaskIncreaseFail = TriggerCreate("libARRA_gt_TaskIncreaseFail_Func");
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Update Objective
+//--------------------------------------------------------------------------------------------------
+bool libARRA_gt_UpdateObjective_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    ObjectiveSetName(libARRA_gf_ObjectiveStoredForTask(libARRA_gv_task, "Objective"), libARRA_gf_TaskObjectiveText(libARRA_gv_task));
+    libARRA_gf_TaskUpdateObjective(libARRA_gv_task);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void libARRA_gt_UpdateObjective_Init () {
+    libARRA_gt_UpdateObjective = TriggerCreate("libARRA_gt_UpdateObjective_Func");
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Create Peridoc Event
+//--------------------------------------------------------------------------------------------------
+bool libARRA_gt_CreatePeridocEvent_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    trigger lv_periodicTrigger;
+    int lv_task;
+    int lv_eventindex;
+
+    // Automatic Variable Declarations
+    int auto3BF4465E_saved_task;
+    int auto3BF4465E_saved_parent;
+    int auto3BF4465E_saved_listener;
+
+    // Variable Initialization
+    lv_periodicTrigger = libARRA_gv_pickedPeridocEventTrigger;
+    lv_task = libARRA_gv_task;
+    lv_eventindex = libARRA_gv_periodicEventsCreated;
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    while ((DataTableGetFixed(true, ("PERIODIC_EVENT_PERIOD_" + IntToString(lv_eventindex))) > 0.0)) {
+        auto3BF4465E_saved_task   = libARRA_gv_task;
+        auto3BF4465E_saved_parent = libARRA_gv_parent;
+        auto3BF4465E_saved_listener = libARRA_gv_listener;
+        Wait(DataTableGetFixed(true, ("PERIODIC_EVENT_PERIOD_" + IntToString(lv_eventindex))), c_timeReal ); //Async
+        libARRA_gv_task   = auto3BF4465E_saved_task;
+        libARRA_gv_parent = auto3BF4465E_saved_parent;
+        libARRA_gv_listener = auto3BF4465E_saved_listener;
+        if(libARRA_gf_TaskActive(lv_task) == false){return true;}
+        libARRA_gv_triggeringPeriodicEvent = lv_eventindex;
+        libARRA_gf_TaskRun(lv_task, lv_periodicTrigger, false);
+    }
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void libARRA_gt_CreatePeridocEvent_Init () {
+    libARRA_gt_CreatePeridocEvent = TriggerCreate("libARRA_gt_CreatePeridocEvent_Func");
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: TaskTimeoutTrigger
+//--------------------------------------------------------------------------------------------------
+bool libARRA_gt_TaskTimeoutTrigger_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    trigger lv_responseTrigger;
+    fixed lv_delay;
+
+    // Automatic Variable Declarations
+    int autoD5AAD178_saved_task;
+    int autoD5AAD178_saved_parent;
+    int autoD5AAD178_saved_listener;
+
+    // Variable Initialization
+    lv_responseTrigger = libARRA_gv_taskTimeoutTrigger;
+    lv_delay = libARRA_gv_taskTimeoutDelay;
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    autoD5AAD178_saved_task   = libARRA_gv_task;
+    autoD5AAD178_saved_parent = libARRA_gv_parent;
+    autoD5AAD178_saved_listener = libARRA_gv_listener;
+    Wait(lv_delay, c_timeReal ); //Async
+    libARRA_gv_task   = autoD5AAD178_saved_task;
+    libARRA_gv_parent = autoD5AAD178_saved_parent;
+    libARRA_gv_listener = autoD5AAD178_saved_listener;
+    if(libARRA_gf_TaskActive(libARRA_gv_task) == false){return true;}
+    libARRA_gf_TaskRun(libARRA_gv_task, lv_responseTrigger, false);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void libARRA_gt_TaskTimeoutTrigger_Init () {
+    libARRA_gt_TaskTimeoutTrigger = TriggerCreate("libARRA_gt_TaskTimeoutTrigger_Func");
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Tracker - Timer Expired
+//--------------------------------------------------------------------------------------------------
+bool libARRA_gt_TrackerTimerExpired_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    int lv_tracker;
+    int lv_task;
+    trigger lv_responseTrigger;
+
+    // Automatic Variable Declarations
+    int auto2BCC3BF2_ae;
+    int auto2BCC3BF2_var;
+
+    // Variable Initialization
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    auto2BCC3BF2_ae = libARRA_gf_ListSize(libARRA_gv_tIMERTRACKERSLIST);
+    auto2BCC3BF2_var = 1;
+    for ( ; auto2BCC3BF2_var <= auto2BCC3BF2_ae; auto2BCC3BF2_var += 1 ) {
+        lv_tracker = libARRA_gf_ListIntGet(libARRA_gv_tIMERTRACKERSLIST, auto2BCC3BF2_var);
+        if ((EventTimer() == DataTableGetTimer(true, ("TIMER_" + IntToString(lv_tracker))))) {
+            lv_responseTrigger = DataTableGetTrigger(true, ("TIMER_TRIGGER_" + IntToString(lv_tracker)));
+            lv_task = DataTableGetInt(true, ("TIMER_TASK_" + IntToString(lv_tracker)));
+            libARRA_gv_tracker = lv_tracker;
+            libARRA_gf_TaskRun(lv_task, lv_responseTrigger, false);
+        }
+
+    }
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void libARRA_gt_TrackerTimerExpired_Init () {
+    libARRA_gt_TrackerTimerExpired = TriggerCreate("libARRA_gt_TrackerTimerExpired_Func");
+    TriggerAddEventTimer(libARRA_gt_TrackerTimerExpired, null);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Send Units To Point
+//--------------------------------------------------------------------------------------------------
+bool libARRA_gt_SendUnitsToPoint_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    point lv_point;
+    region lv_region;
+    unitgroup lv_units;
+    fixed lv_precision;
+
+    // Automatic Variable Declarations
+    int auto67125EC9_saved_task;
+    int auto67125EC9_saved_parent;
+    int auto67125EC9_saved_listener;
+
+    // Variable Initialization
+    lv_point = libARRA_gv_pickedPoint;
+    lv_region = RegionCircle(lv_point, libARRA_gv_pickedPrecision);
+    lv_units = UnitGroupFilter(null, c_playerAny, libARRA_gv_pickedUnits, UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+    lv_precision = libARRA_gv_pickedPrecision;
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    UnitGroupIssueOrder(lv_units, OrderTargetingPoint(AbilityCommand("move", 0), lv_point), c_orderQueueReplace);
+    auto67125EC9_saved_task     = libARRA_gv_task;
+    auto67125EC9_saved_parent   = libARRA_gv_parent;
+    auto67125EC9_saved_listener = libARRA_gv_listener;
+    do {
+        if(libARRA_gf_TaskActive(libARRA_gv_task) == false){return true;}
+        libARRA_gf_SetTriggeringTask(libARRA_gv_task);
+        UnitGroupIssueOrder(lv_units, OrderTargetingPoint(AbilityCommand("move", 0), lv_point), c_orderQueueReplace);
+        Wait(0.25, c_timeReal); //Async
+    }
+    while ((UnitGroupCount(lv_units, c_unitCountAlive) > 0) && (!(libARRA_gf_AllUnitsFromUnitGroupPlacedInRegion(lv_units, lv_region))));
+    libARRA_gv_task   = auto67125EC9_saved_task;
+    libARRA_gv_parent = auto67125EC9_saved_parent;
+    libARRA_gv_listener = auto67125EC9_saved_listener;
+    if(libARRA_gf_TaskActive(libARRA_gv_task) == false){return true;}
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void libARRA_gt_SendUnitsToPoint_Init () {
+    libARRA_gt_SendUnitsToPoint = TriggerCreate("libARRA_gt_SendUnitsToPoint_Func");
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Tracker - Unit Dies
+//--------------------------------------------------------------------------------------------------
+bool libARRA_gt_TrackerUnitDies_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    int lv_task;
+    int lv_tracker;
+    unitgroup lv_trackedUnits;
+    trigger lv_responseTrigger;
+
+    // Automatic Variable Declarations
+    int auto77640B70_ae;
+    int auto77640B70_var;
+
+    // Variable Initialization
+    lv_trackedUnits = UnitGroupEmpty();
+
+    // Conditions
+    if (testConds) {
+        if (!((TriggerIsEnabled(TriggerGetCurrent()) == true))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    auto77640B70_ae = libARRA_gf_ListSize(libARRA_gv_tRACKERS);
+    auto77640B70_var = 1;
+    for ( ; auto77640B70_var <= auto77640B70_ae; auto77640B70_var += 1 ) {
+        lv_tracker = libARRA_gf_ListIntGet(libARRA_gv_tRACKERS, auto77640B70_var);
+        lv_trackedUnits = DataTableGetUnitGroup(true, ("&" + IntToString(lv_tracker)));
+        if ((UnitGroupHasUnit(lv_trackedUnits, EventUnit()) == false)) {
+            continue;
+        }
+
+        libARRA_gf_Trackeremit(lv_tracker, "Dead", "");
+    }
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void libARRA_gt_TrackerUnitDies_Init () {
+    libARRA_gt_TrackerUnitDies = TriggerCreate("libARRA_gt_TrackerUnitDies_Func");
+    TriggerAddEventUnitDied(libARRA_gt_TrackerUnitDies, null);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Tracker - Unit Damaged
+//--------------------------------------------------------------------------------------------------
+bool libARRA_gt_TrackerUnitDamaged_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    int lv_tracker;
+    int lv_task;
+    unitgroup lv_trackedUnits;
+    trigger lv_responseTrigger;
+
+    // Automatic Variable Declarations
+    int autoAC131C5F_ae;
+    int autoAC131C5F_var;
+
+    // Variable Initialization
+    lv_trackedUnits = UnitGroupEmpty();
+
+    // Conditions
+    if (testConds) {
+        if (!((TriggerIsEnabled(TriggerGetCurrent()) == true))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    autoAC131C5F_ae = libARRA_gf_ListSize(libARRA_gv_tRACKERS);
+    autoAC131C5F_var = 1;
+    for ( ; autoAC131C5F_var <= autoAC131C5F_ae; autoAC131C5F_var += 1 ) {
+        lv_tracker = libARRA_gf_ListIntGet(libARRA_gv_tRACKERS, autoAC131C5F_var);
+        lv_trackedUnits = DataTableGetUnitGroup(true, ("&" + IntToString(lv_tracker)));
+        if ((UnitGroupHasUnit(lv_trackedUnits, EventUnit()) == false)) {
+            continue;
+        }
+
+        libARRA_gf_Trackeremit(lv_tracker, "Damage", "");
+    }
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void libARRA_gt_TrackerUnitDamaged_Init () {
+    libARRA_gt_TrackerUnitDamaged = TriggerCreate("libARRA_gt_TrackerUnitDamaged_Func");
+    TriggerAddEventUnitDamaged(libARRA_gt_TrackerUnitDamaged, null, c_unitDamageTypeAny, c_unitDamageNonFatal, null);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Check Emergency Start Region
+//--------------------------------------------------------------------------------------------------
+bool libARRA_gt_CheckEmergencyStartRegion_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    playergroup lv_players;
+    region lv_region;
+    trigger lv_trigger;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_players = libARRA_gf_GetTeamPlayers(libARRA_gf_IntegerForTask2(libARRA_gv_task, "Team"));
+    lv_region = libARRA_gf_RegionForTask(libARRA_gv_task, "EmergencyStartRegion");
+    lv_trigger = libARRA_gf_TriggerStoredForTask(libARRA_gv_task, "EmergencyStartTrigger");
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    if ((libARRA_gf_IntegerForTask(libARRA_gv_task, "State") == libARRA_gv_stateUndiscovered)) {
+        if (libARRA_gf_AnyUnitOfPlayerGroupPlacedInRegion(lv_players, lv_region)) {
+            libARRA_gf_RunMissionVictorySequence5(libARRA_gf_TriggeringPeriodic());
+            libARRA_gf_TaskRun(libARRA_gv_task, lv_trigger, false);
+        }
+
+    }
+    else {
+        libARRA_gf_RunMissionVictorySequence5(libARRA_gf_TriggeringPeriodic());
+    }
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void libARRA_gt_CheckEmergencyStartRegion_Init () {
+    libARRA_gt_CheckEmergencyStartRegion = TriggerCreate("libARRA_gt_CheckEmergencyStartRegion_Func");
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: LOG
+//--------------------------------------------------------------------------------------------------
+bool libARRA_gt_LOG_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    string lv_list;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_list = StringWord(EventChatMessage(false), 2);
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    if ((lv_list != "")) {
+        libARRA_gf_LOGListString(StringWord(EventChatMessage(false), 2));
+    }
+    else {
+        if ((libARRA_gf_ListIsExist(lv_list) == true)) {
+            libARRA_gf_LOGListString(libARRA_gv_createdLists);
+        }
+        else {
+            libARRA_gf_LOGString("List Not Exists");
+        }
+    }
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void libARRA_gt_LOG_Init () {
+    libARRA_gt_LOG = TriggerCreate("libARRA_gt_LOG_Func");
+    TriggerAddEventChatMessage(libARRA_gt_LOG, c_playerAny, "-list", false);
+}
+
+void libARRA_InitTriggers () {
+    libARRA_gt_ApplyTransmissionInterval_Init();
+    libARRA_gt_PlayTransmissionOption_Init();
+    libARRA_gt_TaskFail_Init();
+    libARRA_gt_TaskComplete_Init();
+    libARRA_gt_TaskStart_Init();
+    libARRA_gt_TaskIncreaseProgress_Init();
+    libARRA_gt_TaskIncreaseFail_Init();
+    libARRA_gt_UpdateObjective_Init();
+    libARRA_gt_CreatePeridocEvent_Init();
+    libARRA_gt_TaskTimeoutTrigger_Init();
+    libARRA_gt_TrackerTimerExpired_Init();
+    libARRA_gt_SendUnitsToPoint_Init();
+    libARRA_gt_TrackerUnitDies_Init();
+    libARRA_gt_TrackerUnitDamaged_Init();
+    libARRA_gt_CheckEmergencyStartRegion_Init();
+    libARRA_gt_LOG_Init();
+}
+
+//--------------------------------------------------------------------------------------------------
+// Library Initialization
+//--------------------------------------------------------------------------------------------------
+bool libARRA_InitLib_completed = false;
+
+void libARRA_InitLib () {
+    if (libARRA_InitLib_completed) {
+        return;
+    }
+
+    libARRA_InitLib_completed = true;
+
+    libARRA_InitLibraries();
+    libARRA_InitVariables();
+    libARRA_InitTriggers();
+}
+

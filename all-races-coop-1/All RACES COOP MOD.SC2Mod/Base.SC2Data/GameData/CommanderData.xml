@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CCommander id="UmojanCommander">
+        <AttributeId value="TerU"/>
+        <Race value="TerU"/>
+        <Description value="Commander/Details/UmojanCommanderDescription"/>
+        <CutsceneFilterSelf value="Umojan"/>
+        <CutsceneFilterAlly value="UmojanAlly"/>
+        <TalentTreeArray Talent="TalentUmojanLevel01" Level="1"/>
+        <TalentTreeArray Talent="TalentUmojanLevel02" Level="2"/>
+        <TalentTreeArray Talent="TalentUmojanLevel03" Level="3"/>
+        <TalentTreeArray Talent="TalentUmojanLevel04" Level="4"/>
+        <TalentTreeArray Talent="TalentUmojanLevel05" Level="5"/>
+        <TalentTreeArray Talent="TalentUmojanLevel06" Level="6"/>
+        <TalentTreeArray Talent="TalentUmojanLevel07" Level="7"/>
+        <TalentTreeArray Talent="TalentUmojanLevel08" Level="8"/>
+        <TalentTreeArray Talent="TalentUmojanLevel09" Level="9"/>
+        <TalentTreeArray Talent="TalentUmojanLevel10" Level="10"/>
+        <TalentTreeArray Talent="TalentUmojanLevel11" Level="11"/>
+        <TalentTreeArray Talent="TalentUmojanLevel12" Level="12"/>
+        <TalentTreeArray Talent="TalentUmojanLevel13" Level="13"/>
+        <TalentTreeArray Talent="TalentUmojanLevel14" Level="14"/>
+        <TalentTreeArray Talent="TalentUmojanLevel15" Level="15"/>
+        <MasteryTalentArray>
+            <Talent value="TalentUmojanMastery01"/>
+            <ValuePerRank value="1.000000"/>
+            <MaxRank value="30"/>
+            <Type value="Percent"/>
+        </MasteryTalentArray>
+        <MasteryTalentArray>
+            <Talent value="TalentUmojanMastery02"/>
+            <ValuePerRank value="1.000000"/>
+            <MaxRank value="30"/>
+            <Type value="Percent"/>
+        </MasteryTalentArray>
+        <MasteryTalentArray>
+            <Talent value="TalentUmojanMastery03"/>
+            <ValuePerRank value="1.000000"/>
+            <MaxRank value="30"/>
+            <Type value="Percent"/>
+            <Bucket value="1"/>
+        </MasteryTalentArray>
+        <MasteryTalentArray>
+            <Talent value="TalentUmojanMastery04"/>
+            <ValuePerRank value="1.000000"/>
+            <MaxRank value="30"/>
+            <Type value="Percent"/>
+            <Bucket value="1"/>
+        </MasteryTalentArray>
+        <MasteryTalentArray>
+            <Talent value="TalentUmojanMastery05"/>
+            <ValuePerRank value="1.000000"/>
+            <MaxRank value="30"/>
+            <Type value="Percent"/>
+            <Bucket value="2"/>
+        </MasteryTalentArray>
+        <MasteryTalentArray>
+            <Talent value="TalentUmojanMastery06"/>
+            <ValuePerRank value="1.000000"/>
+            <MaxRank value="30"/>
+            <Type value="Percent"/>
+            <Bucket value="2"/>
+        </MasteryTalentArray>
+        <UserReference value="PlayerCommanders;Umojan"/>
+        <CommanderAbilArray Button="TrackingMunitions"/>
+        <CommanderAbilArray Button="SystemRecharge"/>
+        <CommanderAbilArray Button="AnalyzeWeakness"/>
+        <PrestigeArray value="CommanderPrestigeUmojan1"/>
+        <PrestigeArray value="CommanderPrestigeUmojan2"/>
+        <PrestigeArray value="CommanderPrestigeUmojan3"/>
+        <Color value="255,92,128,0"/>
+    </CCommander>
+</Catalog>

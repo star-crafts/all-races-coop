@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CEffectDamage id="AmonConstrictingSlimeDamage" parent="DU_WEAP">
+        <EditorCategories value="Race:Zerg"/>
+        <ImpactLocation Value="SourceUnit"/>
+        <AttributeBonus index="Armored" value="1"/>
+        <Amount value="1"/>
+    </CEffectDamage>
+    <CEffectCreatePersistent id="AmonConsumeDNACP">
+        <EditorCategories value=""/>
+        <WhichLocation Value="TargetUnitOrPoint"/>
+        <Flags index="Channeled" value="1"/>
+        <PeriodCount value="10"/>
+        <PeriodicEffectArray value="AmonConsumeDNAFeedbackSet"/>
+        <PeriodicPeriodArray value="0.1"/>
+    </CEffectCreatePersistent>
+    <CEffectDamage id="AmonConsumeDNADamage">
+        <EditorCategories value="Race:Zerg"/>
+        <Kind value="Ranged"/>
+        <Amount value="10"/>
+    </CEffectDamage>
+    <CEffectLaunchMissile id="AmonConsumeDNAFeedbackLM">
+        <EditorCategories value="Race:Zerg"/>
+        <LaunchLocation Value="TargetUnitOrPoint"/>
+        <ImpactLocation Value="CasterUnit"/>
+        <LaunchEffect value="AmonConsumeDNADamage"/>
+        <ImpactEffect value="AmonConsumeDNAImpact"/>
+        <AmmoUnit value="AmonConsumeDNAFeedbackWeapon"/>
+        <Movers Link="AmonConsumeDNAFeedback"/>
+    </CEffectLaunchMissile>
+    <CEffectSet id="AmonConsumeDNAFeedbackSet">
+        <ValidatorArray value="NotDead"/>
+        <EditorCategories value="Race:Zerg"/>
+        <EffectArray value="AmonConsumeDNAFeedbackLM"/>
+    </CEffectSet>
+    <CEffectModifyUnit id="AmonConsumeDNAImpact">
+        <EditorCategories value=""/>
+        <TransferUnit Value="Target"/>
+        <ImpactUnit Value="Caster"/>
+        <VitalArray index="Life">
+            <Change value="5"/>
+        </VitalArray>
+    </CEffectModifyUnit>
+    <CEffectSet id="AmonConsumeDNASet">
+        <ValidatorArray value="NotDead"/>
+        <EditorCategories value="Race:Zerg"/>
+        <EffectArray value="AmonConsumeDNACP"/>
+    </CEffectSet>
+    <CEffectApplyBehavior id="AmonGravitonPrisonApplyBehavior">
+        <EditorCategories value="Race:Protoss"/>
+        <Behavior value="AmonHybridDestroyerGravitonPrison"/>
+    </CEffectApplyBehavior>
+    <CEffectCreatePersistent id="AmonGravitonPrisonCreatePersistent">
+        <ValidatorArray value="NoPreventKnockback"/>
+        <EditorCategories value="Race:Protoss"/>
+        <WhichLocation Value="TargetUnit"/>
+        <InitialEffect value="AmonGravitonPrisonSet"/>
+        <ExpireDelay value="0.875"/>
+        <FinalEffect value="AmonGravitonPrisonFinalSet"/>
+        <PeriodCount value="1"/>
+        <PeriodicEffectArray value="AmonGravitonPrisonLower"/>
+        <PeriodicPeriodArray value="4"/>
+    </CEffectCreatePersistent>
+    <CEffectDamage id="AmonGravitonPrisonDamage">
+        <EditorCategories value="Race:Protoss"/>
+        <Amount value="6"/>
+    </CEffectDamage>
+    <CEffectCreatePersistent id="AmonGravitonPrisonDamageCreatePersistent">
+        <EditorCategories value="Race:Protoss"/>
+        <WhichLocation Value="TargetUnit"/>
+        <PeriodCount value="10"/>
+        <PeriodicEffectArray value="AmonGravitonPrisonDamage"/>
+        <PeriodicPeriodArray value="0.4"/>
+    </CEffectCreatePersistent>
+    <CEffectSet id="AmonGravitonPrisonFinalSet">
+        <EditorCategories value="Race:Protoss"/>
+        <EffectArray value="AmonGravitonPrisonRemoveBehavior"/>
+    </CEffectSet>
+    <CEffectModifyUnit id="AmonGravitonPrisonLower">
+        <EditorCategories value="Race:Protoss"/>
+        <Height value="-3.75"/>
+        <HeightTime value="0.875"/>
+    </CEffectModifyUnit>
+    <CEffectModifyUnit id="AmonGravitonPrisonRaise">
+        <EditorCategories value="Race:Protoss"/>
+        <Height value="3.75"/>
+        <HeightTime value="1.5"/>
+    </CEffectModifyUnit>
+    <CEffectRemoveBehavior id="AmonGravitonPrisonRemoveBehavior">
+        <EditorCategories value="Race:Protoss"/>
+        <BehaviorLink value="GravitonPrison"/>
+    </CEffectRemoveBehavior>
+    <CEffectSet id="AmonGravitonPrisonSet">
+        <EditorCategories value="Race:Protoss"/>
+        <EffectArray value="AmonGravitonPrisonApplyBehavior"/>
+        <EffectArray value="AmonGravitonPrisonDamageCreatePersistent"/>
+        <EffectArray value="AmonGravitonPrisonRaise"/>
+    </CEffectSet>
+    <CEffectDamage id="AmonHybridBehemothCleaveDamage" parent="DU_WEAP">
+        <Amount value="25"/>
+        <Death value="Eviscerate"/>
+    </CEffectDamage>
+    <CEffectEnumArea id="AmonHybridBehemothCleaveSearch">
+        <ExcludeArray Value="Target"/>
+        <SearchFilters value="Ground;Player,Ally,Neutral,Missile,Item,Stasis,Dead,Hidden,Invulnerable"/>
+        <AreaArray Arc="270" Radius="1.5" Effect="AmonHybridBehemothCleaveDamage"/>
+    </CEffectEnumArea>
+    <CEffectDamage id="AmonHybridBehemothDamage" parent="DU_WEAP">
+        <Amount value="30"/>
+        <Death value="Eviscerate"/>
+    </CEffectDamage>
+    <CEffectSet id="AmonHybridBehemothSet">
+        <EditorCategories value="Race:Zerg"/>
+        <EffectArray value="AmonHybridBehemothDamage"/>
+        <EffectArray value="AmonHybridBehemothCleaveSearch"/>
+    </CEffectSet>
+    <CEffectLaunchMissile id="AmonHybridDestroyerLM">
+        <EditorCategories value="Race:Protoss"/>
+        <ImpactEffect value="AmonHybridDestroyerShockDamage"/>
+        <AmmoUnit value="AmonHybridDestroyerWeapon"/>
+    </CEffectLaunchMissile>
+    <CEffectEnumArea id="AmonHybridBehemothAoESearch">
+        <EditorCategories value="Race:Zerg"/>
+        <SearchFilters value="Visible;Self,Player,Ally,Neutral,Structure,Heroic,Missile,Buried,Dead,Invulnerable"/>
+        <AreaArray Radius="6" Effect="AmonHybridBehemothAoEStun"/>
+    </CEffectEnumArea>
+    <CEffectApplyBehavior id="AmonHybridBehemothAoEStun">
+        <EditorCategories value="Race:Zerg"/>
+        <Behavior value="AmonSlimed"/>
+    </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="AmonPhaseShift">
+        <ValidatorArray index="0" value="NotMineralShield"/>
+        <EditorCategories value="Race:Protoss"/>
+    </CEffectApplyBehavior>
+    <CEffectEnumTransport id="AmonHybridGeneralPhaseShiftIterateTransport">
+        <ValidatorArray value="IsBunkerOrSIBunker"/>
+        <EditorCategories value="Race:Protoss"/>
+        <Effect value="AmonPhaseShift"/>
+    </CEffectEnumTransport>
+    <CEffectSet id="AmonHybridGeneralPhaseShiftSet">
+        <ValidatorArray value="HybridNemesisStasisValidatorSet"/>
+        <EditorCategories value="Race:Protoss"/>
+        <EffectArray value="AmonPhaseShift"/>
+        <EffectArray value="AmonHybridGeneralPhaseShiftIterateTransport"/>
+    </CEffectSet>
+    <CEffectDamage id="AmonHybridNemesisWeaponDamage" parent="DU_WEAP">
+        <EditorCategories value="Race:Protoss"/>
+        <Kind value="Ranged"/>
+        <Amount value="20"/>
+    </CEffectDamage>
+    <CEffectCreatePersistent id="AmonHybridNemesisWeaponPersistent">
+        <EditorCategories value="Race:Protoss"/>
+        <WhichLocation Value="TargetUnit"/>
+        <TimeScaleSource Value="Caster"/>
+        <Flags index="Channeled" value="1"/>
+        <Flags index="PersistUntilDestroyed" value="1"/>
+        <InitialEffect value="AmonHybridNemesisWeaponDamage"/>
+        <PeriodicEffectArray value="AmonHybridNemesisWeaponDamage"/>
+        <PeriodicPeriodArray value="1"/>
+    </CEffectCreatePersistent>
+    <CEffectDamage id="AmonHybridReaverDamage" parent="DU_WEAP">
+        <Amount value="30"/>
+        <Death value="Eviscerate"/>
+    </CEffectDamage>
+    <CEffectDamage id="AmonHybridDestroyerShockDamage" parent="DU_WEAP">
+        <Kind value="Ranged"/>
+        <Amount value="25"/>
+        <ExcludeArray Value="Outer"/>
+        <ExcludeArray Value="Target"/>
+        <SearchFilters value="-;Player,Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+    </CEffectDamage>
+</Catalog>

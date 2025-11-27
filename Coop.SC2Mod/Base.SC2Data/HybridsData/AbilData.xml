@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CAbilEffectTarget id="AmonConsumeDNA">
+        <Alignment value="Negative"/>
+        <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
+        <Effect index="0" value="AmonConsumeDNASet"/>
+        <Cost>
+            <Cooldown TimeUse="10"/>
+        </Cost>
+        <TargetFilters value="-;Self,Structure,Missile,Uncommandable,Stasis,Dead,Hidden,Hallucination,Invulnerable"/>
+        <Range value="5"/>
+        <UninterruptibleArray index="Approach" value="1"/>
+        <UninterruptibleArray index="Prep" value="1"/>
+        <UninterruptibleArray index="Cast" value="1"/>
+        <UninterruptibleArray index="Channel" value="1"/>
+        <UninterruptibleArray index="Finish" value="1"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="ConsumeDNA"/>
+    </CAbilEffectTarget>
+    <CAbilEffectTarget id="AmonHybridDestroyerGravitonPrison">
+        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
+        <Effect index="0" value="AmonGravitonPrisonCreatePersistent"/>
+        <Cost/>
+        <TargetFilters value="Visible;Player,Ally,Neutral,Air,Structure,Heroic,Missile,Item,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="8"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="GravitonPrison"/>
+    </CAbilEffectTarget>
+    <CAbilEffectInstant id="AmonHybridBehemothAoEStun">
+        <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
+        <Effect index="0" value="AmonHybridBehemothAoESearch"/>
+        <Flags index="Transient" value="1"/>
+        <Cost>
+            <Cooldown TimeUse="15"/>
+        </Cost>
+        <CmdButtonArray index="Execute" DefaultButtonFace="HybridBehemothAoEStun"/>
+    </CAbilEffectInstant>
+    <CAbilEffectTarget id="AmonPhaseShift">
+        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
+        <Effect index="0" value="AmonHybridGeneralPhaseShiftSet"/>
+        <Flags index="AllowMovement" value="1"/>
+        <Flags index="NoDeceleration" value="1"/>
+        <Cost>
+            <Cooldown Location="Unit" TimeUse="10"/>
+        </Cost>
+        <TargetFilters value="Structure;Ally,Neutral,Massive,Missile,Stasis,UnderConstruction,Hidden,Invulnerable"/>
+        <Range value="9"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="HybridGeneralPhaseShift"/>
+    </CAbilEffectTarget>
+</Catalog>

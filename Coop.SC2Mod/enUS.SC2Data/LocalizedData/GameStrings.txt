@@ -1,0 +1,1034 @@
+﻿Behavior/Name/UnknownBehavior=Unknown Behavior
+Button/Name/ButtonPrestigeCommanderProtoss=Daelaam Protectorate
+Button/Name/ButtonPrestigeCommanderProtossGolden=Golden Age
+Button/Name/ButtonPrestigeCommanderProtossIhanRii=Ihan-Rii
+Button/Name/ButtonPrestigeCommanderProtossNerazim=Nerazim
+Button/Name/ButtonPrestigeCommanderProtossPurifiers=Purifiers
+Button/Name/ButtonPrestigeCommanderProtossTaldarim=Taldarim
+Button/Name/ButtonPrestigeCommanderRaynor=Renegade Commander
+Button/Name/ButtonPrestigeCommanderStetmann=Hero Genius (Henius)
+Button/Name/ButtonPrestigeCommanderStukov=Infested Admiral
+Button/Name/ButtonPrestigeCommanderSwann=Chief Engineer
+Button/Name/ButtonPrestigeCommanderTerran=Confederacy of Man
+Button/Name/ButtonPrestigeCommanderTerranJunkers=Junkers
+Button/Name/ButtonPrestigeCommanderTerranSpecOps=Spec Ops
+Button/Name/ButtonPrestigeCommanderTerranTyrador=Knights Of Tyrador
+Button/Name/ButtonPrestigeCommanderTerranUmojan=Umojan Protectorate
+Button/Name/ButtonPrestigeCommanderTychus=Legendary Outlaw
+Button/Name/ButtonPrestigeCommanderVorazun=Matriarch of the Nerazim
+Button/Name/ButtonPrestigeCommanderZagara=Swarm Broodmother
+Button/Name/ButtonPrestigeCommanderZeratul=Dark Prelate
+Button/Name/ButtonPrestigeCommanderZerg=Swarm
+Button/Name/ButtonPrestigeCommanderZergCerberus=Cerberus
+Button/Name/ButtonPrestigeCommanderZergLeviathan=Leviathan
+Button/Name/ButtonPrestigeCommanderZergPrimal=Primal
+Button/Name/ButtonPrestigeCommanderZergSimulant=Mecha
+Commander/Name/Protoss=Protoss
+Commander/Name/Terran=Terran
+Commander/Name/Zerg=Zerg
+Conversation/acObj/Line01514=Commanders? Are you... are you real? Sorry, I've been here a while, and the terrazine... Not the best for my sanity! (Nervous laugh) ...It's not.
+Conversation/acObj/Line01515=In case you ARE real, someone out there has been messing with my harvesting bots. Would you mind keeping an eye on them for me?
+Conversation/acObj/Line01516=Hi, commanders! I thought everyone had forgotten about me out here. The hallucinations are the only visitors I've had.
+Conversation/acObj/Line01517=I guess that's terrazine for you. Speaking of, someone's been destroying my harvesting bots. Could you provide an escort for them?
+Conversation/acObj/Line01518=Welcome to the jungle, Commanders! Hope you like fun and games! Long term exposure to terrazine provides plenty of both! Trust me!
+Conversation/acObj/Line01519=Someone out there is making a game of destroying my bots, though. They're ruining my research! I need you to guard those bots!
+Conversation/acObj/Line01520=Looks like a geyser's about to become active! One of my bots will depart for it shortly.
+Conversation/acObj/Line01521=The first geyser should be opening up soon. I'll send a bot out for it when it does.
+Conversation/acObj/Line01522=Ooh, I've located a soon-to-be active geyser. Make sure to escort the bot I'll send to harvest it!
+Conversation/acObj/Line01523=Bel'shir says that some more geysers are opening up soon. Don't worry if you can't hear her. She only talks to me.
+Conversation/acObj/Line01524=More geysers are gonna be active soon. Don't ask how I know that. I just... do.
+Conversation/acObj/Line01525=Do you hear that? It's the terrazine moving beneath the surface. Ooh, more geysers are on the way.
+Conversation/acObj/Line01526=Hmm, looks like there will be more geysers soon. You can always count on Bel'shir to provide what you need!
+Conversation/acObj/Line01527=Seismic activity detected! That can only mean one thing: more geysers!
+Conversation/acObj/Line01528=If I were a betting man, I'd put money on more geysers showing up soon. If, you know, I had any money.
+Conversation/acObj/Line01529=Some geysers are gonna be opening in a few moments. My bots can smell them!
+Conversation/acObj/Line01530=You know what I'm about to say, right, eh? That there are more geysers on the way? Get out of my head!
+Conversation/acObj/Line01531=The geysers are returning, as foretold by omniscient Bel'shir! Be ready!
+Conversation/acObj/Line01532=These are the last of the geysers! The last of their kind... all alone in the depths of space...
+Conversation/acObj/Line01533=Looks like these are the last set of geysers. The end is nigh, commanders!
+Conversation/acObj/Line01534=These should be the last of the geysers! And things were just getting interesting.
+Conversation/acObj/Line01535=Hey! Heads up! I'm sending out the first bot. Make sure to protect it! It's my favorite.
+Conversation/acObj/Line01536=Okay, I'm sending a bot to collect the geyser's terrazine. Don't let it get destroyed!
+Conversation/acObj/Line01537=My bot is departing now. It's fully automated, so all you have to do is keep it alive. Yes, it's alive. It's alive! Uh, sorry.
+Conversation/acObj/Line01538=Bots are on their way, commanders! Please keep the little guys out of trouble.
+Conversation/acObj/Line01539=Sending out the best of my bots! Well, the best of what's left, anyway.
+Conversation/acObj/Line01540=My bots really want to get to the terrazine. They're kinda impatient, so I'm letting them out now.
+Conversation/acObj/Line01541=Hey! The bots are leaving, and I didn't even get to pack them a refueling cell!
+Conversation/acObj/Line01542=Bots away! (Laughs at his own joke) What? I thought it was funny. Bel'shir laughs every time I tell it!
+Conversation/acObj/Line01543=I built these bots myself, in a cave, with a box of scraps! So I'd appreciate it if they came back intact.
+Conversation/acObj/Line01544=I think the bots are telling me they're rolling out, but I could be wrong. They've lied to me before, those little miscreants!
+Conversation/acObj/Line01545=There go the bots! (Sniffs) They grow up so fast! Daddy loves you!
+Conversation/acObj/Line01546=My bot is collecting the terrazine now. You'll have to defend it until it's done.
+Conversation/acObj/Line01547=Terrazine collection initiated! It might take a little while, so just sit tight!
+Conversation/acObj/Line01548=Alright, collecting the terrazine now. Keep an eye out for trouble, commanders!
+Conversation/acObj/Line01549=Collection protocol initiated. Soon, all of Bel'shir's terrazine will be mine! Muhahaha!
+Conversation/acObj/Line01550=Starting the collection process. Please be patient, this is a delicate procedure!
+Conversation/acObj/Line01551=Oh benevolent Bel'shir, I humbly ask that you gift me with your terrazine. The commanders have promised to protect it. Right?
+Conversation/acObj/Line01552=Gathering the terrazine now. Remember, commanders: Constant vigilance!
+Conversation/acObj/Line01553=This terrazine is about to become TERRANzine. Bwahaha! What, nothing? Oh come on.
+Conversation/acObj/Line01554=Harvest time! Let's see what our terrazine crop looks like this year.
+Conversation/acObj/Line01555=My bots are taking in the terrazine. It has to be done just right, or else Bel'shir will be angry.
+Conversation/acObj/Line01556=Acquiring the terrazine now. Keep those bots safe, commanders!
+Conversation/acObj/Line01557=The harvesting bot is returning now. You'll have to continue guarding it until it arrives.
+Conversation/acObj/Line01558=The bot is heading back. It's scared, so you should keep it company.
+Conversation/acObj/Line01559=A successful terrazine harvest! Now that bot just has to make it home safely.
+Conversation/acObj/Line01560=Come on home, little bots! The commanders will protect you!
+Conversation/acObj/Line01561=Okay, the bots should be on their way back. I need that terrazine, commanders... for my... experiments.
+Conversation/acObj/Line01562=The bots are returning to me now. I can always count on them to do that. Unlike SOME people.
+Conversation/acObj/Line01563=Terrazine tank is full! My bots are making the return trip now. Don't let them get away from you!
+Conversation/acObj/Line01564=And the race is on! Which bot will make it back to me first? (Whispers) My money's on Gary. He always gets the best oil.
+Conversation/acObj/Line01565=Bots are heading home. They're sheep in need of a shepherd, commanders. And there are a lot of wolves on the prowl.
+Conversation/acObj/Line01566=My bots are heading back to base. Be careful, commanders. It's a jungle out there!
+Conversation/acObj/Line01567=Time for the bots to come back. I hate it when they're out there all night without giving me a call.
+Conversation/acObj/Line01568=They're coming after my bots! Stop them, commanders!
+Conversation/acObj/Line01569=Gah, here come the bad guys! Uh, who are they, again?
+Conversation/acObj/Line01570=I'm picking up some hostile forces headed for my bots. They must really want that terrazine.
+Conversation/acObj/Line01571=Look out, commanders! I'm detecting enemy movement toward the bots!
+Conversation/acObj/Line01572=The enemy clearly intends to attack my bots. Don't, don't, don't let them do that!
+Conversation/acObj/Line01573=Enemies are headed for my bots! What a bunch of jerks!
+Conversation/acObj/Line01574=What's this? Enemy forces en route to my bots? It's just like Bel'shir said!
+Conversation/acObj/Line01575=Oh, that's just great! The enemy is moving toward my bots. I knew I should have put more turrets on those things!
+Conversation/acObj/Line01576=Hostile forces are advancing on my bots! Have they no respect for science!?
+Conversation/acObj/Line01577=I see you, enemy scum! They're going to attack my bots, commanders!
+Conversation/acObj/Line01578=Oh man, they can warp in their forces right next to my bots? I guess I should have expected that from the protoss...
+Conversation/acObj/Line01579=Oh commanders, the enemy is warping in near the bot! I wish I had that kind of tech...
+Conversation/acObj/Line01580=They're warping in right next to the bot!? That is totally overpowered!
+Conversation/acObj/Line01581=Incoming enemy drop pods! Which means... (gulps, whispers) They're ABOVE us. Protect the bot!
+Conversation/acObj/Line01582=Enemy drop pods inbound on my bot! The sky is falling! The sky is falling!
+Conversation/acObj/Line01583=They're dropping in right next to my bot! At least they're not smashing into it.
+Conversation/acObj/Line01584=It's raining zerg! Death from above! Save the bot!
+Conversation/acObj/Line01585=The zerg are dropping down right next to my bot! How many Leviathans do they have up there?
+Conversation/acObj/Line01586=Incoming zerg drop pods! They're headed right for my bot!
+Conversation/acObj/Line01587=What IS that thing? It looks like a Void Thrasher! I didn't know they actually exist!
+Conversation/acObj/Line01588=A Void Thrasher? Here? I thought those were purely theoretical!
+Conversation/acObj/Line01589=No... it can't be... a Void Thrasher!? Please tell me this is another hallucination!
+Conversation/acObj/Line01590=Umm, the Void Thrashers are back! They'll tear my bots apart if you don't stop them!
+Conversation/acObj/Line01591=Oh by the way commanders, there seem to be more Void Thrashers around. Just keeping you informed!
+Conversation/acObj/Line01592=Those Void Thrashers are the stuff of nightmares. Mine, specifically.
+Conversation/acObj/Line01593=Oh wow, is that a hybrid? I haven't seen one in a while! Fascinating!
+Conversation/acObj/Line01594=A hybrid! Does this mean the Dominion perfected the gene splicing tech to create them?
+Conversation/acObj/Line01595=That... looks like a hybrid. From what I remember about them, that is very bad news.
+Conversation/acObj/Line01596=More hybrid on the way. I'd really like a glimpse at their breeding facility's configuration.
+Conversation/acObj/Line01597=These hybrid are different than the ones I've seen before. Any chance I could study them after this?
+Conversation/acObj/Line01598=Hostile hybrid inbound! I wonder how terrazine affects their physiology...
+Conversation/acObj/Line01599=Hey! Hey, they're attacking my bots! Commanders!
+Conversation/acObj/Line01600=(Sing-song voice) My bots are under attack... My bots are under attack...
+Conversation/acObj/Line01601=Good morning, commanders! The enemy's eating my bots for breakfast!
+Conversation/acObj/Line01602=What's made to last forever and being destroyed? My bots, of course!
+Conversation/acObj/Line01603=The enemy's attacking my bots! Geez, commanders, can't you keep a hold of aggro!?
+Conversation/acObj/Line01604=Enemy forces have converged on my bots! Everybody, get in there!
+Conversation/acObj/Line01605=Those guys are smashing my bots to pieces! And I really don't wanna pick up after them!
+Conversation/acObj/Line01606=Please, please, please stop the enemy from breaking my stuff!
+Conversation/acObj/Line01607=My bots are taking damage! Terrible, terrible damage!
+Conversation/acObj/Line01608=They already destroyed one of the bots? I'll never get another one to that geyser in time!
+Conversation/acObj/Line01611=The enemy's taken down a bot! The geyser's gonna seal itself before another one reaches it.
+Conversation/acObj/Line01612=Aw man, that bot didn't even reach the geyser! There's no way I can send another one before it's gone.
+Conversation/acObj/Line01618=Hey! I worked hard on that! I need those bots in order to harvest the terrazine, commanders!
+Conversation/acObj/Line01619=Well, there goes one of my bots. If we lose too many of them, I won't be able to harvest any more terrazine!
+Conversation/acObj/Line01620=Okay, that was my favorite bot! (Frustrated grunt) Please try to not lose any more of them, commanders!
+Conversation/acObj/Line01624=What's that noise? Oh, it's just my precious bot going up in flames! One more, and we're toast!
+Conversation/acObj/Line01625=No, no, no! Not my bots! You monsters! We can't lose any more of them, commanders!
+Conversation/acObj/Line01626=Oh, come on! I can't afford to lose any more bots, commanders! They're all I have left!
+Conversation/acObj/Line01627=That's a good little bot! Welcome home! I missed you so much!
+Conversation/acObj/Line01628=The bots are back in town, the bots are back in town! (Makes guitar noises)
+Conversation/acObj/Line01629=Look, commanders, bots! Oh, those are mine. (Gasps) And they have terrazine!
+Conversation/acObj/Line01630=Good news, commanders! My bots have brought me terrazine! Well, it's good news for me.
+Conversation/acObj/Line01631=Hey uh, great job, commanders! My bots are safe and sound. Do you do this sort of thing often?
+Conversation/acObj/Line01632=Whew! My bots have returned! Looks like I won the bet this time, Bel'shir!
+Conversation/acObj/Line01633=My bots are back! That mean's it's "T" time. (Stage whispers) The "T" is for terrazine!
+Conversation/acObj/Line01634=We've got the start of a good terrazine cache! But my research is going to require some more.
+Conversation/acObj/Line01635=Hmm, looks like we're making progress. It's gonna take more terrazine than that to finish my... uh... research, that's right!
+Conversation/acObj/Line01636=I think I have a little less than half the terrazine I need. I guess I'll be sending out more bots!
+Conversation/acObj/Line01637=My terrazine tanks are about halfway full. Bel'shir's being really generous today! I should really send her a thank you card...
+Conversation/acObj/Line01638=Are my terrazine tanks are half empty, or half full? Huh. This wouldn't be a problem if they were completely full!
+Conversation/acObj/Line01639=Man, collecting terrazine is hard work. We've only got about half of what I need!
+Conversation/acObj/Line01640=I've got almost all the terrazine I need! Keep it up, commanders!
+Conversation/acObj/Line01641=Just a little more terrazine to go! Our victory is close at hand! (Devious laugh)
+Conversation/acObj/Line01642=Ooh, look at all that terrazine! And it's all mine! I need just a tiny bit more, commanders.
+Conversation/acObj/Line01643=Noooo! Now I'll never finish my research! Do you have any idea what I've been through on this planet!? Argh!
+Conversation/acObj/Line01644=(Frustrated exertion) It's ruined! It's all ruined! Just like my graduate thesis project!
+Conversation/acObj/Line01645=Yes! I can finally finish this research and get off this godforsaken rock! (Beat) I'm sorry, Bel'shir! I didn't mean it like that!
+Conversation/acObj/Line01646=Research complete. Haha, that was pretty good! I crack me up. But seriously, let's get the hell out of here.
+Conversation/acObj/Line01647=Nice work, commanders! You've done science a great service today. Now uhh... any chance I could get a ride off world?
+Conversation/acObj/Line01648=Oh, what? They're siphoning the terrazine from Bel'shir's fauna! Commanders, try to free it if you can!
+Conversation/acObj/Line01649=This is an outrage! The enemy is draining the terrazine from the Bel'shir gliders! We have to stop them! Or not, your choice.
+Conversation/acObj/Line01650=They're taking terrazine directly out of the majestic Bel'shir gliders! You... might want to stop them if you can, commanders.
+Conversation/acObj/Line01651=Looks like they've trapped another Bel'shir glider. You know what to do or not do, commanders!
+Conversation/acObj/Line01652=Yeesh, they're really doubling down on this living terrazine extraction plan. Maybe we should put a stop to it?
+Conversation/acObj/Line01653=Another Bel'shir glider is being drained of its terrazine. Do you think you have the time to set it free?
+Conversation/acObj/Line01654=The Bel'shir glider's terrazine won't last forever. If you want to save it, you'll have to do it before it's completely drained.
+Conversation/acObj/Line01655=Uh, we have only a limited amount of time to save the Bel'shir glider's life. Try not to forget about it. Being forgotten sucks.
+Conversation/acObj/Line01656=So, I'm not saying you have to, but if you want to free that Bel'shir glider I mentioned, you don't have all day.
+Conversation/acObj/Line01657=Once the Bel'shir glider's terrazine is gone, it'll be dead. So try to free it sooner than later. If you have a heart, that is.
+Conversation/acObj/Line01658=(Mumbles calculations to himself)By my calculations, the Bel'shir glider is going to die soon. You don't have much time left to save it.
+Conversation/acObj/Line01659=The Bel'shir glider's not long for this world, commanders. You'll miss your chance if you don't save it soon.
+Conversation/acObj/Line01660=Well, you're almost out of time to prevent the Bel'shir glider's death, commanders. If you were ever planning on it, anyway.
+Conversation/acObj/Line01661=The Bel'shir glider is almost dead, commanders. It's now or never. Literally. You could choose either one.
+Conversation/acObj/Line01662=Wow, you really just let that thing die. And I thought I knew you.
+Conversation/acObj/Line01663=Well, that's one dead whale. It was probably endangered, you know.
+Conversation/acObj/Line01664=They drained that creature completely dry! Bel'shir is going to be so mad about this...
+Conversation/acObj/Line01665=All of that creature's terrazine is gone. And so is its life! Tsk tsk. What a tragedy... just like my career.
+Conversation/acObj/Line01666=You saved it! Bel'shir thanks you, commanders. I mean... I thank you. Yes. Me. With the thanking.
+Conversation/acObj/Line01667=I can't believe they were extracting terrazine from those things. Why didn't I think of that!?
+Conversation/acObj/Line01668=Hey um, did you happen to save any of the extracted terrazine? No? Okay... well, that's okay...
+Conversation/acObj/Line01669=You know, I never noticed those things floating around here before. I wonder where they came from.
+DocInfo/DescLong=Including expanded parts such as air force crash effects. 
+DocInfo/DescShort=HTXL
+DocInfo/Name=ALL RACES COOP 2
+Effect/Name/CrashLargeDamage=Large crash damage
+Effect/Name/CrashLargeDamageSearch=Large crash damage search
+Effect/Name/CrashLargeDamageSet=Large crash damage collection
+Effect/Name/CrashMediumDamage=Medium crash damage
+Effect/Name/CrashMediumDamageSearch=Medium crash damage search
+Effect/Name/CrashMediumDamageSet=Medium crash damage collection
+Effect/Name/CrashSmallDamage=Small crash damage
+Effect/Name/CrashSmallDamageSearch=Small crash damage search
+Effect/Name/CrashSmallDamageSet=Small crash damage collection
+Effect/Name/ProtossCrashLargeABLv1=Protoss large crash behavior Lv1
+Effect/Name/ProtossCrashLargeABLv2=Protoss large crash behavior Lv2
+Effect/Name/ProtossCrashLargeABLv3=Protoss large crash behavior Lv3
+Effect/Name/ProtossCrashLargeBHVSetLv1=Protoss large crash collection Lv1
+Effect/Name/ProtossCrashLargeBHVSetLv2=Protoss large crash collection Lv2
+Effect/Name/ProtossCrashLargeBHVSetLv3=Protoss large crash collection Lv3
+Effect/Name/ProtossCrashLargeHeightLv1=Protoss large crash height Lv1
+Effect/Name/ProtossCrashLargeHeightLv2=Protoss large crash height Lv2
+Effect/Name/ProtossCrashLargeHeightLv3=Protoss large crash height Lv3
+Effect/Name/ProtossCrashMediumABLv1=Protoss medium crash behavior Lv1
+Effect/Name/ProtossCrashMediumABLv2=Protoss medium Crash behavior Lv2
+Effect/Name/ProtossCrashMediumABLv3=Protoss medium crash behavior Lv3
+Effect/Name/ProtossCrashMediumBHVSetLv1=Protoss medium crash collection Lv1
+Effect/Name/ProtossCrashMediumBHVSetLv2=Protoss medium crash collection Lv2
+Effect/Name/ProtossCrashMediumBHVSetLv3=Protoss medium crash collection Lv3
+Effect/Name/ProtossCrashMediumHeightLv1=Protoss medium crash height Lv1
+Effect/Name/ProtossCrashMediumHeightLv2=Protoss medium crash height Lv2
+Effect/Name/ProtossCrashMediumHeightLv3=Protoss medium crash height Lv3
+Effect/Name/ProtossCrashSmallABLv1=Protoss small crash behavior Lv1
+Effect/Name/ProtossCrashSmallABLv2=Protoss small crash behavior Lv2
+Effect/Name/ProtossCrashSmallABLv3=Protoss small crash behavior Lv3
+Effect/Name/ProtossCrashSmallBHVSetLv1=Protoss small crash collection Lv1
+Effect/Name/ProtossCrashSmallBHVSetLv2=Protoss small crash collection Lv2
+Effect/Name/ProtossCrashSmallBHVSetLv3=Protoss small crash collection Lv3
+Effect/Name/ProtossCrashSmallHeightLv1=Protoss small crash height Lv1
+Effect/Name/ProtossCrashSmallHeightLv2=Protoss small crash height Lv2
+Effect/Name/ProtossCrashSmallHeightLv3=Protoss small crash height Lv3
+Objective/Description/AC_BelshirEscort_Bonus01=Destroy the Extraction Device in order to free the captive Bel'shir Glider.
+Objective/Description/AC_BelshirEscort_Bonus02=Destroy the Extraction Device in order to free the captive Bel'shir Glider.
+Objective/Description/AC_BelshirEscort_Primary01=The Harvesting Bots must be protected as they gather terrazine and as they return to Stetmann's facility.
+Objective/Description/AC_BelshirEscort_Primary02=Stetmann has only a few Harvesting Bots on hand. If too many are destroyed, he won't be able to collect any more terrazine.
+Objective/Name/AC_BelshirEscort_Bonus01=Destroy the Extraction Device
+Objective/Name/AC_BelshirEscort_Bonus02=Destroy the Extraction Device
+Objective/Name/AC_BelshirEscort_Primary01=Escort Harvesting Bots
+Objective/Name/AC_BelshirEscort_Primary02=Do Not Let ~GOAL~ Bots Be Destroyed
+Param/Expression/lib_ARRA_142C7EA6=~A~</ignore>
+Param/Expression/lib_ARRA_21F0E63E=~A~ ~B~
+Param/Expression/lib_ARRA_2D943A89=<c val="87ceeb">NEW UNIT AVAILABLE</c><n/>~A~
+Param/Expression/lib_ARRA_490E3626=~A~
+Param/Expression/lib_ARRA_5C709E2F=<c val="87ceeb">NEW STRUCTURE AVAILABLE</c><n/>~A~
+Param/Expression/lib_ARRA_6D071D90=<c val="87ceeb">NEW UNIT ACQUIRED</c><n/>~A~
+Param/Expression/lib_ARRA_72874BCA=<c val="ff0000">~A~
+Param/Expression/lib_ARRA_7E4F0938=<c val="87ceeb">NEW TECH AVAILABLE</c><n/>~A~
+Param/Expression/lib_ARRA_8CBEFB12=<c val="ccff00">MISSION SUCCESS</c><n/>~A~
+Param/Expression/lib_ARRA_8D2B47C1=<ignore s="strip" c="strip">~A~
+Param/Expression/lib_ARRA_9DC108BB=<c val="ffcc00">MISSION FAILED</c><n/>~A~
+Param/Expression/lib_ARRA_A9886FD0=<c val="ffcc00">SECRET FOUND</c><n/>~A~
+Param/Expression/lib_ARRA_CAA7D68D=Out of Bounds: List ~A~ get ~C~ of ~B~
+Param/Expression/lib_ARRA_CDD7CB26=<c val="32cd32">TIP</c> -- ~A~.
+Param/Expression/lib_ARRA_F69BD9A3=~coloredTime~
+Param/Expression/lib_COMI_01D22D2F=~A~<c val="FFFF8A">(-~B~%)</c>
+Param/Expression/lib_COMI_01D2CF57=~C~<n/>~A~<c val="FFFF8A">(+~B~%)</c>
+Param/Expression/lib_COMI_02D35D5B=~A~<c val="FFFF8A">(+~B~%)</c>
+Param/Expression/lib_COMI_02DEBC44=<c val="FF9800">Fenix has died. He will be revived at the Nexus in ~A~ seconds.</c>
+Param/Expression/lib_COMI_04D3D687=<c val="FF9800">Gary has died. He will be "revived" at his room in ~Duration~ seconds.</c>
+Param/Expression/lib_COMI_05698672=~A~<c val="FFFF8A">(+~B~%)</c>
+Param/Expression/lib_COMI_06286633=~B~</n><c val="777777">~A~~C~~D~</c>
+Param/Expression/lib_COMI_06A202BC=~C~<n/>~A~<c val="FFFF8A">(+~B~%)</c>
+Param/Expression/lib_COMI_06C068A8=~A~
+Param/Expression/lib_COMI_0800C73F=~C~<n/>~A~<c val="FFFF8A">(+~B~)</c>
+Param/Expression/lib_COMI_082E6B3C=Setting score value ~A~ to ~B~ for player ~C~
+Param/Expression/lib_COMI_08BB63F6=<s val="@@UnitInfoSubTipDetail">~A~</s>
+Param/Expression/lib_COMI_099E8831=~A~/~B~
+Param/Expression/lib_COMI_0AD14109=~A~/~B~ at ~C~
+Param/Expression/lib_COMI_0B05619A=+~SCORE~
+Param/Expression/lib_COMI_0B6E0658=<ignore s="strip" c="strip">~A~</ignore>
+Param/Expression/lib_COMI_0B8C6D77=~A~ –<c val="FF8000"> ~B~</c>
+Param/Expression/lib_COMI_0C42BBD3=~A~ (~B~)
+Param/Expression/lib_COMI_0CB37498=<s val="Coop_Prestige_Tooltip_Title">~A~</s><n/><s val="Coop_Prestige_Tooltip_Subtitle">~B~</s><n/><n/><s val="@@@StandardTooltip">~C~</s>
+Param/Expression/lib_COMI_0D221D0C=<n/><s val="AchievementFrameName_Prot"><c val="668aff">~A~</c><c val="FFFFFF"> -</c> <c val="FF9D3C">~D~%</c><c val="8D8D8D"> (~C~)</c></s>
+Param/Expression/lib_COMI_0F08E43B=~A~<c val="FFFF8A">(+~B~%)</c>
+Param/Expression/lib_COMI_103A34B3=<c val="FF8040">Radius set to ~A~<n/>(Use negative value to reset)</c>
+Param/Expression/lib_COMI_109EB585=Final:~D~<n/>~OriginalText~
+Param/Expression/lib_COMI_123A4C9E=~C~<n/>~A~<c val="FFFF8A">(+~B~%)</c>
+Param/Expression/lib_COMI_12F75259=Total damage: ~A~
+Param/Expression/lib_COMI_148B4663=~A~<Frame type="Label" name="Score~B~_Label" template="ReplayDataLayout/Score_LabelTemplate"><Anchor side="Bottom" relative="$parent/Score~D~_Label" pos="0" offset="0"/> <Text val="Devour off cooldown"/> </Frame> <Frame type="Label" name="Score~B~_Value" template="ReplayDataLayout/Score_ValueTemplate"> <Anchor side="Bottom" relative="$parent/Score~D~_Label" pos="0" offset="0"/> <Text val="{$parent/Score~B~_Ref/@RealValue}"/> </Frame> <Frame type="DataRefFrame" name="Score~B~_Ref"> <PlayerId val="{$parent/$parent/PlayerStore/@Text}"/> <Argument name="Score" val="~C~"/> </Frame> <StateGroup name="Score~B~_SG"> <State name="Invisible"> <When type="Property" frame="$this/Score~B~_Value" Text="0"/> <Action type="SetProperty" frame="$this/Score~B~_Label" Visible="False"/> <Action type="SetProperty" frame="$this/Score~B~_Value" Visible="False"/> </State> </StateGroup>
+Param/Expression/lib_COMI_14AAEB5E=~A~<c val="FFFF8A">(+~B~%)</c>
+Param/Expression/lib_COMI_14C34455=~C~<n/>~A~<c val="FFFF8A">(-~B~s)</c>
+Param/Expression/lib_COMI_15AD7BE4=<s val="WeaponUI">NEWS</s>:<s val="Void_ShipPowerLabelDisabled"><n/><n/></s>~A~<n/><n/><c val="808080">----------------------------------------------------------------------------<n/>Additional mutators and features by Maguro<n/>                      <c val="8888FF"> www.maguro.one<n/></c></c>
+Param/Expression/lib_COMI_15CE9693=~B~</n>~A~~C~~D~
+Param/Expression/lib_COMI_16338079=~C~<n/>~A~<c val="FFFF8A">(+~B~s)</c>
+Param/Expression/lib_COMI_167DD620=~C~<n/>~A~<c val="FFFF8A">(+~B~%)</c>
+Param/Expression/lib_COMI_16A90BEF=~A~<Frame type="Label" name="Score~B~_Label" template="ReplayDataLayout/Score_LabelTemplate"> <Anchor side="Bottom" relative="$parent/Score~D~_Label" pos="0" offset="0"/> <Anchor side="Left" relative="$parent" pos="0" offset="#MasteryLabelLeft"/> <Text val="@ScoreValue/Name/~C~"/> </Frame> <Frame type="Label" name="Score~B~_Value" template="ReplayDataLayout/Score_ValueTemplate"> <Anchor side="Bottom" relative="$parent/Score~D~_Label" pos="0" offset="0"/> <Text val="{$parent/Score~B~_Ref/@RealValue}"/> </Frame> <Frame type="DataRefFrame" name="Score~B~_Ref"> <PlayerId val="{$parent/$parent/PlayerStore/@Text}"/> <Argument name="Score" val="~C~"/> </Frame> <Frame type="MathFrame" name="Score~B~_Multiply" template="ReplayDataLayout/Score_MultiplyTemplate"> <A val="{$parent/Score~B~_Value/@Text}"/> </Frame> <Frame type="MathFrame" name="Score~B~_Divide" template="ReplayDataLayout/Score_DivideTemplate">> <A val="{$parent/Score~B~_Multiply/@Result}"/> </Frame> <Frame type="Label" name="Score~B~_PercentValue" template="ReplayDataLayout/Score_PercentValueTemplate"> <Anchor side="Bottom" relative="$parent/Score~D~_Label" pos="0" offset="0"/> <Text val="{$parent/Score~B~_Divide/@ResultRound}"/> </Frame> <Frame type="Label" name="Score~B~_PercentSign" template="ReplayDataLayout/Score_PercentSignTemplate"> <Anchor side="Bottom" relative="$parent/Score~D~_Label" pos="0" offset="0"/> </Frame> <StateGroup name="Score~B~_SG"> <State name="Invisible"> <When type="Property" frame="$this/Score~B~_Value" Text="0"/> <Action type="SetProperty" frame="$this/Score~B~_Label" Visible="False"/> <Action type="SetProperty" frame="$this/Score~B~_Value" Visible="False"/> <Action type="SetProperty" frame="$this/Score~B~_PercentValue" Visible="False"/> <Action type="SetProperty" frame="$this/Score~B~_PercentSign" Visible="False"/> </State> </StateGroup>
+Param/Expression/lib_COMI_173FF518=~A~<c val="FFFF8A">(+~B~%)</c>
+Param/Expression/lib_COMI_17A0A69A=<c val="FF9800">Nova has died. She will be revived at the Command Center in ~Duration~ seconds. You can instantly revive Nova by using Instant Regeneration from the top bar.</c>
+Param/Expression/lib_COMI_180F7ACC=<c val="~B~">~C~</c> isn't ready (<c val="~B~">~A~ energy</c>)
+Param/Expression/lib_COMI_18415273=Setting prestige index ~A~ for player ~B~
+Param/Expression/lib_COMI_1A4508BD=~C~<n/>~A~<c val="FFFF8A">(+~B~)</c>
+Param/Expression/lib_COMI_1A68F274=<c val="[d Player='~ID~' GameValue='PlayerColor'/]">~PLAYER~</c> signals to retreat!
+Param/Expression/lib_COMI_1C88F6E4=<s val="@@UnitInfoTip">~A~</s>
+Param/Expression/lib_COMI_1CAFE485=~A~<c val="FFFF8A">(+~B~%)</c>
+Param/Expression/lib_COMI_1DDD924E=~C~<n/>~A~<c val="FFFF8A">(+~B~%)</c>
+Param/Expression/lib_COMI_1DFEDB21=any: ~A~ (~B~)  (~C~,~D~) ~E~
+Param/Expression/lib_COMI_1E00E76B=Unit: ~A~
+Param/Expression/lib_COMI_1E12CE26=~C~<n/>~A~<c val="FFFF8A">(+~B~%)</c>
+Param/Expression/lib_COMI_1EDC6F9A=Player: ~A~ (~D~) <c val="FF0000">Supply: ~B~</c> <c val="00FF00">Total Cost: ~C~</c>
+Param/Expression/lib_COMI_1FCBE922=~A~<Frame type="Label" name="Score~B~_Label" template="ReplayDataLayout/Score_LabelTemplate"><Anchor side="Bottom" relative="$parent/Score~D~_Label" pos="0" offset="0"/> <Text val="~C~"/><Color val="#MissionMutatorColor" /> </Frame> <Frame type="Label" name="Score~B~_Value" template="ReplayDataLayout/Score_ValueTemplate"> <Anchor side="Bottom" relative="$parent/Score~D~_Label" pos="0" offset="0"/><Color val="#MissionMutatorColor" /> <Text val="{$parent/Score~B~_Ref/@RealValue}"/> </Frame> <Frame type="DataRefFrame" name="Score~B~_Ref"> <Argument name="GalaxyVar" val="~E~"/> </Frame> <StateGroup name="Score~B~_SG"> <State name="Invisible"> <When type="Property" frame="$this/Score~B~_Value" Text="0"/> <Action type="SetProperty" frame="$this/Score~B~_Label" Visible="False"/> <Action type="SetProperty" frame="$this/Score~B~_Value" Visible="False"/> </State> </StateGroup>
+Param/Expression/lib_COMI_20A159B6=damage point: ~A~
+Param/Expression/lib_COMI_21481F4B=~A~,~B~
+Param/Expression/lib_COMI_215A334E=~C~<n/>~A~<c val="FFFF8A">(+~B~%)</c>
+Param/Expression/lib_COMI_21C9D3B1=~A~<Frame type="Label" name="Score~B~_Label" template="ReplayDataLayout/Score_LabelTemplate"><Anchor side="Bottom" relative="$parent/Score~D~_Label" pos="0" offset="0"/> <Text val="@ScoreValue/Name/~C~"/> </Frame> <Frame type="Label" name="Score~B~_Value" template="ReplayDataLayout/Score_ValueTemplate"> <Anchor side="Bottom" relative="$parent/Score~D~_Label" pos="0" offset="0"/> <Text val="{$parent/Score~B~_Ref/@RealValue}"/> </Frame> <Frame type="DataRefFrame" name="Score~B~_Ref"> <PlayerId val="{$parent/$parent/PlayerStore/@Text}"/> <Argument name="Score" val="~C~"/> </Frame> <StateGroup name="Score~B~_SG"> <State name="Invisible"> <When type="Property" frame="$this/Score~B~_Value" Text="0"/> <Action type="SetProperty" frame="$this/Score~B~_Label" Visible="False"/> <Action type="SetProperty" frame="$this/Score~B~_Value" Visible="False"/> </State> </StateGroup>
+Param/Expression/lib_COMI_22ECE1F8=Pathing cost between points: ~B~<n/>Unit can path to point (1-1000): ~C~<n/>AI Pathing Cost Unit: ~G~<n/>Points connected by pathing: ~A~<n/>Point is passable: ~E~<n/>Ground type at point: ~D~<n/>---
+Param/Expression/lib_COMI_242FDFAD=<s val="~Style~">~A~</s>
+Param/Expression/lib_COMI_261E2441=<s val="~A~">+~B~
+Param/Expression/lib_COMI_265102A4=Total - <c val="FF0000">Supply: ~B~</c> <c val="00FF00">Total Cost: ~C~</c>
+Param/Expression/lib_COMI_2707D36C=<n/>- - -<n/>Damage Dealt by Contaminated Strike: <c val="FFFFFF">~A~ (~B~%)</c>
+Param/Expression/lib_COMI_272922B7=<s val="Coop_CustomMutator_MutatorSelectionTooltipTitle">~NAME~</s><n/>~DESC~
+Param/Expression/lib_COMI_27F9D2C4=Setting ability ~A~ range to ~C~
+Param/Expression/lib_COMI_28B48350=<c val="FF8040">Removing all units at screen of player ~A~</c>
+Param/Expression/lib_COMI_2C4D8B4B=<c val="[d Player='~ID~' GameValue='PlayerColor'/]">~PLAYER~</c> wants to attack!
+Param/Expression/lib_COMI_2C6C8799=~A~: ~B~
+Param/Expression/lib_COMI_2D090992=~A~
+Param/Expression/lib_COMI_2E54AC15=~C~<n/>~A~<c val="FFFF8A">(+~B~%)</c>
+Param/Expression/lib_COMI_2FBE2D56=~C~<n/>~A~<c val="FFFF8A">(+~B~%)</c>
+Param/Expression/lib_COMI_318FEC11=~C~<n/>~A~<c val="FFFF8A">(+~B~s)</c>
+Param/Expression/lib_COMI_3273E625=~A~ (~B~) - hidden
+Param/Expression/lib_COMI_32B2A5BB=~C~<n/>~A~<c val="FFFF8A">(+~B~%)</c>
+Param/Expression/lib_COMI_32B5C57C=~C~<n/>~A~<c val="FFFF8A">(+~B~%)</c>
+Param/Expression/lib_COMI_32BA0FAD=<c val="[d Player='~ID~' GameValue='PlayerColor'/]">~PLAYER~</c> wants to attack <c val="[d Player='~ENEMYID~' GameValue='PlayerColor'/]">~ENEMY~</c>!
+Param/Expression/lib_COMI_3434F4A4=<c val="79B8F7">~A~</c> (~B~)
+Param/Expression/lib_COMI_34A22F5D=<c val="FF9800">Kerrigan has died. She will be revived at the Hatchery in ~Duration~ seconds.</c>
+Param/Expression/lib_COMI_35433FDA=<c val="FF8000">Timescale set to ~A~</c>
+Param/Expression/lib_COMI_35FA03F8=<c val="777777"> (~A~s)</c>
+Param/Expression/lib_COMI_36503FDC=~C~:~A~:~B~
+Param/Expression/lib_COMI_3680AEAE=~A~%
+Param/Expression/lib_COMI_36BB0BCB=No bank data found for player ~A~, setting to default
+Param/Expression/lib_COMI_376FACB2=~C~<n/>~A~<c val="FFFF8A">(+~B~%)</c>
+Param/Expression/lib_COMI_38617B26=~A~ (~C~) | ~B~
+Param/Expression/lib_COMI_38974405=Upgrade: ~A~
+Param/Expression/lib_COMI_398026D9=Requirement: ~A~
+Param/Expression/lib_COMI_3ADEB430=~C~<n/>~A~<c val="FFFF8A">(-~B~s)</c>
+Param/Expression/lib_COMI_3B33F470=~A~<c val="FFFF8A">(-~B~%)</c>
+Param/Expression/lib_COMI_3BA63506=~C~<n/>~A~<c val="FFFF8A">(-~B~s)</c>
+Param/Expression/lib_COMI_3C2EF7CA=~C~<n/>~A~<c val="FFFF8A">(+~B~%)</c>
+Param/Expression/lib_COMI_3C6F2B44=missile: ~A~ (~B~)  (~C~,~D~)
+Param/Expression/lib_COMI_3D845762=<s val="~A~">~SIGN~~B~
+Param/Expression/lib_COMI_3DE8B835=~A~ (~B~,~C~)
+Param/Expression/lib_COMI_3E6AC4B4=~A~ -dead
+Param/Expression/lib_COMI_40392385=~C~<n/>~A~<c val="FFFF8A">(+~B~%)</c>
+Param/Expression/lib_COMI_40DD3816=Patch ~A~
+Param/Expression/lib_COMI_417FF1CB=Set Wave Timer Window Icon Tooltip: Invalid slot ~A~ selected
+Param/Expression/lib_COMI_41824EF1=~C~<n/>~A~<c val="FFFF8A">(+~B~%)</c>
+Param/Expression/lib_COMI_419C396A=~A~: ~B~
+Param/Expression/lib_COMI_43668FDD=~A~
+Param/Expression/lib_COMI_4553C87A=Trying to set ~A~ to ~B~ but total score is too high: ~C~
+Param/Expression/lib_COMI_45CFEDEC=vb: ~A~
+Param/Expression/lib_COMI_46AA3484=~A~<Action type="SetProperty" frame="$this/MasteryName~C~" Text="@~B~"/>
+Param/Expression/lib_COMI_46BF3D3D=Ability: ~A~ (~B~)
+Param/Expression/lib_COMI_46C3AC24=~C~<n/>~A~<c val="FFFF8A">(-~B~%)</c>
+Param/Expression/lib_COMI_46CB795D=~C~<n/>~A~<c val="FFFF8A">(+~B~s)</c>
+Param/Expression/lib_COMI_47B73BF2=Ability: ~A~
+Param/Expression/lib_COMI_47F8D9A1=(DEBUG) ~A~ possibilities (~B~ points)
+Param/Expression/lib_COMI_496155C5=~A~<n/><c val="ff0000">You and your ally must choose different commanders.</c>
+Param/Expression/lib_COMI_4965F6C6=<s val="@StandardTooltipHeader">~A~</s><n/><s val="@StandardTooltip">~B~<n/><n/>~C~</s>
+Param/Expression/lib_COMI_4A7804D4=<s val="@@StandardTooltipHeader">~NAME~</s><n/><s val="@@StandardTooltip">~DESCRIPTION~</s>
+Param/Expression/lib_COMI_4C2CB6DD=~C~<n/>~A~<c val="FFFF8A">(+~B~)</c>
+Param/Expression/lib_COMI_4DD0BF6C=<c val="[d Player='~ID~' GameValue='PlayerColor'/]">~PLAYER~</c> wants to attack <c val="[d Player='~ENEMYID~' GameValue='PlayerColor'/]">~ENEMY~</c>!
+Param/Expression/lib_COMI_4E4D6883=???: ~A~
+Param/Expression/lib_COMI_4F19AFD0=~A~
+Param/Expression/lib_COMI_4F64D446=~C~<n/>~A~<c val="FFFF8A">(+~B~%)</c>
+Param/Expression/lib_COMI_5111CB96=~C~<n/>~A~<c val="FFFF8A">(+~B~%)</c>
+Param/Expression/lib_COMI_513AEACD=Button: ~A~
+Param/Expression/lib_COMI_52115510=Player ~A~
+Param/Expression/lib_COMI_53854CA2=hidden: ~A~ (~B~) -- (~C~,~D~)
+Param/Expression/lib_COMI_54B2A313=~A~<c val="FFFF8A">(+~B~%)</c>
+Param/Expression/lib_COMI_54C883DD=~A~ </StateGroup></Frame> <Frame type="Frame" name="Scores"> <Anchor side="Bottom" relative="$parent" pos="1" offset="0"/> <Anchor side="Left" relative="$parent" pos="0" offset="0"/> <CollapseLayout val="True"/> <Height val="800"/> <Width val="800"/>
+Param/Expression/lib_COMI_555A6612=~C~<n/>~A~<c val="FFFF8A">(+~B~%)</c>
+Param/Expression/lib_COMI_569A223E=~A~</State>
+Param/Expression/lib_COMI_56E4E616=Abandoning Brutal+ difficulty. Both players must be on Brutal difficulty and player 1 must have a Brutal+ difficulty within a range of [1, ~A~].
+Param/Expression/lib_COMI_57268E34=DAMAGE EFFECT: ~A~
+Param/Expression/lib_COMI_580E8038=~A~<c val="FFFF8A">(+~B~%)</c>
+Param/Expression/lib_COMI_5966D169=~A~ ~B~
+Param/Expression/lib_COMI_59E6D697=~C~<n/>~A~<c val="FFFF8A">(+~B~s)</c>
+Param/Expression/lib_COMI_5A3C2E55=<c val="~C~">~B~ </c>will be ready in <c val="~C~">~A~</c> seconds
+Param/Expression/lib_COMI_5ABE6F6D=dead: ~A~ (~B~)  (~C~,~D~)
+Param/Expression/lib_COMI_5ACA431E=~C~<n/>~A~<c val="FFFF8A">(+~B~%)</c>
+Param/Expression/lib_COMI_5AEDA22B=<c val="~C~">~B~ </c>is ready
+Param/Expression/lib_COMI_5B6942DB=~C~<n/>~A~<c val="FFFF8A">(+~B~%)</c>
+Param/Expression/lib_COMI_5BF68E45=<c val="FF8000">Supply limit set to ~A~</c>
+Param/Expression/lib_COMI_5C0940C4=(DEBUG) ~A~: ~B~
+Param/Expression/lib_COMI_5C7A1C02=~A~<Frame type="Label" name="Score~B~_Label" template="ReplayDataLayout/Score_LabelTemplate"><Anchor side="Bottom" relative="$parent/Score~D~_Label" pos="0" offset="0"/> <Text val="@ScoreValue/Name/~C~"/><Color val="#MissionMutatorColor" /> </Frame> <Frame type="Label" name="Score~B~_Value" template="ReplayDataLayout/Score_ValueTemplate"> <Anchor side="Bottom" relative="$parent/Score~D~_Label" pos="0" offset="0"/><Color val="#MissionMutatorColor" /> <Text val="{$parent/Score~B~_Ref/@RealValue}"/> </Frame> <Frame type="DataRefFrame" name="Score~B~_Ref"> <PlayerId val="1"/> <Argument name="Score" val="~C~"/> </Frame> <StateGroup name="Score~B~_SG"> <State name="Invisible"> <When type="Property" frame="$this/Score~B~_Value" Text="0"/> <Action type="SetProperty" frame="$this/Score~B~_Label" Visible="False"/> <Action type="SetProperty" frame="$this/Score~B~_Value" Visible="False"/> </State> </StateGroup>
+Param/Expression/lib_COMI_5D32DD68=<c val="FFFFFF">~A~</c>  <c val="FFFFFF">~B~%</c> (~C~)
+Param/Expression/lib_COMI_5F806CAB=~C~<n/>~A~<c val="FFFF8A">(-~B~%)</c>
+Param/Expression/lib_COMI_61259462=Behavior: ~A~
+Param/Expression/lib_COMI_63D06C09=~C~<n/>~A~<c val="FFFF8A">(+~B~%)</c>
+Param/Expression/lib_COMI_6475462F=<s val="@@StandardTooltipHeader">~NAME~</s><n/><s val="@@StandardTooltip">~DESCRIPTION~</s>
+Param/Expression/lib_COMI_64E8CEC9=Setting ability ~A~ range to ~C~
+Param/Expression/lib_COMI_66596FEC=~C~<n/>~A~<c val="FFFF8A">(+~B~%)</c>
+Param/Expression/lib_COMI_677DD770=Found mutator in index ~A~, setting mutator: ~B~
+Param/Expression/lib_COMI_69162470=~C~<n/>~A~<c val="FFFF8A">(+~B~s)</c>
+Param/Expression/lib_COMI_69BB4E38=APPLIED TO ENEMY: ~A~
+Param/Expression/lib_COMI_69CFFD6B=~A~<c val="FFFF8A">(+~B~%)</c>
+Param/Expression/lib_COMI_6A23F347=<c val="FF8000">Timescale set to ~A~</c>
+Param/Expression/lib_COMI_6AB5C1A4=P1 Brutal+ Difficulty: ~A~ (~B~)
+Param/Expression/lib_COMI_6AC7A3D8=P~B~ Brutal difficulty check: ~A~
+Param/Expression/lib_COMI_6C93F77A=~C~<n/>~A~<c val="FFFF8A">(-~B~s)</c>
+Param/Expression/lib_COMI_6CB0859E=<c val="FF9800">Kerrigan has died. She will be revived at the Hatchery in ~Duration~ seconds.</c>
+Param/Expression/lib_COMI_6CB2A27A=~A~</s><IMG path="Assets\Textures\icon-gas-zerg.dds" height="20" width="20"/>
+Param/Expression/lib_COMI_6E64E1FD=~A~%
+Param/Expression/lib_COMI_6EAD62E2=~A~<c val="FFFF8A">(+~B~%)</c>
+Param/Expression/lib_COMI_6F012790=Setting Brutal+ level: ~A~
+Param/Expression/lib_COMI_6F59E759=Full saturation at ~A~
+Param/Expression/lib_COMI_6FB22BF6=(~A~  ~B~)
+Param/Expression/lib_COMI_6FFF0350=~C~<n/>~A~<c val="FFFF8A">(+~B~%)</c>
+Param/Expression/lib_COMI_70902A47=target is hidden: ~A~<n/>target is invulnerable: ~B~
+Param/Expression/lib_COMI_71CD9C38=~C~<n/>~A~<c val="FFFF8A">(+~B~)</c>
+Param/Expression/lib_COMI_7312F2FB=~C~<n/>~A~<c val="FFFF8A">(+~B~%)</c>
+Param/Expression/lib_COMI_732836B8=~C~<n/>~A~<c val="FFFF8A">(+~B~%)</c>
+Param/Expression/lib_COMI_734177AA=Attack ~A~
+Param/Expression/lib_COMI_73C41036=~C~<n/>~A~<c val="FFFF8A">(+~B~%)</c>
+Param/Expression/lib_COMI_73F65B51=Effect: ~A~ | DMG: ~B~
+Param/Expression/lib_COMI_7408EA39=~A~<n/><n/>Can be selected multiple times.
+Param/Expression/lib_COMI_742AD112=<s val="MapName"><c val="FF7700">~B~</c></s>  (preplaced units and structures: ~A~)
+Param/Expression/lib_COMI_745B3346=Weapon: ~A~
+Param/Expression/lib_COMI_76A693CF=Achievement "~A~" unlocked (~B~)<n/>~C~
+Param/Expression/lib_COMI_7700BE92=<c val="FF8000"> ~A~</c>
+Param/Expression/lib_COMI_775E8ABD=<c val="[d Player='~ID~' GameValue='PlayerColor'/]">~PLAYER~</c> wants to defend <c val="[d Player='~ENEMYID~' GameValue='PlayerColor'/]">~ENEMY~</c>!
+Param/Expression/lib_COMI_77AEBD09=period: ~A~
+Param/Expression/lib_COMI_7814589F=~C~<n/>~A~<c val="FFFF8A">(-~B~%)</c>
+Param/Expression/lib_COMI_795A2CCA=<c val="485AFF">Avg: ~A~</c><n/><c val="FF8000">Now: </c>
+Param/Expression/lib_COMI_7985527A=~A~%
+Param/Expression/lib_COMI_7A31B91A=~C~<n/>~A~<c val="FFFF8A">(+~B~)</c>
+Param/Expression/lib_COMI_7B047753=~A~ PLAYERS
+Param/Expression/lib_COMI_7B1B3B5D=MASTERY LEVEL <h>~A~</h>
+Param/Expression/lib_COMI_7D7F9BF8=<c val="FF9800">Dehaka has died. He will be revived at his den in ~Duration~ seconds.  You can also feed him drones to revive faster</c>
+Param/Expression/lib_COMI_7E8C5873=~C~<State name="~A~"> <When type="Property" frame="$parent/CommanderData/CommanderDataLabel" Text="~B~"/> <Action type="SetProperty" frame="$parent/CommanderLabel" Text="~A~"/>
+Param/Expression/lib_COMI_7ECFE382=BEHAVIOR  ~A~ REMOVED from ~B~
+Param/Expression/lib_COMI_7FDC21CE=<c val="B0B0B0">DPS (5s): ~A~<n/>DPS (~B~s): ~C~</c>
+Param/Expression/lib_COMI_80223D6E=~C~<n/>~A~<c val="FFFF8A">(+~B~%)</c>
+Param/Expression/lib_COMI_802F4549=~A~:~B~
+Param/Expression/lib_COMI_8060C82F=~A~<StateGroup name="CommanderNameSG">
+Param/Expression/lib_COMI_80A7430D=(Unfinished) ~A~
+Param/Expression/lib_COMI_80DA4E1C=~C~<n/>~A~<c val="FFFF8A">(+~B~%)</c>
+Param/Expression/lib_COMI_813A56C3=~C~<n/>~A~<c val="FFFF8A">(-~B~%)</c>
+Param/Expression/lib_COMI_836FBDE0= [~A~]
+Param/Expression/lib_COMI_837DF113=<c val="FF8040">Removing all unselectable units</c>
+Param/Expression/lib_COMI_83E46636=<c val="485AFF">Avg: ~A~</c><n/><c val="FF8000">Now: ~B~</c>
+Param/Expression/lib_COMI_84392794=~C~<n/>~A~<c val="FFFF8A">(-~B~s)</c>
+Param/Expression/lib_COMI_871639CE=~A~<c val="FFFF8A">(-~B~s)</c>
+Param/Expression/lib_COMI_8743E7EB=~A~ ~B~
+Param/Expression/lib_COMI_87B2D44D=~A~ (1)
+Param/Expression/lib_COMI_88C585DF=~C~<n/>~A~<c val="FFFF8A">(+~B~%)</c>
+Param/Expression/lib_COMI_88FEA8A4=~C~<n/>~A~<c val="FFFF8A">(+~B~%)</c>
+Param/Expression/lib_COMI_89870782=<c val="FF9800">Zeratul has died. He will be revived at the Nexus in ~Duration~ seconds.</c>
+Param/Expression/lib_COMI_8A781658=New Mutator: ~A~
+Param/Expression/lib_COMI_8A7D4A08=~A~,~B~
+Param/Expression/lib_COMI_8B2D1CDA=~C~<n/>~A~<c val="FFFF8A">(+~B~%)</c>
+Param/Expression/lib_COMI_8BB24844=~C~<n/>~A~<c val="FFFF8A">(+~B~)</c>
+Param/Expression/lib_COMI_8BCA54B5=~C~<n/>~A~<c val="FFFF8A">(+~B~)</c>
+Param/Expression/lib_COMI_8C902DD8=~C~<n/>~A~<c val="FFFF8A">(-~B~s)</c>
+Param/Expression/lib_COMI_8CC60B38=Button: ~A~ | Hotkey: ~B~
+Param/Expression/lib_COMI_8D1A1D5F=<c val="FF8000">ALL (~A~)</c>
+Param/Expression/lib_COMI_8DB1E9FF=~C~<n/>~A~<c val="FFFF8A">(+~B~)</c>
+Param/Expression/lib_COMI_8DF61F6B=~A~<Frame type="Label" name="Score~B~_Label"> <Anchor side="Bottom" relative="$parent" pos="1" offset="0" /> <Visible val="False"/><CollapseLayout val="True" /> </Frame>
+Param/Expression/lib_COMI_8E073884=<c val="FF9800">Zagara has died. She will be revived at the Hatchery in ~Duration~ seconds.</c>
+Param/Expression/lib_COMI_8EB4A42D=The party leader has selected ~DIFFICULTY~ difficulty.  GLHF!
+Param/Expression/lib_COMI_8F2F72F6=~A~<Frame type="Label" name="Score~B~_Label"> <Anchor side="Bottom" relative="$parent/AIComp" pos="0" offset="0" /> <Visible val="False"/><CollapseLayout val="True" /> </Frame>
+Param/Expression/lib_COMI_8F34D3BF=~C~<n/>~A~<c val="FFFF8A">(+~B~%)</c>
+Param/Expression/lib_COMI_8F40F017=~C~<n/>~A~<c val="FFFF8A">(+~B~%)</c>
+Param/Expression/lib_COMI_91287093=<n/>- - -<n/>Devour off cooldown: <c val="FFFFFF">~A~</c>
+Param/Expression/lib_COMI_9128F2EC=~C~<n/>~A~<c val="FFFF8A">(-~B~%)</c>
+Param/Expression/lib_COMI_913DC549=<s val="@@StandardTooltipHeader">~NAME~</s><n/><s val="@@StandardTooltip">~DESCRIPTION~</s>
+Param/Expression/lib_COMI_91FCD7C6=~A~<c val="FFFF8A">(-~B~s)</c>
+Param/Expression/lib_COMI_9205F897=~A~/~B~
+Param/Expression/lib_COMI_93240BF6=~A~  <c val="FFFFFF">~B~</c>
+Param/Expression/lib_COMI_943F50CE=<c val="[d Player='~ID~' GameValue='PlayerColor'/]">~PLAYER~</c> wants to defend!
+Param/Expression/lib_COMI_94852538=<s val="@@StandardTooltipHeader">~NAME~</s><n/><s val="@@StandardTooltip">~DESCRIPTION~</s>
+Param/Expression/lib_COMI_94F4929B=Validator: ~A~
+Param/Expression/lib_COMI_954EE9B0=<c val="[d Player='~ID~' GameValue='PlayerColor'/]">~PLAYER~</c>: <c val="FFFF8A">~MUTATOR~</c>
+Param/Expression/lib_COMI_958DABAE=~CurrentLife~/~MaxLife~
+Param/Expression/lib_COMI_95D542DF=~C~<n/>~A~<c val="FFFF8A">(+~B~%)</c>
+Param/Expression/lib_COMI_95E7B9AF=<ignore s="strip" c="strip">~A~</ignore>
+Param/Expression/lib_COMI_96D013E3=<n/><s val="AchievementFrameName_Prot"><c val="668aff">~A~</c><c val="FFFFFF"> -</c> <c val="00CE00">~D~%</c><c val="8D8D8D"> (~C~)</c></s>
+Param/Expression/lib_COMI_98293AF2=~C~<n/>~A~<c val="FFFF8A">(-~B~s)</c>
+Param/Expression/lib_COMI_993EAF5A=~C~<n/>~A~<c val="FFFF8A">(-~B~s)</c>
+Param/Expression/lib_COMI_994CE123=<c val="FF8000">Bonus 1:<n/> ~A~<n/>Bonus 2:<n/> ~B~<n/>Time:<n/> ~C~</c>
+Param/Expression/lib_COMI_99778384=~A~%
+Param/Expression/lib_COMI_9A277074=<c val="FF8000">Random mutator count set to:</c> ~A~
+Param/Expression/lib_COMI_9AA99AF0=Behavior: ~A~ ~B~ on ~C~
+Param/Expression/lib_COMI_9B053B02=<s val="@@StandardTooltipHeader">~NAME~</s><n/><s val="@@StandardTooltip">~DESCRIPTION~</s>
+Param/Expression/lib_COMI_9CCEDD6B=~C~<n/>~A~<c val="FFFF8A">(+~B~%)</c>
+Param/Expression/lib_COMI_9E2176CC=~A~<c val="FFFF8A">(+~B~%)</c>
+Param/Expression/lib_COMI_9EB4BB4C=<s val="@@StandardTooltipHeader">~NAME~</s><n/><s val="@@StandardTooltip">~DESCRIPTION~</s>
+Param/Expression/lib_COMI_9EE969A0=~A~: ~B~
+Param/Expression/lib_COMI_9F47A602=~C~<n/>~A~<c val="FFFF8A">(-~B~s)</c>
+Param/Expression/lib_COMI_9F5113CD=Revived: ~C~ (~D~) (~A~,~B~)
+Param/Expression/lib_COMI_A0F11326=~A~<Frame type="Label" name="Score~B~_Label" template="ReplayDataLayout/Score_LabelTemplate"> <Anchor side="Bottom" relative="$parent/Score~D~_Label" pos="0" offset="0"/> <Anchor side="Left" relative="$parent" pos="0" offset="#MasteryLabelLeft"/> <Text val="Damage Dealt by Contaminated Strike"/> </Frame> <Frame type="Label" name="Score~B~_Value" template="ReplayDataLayout/Score_ValueTemplate"> <Anchor side="Bottom" relative="$parent/Score~D~_Label" pos="0" offset="0"/> <Text val="{$parent/Score~B~_Ref/@RealValue}"/> </Frame> <Frame type="DataRefFrame" name="Score~B~_Ref"> <PlayerId val="{$parent/$parent/PlayerStore/@Text}"/> <Argument name="Score" val="~C~"/> </Frame> <Frame type="MathFrame" name="Score~B~_Multiply" template="ReplayDataLayout/Score_MultiplyTemplate"> <A val="{$parent/Score~B~_Value/@Text}"/> </Frame> <Frame type="MathFrame" name="Score~B~_Divide" template="ReplayDataLayout/Score_DivideTemplate">> <A val="{$parent/Score~B~_Multiply/@Result}"/> </Frame> <Frame type="Label" name="Score~B~_PercentValue" template="ReplayDataLayout/Score_PercentValueTemplate"> <Anchor side="Bottom" relative="$parent/Score~D~_Label" pos="0" offset="0"/> <Text val="{$parent/Score~B~_Divide/@ResultRound}"/> </Frame> <Frame type="Label" name="Score~B~_PercentSign" template="ReplayDataLayout/Score_PercentSignTemplate"> <Anchor side="Bottom" relative="$parent/Score~D~_Label" pos="0" offset="0"/> </Frame> <StateGroup name="Score~B~_SG"> <State name="Invisible"> <When type="Property" frame="$this/Score~B~_Value" Text="0"/> <Action type="SetProperty" frame="$this/Score~B~_Label" Visible="False"/> <Action type="SetProperty" frame="$this/Score~B~_Value" Visible="False"/> <Action type="SetProperty" frame="$this/Score~B~_PercentValue" Visible="False"/> <Action type="SetProperty" frame="$this/Score~B~_PercentSign" Visible="False"/> </State> </StateGroup>
+Param/Expression/lib_COMI_A1136B3B=~time~ Player ~player~ - Attack Wave Difficulty ~diff~ Total Resources ~total~
+Param/Expression/lib_COMI_A3017A5A=Set Wave Timer Window Icon: Invalid slot ~A~ selected
+Param/Expression/lib_COMI_A3DEC264=~C~<n/>~A~<c val="FFFF8A">(+~B~/-~B~%)</c>
+Param/Expression/lib_COMI_A4921597=<li/><img path="~ICON~" width="28" height="28"/>~NAME~ ~DIFFICULTY~
+Param/Expression/lib_COMI_A4F93337=UNIT ARMED  ~A~
+Param/Expression/lib_COMI_A755624F=Changing hotkey for <c val="FF8040">~A~</c> to <c val="FF8040">~B~</c>
+Param/Expression/lib_COMI_A79929ED=~C~<n/>~A~<c val="FFFF8A">(+~B~)</c>
+Param/Expression/lib_COMI_A8624C75=~A~ ~B~
+Param/Expression/lib_COMI_A8B3022A=<c val="FF8000">created units:</c> ~A~<n/><c val="FF0000">Might not work properly for some attack waves and mutators</c>
+Param/Expression/lib_COMI_AA3C11F0=~A~ for ~B~
+Param/Expression/lib_COMI_AA9BB8FA=~CurrentEnergy~/~MaxEnergy~
+Param/Expression/lib_COMI_AAA31BFF=<c val="~C~">~B~</c> isn't available
+Param/Expression/lib_COMI_AC0DB059=~C~<n/>~A~<c val="FFFF8A">(+~B~%)</c>
+Param/Expression/lib_COMI_ACEDE4FC=Died: ~C~ (~D~) (~A~,~B~)
+Param/Expression/lib_COMI_AD6E10FC=~C~<n/>~A~<c val="FFFF8A">(+~B~%)</c>
+Param/Expression/lib_COMI_AECF6E2E=<s val="@@StandardTooltipHeader">~NAME~</s><n/><s val="@@StandardTooltip">~DESCRIPTION~</s>
+Param/Expression/lib_COMI_AF9B380F=Created: ~C~ (~D~) (~A~,~B~)
+Param/Expression/lib_COMI_B0AD93B9=~C~<n/>~A~<c val="FFFF8A">(-~B~%)</c>
+Param/Expression/lib_COMI_B2417694=~C~<n/>~A~<c val="FFFF8A">(+~B~%)</c>
+Param/Expression/lib_COMI_B286A863=~C~<n/>~A~<c val="FFFF8A">(+~B~%)</c>
+Param/Expression/lib_COMI_B2B7803E=DPS (5s): <c val="FF8000">~A~</c><n/>DPS (~B~s): <c val="485AFF ">~C~</c>
+Param/Expression/lib_COMI_B58DABE6=<c val="[d Player='~ID~' GameValue='PlayerColor'/]">~PLAYER~</c> wants to harvest these resources!
+Param/Expression/lib_COMI_B5D8C8B4=<c val="FF0000">~A~</c>/<c val="00FF00">~B~</c>
+Param/Expression/lib_COMI_B73CD433=Effect: ~A~
+Param/Expression/lib_COMI_B763DD40=Join Our DISCORD server:<n/>~A~
+Param/Expression/lib_COMI_B7A7A12F=UNIT DISARMED  ~A~
+Param/Expression/lib_COMI_B90A4264=~A~ disabled
+Param/Expression/lib_COMI_B919AB59=ABILITY MODIFY EFFECT: ~A~
+Param/Expression/lib_COMI_B9D4DD65=~A~ disabled
+Param/Expression/lib_COMI_B9E3AD23=~A~<Action type="SetProperty" frame="$this/MasteryName~C~" Text="@Button/Name/MasteryMengsk~B~"/>
+Param/Expression/lib_COMI_B9F61E96=~A~ (~B~)
+Param/Expression/lib_COMI_BA6DF236=Debug: Searching for override pack: ~A~
+Param/Expression/lib_COMI_BBCA0567=~A~
+Param/Expression/lib_COMI_BD1D9151=<c val="[d Player='~ID~' GameValue='PlayerColor'/]">~PLAYER~</c> is on the way!
+Param/Expression/lib_COMI_BE4BB580=~C~<n/>~A~<c val="FFFF8A">(+~B~%)</c>
+Param/Expression/lib_COMI_BEC67685=WARNING: Mastery ~A~ not found in commander
+Param/Expression/lib_COMI_BEDEFD56=<ignore s="strip" c="strip">~A~
+Param/Expression/lib_COMI_C0FEE3FB=dmg: ~A~
+Param/Expression/lib_COMI_C1B831B2=<s val="~Style~">~A~</s>
+Param/Expression/lib_COMI_C1BC54B8=UNIT DISARMED  ~A~
+Param/Expression/lib_COMI_C1E05D4F=~C~<n/>~A~<c val="FFFF8A">(+~B~%)</c>
+Param/Expression/lib_COMI_C23EF7B9=Requirement Node: ~A~
+Param/Expression/lib_COMI_C2F4CDCF=~C~<n/>~A~<c val="FFFF8A">(-~B~s)</c>
+Param/Expression/lib_COMI_C3495732=ABILITY ~A~ REMOVED from ~B~
+Param/Expression/lib_COMI_C44C2811=Copying behaviors on ~A~
+Param/Expression/lib_COMI_C8541C61=~C~<n/>~A~<c val="FFFF8A">(+~B~%)</c>
+Param/Expression/lib_COMI_C8C8F7F1=Effect: ~A~
+Param/Expression/lib_COMI_C8E147FC=Checking P1 Retry Mutator Index 1: ~A~
+Param/Expression/lib_COMI_C99B9DE4=~A~</s><IMG path="Assets\Textures\icon-mineral-zerg.dds" height="20" width="20"/>
+Param/Expression/lib_COMI_C9DE0DD8=~A~: ~B~
+Param/Expression/lib_COMI_CB718F8C=~C~<n/>~A~<c val="FFFF8A">(+~B~%)</c>
+Param/Expression/lib_COMI_CDC62691=<s val="@@StandardTooltipHeaderSub">~SUBTITLE~</s><n/><s val="@@StandardTooltipHeader">~TITLE~</s><s val="StandardTooltipHalfSize"><n/></s><n/><s val="@@StandardTooltip">~DESCRIPTION~<n/><n/><c val="ffff8a">Key Units:<n/></c><n/><ul indent="2" text="•">~UNITS~</ul></s>
+Param/Expression/lib_COMI_CE3C1F06=~C~<n/>~A~<c val="FFFF8A">(-~B~%)</c>
+Param/Expression/lib_COMI_CE6AF086=~C~<n/>~A~<c val="FFFF8A">(-~B~s)</c>
+Param/Expression/lib_COMI_D1F6BAB1=~C~<n/>~A~<c val="FFFF8A">(+~B~)</c>
+Param/Expression/lib_COMI_D30390E4=~Time~ - ~Unit~/~Count~(~expected~)
+Param/Expression/lib_COMI_D5D00B0A=~C~<n/>~A~<c val="FFFF8A">(+~B~%)</c>
+Param/Expression/lib_COMI_D5F4F654=~A~ -missile
+Param/Expression/lib_COMI_D7D6BBB4=<s val="MapName"><c val="FF8000">PLAYER ~A~ MASTERIES</c></s>
+Param/Expression/lib_COMI_D80C54A7=Cost: ~A~<n/>Supply: ~B~<n/>Life+Shield: ~C~
+Param/Expression/lib_COMI_D8533531=~C~<n/>~A~<c val="FFFF8A">(+~B~)</c>
+Param/Expression/lib_COMI_D9CEF821=Player ~A~
+Param/Expression/lib_COMI_DA5FCB30=~C~<n/>~A~<c val="FFFF8A">(+~B~%)</c>
+Param/Expression/lib_COMI_DCDB98DB=~A~<c val="FFFF8A">(+~B~%)</c>
+Param/Expression/lib_COMI_DFE941DE=<c val="~C~">~B~ </c>has <c val="~C~">~A~</c> charges ready
+Param/Expression/lib_COMI_E08D2FBF=Upgrade: ~A~ ~B~ for ~C~
+Param/Expression/lib_COMI_E1144253=Mutators <c val="FFFA24">(~A~)</c>
+Param/Expression/lib_COMI_E2692B72=<c val="~B~">~C~</c> is ready (<c val="~B~">~A~ energy</c>)
+Param/Expression/lib_COMI_E38BE096=~C~<n/>~A~<c val="FFFF8A">(-~B~s)</c>
+Param/Expression/lib_COMI_E3BF1656=~A~</ignore>
+Param/Expression/lib_COMI_E4087874=~B~: ~A~
+Param/Expression/lib_COMI_E45A8AE0=Debug: Active voice pack: ~A~
+Param/Expression/lib_COMI_E6F1C8B8=Bank version for player ~A~ out of date (~B~ vs ~C~), setting to default
+Param/Expression/lib_COMI_E70C65CC=~C~<n/>~A~<c val="FFFF8A">(-~B~%)</c>
+Param/Expression/lib_COMI_E859838B=<c val="FF8040">Setting sight range to selected units to: ~A~</c>
+Param/Expression/lib_COMI_EA30F749=Harvest ~A~
+Param/Expression/lib_COMI_EA7FAF5C=Effect: ~A~
+Param/Expression/lib_COMI_EB06429A=Computer ~A~ surrendering as requested by ~B~.
+Param/Expression/lib_COMI_EDD5658D=~A~<c val="FFFF8A">(+~B~%)</c>
+Param/Expression/lib_COMI_EF5DAE27=<c val="FF9800">Zagara has died. She will be revived at the Hatchery in ~Duration~ seconds.</c>
+Param/Expression/lib_COMI_F14BEAEB=~B~ -hidden
+Param/Expression/lib_COMI_F1C8702B=~C~<n/>~A~<c val="FFFF8A">(+~B~%)</c>
+Param/Expression/lib_COMI_F22E9921=(DEBUG) Evaluating. Mutators: [~A~, ~B~]   Points: [~C~, ~D~]
+Param/Expression/lib_COMI_F2C8F0B6=~A~  <c val="FFFFFF">~B~</c>
+Param/Expression/lib_COMI_F33E03AF=~A~ –<c val="FF8000"> ~B~</c>
+Param/Expression/lib_COMI_F34F0177=<s val="Coop_Prestige_Tooltip_Title">~A~</s><n/><s val="Coop_Prestige_Tooltip_Subtitle">~B~</s><n/><n/><s val="@@@StandardTooltip">~C~</s>
+Param/Expression/lib_COMI_F385D0BE=~A~~B~~C~
+Param/Expression/lib_COMI_F4416D52=hidden: ~A~ (~B~) -- (~C~,~D~) -- cargo
+Param/Expression/lib_COMI_F450DB7C=~CurrentLife~/~MaxLife~
+Param/Expression/lib_COMI_F48D20CC=Defend ~A~
+Param/Expression/lib_COMI_F4C3F09B=Copying ~A~ ~B~ to ~C~
+Param/Expression/lib_COMI_F4CEBB9D=~C~<n/>~A~<c val="FFFF8A">(+~B~%)</c>
+Param/Expression/lib_COMI_F53354A7=~A~<c val="FFFF8A">(+~B~)</c>
+Param/Expression/lib_COMI_F5DE7385=~C~<n/>~A~<c val="FFFF8A">(+~B~%)</c>
+Param/Expression/lib_COMI_F82DEC5D=<c val="FF9800">Alarak has died. He will be revived at the Nexus in ~Duration~ seconds.</c>
+Param/Expression/lib_COMI_F881F2B7=~A~</s><IMG path="~B~" height="24" width="24"/>
+Param/Expression/lib_COMI_F889ADA8=~A~<Frame type="Label" name="Score~B~_Label" template="ReplayDataLayout/Score_LabelTemplate"> <Anchor side="Bottom" relative="$parent/Score~D~_Label" pos="0" offset="0" /> <Anchor side="Left" relative="$parent" pos="0" offset="#MasteryLabelLeft" /> <Text val="@ScoreValue/Name/~C~" /> </Frame> <Frame type="Label" name="Score~B~_Value" template="ReplayDataLayout/Score_ValueTemplate"> <Anchor side="Bottom" relative="$parent/Score~D~_Label" pos="0" offset="0" /> <Text val="{$parent/Score~B~_Ref/@RealValue}" /> </Frame> <Frame type="DataRefFrame" name="Score~B~_Ref"> <PlayerId val="{$parent/$parent/PlayerStore/@Text}" /> <Argument name="Score" val="~C~" /> </Frame> <Frame type="MathFrame" name="Score~B~_Multiply" template="ReplayDataLayout/Score_MultiplyTemplate"> <A val="{$parent/Score~B~_Value/@Text}" /> </Frame> <Frame type="DataRefFrame" name="Score~B~_Ref_1"> <PlayerId val="1" /> <Argument name="Score" val="~C~" /> </Frame> <Frame type="DataRefFrame" name="Score~B~_Ref_2"> <PlayerId val="2" /> <Argument name="Score" val="~C~" /> </Frame> <Frame type="MathFrame" name="Score~B~_Add"> <Anchor relative="$parent" /> <Operator val="Add" /> <A val="{$parent/Score~B~_Ref_2/@StringValue}" /> <B val="{$parent/Score~B~_Ref_1/@StringValue}" /> </Frame> <Frame type="MathFrame" name="Score~B~_Divide" template="ReplayDataLayout/Score_DivideTemplate"> <A val="{$parent/Score~B~_Multiply/@Result}" /> <B val="{$parent/Score~B~_Add/@Result}" /> </Frame> <Frame type="Label" name="Score~B~_PercentValue" template="ReplayDataLayout/Score_PercentValueTemplate"> <Anchor side="Bottom" relative="$parent/Score~D~_Label" pos="0" offset="0" /> <Text val="{$parent/Score~B~_Divide/@ResultRound}" /> <Color val="#SharedColor" /> </Frame> <Frame type="Label" name="Score~B~_PercentSign" template="ReplayDataLayout/Score_PercentSignTemplate"> <Anchor side="Bottom" relative="$parent/Score~D~_Label" pos="0" offset="0" /> <Color val="#SharedColor" /> </Frame> <StateGroup name="Score~B~_SG"> <State name="Invisible"> <When type="Property" frame="$this/Score~B~_Value" Text="0" /> <Action type="SetProperty" frame="$this/Score~B~_Label" Visible="False" /> <Action type="SetProperty" frame="$this/Score~B~_Value" Visible="False" /> <Action type="SetProperty" frame="$this/Score~B~_PercentValue" Visible="False" /> <Action type="SetProperty" frame="$this/Score~B~_PercentSign" Visible="False" /> </State> </StateGroup>
+Param/Expression/lib_COMI_F9262F64=~C~<n/>~A~<c val="FFFF8A">(-~B~%)</c>
+Param/Expression/lib_COMI_F942329A=~C~<n/>~A~<c val="FFFF8A">(+~B~%)</c>
+Param/Expression/lib_COMI_FA2F2D3B=<s val="~A~">~SIGN~~B~
+Param/Expression/lib_COMI_FBF14696=~A~~B~~C~
+Param/Expression/lib_COMI_FC33F977=~A~,~B~
+Param/Expression/lib_COMI_FCF0EFDD=~C~<n/>~A~<c val="FFFF8A">(+~B~%)</c>
+Param/Expression/lib_COMI_FDEE4E57=Too many score values reported, cannot track ~A~
+Param/Expression/lib_COMI_FEE0C551=<c val="FF8000">Bank restored. ~A~ units.</c>
+Param/Expression/lib_COMI_FF48F447=~C~<n/>~A~<c val="FFFF8A">(-~B~%)</c>
+Param/Expression/lib_COMI_FF4A3BA4=~C~<n/>~A~<c val="FFFF8A">(-~B~s)</c>
+Param/Expression/lib_COMU_03AF339A=Candy Bowl
+Param/Expression/lib_COMU_08DA5151=AI hook triggered. Player: ~C~ | Location:~A~ | Number of units: ~B~
+Param/Expression/lib_COMU_139E6F06=~A~-~B~
+Param/Expression/lib_COMU_1A1ECCF5=<s val="ModCenterSize32Bold">~A~</s>
+Param/Expression/lib_COMU_28B79680=~A~-?
+Param/Expression/lib_COMU_3FA5A8D0=<s val="ModCenterSize32Bold"><c val="ff0000">~A~</c></s>
+Param/Expression/lib_COMU_61B39E7A=Zealot Failed  ~A~
+Param/Expression/lib_COMU_6B5CE06A=~A~</c></s>
+Param/Expression/lib_COMU_6D399351=TUS: Creating ~A~ hero at ~B~
+Param/Expression/lib_COMU_7C4087AF=~A~</c><c val="ff0000">
+Param/Expression/lib_COMU_7CF47F17=shapeshifterspawn (~A~,~B~)
+Param/Expression/lib_COMU_827D8906=Creating DM wave: cost: ~A~ point: ~B~ transport: ~C~
+Param/Expression/lib_COMU_99C2DFA3=Zealot Spawned  ~A~
+Param/Expression/lib_COMU_9C0FF2F9=Cost: ~A~/~B~
+Param/Expression/lib_COMU_A0E6C44D=<s val="ModCenterSize32Bold"><c val="ffff00">~A~</c></s>
+Param/Expression/lib_COMU_A260720E=AI sent wave. Location:~A~ | Number of units: ~B~
+Param/Expression/lib_COMU_CEC6A06A=<s val="ModCenterSize32Bold"><c val="00ff00">~A~
+Param/Expression/lib_COMU_DB1AC958=Candy Bowl
+Param/Expression/lib_COMU_DFEDE33D=Kills: ~A~/~B~
+Param/Expression/lib_COMU_E4EE57D5=Cost: ~A~/~B~
+Param/Expression/lib_COMU_F87AC3BD=YOUR GIFT:<n/>~UNIT~ BECOMES AN AVENGER!
+Param/Expression/lib_COMU_F910EDD9=Kills: ~A~/~B~
+Param/Expression/lib_Lbty_19690D39=Attack ~A~
+Param/Expression/lib_Lbty_1E5023B8=Harvest ~A~
+Param/Expression/lib_Lbty_273AE718=<c val="[d Player='~ID~' GameValue='PlayerColor'/]">~PLAYER~</c> is on the way!
+Param/Expression/lib_Lbty_28B1D376=~A~: ~B~
+Param/Expression/lib_Lbty_2B377E06=<c val="[d Player='~ID~' GameValue='PlayerColor'/]">~PLAYER~</c> wants to attack <c val="[d Player='~ENEMYID~' GameValue='PlayerColor'/]">~ENEMY~</c>!
+Param/Expression/lib_Lbty_37F3FB21=~A~: ~B~
+Param/Expression/lib_Lbty_408B1BB0=<c val="[d Player='~ID~' GameValue='PlayerColor'/]">~PLAYER~</c> wants to attack <c val="[d Player='~ENEMYID~' GameValue='PlayerColor'/]">~ENEMY~</c>!
+Param/Expression/lib_Lbty_6846955F=<c val="[d Player='~ID~' GameValue='PlayerColor'/]">~PLAYER~</c> wants to defend!
+Param/Expression/lib_Lbty_87A7C4FB=<c val="[d Player='~ID~' GameValue='PlayerColor'/]">~PLAYER~</c> wants to defend <c val="[d Player='~ENEMYID~' GameValue='PlayerColor'/]">~ENEMY~</c>!
+Param/Expression/lib_Lbty_8E0C96E8=<c val="[d Player='~ID~' GameValue='PlayerColor'/]">~PLAYER~</c> wants to attack!
+Param/Expression/lib_Lbty_AF192CF6=Defend ~A~
+Param/Expression/lib_Lbty_C971EED3=Computer ~A~ surrendering as requested by ~B~.
+Param/Expression/lib_Lbty_ED0924D6=<c val="[d Player='~ID~' GameValue='PlayerColor'/]">~PLAYER~</c> wants to harvest these resources!
+Param/Expression/lib_Lbty_F9C18C18=<c val="[d Player='~ID~' GameValue='PlayerColor'/]">~PLAYER~</c> signals to retreat!
+Param/Expression/lib_MISS_55E54203=<s val="@@UnitInfoTip">~A~</s>
+Param/Expression/lib_MISS_9AB14F57=<s val="@@UnitInfoSubTip">~A~</s>
+Param/Expression/lib_VSAI_00094671=Expansion Done
+Param/Expression/lib_VSAI_04DBCDD8=Feel in danger
+Param/Expression/lib_VSAI_0CDA276A=Prod: ~A~
+Param/Expression/lib_VSAI_0DF8E162=Food: ~A~
+Param/Expression/lib_VSAI_109AFCB3=~B~ ~A~
+Param/Expression/lib_VSAI_11EE7FA0=<s val="StandardTooltipHeader_Terr">~name~</s><n/><n/>~min_icon~ ~min_val~ ~gas_icon~ ~gas_val~ ~food_icon~ ~food_val~<n/><n/>~desc~
+Param/Expression/lib_VSAI_16369B72=Main: ~A~
+Param/Expression/lib_VSAI_1748CEB7=Support: ~A~
+Param/Expression/lib_VSAI_1D51E1FE=Feel in danger
+Param/Expression/lib_VSAI_26775A9F=Prod: ~A~
+Param/Expression/lib_VSAI_2A1C2DE7=Combat: ~A~
+Param/Expression/lib_VSAI_2E5BE931=Drop-off: ~A~
+Param/Expression/lib_VSAI_2EB7A16D=Defenses: ~A~
+Param/Expression/lib_VSAI_3367DC08=Morphs: ~A~
+Param/Expression/lib_VSAI_3FF1F1F5=Want to Attack!
+Param/Expression/lib_VSAI_44F0F2C9=Want a new base
+Param/Expression/lib_VSAI_480FFC8D=Currently Expansing
+Param/Expression/lib_VSAI_49D5D322=Player ~B~ (~A~):
+Param/Expression/lib_VSAI_510A260A=Player ~B~ (~A~):
+Param/Expression/lib_VSAI_5285BA1F=Want to Attack!
+Param/Expression/lib_VSAI_57A6FFBC=Projectiles: ~A~
+Param/Expression/lib_VSAI_5D65976F=Expansion Done
+Param/Expression/lib_VSAI_5D7BCAA9=Towns ~A~
+Param/Expression/lib_VSAI_5DD6AB19=Combat: ~A~
+Param/Expression/lib_VSAI_65C5261C=Upgrades: ~A~
+Param/Expression/lib_VSAI_6B47182F=Feel in danger
+Param/Expression/lib_VSAI_78BE631E=Units: ~A~
+Param/Expression/lib_VSAI_7B2EB108=Currently Expansing
+Param/Expression/lib_VSAI_7E0197CD=Feel in danger
+Param/Expression/lib_VSAI_81C8B571=Workers Needed ~A~
+Param/Expression/lib_VSAI_82B402AC=<s val="StandardTooltipHeader_Terr">~name~</s><n/><n/>~desc~
+Param/Expression/lib_VSAI_8331E7F5=Towns ~A~
+Param/Expression/lib_VSAI_8ACFDD1C=<s val="StandardTooltipHeader_Terr">~name~</s><n/><n/>~desc~
+Param/Expression/lib_VSAI_8FD2DA06=Collecting Money For a New Base
+Param/Expression/lib_VSAI_92427CCD=Tech: ~A~
+Param/Expression/lib_VSAI_9611B058=Collecting Money For a New Base
+Param/Expression/lib_VSAI_9CB7CF96=Want a new base
+Param/Expression/lib_VSAI_A0A4AE24=Currently Expansing
+Param/Expression/lib_VSAI_ACEB896C=Refinery: ~A~
+Param/Expression/lib_VSAI_AF936A05=Combat: ~A~
+Param/Expression/lib_VSAI_B69385DF=Production: ~A~
+Param/Expression/lib_VSAI_B6EDDF9B=Worker: ~A~
+Param/Expression/lib_VSAI_BD4A24F7=Transport: ~A~
+Param/Expression/lib_VSAI_BF77E86D=Race: ~A~
+Param/Expression/lib_VSAI_C067DB8A=Workers Needed ~A~
+Param/Expression/lib_VSAI_C6655192=Upgrades: ~A~
+Param/Expression/lib_VSAI_C77DB418=Tech: ~A~
+Param/Expression/lib_VSAI_D17AC720=Want a new base
+Param/Expression/lib_VSAI_D34D75E5=Need Geysers!
+Param/Expression/lib_VSAI_D3D9BF3B=Feel in danger
+Param/Expression/lib_VSAI_D808ED4B=Want to Attack!
+Param/Expression/lib_VSAI_E0FEEEFB==============================================
+Param/Expression/lib_VSAI_E5D0ECC8=Support: ~A~
+Param/Expression/lib_VSAI_E7803973=Need Geysers!
+Param/Expression/lib_VSAI_EBED9FE4=Support: ~A~
+Param/Expression/lib_VSAI_F3948993=Want to Attack!
+Param/Expression/lib_VSAI_F3FDAED0=Upgrades: ~A~
+Param/Expression/lib_VSAI_FC9525AC=Collecting Money For a New Base
+Param/Expression/lib_VSAI_FD302351=Tech: ~A~
+Param/Expression/lib_VSAI_FD4022B9=~B~ ~A~
+Param/Value/lib_ARRA_09F3147F= while the dynamic array has a size of
+Param/Value/lib_ARRA_0D5C8ADE=Error in Dynamic Int Array - Set: Trying to set value
+Param/Value/lib_ARRA_0FF48FAB= while the dynamic array has a size of
+Param/Value/lib_ARRA_102CA277=~CURRENT~
+Param/Value/lib_ARRA_10B428F6= in the index
+Param/Value/lib_ARRA_10E75E2B=<n/><c val="AAAAAA">(Bonus experience)</c>
+Param/Value/lib_ARRA_1709FAB1=)
+Param/Value/lib_ARRA_1843B1D2= while the dynamic array has a size of
+Param/Value/lib_ARRA_1B574511= while the dynamic array has a size of
+Param/Value/lib_ARRA_1F62FEC0=Error in Dynamic Point Array - Get: Trying to get a value in the index
+Param/Value/lib_ARRA_2170CCF4=Error in Dynamic Int Array - Add: Trying to add value
+Param/Value/lib_ARRA_29B290D9= while the dynamic array has a size of
+Param/Value/lib_ARRA_2DC31FE4=<img path="
+Param/Value/lib_ARRA_362FE075= while the dynamic array has a size of
+Param/Value/lib_ARRA_36C3BCE5=Error in Dynamic SoundLink Array - Set: Trying to set value
+Param/Value/lib_ARRA_371E33BA=Error in Dynamic Int Array - Get: Trying to get a value in the index
+Param/Value/lib_ARRA_3E582092=Error in Dynamic Int Array - Remove: Trying to remove a value in the index
+Param/Value/lib_ARRA_3E67E8C7= while the dynamic array has a size of
+Param/Value/lib_ARRA_3F2D2FDD= because it already exists!
+Param/Value/lib_ARRA_3F48C1B8=Couldn't create the database
+Param/Value/lib_ARRA_40A3062F= while the dynamic array has a size of
+Param/Value/lib_ARRA_4299E4F8= while the dynamic array has a size of
+Param/Value/lib_ARRA_44E6385E= while the dynamic array has a size of
+Param/Value/lib_ARRA_467C97C3= in the index
+Param/Value/lib_ARRA_4BC5A61B= in the index
+Param/Value/lib_ARRA_4BFA7B9B= while the dynamic array has a size of
+Param/Value/lib_ARRA_4E66DCA4=Error in Dynamic Int Array - Get: Trying to get a value in the index
+Param/Value/lib_ARRA_5349D4ED=Error in Dynamic Point Array - Add: Trying to add a point in the index
+Param/Value/lib_ARRA_5780FD89= in the index
+Param/Value/lib_ARRA_5947E387=Error in Dynamic Dialog Items Array - Remove: Trying to remove a value in the index
+Param/Value/lib_ARRA_5CE4002B= in the index
+Param/Value/lib_ARRA_5ECB4179= while the dynamic array has a size of
+Param/Value/lib_ARRA_6026870B=Error in Dynamic Int Array - Remove: Trying to remove a value in the index
+Param/Value/lib_ARRA_6084DCD5= while the dynamic array has a size of
+Param/Value/lib_ARRA_645365C7=" width="0"/>
+Param/Value/lib_ARRA_669B8E17= while the dynamic array has a size of
+Param/Value/lib_ARRA_6B8830F9=" width="0"/>
+Param/Value/lib_ARRA_6E0A9BA2= while the dynamic array has a size of
+Param/Value/lib_ARRA_71396660= while the dynamic array has a size of
+Param/Value/lib_ARRA_72875DCA=Error in Dynamic Int Array - Remove: Trying to remove a value in the index
+Param/Value/lib_ARRA_7318B37C=Error in Dynamic Point Array - Remove: Trying to remove a value in the index
+Param/Value/lib_ARRA_73352807=Error in Dynamic Int Array - Get: Trying to get a value in the index
+Param/Value/lib_ARRA_760DA2B3=Error in Dynamic Int Array - Remove: Trying to remove a value in the index
+Param/Value/lib_ARRA_78368912=Error at Dynamic Int Array - Pop Back: The array is already empty!
+Param/Value/lib_ARRA_80ACCCBB= while the dynamic array has a size of
+Param/Value/lib_ARRA_851C0843= while the dynamic array has a size of
+Param/Value/lib_ARRA_87B9CACE=~GOAL~
+Param/Value/lib_ARRA_88401337= while the dynamic array has a size of
+Param/Value/lib_ARRA_896E41A0= in the index
+Param/Value/lib_ARRA_8C6A3635= while the dynamic array has a size of
+Param/Value/lib_ARRA_8DE2D371= while the dynamic array has a size of
+Param/Value/lib_ARRA_8DFFFC28= while the dynamic array has a size of
+Param/Value/lib_ARRA_90A3EE4D=Error in Dynamic SoundLink Array - Add: Trying to add value
+Param/Value/lib_ARRA_939C4604=Error in Dynamic Int Array - Set: Trying to set value
+Param/Value/lib_ARRA_9445FC4A=Error in Dynamic SoundLink Array - Remove: Trying to remove a value in the index
+Param/Value/lib_ARRA_94958194= in the index
+Param/Value/lib_ARRA_994CE8A2=Error in Dynamic Dialog Item Array - Set: Trying to set a point in the index
+Param/Value/lib_ARRA_9A7EA85B= while the dynamic array has a size of
+Param/Value/lib_ARRA_A585FE9E=Error in Dynamic SoundLink Array - Get: Trying to get a value in the index
+Param/Value/lib_ARRA_A5B5486A=Overriding List Data Type
+Param/Value/lib_ARRA_AD0BA877= while the dynamic array has a size of
+Param/Value/lib_ARRA_B0B15CAE=<img path="
+Param/Value/lib_ARRA_B2F06617=Error in Dynamic Int Array - Set: Trying to set value
+Param/Value/lib_ARRA_BB8573E8=Error in Dynamic Int Array - Add: Trying to add value
+Param/Value/lib_ARRA_BB9020B1=Empty List Name is Not Allowed
+Param/Value/lib_ARRA_BBA11AB4= while the dynamic array has a size of
+Param/Value/lib_ARRA_C09D91F7=Error in Dynamic Dialog Item  Array - Add: Trying to add a point in the index
+Param/Value/lib_ARRA_CB05D303=(
+Param/Value/lib_ARRA_CC549D16= in the index
+Param/Value/lib_ARRA_CDCF6106=Error in Dynamic Dialog Item Array - Get: Trying to get a value in the index
+Param/Value/lib_ARRA_D7A229D0=Error in Dynamic Point Array - Set: Trying to set a point in the index
+Param/Value/lib_ARRA_D815D47D=<Empty String>
+Param/Value/lib_ARRA_D86EAB1E=Error in Dynamic Int Array - Set: Trying to set value
+Param/Value/lib_ARRA_D886738D=)
+Param/Value/lib_ARRA_D8AFC5D0=Error in Dynamic Int Array - Remove: Trying to remove a value in the index
+Param/Value/lib_ARRA_E0736642= while the dynamic array has a size of
+Param/Value/lib_ARRA_E57CA99A=(
+Param/Value/lib_ARRA_E5C0A96B= in the index
+Param/Value/lib_ARRA_E655C260=Error in Dynamic Int Array - Add: Trying to add value
+Param/Value/lib_ARRA_E96DE815= in the index
+Param/Value/lib_ARRA_EB60C632=~TIME~
+Param/Value/lib_ARRA_EBEDA1A0=Error in Dynamic Int Array - Get: Trying to get a value in the index
+Param/Value/lib_ARRA_ED2C25F4= while the dynamic array has a size of
+Param/Value/lib_ARRA_ED8C56C7=Error in Dynamic Int Array - Add: Trying to add value
+Param/Value/lib_ARRA_F26E6FDC= while the dynamic array has a size of
+Param/Value/lib_ARRA_F512E428= while the dynamic array has a size of
+Param/Value/lib_ARRA_F6ED52AF=Error in Dynamic Int Array - Remove: Trying to remove a value in the index
+Param/Value/lib_ARRA_F8D77AE0= while the dynamic array has a size of
+Param/Value/lib_COMI_063829BE=<c val="FF8000">Godmode Disabled<n/></c>
+Param/Value/lib_COMI_085DDAFD=<c val="FF8000">SlimUI deactivated</c>
+Param/Value/lib_COMI_0ACDCA40=Refresh
+Param/Value/lib_COMI_0BEB3CD0=<c val="FF8000">Copy-paste enabled. <n/>Units will be created in the center of your screen.</c>
+Param/Value/lib_COMI_0C9FE970=Activate
+Param/Value/lib_COMI_10899370=<c val="FF8040">Radius reset</c>
+Param/Value/lib_COMI_151E5D95=<c val="FF8000">Log cleared</c>
+Param/Value/lib_COMI_1945CB06=<c val="FF8000">Fast build disabled</c>
+Param/Value/lib_COMI_1AE86F59=Building
+Param/Value/lib_COMI_1ED630A2=<s val="ArmyCustomizationSelectedUnitDescriptionName"><c val="FFFFFF">Healing log</c></s> <s val="AchievementFrameName_Prot"><c val="FFFFFF">(total:
+Param/Value/lib_COMI_2160776D=<c val="FF8000">MISSILE</c>
+Param/Value/lib_COMI_22261B0E=Attack
+Param/Value/lib_COMI_242C1A75=<c val="FF8000">Copy-paste disabled.</c>
+Param/Value/lib_COMI_2556BC36=<c val="FF8000">Units paused</c>
+Param/Value/lib_COMI_29B25FB8=<c val="FF8000">Controlling enemy</c>
+Param/Value/lib_COMI_29BC7335=<c val="FF8000">Speed set to normal</c>
+Param/Value/lib_COMI_2BC7B4CD=<c val="FF8000">PathCheck disabled</c>
+Param/Value/lib_COMI_3045EA12=Hard
+Param/Value/lib_COMI_314A6CBC= wishes to surrender.
+Param/Value/lib_COMI_33915222=-hidden
+Param/Value/lib_COMI_33EBCD34=<c val="FF8000">Speed set to fast</c>
+Param/Value/lib_COMI_3E14035E=Decrease
+Param/Value/lib_COMI_43D743F6=<c val="FF8000">Godmode enabled</c>
+Param/Value/lib_COMI_44513719=Defend
+Param/Value/lib_COMI_469630C4=<c val="FF8000">Speed set to slow</c>
+Param/Value/lib_COMI_4B5E1FC1=Attack
+Param/Value/lib_COMI_4F358CD0=<c val="FF8000">Resetting ability ranges.</c>
+Param/Value/lib_COMI_52563B6C=<c val="ff0000">You have pinged too much.  Please wait a while before pinging again.</c>
+Param/Value/lib_COMI_58A864D0=ENEMY UNITS KILLED
+Param/Value/lib_COMI_5D086708=On My Way
+Param/Value/lib_COMI_6097A399=Do you want to accept?
+Param/Value/lib_COMI_66ABCF8B=Economy test enabled<n/>
+Param/Value/lib_COMI_6A767C6D=<c val="FF8000">Speed set to faster</c>
+Param/Value/lib_COMI_740AEFD8=Numbers hidden
+Param/Value/lib_COMI_74B9BA8B=<c val="B0B0B0">DPS (5s): <n/>DPS (?s): </c>
+Param/Value/lib_COMI_75D4CCC8=<c val="FF8000">Fast build enabled</c>
+Param/Value/lib_COMI_76B79129=<c val="FF8000">Controlling allied/neutral players</c>
+Param/Value/lib_COMI_777339B6=Unpathable
+Param/Value/lib_COMI_7779130F=Easy
+Param/Value/lib_COMI_7801F6FB=CLOSE
+Param/Value/lib_COMI_78D0EC26=<c val="FF8000">HIDDEN UNITS</c>
+Param/Value/lib_COMI_7ABBF39A=Normal
+Param/Value/lib_COMI_7FA10378=ARMY VALUE
+Param/Value/lib_COMI_808BBCB6=<c val="FF8000">Camera control disabled</c>
+Param/Value/lib_COMI_837FCCAF=Cliff
+Param/Value/lib_COMI_83F37DDB=<c val="FF0000">Warning: May causes some performance degradation</c>
+Param/Value/lib_COMI_83FDDF7C=<c val="FF8000">Lighting modification disabled</c>
+Param/Value/lib_COMI_8520F54B=<c val="FF8000">SlimUI activated</c>
+Param/Value/lib_COMI_85FC0BF7=Type -val for economy value at any time
+Param/Value/lib_COMI_86F0553C=<s val="ArmyCustomizationSelectedUnitDescriptionName"><c val="FFFFFF">Damage log</s></c> <s val="AchievementFrameName_Prot"><c val="FFFFFF">(total:
+Param/Value/lib_COMI_8706DECA=Create
+Param/Value/lib_COMI_87A75DB0=Any
+Param/Value/lib_COMI_88F03DF4=<c val="FF8000">Show/Hide UI with Ctrl+H</c>
+Param/Value/lib_COMI_897EDAC7=StarCraft emotes
+Param/Value/lib_COMI_8BE64D65=<c val="FF8000">SlimUI activated</c>
+Param/Value/lib_COMI_904C23E1=Brutal
+Param/Value/lib_COMI_91B4FA15=<c val="FF8000">Speed set to slower</c>
+Param/Value/lib_COMI_9266A8E2=Yes
+Param/Value/lib_COMI_94D4F2C4=<c val="FF8000">Check pathing from selected unit to camera center with TAB key</c>
+Param/Value/lib_COMI_993ECE34=10
+Param/Value/lib_COMI_996E429E=Economy test disabled
+Param/Value/lib_COMI_9AA1D603=<c val="485AFF">Avg: --</c><n/><c val="FF8000">Now: </c>
+Param/Value/lib_COMI_A06612F0=UNIT VALUE LOST
+Param/Value/lib_COMI_A19ABBD6=<img path="Assets\TwitchEmotes\goose.dds" alignment="absolutemiddle"/> Already honked recently! <img  path="Assets\TwitchEmotes\goose.dds"  alignment="absolutemiddle"/>
+Param/Value/lib_COMI_A1C70564=<c val="FF8000">Camera reset</c>
+Param/Value/lib_COMI_A8109BFD=Ground
+Param/Value/lib_COMI_A8E36041=<c val="FF8000">AI unpaused</c>
+Param/Value/lib_COMI_B6C4A3B0=<c val="FF8000">Change lighting with "+" or "-" keys</c>
+Param/Value/lib_COMI_BAFCADB1=<c val="FF8000">Logging stopped</c>
+Param/Value/lib_COMI_BE4A0FCE=<c val="FF8000">Camera control enabled</c> (Q,E = zoom; A,D = rotation; W,S = pitch)
+Param/Value/lib_COMI_C642ED57=Destroy
+Param/Value/lib_COMI_CB20C0E6=<c val="FF8000">Ctrl+H shortcut disabled for UI toggle</c>
+Param/Value/lib_COMI_CBDF2A3F=Deactivate
+Param/Value/lib_COMI_CFA89003=APM
+Param/Value/lib_COMI_D24542B1=<c val="FF8000">Disabling button monitoring</c>
+Param/Value/lib_COMI_D279AD94=No
+Param/Value/lib_COMI_D9CE9891=Increase
+Param/Value/lib_COMI_D9F9200E=<c val="FF0000">Healing logging overflow</c>
+Param/Value/lib_COMI_D9FD4BC8=<c val="FF8000">Tracing enabled<n/>(works only when the map is launched from the editor)</c>
+Param/Value/lib_COMI_DF28683E=<c val="FF8000">Units unpaused</c>
+Param/Value/lib_COMI_E647C5D3=<c val="FF0000">Damage logging overflow</c>
+Param/Value/lib_COMI_E6EDD869=)</c></s>
+Param/Value/lib_COMI_EB252DC5=INCOME
+Param/Value/lib_COMI_EC5330E5=<c val="FF8000">AI paused</c>
+Param/Value/lib_COMI_F069B4CD=<c val="FF8000">Tracing disabled</c>
+Param/Value/lib_COMI_F14D9193=Retreat
+Param/Value/lib_COMI_F322BD6B=)</c></s>
+Param/Value/lib_COMI_F4A361BD=<c val="FF8000">DEAD UNITS</c>
+Param/Value/lib_COMI_F50D7C00=<c val="FF0000">Keyboard modifiers are not supported</c>
+Param/Value/lib_COMI_F5D0DC5F=<c val="FF8000">Enemy control disabled</c>
+Param/Value/lib_COMI_FA26DA29=damage
+Param/Value/lib_COMI_FA43614A=Other emotes
+Param/Value/lib_COMI_FBD239DE=<c val="FF8000">Starting to monitor buttons</c>
+Param/Value/lib_COMI_FE07D608=<n/><n/>
+Param/Value/lib_Lbty_0EE84E8F=Yes
+Param/Value/lib_Lbty_109B05BD=Do you want to accept?
+Param/Value/lib_Lbty_1D191C56= wishes to surrender.
+Param/Value/lib_Lbty_2EEBF357=Attack
+Param/Value/lib_Lbty_4022654D=No
+Param/Value/lib_Lbty_4AA8D98F=Defend
+Param/Value/lib_Lbty_67146A4F=On My Way
+Param/Value/lib_Lbty_83E22934=<c val="ff0000">You have pinged too much.  Please wait a while before pinging again.</c>
+Param/Value/lib_Lbty_B2C30E86=Retreat
+Param/Value/lib_Lbty_CF62ED5B=Attack
+Race/Name/@Amon=Role - Amon
+Race/Name/@AmonAlly=Role - Amon Ally
+Race/Name/@AmonPlayer=Role - Amon Player
+Race/Name/@Bonus=Role - Bonus
+Race/Name/@Hostile=Role - Hostile
+Race/Name/@Neutral=Role - Neutral
+Race/Name/@Player=Role - Player
+Race/Name/@PlayerAlly=Role - Player Ally
+Sound/Name/acObj_BelshirScientist_1515=In case you ARE real, someone out there has been messing with my harvesting bots. Would you mind keeping an eye on them for me?
+Sound/Name/acObj_BelshirScientist_1516=Hi, commanders! I thought everyone had forgotten about me out here. The hallucinations are the only visitors I've had.
+Sound/Name/acObj_BelshirScientist_1517=I guess that's terrazine for you. Speaking of, someone's been destroying my harvesting bots. Could you provide an escort for them?
+Sound/Name/acObj_BelshirScientist_1518=Welcome to the jungle, Commanders! Hope you like fun and games! Long term exposure to terrazine provides plenty of both! Trust me!
+Sound/Name/acObj_BelshirScientist_1519=Someone out there is making a game of destroying my bots, though. They're ruining my research! I need you to guard those bots!
+Sound/Name/acObj_BelshirScientist_1520=Looks like a geyser's about to become active! One of my bots will depart for it shortly.
+Sound/Name/acObj_BelshirScientist_1521=The first geyser should be opening up soon. I'll send a bot out for it when it does.
+Sound/Name/acObj_BelshirScientist_1522=Ooh, I've located a soon-to-be active geyser. Make sure to escort the bot I'll send to harvest it!
+Sound/Name/acObj_BelshirScientist_1523=Bel'shir says that some more geysers are opening up soon. Don't worry if you can't hear her. She only talks to me.
+Sound/Name/acObj_BelshirScientist_1524=More geysers are gonna be active soon. Don't ask how I know that. I just... do.
+Sound/Name/acObj_BelshirScientist_1525=Do you hear that? It's the terrazine moving beneath the surface. Ooh, more geysers are on the way.
+Sound/Name/acObj_BelshirScientist_1526=Hmm, looks like there will be more geysers soon. You can always count on Bel'shir to provide what you need!
+Sound/Name/acObj_BelshirScientist_1527=Seismic activity detected! That can only mean one thing: more geysers!
+Sound/Name/acObj_BelshirScientist_1528=If I were a betting man, I'd put money on more geysers showing up soon. If, you know, I had any money.
+Sound/Name/acObj_BelshirScientist_1529=Some geysers are gonna be opening in a few moments. My bots can smell them!
+Sound/Name/acObj_BelshirScientist_1530=You know what I'm about to say, right, eh? That there are more geysers on the way? Get out of my head!
+Sound/Name/acObj_BelshirScientist_1531=The geysers are returning, as foretold by omniscient Bel'shir! Be ready!
+Sound/Name/acObj_BelshirScientist_1532=These are the last of the geysers! The last of their kind... all alone in the depths of space...
+Sound/Name/acObj_BelshirScientist_1533=Looks like these are the last set of geysers. The end is nigh, commanders!
+Sound/Name/acObj_BelshirScientist_1534=These should be the last of the geysers! And things were just getting interesting.
+Sound/Name/acObj_BelshirScientist_1535=Hey! Heads up! I'm sending out the first bot. Make sure to protect it! It's my favorite.
+Sound/Name/acObj_BelshirScientist_1536=Okay, I'm sending a bot to collect the geyser's terrazine. Don't let it get destroyed!
+Sound/Name/acObj_BelshirScientist_1537=My bot is departing now. It's fully automated, so all you have to do is keep it alive. Yes, it's alive. It's alive! Uh, sorry.
+Sound/Name/acObj_BelshirScientist_1538=Bots are on their way, commanders! Please keep the little guys out of trouble.
+Sound/Name/acObj_BelshirScientist_1539=Sending out the best of my bots! Well, the best of what's left, anyway.
+Sound/Name/acObj_BelshirScientist_1540=My bots really want to get to the terrazine. They're kinda impatient, so I'm letting them out now.
+Sound/Name/acObj_BelshirScientist_1541=Hey! The bots are leaving, and I didn't even get to pack them a refueling cell!
+Sound/Name/acObj_BelshirScientist_1542=Bots away! (Laughs at his own joke) What? I thought it was funny. Bel'shir laughs every time I tell it!
+Sound/Name/acObj_BelshirScientist_1543=I built these bots myself, in a cave, with a box of scraps! So I'd appreciate it if they came back intact.
+Sound/Name/acObj_BelshirScientist_1544=I think the bots are telling me they're rolling out, but I could be wrong. They've lied to me before, those little miscreants!
+Sound/Name/acObj_BelshirScientist_1545=There go the bots! (Sniffs) They grow up so fast! Daddy loves you!
+Sound/Name/acObj_BelshirScientist_1546=My bot is collecting the terrazine now. You'll have to defend it until it's done.
+Sound/Name/acObj_BelshirScientist_1547=Terrazine collection initiated! It might take a little while, so just sit tight!
+Sound/Name/acObj_BelshirScientist_1548=Alright, collecting the terrazine now. Keep an eye out for trouble, commanders!
+Sound/Name/acObj_BelshirScientist_1549=Collection protocol initiated. Soon, all of Bel'shir's terrazine will be mine! Muhahaha!
+Sound/Name/acObj_BelshirScientist_1550=Starting the collection process. Please be patient, this is a delicate procedure!
+Sound/Name/acObj_BelshirScientist_1551=Oh benevolent Bel'shir, I humbly ask that you gift me with your terrazine. The commanders have promised to protect it. Right?
+Sound/Name/acObj_BelshirScientist_1552=Gathering the terrazine now. Remember, commanders: Constant vigilance!
+Sound/Name/acObj_BelshirScientist_1553=This terrazine is about to become TERRANzine. Bwahaha! What, nothing? Oh come on.
+Sound/Name/acObj_BelshirScientist_1554=Harvest time! Let's see what our terrazine crop looks like this year.
+Sound/Name/acObj_BelshirScientist_1555=My bots are taking in the terrazine. It has to be done just right, or else Bel'shir will be angry.
+Sound/Name/acObj_BelshirScientist_1556=Acquiring the terrazine now. Keep those bots safe, commanders!
+Sound/Name/acObj_BelshirScientist_1557=The harvesting bot is returning now. You'll have to continue guarding it until it arrives.
+Sound/Name/acObj_BelshirScientist_1558=The bot is heading back. It's scared, so you should keep it company.
+Sound/Name/acObj_BelshirScientist_1559=A successful terrazine harvest! Now that bot just has to make it home safely.
+Sound/Name/acObj_BelshirScientist_1560=Come on home, little bots! The commanders will protect you!
+Sound/Name/acObj_BelshirScientist_1561=Okay, the bots should be on their way back. I need that terrazine, commanders... for my... experiments.
+Sound/Name/acObj_BelshirScientist_1562=The bots are returning to me now. I can always count on them to do that. Unlike SOME people.
+Sound/Name/acObj_BelshirScientist_1563=Terrazine tank is full! My bots are making the return trip now. Don't let them get away from you!
+Sound/Name/acObj_BelshirScientist_1564=And the race is on! Which bot will make it back to me first? (Whispers) My money's on Gary. He always gets the best oil.
+Sound/Name/acObj_BelshirScientist_1565=Bots are heading home. They're sheep in need of a shepherd, commanders. And there are a lot of wolves on the prowl.
+Sound/Name/acObj_BelshirScientist_1566=My bots are heading back to base. Be careful, commanders. It's a jungle out there!
+Sound/Name/acObj_BelshirScientist_1567=Time for the bots to come back. I hate it when they're out there all night without giving me a call.
+Sound/Name/acObj_BelshirScientist_1568=They're coming after my bots! Stop them, commanders!
+Sound/Name/acObj_BelshirScientist_1569=Gah, here come the bad guys! Uh, who are they, again?
+Sound/Name/acObj_BelshirScientist_1570=I'm picking up some hostile forces headed for my bots. They must really want that terrazine.
+Sound/Name/acObj_BelshirScientist_1571=Look out, commanders! I'm detecting enemy movement toward the bots!
+Sound/Name/acObj_BelshirScientist_1572=The enemy clearly intends to attack my bots. Don't, don't, don't let them do that!
+Sound/Name/acObj_BelshirScientist_1573=Enemies are headed for my bots! What a bunch of jerks!
+Sound/Name/acObj_BelshirScientist_1574=What's this? Enemy forces en route to my bots? It's just like Bel'shir said!
+Sound/Name/acObj_BelshirScientist_1575=Oh, that's just great! The enemy is moving toward my bots. I knew I should have put more turrets on those things!
+Sound/Name/acObj_BelshirScientist_1576=Hostile forces are advancing on my bots! Have they no respect for science!?
+Sound/Name/acObj_BelshirScientist_1577=I see you, enemy scum! They're going to attack my bots, commanders!
+Sound/Name/acObj_BelshirScientist_1578=Oh man, they can warp in their forces right next to my bots? I guess I should have expected that from the protoss...
+Sound/Name/acObj_BelshirScientist_1579=Oh commanders, the enemy is warping in near the bot! I wish I had that kind of tech...
+Sound/Name/acObj_BelshirScientist_1580=They're warping in right next to the bot!? That is totally overpowered!
+Sound/Name/acObj_BelshirScientist_1581=Incoming enemy drop pods! Which means... (gulps, whispers) They're ABOVE us. Protect the bot!
+Sound/Name/acObj_BelshirScientist_1582=Enemy drop pods inbound on my bot! The sky is falling! The sky is falling!
+Sound/Name/acObj_BelshirScientist_1583=They're dropping in right next to my bot! At least they're not smashing into it.
+Sound/Name/acObj_BelshirScientist_1585=The zerg are dropping down right next to my bot! How many Leviathans do they have up there?
+Sound/Name/acObj_BelshirScientist_1586=Incoming zerg drop pods! They're headed right for my bot!
+Sound/Name/acObj_BelshirScientist_1587=What IS that thing? It looks like a Void Thrasher! I didn't know they actually exist!
+Sound/Name/acObj_BelshirScientist_1588=A Void Thrasher? Here? I thought those were purely theoretical!
+Sound/Name/acObj_BelshirScientist_1589=No... it can't be... a Void Thrasher!? Please tell me this is another hallucination!
+Sound/Name/acObj_BelshirScientist_1590=Umm, the Void Thrashers are back! They'll tear my bots apart if you don't stop them!
+Sound/Name/acObj_BelshirScientist_1591=Oh by the way commanders, there seem to be more Void Thrashers around. Just keeping you informed!
+Sound/Name/acObj_BelshirScientist_1592=Those Void Thrashers are the stuff of nightmares. Mine, specifically.
+Sound/Name/acObj_BelshirScientist_1593=Oh wow, is that a hybrid? I haven't seen one in a while! Fascinating!
+Sound/Name/acObj_BelshirScientist_1594=A hybrid! Does this mean the Dominion perfected the gene splicing tech to create them?
+Sound/Name/acObj_BelshirScientist_1595=That... looks like a hybrid. From what I remember about them, that is very bad news.
+Sound/Name/acObj_BelshirScientist_1596=More hybrid on the way. I'd really like a glimpse at their breeding facility's configuration.
+Sound/Name/acObj_BelshirScientist_1597=These hybrid are different than the ones I've seen before. Any chance I could study them after this?
+Sound/Name/acObj_BelshirScientist_1598=Hostile hybrid inbound! I wonder how terrazine affects their physiology...
+Sound/Name/acObj_BelshirScientist_1599=Hey! Hey, they're attacking my bots! Commanders!
+Sound/Name/acObj_BelshirScientist_1600=(Sing-song voice) My bots are under attack... My bots are under attack...
+Sound/Name/acObj_BelshirScientist_1601=Good morning, commanders! The enemy's eating my bots for breakfast!
+Sound/Name/acObj_BelshirScientist_1602=What's made to last forever and being destroyed? My bots, of course!
+Sound/Name/acObj_BelshirScientist_1603=The enemy's attacking my bots! Geez, commanders, can't you keep a hold of aggro!?
+Sound/Name/acObj_BelshirScientist_1604=Enemy forces have converged on my bots! Everybody, get in there!
+Sound/Name/acObj_BelshirScientist_1605=Those guys are smashing my bots to pieces! And I really don't wanna pick up after them!
+Sound/Name/acObj_BelshirScientist_1606=Please, please, please stop the enemy from breaking my stuff!
+Sound/Name/acObj_BelshirScientist_1607=My bots are taking damage! Terrible, terrible damage!
+Sound/Name/acObj_BelshirScientist_1608=They already destroyed one of the bots? I'll never get another one to that geyser in time!
+Sound/Name/acObj_BelshirScientist_1611=The enemy's taken down a bot! The geyser's gonna seal itself before another one reaches it.
+Sound/Name/acObj_BelshirScientist_1612=Aw man, that bot didn't even reach the geyser! There's no way I can send another one before it's gone.
+Sound/Name/acObj_BelshirScientist_1618=Hey! I worked hard on that! I need those bots in order to harvest the terrazine, commanders!
+Sound/Name/acObj_BelshirScientist_1619=Well, there goes one of my bots. If we lose too many of them, I won't be able to harvest any more terrazine!
+Sound/Name/acObj_BelshirScientist_1620=Okay, that was my favorite bot! (Frustrated grunt) Please try to not lose any more of them, commanders!
+Sound/Name/acObj_BelshirScientist_1624=What's that noise? Oh, it's just my precious bot going up in flames! One more, and we're toast!
+Sound/Name/acObj_BelshirScientist_1625=No, no, no! Not my bots! You monsters! We can't lose any more of them, commanders!
+Sound/Name/acObj_BelshirScientist_1626=Oh, come on! I can't afford to lose any more bots, commanders! They're all I have left!
+Sound/Name/acObj_BelshirScientist_1627=That's a good little bot! Welcome home! I missed you so much!
+Sound/Name/acObj_BelshirScientist_1628=The bots are back in town, the bots are back in town! (Makes guitar noises)
+Sound/Name/acObj_BelshirScientist_1629=Look, commanders, bots! Oh, those are mine. (Gasps) And they have terrazine!
+Sound/Name/acObj_BelshirScientist_1630=Good news, commanders! My bots have brought me terrazine! Well, it's good news for me.
+Sound/Name/acObj_BelshirScientist_1631=Hey uh, great job, commanders! My bots are safe and sound. Do you do this sort of thing often?
+Sound/Name/acObj_BelshirScientist_1632=Whew! My bots have returned! Looks like I won the bet this time, Bel'shir!
+Sound/Name/acObj_BelshirScientist_1633=My bots are back! That mean's it's "T" time. (Stage whispers) The "T" is for terrazine!
+Sound/Name/acObj_BelshirScientist_1634=We've got the start of a good terrazine cache! But my research is going to require some more.
+Sound/Name/acObj_BelshirScientist_1635=Hmm, looks like we're making progress. It's gonna take more terrazine than that to finish my... uh... research, that's right!
+Sound/Name/acObj_BelshirScientist_1636=I think I have a little less than half the terrazine I need. I guess I'll be sending out more bots!
+Sound/Name/acObj_BelshirScientist_1637=My terrazine tanks are about halfway full. Bel'shir's being really generous today! I should really send her a thank you card...
+Sound/Name/acObj_BelshirScientist_1638=Are my terrazine tanks are half empty, or half full? Huh. This wouldn't be a problem if they were completely full!
+Sound/Name/acObj_BelshirScientist_1639=Man, collecting terrazine is hard work. We've only got about half of what I need!
+Sound/Name/acObj_BelshirScientist_1640=I've got almost all the terrazine I need! Keep it up, commanders!
+Sound/Name/acObj_BelshirScientist_1641=Just a little more terrazine to go! Our victory is close at hand! (Devious laugh)
+Sound/Name/acObj_BelshirScientist_1642=Ooh, look at all that terrazine! And it's all mine! I need just a tiny bit more, commanders.
+Sound/Name/acObj_BelshirScientist_1643=Noooo! Now I'll never finish my research! Do you have any idea what I've been through on this planet!? Argh!
+Sound/Name/acObj_BelshirScientist_1644=(Frustrated exertion) It's ruined! It's all ruined! Just like my graduate thesis project!
+Sound/Name/acObj_BelshirScientist_1645=Yes! I can finally finish this research and get off this godforsaken rock! (Beat) I'm sorry, Bel'shir! I didn't mean it like that!
+Sound/Name/acObj_BelshirScientist_1646=Research complete. Haha, that was pretty good! I crack me up. But seriously, let's get the hell out of here.
+Sound/Name/acObj_BelshirScientist_1647=Nice work, commanders! You've done science a great service today. Now uhh... any chance I could get a ride off world?
+Sound/Name/acObj_BelshirScientist_1648=Oh, what? They're siphoning the terrazine from Bel'shir's fauna! Commanders, try to free it if you can!
+Sound/Name/acObj_BelshirScientist_1649=This is an outrage! The enemy is draining the terrazine from the Bel'shir gliders! We have to stop them! Or not, your choice.
+Sound/Name/acObj_BelshirScientist_1650=They're taking terrazine directly out of the majestic Bel'shir gliders! You... might want to stop them if you can, commanders.
+Sound/Name/acObj_BelshirScientist_1651=Looks like they've trapped another Bel'shir glider. You know what to do or not do, commanders!
+Sound/Name/acObj_BelshirScientist_1652=Yeesh, they're really doubling down on this living terrazine extraction plan. Maybe we should put a stop to it?
+Sound/Name/acObj_BelshirScientist_1653=Another Bel'shir glider is being drained of its terrazine. Do you think you have the time to set it free?
+Sound/Name/acObj_BelshirScientist_1654=The Bel'shir glider's terrazine won't last forever. If you want to save it, you'll have to do it before it's completely drained.
+Sound/Name/acObj_BelshirScientist_1655=Uh, we have only a limited amount of time to save the Bel'shir glider's life. Try not to forget about it. Being forgotten sucks.
+Sound/Name/acObj_BelshirScientist_1656=So, I'm not saying you have to, but if you want to free that Bel'shir glider I mentioned, you don't have all day.
+Sound/Name/acObj_BelshirScientist_1657=Once the Bel'shir glider's terrazine is gone, it'll be dead. So try to free it sooner than later. If you have a heart, that is.
+Sound/Name/acObj_BelshirScientist_1658=(Mumbles calculations to himself)By my calculations, the Bel'shir glider is going to die soon. You don't have much time left to save it.
+Sound/Name/acObj_BelshirScientist_1659=The Bel'shir glider's not long for this world, commanders. You'll miss your chance if you don't save it soon.
+Sound/Name/acObj_BelshirScientist_1660=Well, you're almost out of time to prevent the Bel'shir glider's death, commanders. If you were ever planning on it, anyway.
+Sound/Name/acObj_BelshirScientist_1661=The Bel'shir glider is almost dead, commanders. It's now or never. Literally. You could choose either one.
+Sound/Name/acObj_BelshirScientist_1662=Wow, you really just let that thing die. And I thought I knew you.
+Sound/Name/acObj_BelshirScientist_1663=Well, that's one dead whale. It was probably endangered, you know.
+Sound/Name/acObj_BelshirScientist_1664=They drained that creature completely dry! Bel'shir is going to be so mad about this...
+Sound/Name/acObj_BelshirScientist_1665=All of that creature's terrazine is gone. And so is its life! Tsk tsk. What a tragedy... just like my career.
+Sound/Name/acObj_BelshirScientist_1666=You saved it! Bel'shir thanks you, commanders. I mean... I thank you. Yes. Me. With the thanking.
+Sound/Name/acObj_BelshirScientist_1667=I can't believe they were extracting terrazine from those things. Why didn't I think of that!?
+Sound/Name/acObj_BelshirScientist_1668=Hey um, did you happen to save any of the extracted terrazine? No? Okay... well, that's okay...
+Sound/Name/acObj_BelshirScientist_1669=You know, I never noticed those things floating around here before. I wonder where they came from.
+Speaker/Name/StetmannPortraitCoop=Stetmann
+Unit/Name/NONE=-
+UserData/Commanders/NOD_Name=NOD
+UserData/EnemyFactionsList/Custom_Name=Custom
+UserData/EnemyFactionsList/Protoss_Name=Protoss
+UserData/EnemyFactionsList/Random_Name=Random
+UserData/EnemyFactionsList/Standard_Name=Standard
+UserData/EnemyFactionsList/Terran_Name=Terran
+UserData/EnemyFactionsList/Zerg_Name=Zerg
+UserData/Factions/Protoss_Name=Protoss
+UserData/Factions/Terran_Name=Terran
+UserData/Factions/Zerg_Name=Zerg
